@@ -1,0 +1,8 @@
+
+Tasks
+- Grab data from xls file and only taking Year, Reg, Loccode, lat, long, varcode.
+- Includes cleaning up column names, selecting only these, and most importantly changing lat and long from char to double. 
+- To change from char to double: 
+1. remove N and W degrees from all values
+2. then transform into numeric
+3. transform into geospatial object 

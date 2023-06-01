@@ -4,21 +4,33 @@ format: html
 editor: visual
 ---
 
-# Setup  
+# Setup
+
+```{r}
+install.packages('tidyverse')
+install.packages('readxl')
+install.packages('janitor')
+install.packages('sf')
+install.packages('stringr')
+```
+
 ```{r}
 library(tidyverse)
 library(readxl)
 library(janitor)
 library(sf)
+library(stringr)
 ```
 
 ```{r}
 coords <- read_excel("../data/Cotton heatress Longitde and Latitude.xlsx")
 
-coords
+coords %>%
+  head()
 ```
 
-# Wrangling  
+# Wrangling
+
 ```{r}
 coords_w <- coords |>
   # Standardizing names
@@ -29,6 +41,8 @@ coords_w <- coords |>
                 latitude, longitude 
                 )
   # Remove degree N and W from latitude and longitude
+  coords_w$latitude<-gsub("° N","",as.character(coords_w$latitude))
+  coords_w$longitude<-gsub("° W","",as.character(coords_w$longitude))
   
   # Transform into numeric
   #mutate(latitude = as.numeric(latitude))
@@ -38,12 +52,8 @@ coords_w <- coords |>
 coords_w
 ```
 
+# EDA
 
-# EDA  
-Will check data with tabular summaries and graphs.  
-- `summary()`  
-- `ggplot()`
+Will check data with tabular summaries and graphs. - `summary()` - `ggplot()`
 
-# Export to file  
-
-
+# Export to file
