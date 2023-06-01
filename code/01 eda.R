@@ -1,13 +1,10 @@
 ---
-title: "01 eda"
+  title: "01 eda"
 format: html
 editor: visual
 ---
-
+  
 # Setup
-
-
-```{r}
 library(tidyverse)
 library(readxl)
 library(janitor)
@@ -18,17 +15,12 @@ library(dplyr)
 library(ggplot2)
 library(USAboundaries)
 library(USAboundariesData)
-```
 
-```{r}
 coords <- read_excel("../data/Cotton heatress Longitde and Latitude.xlsx")
 
 coords 
-```
+print(coords[30:45, ])
 
-# Wrangling
-
-```{r}
 # Wrangling ########################################
 coords_w <- coords |>
   # Standardizing names
@@ -42,36 +34,19 @@ coords_w <- coords |>
          longitude = as.numeric(longitude))
 
 ## View entire decimal value  ########
-  options(digits =6)
-  print(as.data.frame(coords_w[30:45, ]))
+options(digits =6)
+print(as.data.frame(coords_w[30:45, ]))
 
 ## Transform into geospatial object #################
 # remove NA and * -1 
-  test <- coords_w |>
-    drop_na(latitude, longitude) |> 
-  # filter(longitude > 130) %>% # to test AZ point 
-    mutate(longitude = longitude *-1)
-  
-   # Transform into numeric
-  coords_w$latitude <- as.numeric(coords_w$latitude)
-  coords_w$longitude <- as.numeric(coords_w$longitude)
+test <- coords_w |>
+  drop_na(latitude, longitude) |> 
+  #   filter(longitude > 130) %>% # to test AZ point 
+  mutate(longitude = longitude *-1)
 
-  # To see the entire value and not just rounded format 
-  options(digits =6)
-  print(as.data.frame(coords_w[30:45, ])) # these rows show values that had N/W
-  
-  # Transform into geospatial object
-  coords_w
-
-```
-
-# EDA
-
-Will check data with tabular summaries and graphs. - `summary()` - `ggplot()`
-
-```{r}
-# EDA
+# EDA ###############
 # Will check data with tabular summaries and graphs. - `summary()` - `ggplot()`
+## Plotting on state boundaries graph ###########
 states_contemporary <- us_states()
 
 # save plot to coord_plot object 
@@ -80,12 +55,8 @@ coord_plot <- ggplot()+
   geom_sf(data = states_contemporary, fill = NA)
 
 coord_plot  
-```
-
-# Export to file
-```{r}
+# Export to file #################
 # use ggsave() (svg, png, pdf)
-  ggsave(path = "../figs", "coords_plot.png", plot=coord_plot) 
-# ggsave(createName, what plot to save)
-```
+ggsave(path = "../figs", "coords_plot.png", plot=coord_plot) 
+
 
