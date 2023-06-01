@@ -1,26 +1,49 @@
 ---
-title: "Test2"
+title: "01 eda"
 format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
+# Setup  
 ```{r}
-1 + 1
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(sf)
 ```
 
-You can add options to executable code like this
-
 ```{r}
-#| echo: false
-2 * 2
+coords <- read_excel("../data/Cotton heatress Longitde and Latitude.xlsx")
+
+coords
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+# Wrangling  
+```{r}
+coords_w <- coords |>
+  # Standardizing names
+  clean_names() |>
+  # Select target columns  
+  dplyr::select(year, reg_code,
+                loccode, varcode,
+                latitude, longitude 
+                )
+  # Remove degree N and W from latitude and longitude
+  
+  # Transform into numeric
+  #mutate(latitude = as.numeric(latitude))
+
+  # Transform into geospatial object
+
+coords_w
+```
+
+
+# EDA  
+Will check data with tabular summaries and graphs.  
+- `summary()`  
+- `ggplot()`
+
+# Export to file  
+
+
