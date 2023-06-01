@@ -45,7 +45,7 @@ coords_w <- coords |>
   options(digits =6)
   print(as.data.frame(coords_w[30:45, ]))
 
-## Transform into geospatial object ################
+## Transform into geospatial object #################
 # remove NA and * -1 
   test <- coords_w |>
     drop_na(latitude, longitude) |> 
