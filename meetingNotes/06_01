@@ -1,8 +1,21 @@
 
 Tasks
 - Grab data from xls file and only taking Year, Reg, Loccode, lat, long, varcode.
-- Includes cleaning up column names, selecting only these, and most importantly changing lat and long from char to double. 
+- Includes cleaning up column names, selecting only these columns, and most importantly changing lat and long from char to double. 
 - To change from char to double: 
 1. remove N and W degrees from all values
 2. then transform into numeric
-3. transform into geospatial object 
+3. transform into geospatial object  (sf package)
+
+Edits:
+- change code to stop using $ and use more of |> 
+- see what the problem with arizona is and figure out a way to solve 
+
+overall:
+- Explore with data in data folder (not ouput folder)
+
+Tomorrow's Goal:
+- Bring in all other datasets (fiber quality data)
+- from all years (merge all years/ figure out names so that they can go under one big df object)
+
+- join all years (without coordinates ) with the ones we did today  (with coordinates)
