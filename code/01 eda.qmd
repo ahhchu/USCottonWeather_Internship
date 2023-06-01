@@ -45,13 +45,24 @@ coords_w <- coords |>
   options(digits =6)
   print(as.data.frame(coords_w[30:45, ]))
 
-## Transform into geospatial object #################
+## Transform into geospatial object ################
 # remove NA and * -1 
   test <- coords_w |>
     drop_na(latitude, longitude) |> 
   # filter(longitude > 130) %>% # to test AZ point 
     mutate(longitude = longitude *-1)
   
+   # Transform into numeric
+  coords_w$latitude <- as.numeric(coords_w$latitude)
+  coords_w$longitude <- as.numeric(coords_w$longitude)
+
+  # To see the entire value and not just rounded format 
+  options(digits =6)
+  print(as.data.frame(coords_w[30:45, ])) # these rows show values that had N/W
+  
+  # Transform into geospatial object
+  coords_w
+
 ```
 
 # EDA
