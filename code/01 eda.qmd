@@ -44,12 +44,16 @@ coords_w <- coords |>
   coords_w$latitude<-gsub("° N","",as.character(coords_w$latitude))
   coords_w$longitude<-gsub("° W","",as.character(coords_w$longitude))
   
-  # Transform into numeric
-  #mutate(latitude = as.numeric(latitude))
+   # Transform into numeric
+  coords_w$latitude <- as.numeric(coords_w$latitude)
+  coords_w$longitude <- as.numeric(coords_w$longitude)
 
+  # To see the entire value and not just rounded format 
+  options(digits =6)
+  print(as.data.frame(coords_w[30:45, ])) # these rows show values that had N/W
+  
   # Transform into geospatial object
-
-coords_w
+  coords_w
 ```
 
 # EDA
