@@ -1,0 +1,78 @@
+Objective:
+
+Look through all data sets to figure out 
+1. if columns have same spelling (year/yr)
+2. make note of what year has extra columns
+
+
+1985: str_mpt is misspelled (should be str_mot) (FIXED)
+
+1988: 
+(1988) 25SL_star	UI_star	str_star	elg_star	rd_star	b_star	mic_star compared to 
+(1980) UHM_mot	UI_mot	str_mot	rd_mot	b_mot	mic_mot
+ 1. (1988 has mot and not star)
+ 2. 25SL_star ?= UHM_mot 
+ 3. 1988 has extra elg_star 
+ 
+1989
+(1989) elg_star	UI_spin	str_spin	rd_spin	b_spin	mic_spin
+(1980) UHM_mot	UI_mot	str_mot	rd_mot	b_mot	mic_mot
+ 1. elg_star ?= UHM_mot 
+ 2. star VS mot 
+ 
+1990
+ 1. does not have UI 
+ 2. UHM_MOT ?= elg_star
+ 3. spin VS mot 
+ 
+1991 
+ 1. same has 1990 
+
+1992
+  1. same as 1990 
+
+1993
+(1993) elg_hvi	UI	str	          rd	   b	  mic_hvi 
+(1980) UHM_mot	UI_mot	str_mot	rd_mot	b_mot	mic_mot
+1993: missing str_mot and UI 
+
+1994
+(1994) elg_hvi	UI (should be mot but missing)	  str	   rd	     b	  mic_hvi
+(1980) UHM_mot	UI_mot	                        str_mot	rd_mot	b_mot	 mic_mot
+1994: missing UI 
+
+1995:
+same as 1994 
+
+1996: 
+same as 1994 
+
+
+1997:
+(1997) elg_hvi	UHML	UI	str	rd	b	mic_hvi (maybe missing UI)
+(1980)  UHM_mot	UI_mot str_mot	rd_mot	b_mot	 mic_mot
+
+1998-2002 / 2004-2009
+3 extra columns 
+
+2003
+
+2010 / 2013 
+
+2011 / 2012 
+
+2014 
+
+2016
+
+2017 
+
+2018 
+
+2019 
+
+2020 
+
+
+
+
