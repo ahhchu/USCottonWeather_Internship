@@ -36,9 +36,6 @@ rename_columns <- function(data) {
   if ("location" %in% colnames(data)) {
     colnames(data)[colnames(data) == "location"] <- "loc"
   }
-  if ("code" %in% colnames(data)) {
-    colnames(data)[colnames(data) == "code"] <- "loccode"
-  }
   if ("lococde" %in% colnames(data)) {
     colnames(data)[colnames(data) == "lococde"] <- "loccode"
   }
@@ -88,6 +85,8 @@ data37$yr <- ifelse(data37$yr == 16, 2016, data37$yr)
 data38$yr <- ifelse(data38$yr == 17, 2017, data38$yr)
 data39$yr <- ifelse(data39$yr == 18, 2018, data39$yr)  
 data40$yr <- 2019
+data37$breeder <- as.numeric(data37$breeder)  
+data38$breeder <- as.numeric(data38$breeder)
 
 
 # Loop over the data frames and change column types to correct data type
@@ -113,16 +112,12 @@ for (i in 1:40) {
 mixed_cols <- sapply(combined_data, function(col) any(!is.na(as.numeric(col)) & !is.na(as.character(col))))
 combined_data <- combined_data %>% mutate_if(mixed_cols, as.numeric)
 
-
-data37$breeder <- as.numeric(data37$breeder)  # Replace `dataX` with the appropriate data frame number
-data38$breeder <- as.numeric(data38$breeder)
-
 # Bind the data frames row-wise
 data_frames <- lapply(1:40, function(i) get(paste0("data", i))) 
 combined_data <- dplyr::bind_rows(data_frames)
 
 
-write_xlsx(combined_data,"output/newcombineddata.xlsx")
+write_xlsx(combined_data,"output/combined_data.xlsx")
 
 
 
