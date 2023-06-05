@@ -1,0 +1,1201 @@
+"breeder","samples","yr","regcode","reg","loccode","loc","vcode","var","rep","length","ui","str","elg","mic_hvi","rd","b","mic_st","e1","t1","x50sl","x25sl","yt"
+"60","1",1,11,"PLA",12,"Lubbock, TX",773,"acala maxxa",1,1.1,83.8,34,8.5,4.3,77,8.7,4.2,6.8,24.6,0.57,1.19,152
+"60","2",1,11,"PLA",12,"Lubbock, TX",773,"acala maxxa",2,1.2,84.3,35,8.7,4.2,78,8.8,4.1,7.5,22.6,0.59,1.19,152
+"60","21",1,11,"PLA",12,"Lubbock, TX",906,"southland 400",1,1.1,82,32,9,4.8,74,8.7,4.5,9,17.8,0.53,1.09,125
+"60","22",1,11,"PLA",12,"Lubbock, TX",906,"southland 400",2,1.1,82.9,31,9.2,4.8,76,8.9,4.6,7.8,19.6,0.54,1.09,127
+"60","23",1,11,"PLA",12,"Lubbock, TX",971,"stv 474",1,1.1,82.4,29,8.8,5.2,73,9.5,5.1,7.3,17.9,0.54,1.11,116
+"60","24",1,11,"PLA",12,"Lubbock, TX",971,"stv 474",2,1.1,82.4,28,8.6,5.2,73,9.4,5.1,7,17.5,0.54,1.11,114
+"60","5",1,11,"PLA",12,"Lubbock, TX",1009,"nu 33b",1,1.1,82.6,31,9.3,4.6,78,8.9,4.6,9.5,20,0.55,1.12,120
+"60","6",1,11,"PLA",12,"Lubbock, TX",1009,"nu 33b",2,1.2,83,31,9.4,4.4,76,8.5,4.3,9,20.8,0.55,1.12,129
+"60","25",1,11,"PLA",12,"Lubbock, TX",1018,"tamcot sphinx",1,1.1,82.2,33,8.9,5.1,72,8.7,5,7.5,18.9,0.53,1.08,131
+"60","26",1,11,"PLA",12,"Lubbock, TX",1018,"tamcot sphinx",2,1.1,82.4,31,8.6,5,76,8.8,4.9,7.3,19.5,0.56,1.09,133
+"60","3",1,11,"PLA",12,"Lubbock, TX",1019,"all tex atlas",1,1.1,82.7,32,9.4,5,76,8.3,4.8,8.8,22.2,0.53,1.07,136
+"60","4",1,11,"PLA",12,"Lubbock, TX",1019,"all tex atlas",2,1.1,82.5,31,9.1,4.9,75,8.9,4.8,9.8,21,0.53,1.07,126
+"60","7",1,11,"PLA",12,"Lubbock, TX",1104,"sg 747",1,1.1,83.5,25,9.4,5.3,75,10,5.2,9.8,18,0.54,1.11,102
+"60","8",1,11,"PLA",12,"Lubbock, TX",1104,"sg 748",2,1.1,83.1,26,9.8,5.3,75,9.8,5.2,11,17.7,0.53,1.11,103
+"60","9",1,11,"PLA",12,"Lubbock, TX",1131,"all tex excess",1,1.1,83,35,10,5.1,73,8.2,5.1,8.5,22.9,0.53,1.12,129
+"60","10",1,11,"PLA",12,"Lubbock, TX",1131,"all tex excess",2,1.1,83.9,34,9.4,4.9,74,8.5,4.8,8.5,24,0.56,1.11,135
+"60","11",1,11,"PLA",12,"Lubbock, TX",1132,"dp 2156",1,1,81.4,29,8.9,5.3,75,9.4,5.1,7,18.8,0.52,1.03,115
+"60","12",1,11,"PLA",12,"Lubbock, TX",1132,"dp 2156",2,1.1,81.8,28,8.7,5.1,76,9.5,5,7.5,17.7,0.52,1.03,114
+"60","13",1,11,"PLA",12,"Lubbock, TX",1133,"pm 330",1,1.1,81.8,30,9.2,5,75,8.6,4.8,9.5,22,0.52,1.04,130
+"60","14",1,11,"PLA",12,"Lubbock, TX",1133,"pm 330",2,1,81.5,31,9.4,5.1,75,8.7,4.9,8,22.2,0.52,1.05,122
+"60","15",1,11,"PLA",12,"Lubbock, TX",1134,"pm 2145rr",1,1.1,81.6,32,8.8,5.1,72,8.9,5,7,19.4,0.5,1.02,127
+"60","16",1,11,"PLA",12,"Lubbock, TX",1134,"pm 2145rr",2,1,82.6,31,9,5.1,75,8.7,4.8,7,20.2,0.53,1.03,126
+"60","17",1,11,"PLA",12,"Lubbock, TX",1135,"pm 2326rr",1,1.1,81.8,31,9.2,5.1,73,8.7,4.9,8.5,22.4,0.54,1.09,129
+"60","18",1,11,"PLA",12,"Lubbock, TX",1135,"pm 2326rr",2,1.1,84,31,9.2,4.9,73,9.1,4.6,8.5,20.9,0.56,1.09,131
+"60","19",1,11,"PLA",12,"Lubbock, TX",1136,"pm tejas",1,1,81.5,31,9,5,73,8.7,4.9,9.5,19.4,0.53,1.05,123
+"60","20",1,11,"PLA",12,"Lubbock, TX",1136,"pm tejas",2,1.1,82.2,31,9.6,5,75,8.9,4.9,8,21,0.54,1.07,127
+"60","27",1,11,"PLA",163,"Lamesa, TX(dry)",773,"acala maxxa",1,1.1,84.2,34,8.6,4,72,8.8,3.9,7.8,22.8,0.56,1.13,155
+"60","28",1,11,"PLA",163,"Lamesa, TX(dry)",773,"acala maxxa",2,1.1,83.2,34,8.6,4.1,67,9.2,4,7,23.1,0.54,1.13,152
+"60","47",1,11,"PLA",163,"Lamesa, TX(dry)",906,"southland 400",1,1,80.7,30,9,5,71,9.4,4.9,8.3,19.5,0.5,1.04,120
+"60","48",1,11,"PLA",163,"Lamesa, TX(dry)",906,"southland 400",2,1.1,80.1,30,9,5,70,10,5.1,8.5,18.3,0.5,1.03,128
+"60","49",1,11,"PLA",163,"Lamesa, TX(dry)",971,"stv 474",1,1.1,81.7,28,8.8,5.3,69,9.8,5.2,8.3,17.9,0.51,1.06,114
+"60","50",1,11,"PLA",163,"Lamesa, TX(dry)",971,"stv 474",2,1,80.9,28,8.5,5.2,66,10,5.1,8.3,17.8,0.49,1.05,104
+"60","31",1,11,"PLA",163,"Lamesa, TX(dry)",1009,"nu 33b",1,1.1,81.6,28,9,4.2,71,8,4.2,9,18.9,0.52,1.11,120
+"60","32",1,11,"PLA",163,"Lamesa, TX(dry)",1009,"nu 33b",2,1.1,81.2,28,8.7,4.8,69,9.2,4.8,8.3,17.4,0.51,1.09,111
+"60","51",1,11,"PLA",163,"Lamesa, TX(dry)",1018,"tamcot sphinx",1,1,80.4,29,8.7,5.2,72,9.3,5,8,18.3,0.51,1.01,118
+"60","52",1,11,"PLA",163,"Lamesa, TX(dry)",1018,"tamcot sphinx",2,1.1,78.4,28,8.4,4.7,69,10,4.7,8.3,17.7,0.51,1.01,119
+"60","29",1,11,"PLA",163,"Lamesa, TX(dry)",1019,"all tex atlas",1,1,80.7,30,9.5,4.9,67,10,4.8,8.3,19.1,0.51,1.03,121
+"60","30",1,11,"PLA",163,"Lamesa, TX(dry)",1019,"all tex atlas",2,1,81.2,31,9.2,4.4,68,10,4.4,8,19.3,0.51,1.03,114
+"60","33",1,11,"PLA",163,"Lamesa, TX(dry)",1104,"sg 747",1,1.1,83.2,26,9.7,4.6,73,9.3,4.5,9,15.9,0.52,1.09,111
+"60","34",1,11,"PLA",163,"Lamesa, TX(dry)",1104,"sg 748",2,1,81.6,27,9.8,5.2,69,9.8,5.2,9,16,0.5,1.09,110
+"60","35",1,11,"PLA",163,"Lamesa, TX(dry)",1131,"all tex excess",1,1,79.3,28,8.4,4.8,68,10,4.7,7,17.3,0.5,0.99,110
+"60","36",1,11,"PLA",163,"Lamesa, TX(dry)",1131,"all tex excess",2,0.9,79.2,28,8.9,5.1,68,10,4.9,7.5,16.8,0.49,0.99,115
+"60","37",1,11,"PLA",163,"Lamesa, TX(dry)",1132,"dp 2156",1,1,81,28,9,4.9,71,9.1,4.9,8,16.2,0.51,1.01,115
+"60","38",1,11,"PLA",163,"Lamesa, TX(dry)",1132,"dp 2156",2,1,80.5,27,8.6,5.1,68,9.9,5,7.3,16.1,0.5,1,105
+"60","39",1,11,"PLA",163,"Lamesa, TX(dry)",1133,"pm 330",1,1,80.8,30,10,4.7,70,9.6,4.8,9.3,19.9,0.5,0.99,110
+"60","40",1,11,"PLA",163,"Lamesa, TX(dry)",1133,"pm 330",2,1,78.8,29,9,4.8,69,9.5,4.8,9,17.2,0.49,0.99,109
+"60","41",1,11,"PLA",163,"Lamesa, TX(dry)",1134,"pm 2145rr",1,1,80.7,29,8.9,4.9,68,9,4.9,7.8,16.1,0.5,1,110
+"60","42",1,11,"PLA",163,"Lamesa, TX(dry)",1134,"pm 2145rr",2,1,80.5,29,8.5,4.7,69,9.9,4.7,7.5,17.7,0.5,1,114
+"60","43",1,11,"PLA",163,"Lamesa, TX(dry)",1135,"pm 2326rr",1,1,79.4,29,8.5,4.8,66,10,4.9,8.3,18.2,0.49,1,116
+"60","44",1,11,"PLA",163,"Lamesa, TX(dry)",1135,"pm 2326rr",2,1,80.6,30,8.7,4.4,66,10,4.3,7.3,19.5,0.49,1.01,124
+"60","45",1,11,"PLA",163,"Lamesa, TX(dry)",1136,"pm tejas",1,1,79.4,28,9.7,5.3,69,9.9,5.2,11,18.1,0.48,1,115
+"60","46",1,11,"PLA",163,"Lamesa, TX(dry)",1136,"pm tejas",2,1,81.4,31,9,5,68,10,5,9.5,19.4,0.51,1,121
+"34","1",1,12,"PLA",16,"Altus, OK(irri)",773,"acala maxxa",1,1.2,86.5,32,8.2,3.9,76,7.6,3.9,6.3,22.9,0.6,1.21,145
+"34","2",1,12,"PLA",16,"Altus, OK(irri)",773,"acala maxxa",2,1.2,86.4,32,8.3,4.1,78,7,4.1,8,22.7,0.6,1.21,149
+"34","21",1,12,"PLA",16,"Altus, OK(irri)",906,"southland 400",1,1.1,84.8,31,8.8,4.8,76,7.7,4.7,7.8,20.6,0.57,1.13,129
+"34","22",1,12,"PLA",16,"Altus, OK(irri)",906,"southland 400",2,1.2,85.9,29,9.4,4.6,76,7.7,4.5,9.3,18.8,0.57,1.15,125
+"34","23",1,12,"PLA",16,"Altus, OK(irri)",971,"stv 474",1,1.2,84.2,27,8.5,4.4,76,9,4.4,7.5,18.4,0.55,1.15,115
+"34","24",1,12,"PLA",16,"Altus, OK(irri)",971,"stv 474",2,1.2,84.6,27,8.1,4.5,77,8.7,4.1,8.5,18.5,0.55,1.15,127
+"34","5",1,12,"PLA",16,"Altus, OK(irri)",1009,"nu 33b",1,1.2,85.6,28,8.7,3.9,79,7.9,4,8.8,21.5,0.57,1.21,133
+"34","6",1,12,"PLA",16,"Altus, OK(irri)",1009,"nu 33b",2,1.2,85.6,27,8.5,3.8,78,7.6,3.7,8.5,19.9,0.55,1.21,130
+"34","25",1,12,"PLA",16,"Altus, OK(irri)",1018,"tamcot sphinx",1,1.2,84.8,32,8.7,4.6,76,7.4,4.6,7.5,22.2,0.59,1.19,140
+"34","26",1,12,"PLA",16,"Altus, OK(irri)",1018,"tamcot sphinx",2,1.2,84.5,31,8.8,4.7,74,7,4.7,7,22.3,0.59,1.19,141
+"34","3",1,12,"PLA",16,"Altus, OK(irri)",1019,"all tex atlas",1,1.1,84.3,31,9,4.6,77,8.7,4.8,9.5,20.1,0.56,1.11,124
+"34","4",1,12,"PLA",16,"Altus, OK(irri)",1019,"all tex atlas",2,1.1,84.4,32,8.8,5,76,7.1,4.8,9.3,19.3,0.56,1.11,125
+"34","7",1,12,"PLA",16,"Altus, OK(irri)",1104,"sg 747",1,1.2,85.5,26,9,4.4,77,8.7,4.7,9.5,17.2,0.55,1.15,100
+"34","8",1,12,"PLA",16,"Altus, OK(irri)",1104,"sg 748",2,1.2,85.1,25,9,4.5,75,9.3,4.6,9.8,20.4,0.57,1.17,111
+"34","9",1,12,"PLA",16,"Altus, OK(irri)",1131,"all tex excess",1,1.1,84.1,29,8.6,4.4,75,7,4.7,7.8,20,0.56,1.13,126
+"34","10",1,12,"PLA",16,"Altus, OK(irri)",1131,"all tex excess",2,1.1,83.9,28,8.7,4.5,76,7.6,4.6,8,20,0.54,1.13,130
+"34","11",1,12,"PLA",16,"Altus, OK(irri)",1132,"dp 2156",1,1.1,83.8,29,8.6,4.8,74,7.7,4.6,6.8,19.9,0.56,1.11,118
+"34","12",1,12,"PLA",16,"Altus, OK(irri)",1132,"dp 2156",2,1.1,83.2,28,8.6,4.8,77,7.6,4.9,7.3,18,0.56,1.13,116
+"34","13",1,12,"PLA",16,"Altus, OK(irri)",1133,"pm 330",1,1.1,83.8,29,9.3,5.1,77,8.2,4.8,11,21.8,0.56,1.13,128
+"34","14",1,12,"PLA",16,"Altus, OK(irri)",1133,"pm 330",2,1.1,83.7,27,9.3,4.9,74,7.8,4.8,9,20.4,0.56,1.13,117
+"34","15",1,12,"PLA",16,"Altus, OK(irri)",1134,"pm 2145rr",1,1.1,83.8,30,8.7,4.7,74,7.6,4.8,7.3,19.9,0.54,1.11,126
+"34","16",1,12,"PLA",16,"Altus, OK(irri)",1134,"pm 2145rr",2,1.1,83.1,29,8.5,4.8,73,7.3,4.9,7.3,19.5,0.56,1.11,121
+"34","17",1,12,"PLA",16,"Altus, OK(irri)",1135,"pm 2326rr",1,1.1,85.5,29,8.9,4.9,73,7.8,4.9,7.5,22.7,0.58,1.15,121
+"34","18",1,12,"PLA",16,"Altus, OK(irri)",1135,"pm 2326rr",2,1.1,85,29,9,5.1,70,8,4.9,8.5,21.3,0.57,1.13,124
+"34","19",1,12,"PLA",16,"Altus, OK(irri)",1136,"pm tejas",1,1.1,83.8,28,9.4,5.3,72,7.6,5.1,9,21.6,0.58,1.11,119
+"34","20",1,12,"PLA",16,"Altus, OK(irri)",1136,"pm tejas",2,1.1,82.9,30,9.3,4.8,73,8.3,4.7,8,20.5,0.56,1.11,125
+"34","53",1,12,"PLA",38,"Chickasha, TX(dry)",773,"acala maxxa",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","54",1,12,"PLA",38,"Chickasha, TX(dry)",773,"acala maxxa",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",773,"acala maxxa",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",773,"acala maxxa",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",773,"acala maxxa",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","73",1,12,"PLA",38,"Chickasha, TX(dry)",906,"southland 400",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","74",1,12,"PLA",38,"Chickasha, TX(dry)",906,"southland 400",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",906,"southland 400",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",906,"southland 400",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",906,"southland 400",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","75",1,12,"PLA",38,"Chickasha, TX(dry)",971,"stv 474",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","76",1,12,"PLA",38,"Chickasha, TX(dry)",971,"stv 474",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",971,"stv 474",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",971,"stv 474",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",971,"stv 474",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","57",1,12,"PLA",38,"Chickasha, TX(dry)",1009,"nu 33b",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","58",1,12,"PLA",38,"Chickasha, TX(dry)",1009,"nu 33b",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1009,"nu 33b",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1009,"nu 33b",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1009,"nu 33b",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","77",1,12,"PLA",38,"Chickasha, TX(dry)",1018,"tamcot sphinx",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","78",1,12,"PLA",38,"Chickasha, TX(dry)",1018,"tamcot sphinx",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1018,"tamcot sphinx",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1018,"tamcot sphinx",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1018,"tamcot sphinx",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","55",1,12,"PLA",38,"Chickasha, TX(dry)",1019,"all tex atlas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","56",1,12,"PLA",38,"Chickasha, TX(dry)",1019,"all tex atlas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1019,"all tex atlas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1019,"all tex atlas",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1019,"all tex atlas",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","59",1,12,"PLA",38,"Chickasha, TX(dry)",1104,"sg 747",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","60",1,12,"PLA",38,"Chickasha, TX(dry)",1104,"sg 748",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1104,"sg 749",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1104,"sg 750",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1104,"sg 751",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","61",1,12,"PLA",38,"Chickasha, TX(dry)",1131,"all tex excess",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","62",1,12,"PLA",38,"Chickasha, TX(dry)",1131,"all tex excess",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1131,"all tex excess",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1131,"all tex excess",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1131,"all tex excess",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","63",1,12,"PLA",38,"Chickasha, TX(dry)",1132,"dp 2156",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","64",1,12,"PLA",38,"Chickasha, TX(dry)",1132,"dp 2156",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1132,"dp 2156",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1132,"dp 2156",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1132,"dp 2156",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","65",1,12,"PLA",38,"Chickasha, TX(dry)",1133,"pm 330",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","66",1,12,"PLA",38,"Chickasha, TX(dry)",1133,"pm 330",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1133,"pm 330",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1133,"pm 330",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1133,"pm 330",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","67",1,12,"PLA",38,"Chickasha, TX(dry)",1134,"pm 2145rr",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","68",1,12,"PLA",38,"Chickasha, TX(dry)",1134,"pm 2145rr",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1134,"pm 2145rr",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1134,"pm 2145rr",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1134,"pm 2145rr",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","69",1,12,"PLA",38,"Chickasha, TX(dry)",1135,"pm 2326rr",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","70",1,12,"PLA",38,"Chickasha, TX(dry)",1135,"pm 2326rr",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1135,"pm 2326rr",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1135,"pm 2326rr",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1135,"pm 2326rr",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","71",1,12,"PLA",38,"Chickasha, TX(dry)",1136,"pm tejas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","72",1,12,"PLA",38,"Chickasha, TX(dry)",1136,"pm tejas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1136,"pm tejas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1136,"pm tejas",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",38,"Chickasha, TX(dry)",1136,"pm tejas",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","79",1,12,"PLA",41,"Chickasha, TX(irri)",773,"acala maxxa",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","80",1,12,"PLA",41,"Chickasha, TX(irri)",773,"acala maxxa",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",773,"acala maxxa",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",773,"acala maxxa",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",773,"acala maxxa",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","99",1,12,"PLA",41,"Chickasha, TX(irri)",906,"southland 400",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","100",1,12,"PLA",41,"Chickasha, TX(irri)",906,"southland 400",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",906,"southland 400",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",906,"southland 400",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",906,"southland 400",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","101",1,12,"PLA",41,"Chickasha, TX(irri)",971,"stv 474",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","102",1,12,"PLA",41,"Chickasha, TX(irri)",971,"stv 474",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",971,"stv 474",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",971,"stv 474",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",971,"stv 474",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","83",1,12,"PLA",41,"Chickasha, TX(irri)",1009,"nu 33b",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","84",1,12,"PLA",41,"Chickasha, TX(irri)",1009,"nu 33b",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1009,"nu 33b",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1009,"nu 33b",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1009,"nu 33b",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","103",1,12,"PLA",41,"Chickasha, TX(irri)",1018,"tamcot sphinx",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","104",1,12,"PLA",41,"Chickasha, TX(irri)",1018,"tamcot sphinx",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1018,"tamcot sphinx",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1018,"tamcot sphinx",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1018,"tamcot sphinx",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","81",1,12,"PLA",41,"Chickasha, TX(irri)",1019,"all tex atlas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","82",1,12,"PLA",41,"Chickasha, TX(irri)",1019,"all tex atlas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1019,"all tex atlas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1019,"all tex atlas",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1019,"all tex atlas",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","85",1,12,"PLA",41,"Chickasha, TX(irri)",1104,"sg 747",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","86",1,12,"PLA",41,"Chickasha, TX(irri)",1104,"sg 748",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1104,"sg 749",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1104,"sg 750",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1104,"sg 751",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","87",1,12,"PLA",41,"Chickasha, TX(irri)",1131,"all tex excess",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","88",1,12,"PLA",41,"Chickasha, TX(irri)",1131,"all tex excess",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1131,"all tex excess",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1131,"all tex excess",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1131,"all tex excess",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","89",1,12,"PLA",41,"Chickasha, TX(irri)",1132,"dp 2156",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","90",1,12,"PLA",41,"Chickasha, TX(irri)",1132,"dp 2156",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1132,"dp 2156",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1132,"dp 2156",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1132,"dp 2156",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","91",1,12,"PLA",41,"Chickasha, TX(irri)",1133,"pm 330",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","92",1,12,"PLA",41,"Chickasha, TX(irri)",1133,"pm 330",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1133,"pm 330",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1133,"pm 330",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1133,"pm 330",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","93",1,12,"PLA",41,"Chickasha, TX(irri)",1134,"pm 2145rr",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","94",1,12,"PLA",41,"Chickasha, TX(irri)",1134,"pm 2145rr",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1134,"pm 2145rr",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1134,"pm 2145rr",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1134,"pm 2145rr",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","95",1,12,"PLA",41,"Chickasha, TX(irri)",1135,"pm 2326rr",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","96",1,12,"PLA",41,"Chickasha, TX(irri)",1135,"pm 2326rr",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1135,"pm 2326rr",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1135,"pm 2326rr",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1135,"pm 2326rr",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","97",1,12,"PLA",41,"Chickasha, TX(irri)",1136,"pm tejas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","98",1,12,"PLA",41,"Chickasha, TX(irri)",1136,"pm tejas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1136,"pm tejas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1136,"pm tejas",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",41,"Chickasha, TX(irri)",1136,"pm tejas",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","117",1,12,"PLA",52,"Chillicothe, TX(dry)",773,"acala maxxa",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",773,"acala maxxa",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","118",1,12,"PLA",52,"Chillicothe, TX(dry)",773,"acala maxxa",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","137",1,12,"PLA",52,"Chillicothe, TX(dry)",906,"southland 400",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",906,"southland 400",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","138",1,12,"PLA",52,"Chillicothe, TX(dry)",906,"southland 400",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","139",1,12,"PLA",52,"Chillicothe, TX(dry)",971,"stv 474",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",971,"stv 474",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","140",1,12,"PLA",52,"Chillicothe, TX(dry)",971,"stv 474",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","121",1,12,"PLA",52,"Chillicothe, TX(dry)",1009,"nu 33b",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1009,"nu 33b",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","122",1,12,"PLA",52,"Chillicothe, TX(dry)",1009,"nu 33b",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","141",1,12,"PLA",52,"Chillicothe, TX(dry)",1018,"tamcot sphinx",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1018,"tamcot sphinx",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","142",1,12,"PLA",52,"Chillicothe, TX(dry)",1018,"tamcot sphinx",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","119",1,12,"PLA",52,"Chillicothe, TX(dry)",1019,"all tex atlas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1019,"all tex atlas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","120",1,12,"PLA",52,"Chillicothe, TX(dry)",1019,"all tex atlas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","123",1,12,"PLA",52,"Chillicothe, TX(dry)",1104,"sg 747",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1104,"sg 748",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","124",1,12,"PLA",52,"Chillicothe, TX(dry)",1104,"sg 749",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","125",1,12,"PLA",52,"Chillicothe, TX(dry)",1131,"all tex excess",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1131,"all tex excess",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","126",1,12,"PLA",52,"Chillicothe, TX(dry)",1131,"all tex excess",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","127",1,12,"PLA",52,"Chillicothe, TX(dry)",1132,"dp 2156",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1132,"dp 2156",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","128",1,12,"PLA",52,"Chillicothe, TX(dry)",1132,"dp 2156",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","129",1,12,"PLA",52,"Chillicothe, TX(dry)",1133,"pm 330",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1133,"pm 330",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","130",1,12,"PLA",52,"Chillicothe, TX(dry)",1133,"pm 330",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","131",1,12,"PLA",52,"Chillicothe, TX(dry)",1134,"pm 2145rr",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1134,"pm 2145rr",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","132",1,12,"PLA",52,"Chillicothe, TX(dry)",1134,"pm 2145rr",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","133",1,12,"PLA",52,"Chillicothe, TX(dry)",1135,"pm 2326rr",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1135,"pm 2326rr",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","134",1,12,"PLA",52,"Chillicothe, TX(dry)",1135,"pm 2326rr",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","135",1,12,"PLA",52,"Chillicothe, TX(dry)",1136,"pm tejas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,12,"PLA",52,"Chillicothe, TX(dry)",1136,"pm tejas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"26","136",1,12,"PLA",52,"Chillicothe, TX(dry)",1136,"pm tejas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"34","27",1,12,"PLA",191,"Tipton, OK",773,"acala maxxa",1,1.2,84,37,8.3,4,71,6.7,3.8,7.3,24.5,0.57,1.15,149
+"34","28",1,12,"PLA",191,"Tipton, OK",773,"acala maxxa",2,1.2,85.7,33,8.7,4.3,75,7.1,4.4,7.5,22.5,0.57,1.17,154
+"34","47",1,12,"PLA",191,"Tipton, OK",906,"southland 400",1,1.1,82.4,32,8.5,4.5,67,6.7,4.6,6.5,19.9,0.53,1.09,131
+"34","48",1,12,"PLA",191,"Tipton, OK",906,"southland 400",2,1.1,82.9,35,8.5,4.5,64,7.1,4.4,7.3,18.6,0.55,1.09,129
+"34","49",1,12,"PLA",191,"Tipton, OK",971,"stv 474",1,1.1,84.7,30,8.6,4.5,70,8.3,4.4,7.8,19.9,0.55,1.15,121
+"34","50",1,12,"PLA",191,"Tipton, OK",971,"stv 474",2,1.1,84.6,30,8.4,5.1,69,8.2,5,7,21.4,0.55,1.15,124
+"34","31",1,12,"PLA",191,"Tipton, OK",1009,"nu 33b",1,1.2,83.9,30,8.5,4.3,76,7.2,4,8.3,20.6,0.55,1.15,121
+"34","32",1,12,"PLA",191,"Tipton, OK",1009,"nu 33b",2,1.2,85,31,8.7,3.8,73,7.3,3.8,7.5,19.8,0.55,1.15,121
+"34","51",1,12,"PLA",191,"Tipton, OK",1018,"tamcot sphinx",1,1.1,85.3,36,8.8,4.1,68,7.5,4.5,7,23.9,0.55,1.15,146
+"34","52",1,12,"PLA",191,"Tipton, OK",1018,"tamcot sphinx",2,1.2,85.5,33,8.6,3.9,71,6.9,4,6.3,22.8,0.59,1.17,146
+"34","29",1,12,"PLA",191,"Tipton, OK",1019,"all tex atlas",1,1,82.3,33,8.2,4.7,66,5.9,4.6,7.3,21,0.53,1.1,132
+"34","30",1,12,"PLA",191,"Tipton, OK",1019,"all tex atlas",2,1,80.5,32,8.7,4.5,67,7.5,4.3,7,20.7,0.53,1.01,125
+"34","33",1,12,"PLA",191,"Tipton, OK",1104,"sg 747",1,1.1,83.7,28,9.3,5.6,68,8.4,5.1,7.8,18.8,0.53,1.11,99
+"34","34",1,12,"PLA",191,"Tipton, OK",1104,"sg 748",2,1.1,85.1,28,9.2,5.1,63,6.5,5,9,18.6,0.54,1.11,107
+"34","35",1,12,"PLA",191,"Tipton, OK",1131,"all tex excess",1,1.1,82.1,33,8.6,5.1,67,7.5,4.8,7.3,17.7,0.55,1.1,114
+"34","36",1,12,"PLA",191,"Tipton, OK",1131,"all tex excess",2,1.1,81.6,30,8.5,4.4,66,8.1,4.3,6,20.1,0.49,1.03,107
+"34","37",1,12,"PLA",191,"Tipton, OK",1132,"dp 2156",1,1.1,82.4,31,8.4,4.4,71,7.7,4.7,6.5,18.2,0.5,1.01,114
+"34","38",1,12,"PLA",191,"Tipton, OK",1132,"dp 2156",2,1,82,29,8.5,4.9,68,8.3,4.7,6,17.6,0.49,1,106
+"34","39",1,12,"PLA",191,"Tipton, OK",1133,"pm 330",1,1.1,82.6,31,9.2,4.5,67,7.2,4.4,8.8,22.9,0.51,1.03,118
+"34","40",1,12,"PLA",191,"Tipton, OK",1133,"pm 330",2,1.1,82.4,34,8.6,3.9,65,6.1,4,8.3,21.6,0.52,1.07,128
+"34","41",1,12,"PLA",191,"Tipton, OK",1134,"pm 2145rr",1,1,80.3,29,8.3,4.6,65,8.6,4.8,6.5,17.6,0.51,0.99,94
+"34","42",1,12,"PLA",191,"Tipton, OK",1134,"pm 2145rr",2,1,81.4,33,8.5,5.2,67,7.6,5,7.8,19,0.51,1.01,105
+"34","43",1,12,"PLA",191,"Tipton, OK",1135,"pm 2326rr",1,1,82.6,32,7.9,4.5,66,8.4,4.5,7.5,19.1,0.53,1.07,127
+"34","44",1,12,"PLA",191,"Tipton, OK",1135,"pm 2326rr",2,1.1,83.4,33,8.7,4.5,65,7.3,4.5,7.8,19.6,0.56,1.09,131
+"34","45",1,12,"PLA",191,"Tipton, OK",1136,"pm tejas",1,1,82.8,38,9.9,4.5,68,7.5,4.7,8,21.4,0.56,1.09,134
+"34","46",1,12,"PLA",191,"Tipton, OK",1136,"pm tejas",2,1.1,84.1,32,9,4.4,73,8.4,4,9.3,21,0.56,1.11,132
+"11","1",1,20,"EAS",33,"Auburn, AL",773,"acala maxxa",1,1.2,85,37,8.7,3.7,75,8.4,3.7,8,22.8,0.6,1.17,153
+"11","2",1,20,"EAS",33,"Auburn, AL",773,"acala maxxa",2,1.2,86.1,33,9.6,4.5,77,7.7,4.4,8.3,19.2,0.59,1.17,165
+"11","5",1,20,"EAS",33,"Auburn, AL",1009,"nu 33b",1,1.1,82.7,31,9,4.6,79,8.2,4.4,9.5,18.5,0.55,1.11,136
+"11","6",1,20,"EAS",33,"Auburn, AL",1009,"nu 33b",2,1.1,85,37,8.6,4.9,77,7.3,4.8,5.3,21.2,0.57,1.13,149
+"11","3",1,20,"EAS",33,"Auburn, AL",1019,"all tex atlas",1,1.1,83.7,31,8.9,4.1,77,7.8,4.4,9.8,19,0.56,1.13,136
+"11","4",1,20,"EAS",33,"Auburn, AL",1019,"all tex atlas",2,1.1,83.5,32,8.9,4.4,76,7.2,4.5,9,18.6,0.56,1.11,133
+"11","19",1,20,"EAS",33,"Auburn, AL",1097,"pm 1560 bg",1,1.1,83.1,31,8.7,4.2,75,8.1,4.2,7.8,20,0.56,1.13,136
+"11","20",1,20,"EAS",33,"Auburn, AL",1097,"pm 1560 bg",2,1.1,83.6,30,8.7,4.2,77,9,3.9,8.3,19.2,0.57,1.13,131
+"11","11",1,20,"EAS",33,"Auburn, AL",1102,"dpl 5415rr",1,1.1,84.5,31,9.8,4.7,79,7.9,4.9,11,19.6,0.54,1.11,133
+"11","12",1,20,"EAS",33,"Auburn, AL",1102,"dpl 5415rr",2,1.1,85.2,31,9.2,4.5,77,6.8,4.4,11,18.4,0.56,1.13,136
+"11","17",1,20,"EAS",33,"Auburn, AL",1103,"fm 989",1,1.1,85,34,8.5,4,78,7.6,4,7.5,20.2,0.58,1.15,158
+"11","18",1,20,"EAS",33,"Auburn, AL",1103,"fm 989",2,1.1,83.1,36,8.7,4.4,76,8,4.3,6.8,22.7,0.57,1.13,152
+"11","7",1,20,"EAS",33,"Auburn, AL",1104,"sg 747",1,1.1,85.4,29,9.6,4.7,78,9.5,4.4,9,17.8,0.58,1.17,123
+"11","8",1,20,"EAS",33,"Auburn, AL",1104,"sg 747",2,1.1,83.3,31,8.7,3.8,80,8.2,3.7,8,19.4,0.56,1.13,133
+"11","21",1,20,"EAS",33,"Auburn, AL",1137,"phy psc 355",1,1.1,84.7,32,10,5.1,75,7.8,5.1,9,19.4,0.58,1.15,131
+"11","22",1,20,"EAS",33,"Auburn, AL",1137,"phy psc 355",2,1.1,85.1,32,10,4.9,73,8.7,5.1,9.8,20.4,0.59,1.13,125
+"11","9",1,20,"EAS",33,"Auburn, AL",1155,"dpl 451br",1,1.2,85.2,28,9,4.3,80,7.6,4.2,8.5,18.4,0.57,1.17,135
+"11","10",1,20,"EAS",33,"Auburn, AL",1155,"dpl 451br",2,1.2,84.5,32,8.7,4.1,77,8.2,4.1,7.5,20.3,0.59,1.19,136
+"11","23",1,20,"EAS",33,"Auburn, AL",1163,"suregrow 105",1,1.1,85.3,30,9,5,77,7.7,4.7,7.3,18.9,0.58,1.15,140
+"11","24",1,20,"EAS",33,"Auburn, AL",1163,"suregrow 105",2,1.1,84.7,36,8.7,4,78,8.3,3.8,7,21,0.57,1.15,153
+"11","13",1,20,"EAS",33,"Auburn, AL",1169,"fm 958",1,1.2,84.3,32,8.5,4.5,79,7.6,4.2,6.8,21.1,0.57,1.19,149
+"11","14",1,20,"EAS",33,"Auburn, AL",1169,"fm 958",2,1.1,83.5,34,8.7,4.5,78,8.1,4.3,8,20.6,0.55,1.15,145
+"11","25",1,20,"EAS",33,"Auburn, AL",1170,"sg 501br",1,1.1,84.7,31,9,4.8,77,8.6,4.9,8.5,21.4,0.56,1.13,136
+"11","26",1,20,"EAS",33,"Auburn, AL",1170,"sg 501br",2,1.1,84,30,9.6,4.1,78,8.9,4.1,9.5,20.2,0.55,1.15,131
+"11","15",1,20,"EAS",33,"Auburn, AL",1175,"fm 966",1,1.1,84,34,8.3,4.6,79,7.5,4.5,5.8,19.7,0.56,1.13,155
+"11","16",1,20,"EAS",33,"Auburn, AL",1175,"fm 966",2,1.1,83.8,32,8.7,3.9,77,8.1,4.1,8.8,19,0.56,1.11,149
+"11","29",1,20,"EAS",33,"Auburn, AL",1196,"stv 4892br",1,1.1,84.5,31,8.6,4.6,76,9.1,4.5,8,20.1,0.56,1.11,130
+"11","30",1,20,"EAS",33,"Auburn, AL",1196,"stv 4892br",2,1.1,84.7,28,8.7,5.1,76,8.6,5.1,7.8,18.6,0.56,1.11,130
+"11","27",1,20,"EAS",33,"Auburn, AL",1199,"st 4793r",1,1.1,85,29,8.7,4.4,74,8,4.6,8.3,20.2,0.56,1.11,125
+"11","28",1,20,"EAS",33,"Auburn, AL",1199,"st 4793r",2,1.1,84.7,34,8.6,4.2,79,8.4,4,7.3,22.4,0.56,1.11,160
+"31","1",1,20,"EAS",35,"Tifton, GA",773,"acala maxxa",1,1.1,83.1,35,7.5,3.9,75,8.6,3.8,6,22.1,0.59,1.17,154
+"31","2",1,20,"EAS",35,"Tifton, GA",773,"acala maxxa",2,1.2,84.9,34,7.9,3.7,74,8.6,3.7,6.8,21.6,0.59,1.17,141
+"31","5",1,20,"EAS",35,"Tifton, GA",1009,"nu 33b",1,1.2,84.4,29,8.6,4.8,74,8.2,4.7,8,20.1,0.55,1.17,129
+"31","6",1,20,"EAS",35,"Tifton, GA",1009,"nu 33b",2,1.2,83.8,30,8.5,4.9,71,8.3,4.7,8.3,19.9,0.55,1.17,128
+"31","3",1,20,"EAS",35,"Tifton, GA",1019,"all tex atlas",1,1.1,83.1,33,8.6,5.1,72,8.3,4.9,9,19,0.57,1.13,122
+"31","4",1,20,"EAS",35,"Tifton, GA",1019,"all tex atlas",2,1.1,83.3,31,8.7,5.2,73,8.9,4.9,8,19.8,0.57,1.13,131
+"31","19",1,20,"EAS",35,"Tifton, GA",1097,"pm 1560 bg",1,1.2,85.1,31,8.4,4.2,73,8.5,4.3,7.3,20.6,0.59,1.21,137
+"31","20",1,20,"EAS",35,"Tifton, GA",1097,"pm 1560 bg",2,1.2,84.9,29,8.2,4.6,66,6.3,4.3,7.5,20.1,0.59,1.19,130
+"31","11",1,20,"EAS",35,"Tifton, GA",1102,"dpl 5415rr",1,1.2,86.5,31,8.7,4.8,72,8.7,4.7,9,20.4,0.59,1.19,127
+"31","12",1,20,"EAS",35,"Tifton, GA",1102,"dpl 5415rr",2,1.2,86.2,31,8.8,4.7,73,7.5,4.5,9,19,0.58,1.19,121
+"31","17",1,20,"EAS",35,"Tifton, GA",1103,"fm 989",1,1.2,85.8,34,8.3,4.5,74,8.4,4.4,6.5,20.3,0.6,1.19,149
+"31","18",1,20,"EAS",35,"Tifton, GA",1103,"fm 989",2,1.2,85.8,34,8.3,4.3,75,8.2,4.1,6.8,20.2,0.59,1.19,149
+"31","7",1,20,"EAS",35,"Tifton, GA",1104,"sg 747",1,1.2,84.5,28,8.8,5.1,70,9,4.9,9.3,18.5,0.59,1.17,120
+"31","8",1,20,"EAS",35,"Tifton, GA",1104,"sg 747",2,1.2,85.9,29,8.7,5.1,71,8.8,5.1,8.5,18.3,0.59,1.17,113
+"31","21",1,20,"EAS",35,"Tifton, GA",1137,"phy psc 355",1,1.2,85.3,33,9.6,5.2,69,8.5,5.1,8.5,19.9,0.59,1.19,125
+"31","22",1,20,"EAS",35,"Tifton, GA",1137,"phy psc 355",2,1.1,84.1,33,9.4,5.5,69,8.5,5.3,8.3,20.4,0.57,1.13,128
+"31","9",1,20,"EAS",35,"Tifton, GA",1155,"dpl 451br",1,1.2,85.2,29,8.4,4.8,71,8,4.7,8,18.8,0.55,1.17,122
+"31","10",1,20,"EAS",35,"Tifton, GA",1155,"dpl 451br",2,1.2,85,29,8.6,4.8,71,7.9,4.7,7.3,17.1,0.57,1.17,125
+"31","23",1,20,"EAS",35,"Tifton, GA",1163,"suregrow 105",1,1.2,86.4,32,8.6,4.7,70,7.2,4.7,8,19.7,0.59,1.19,123
+"31","24",1,20,"EAS",35,"Tifton, GA",1163,"suregrow 105",2,1.2,85.2,32,8.7,4.9,74,7.9,4.6,7.5,20.6,0.59,1.17,132
+"31","13",1,20,"EAS",35,"Tifton, GA",1169,"fm 958",1,1.2,85.6,35,8.3,4.9,75,8.4,4.7,5.8,20.9,0.58,1.19,147
+"31","14",1,20,"EAS",35,"Tifton, GA",1169,"fm 958",2,1.2,85.3,34,7.9,5,73,7.8,4.7,7.5,18.2,0.6,1.19,147
+"31","25",1,20,"EAS",35,"Tifton, GA",1170,"sg 501br",1,1.1,85.1,34,8.8,5.1,76,7.9,4.7,8.5,21.8,0.58,1.13,130
+"31","26",1,20,"EAS",35,"Tifton, GA",1170,"sg 501br",2,1.1,85,33,8.8,5,70,6.3,4.8,9.5,21.8,0.59,1.15,130
+"31","15",1,20,"EAS",35,"Tifton, GA",1175,"fm 966",1,1.1,83.7,35,8.1,4.9,72,8.5,4.7,5.5,22.3,0.57,1.15,158
+"31","16",1,20,"EAS",35,"Tifton, GA",1175,"fm 966",2,1.2,86.4,36,8.1,4.6,69,8.6,4.5,5.5,19.1,0.57,1.15,150
+"31","29",1,20,"EAS",35,"Tifton, GA",1196,"stv 4892br",1,1.1,84.5,30,8.6,4.8,75,8.8,4.6,8.5,19.4,0.58,1.15,117
+"31","30",1,20,"EAS",35,"Tifton, GA",1196,"stv 4892br",2,1.2,84.8,31,8.5,5,76,8.7,4.8,6.8,20.5,0.57,1.15,129
+"31","27",1,20,"EAS",35,"Tifton, GA",1199,"st 4793r",1,1.1,85.2,31,8.6,4.7,73,8.6,4.7,7.8,19.4,0.57,1.15,121
+"31","28",1,20,"EAS",35,"Tifton, GA",1199,"st 4793r",2,1.1,84.7,29,8.6,4.5,74,8.2,4.4,8.8,19.5,0.58,1.15,124
+"12","5",1,20,"EAS",67,"Starkville, MS",1009,"nu 33b",1,1.2,85.5,29,8.7,4.8,76,7.3,4.6,8.8,18.7,0.57,1.19,136
+"12","6",1,20,"EAS",67,"Starkville, MS",1009,"nu 33b",2,1.2,85.4,27,8.5,5.2,76,7.8,4.4,7.5,20.9,0.59,1.19,138
+"12","3",1,20,"EAS",67,"Starkville, MS",1019,"all tex atlas",1,1.2,85.5,32,8.5,4.9,72,8.6,4.5,9,21,0.58,1.15,129
+"12","4",1,20,"EAS",67,"Starkville, MS",1019,"all tex atlas",2,1.1,84.6,31,8.7,4.6,72,8.7,4.5,7.5,21.4,0.59,1.13,130
+"12","19",1,20,"EAS",67,"Starkville, MS",1097,"pm 1560 bg",1,1.2,85.4,32,7.9,4.2,70,8.9,4.2,7.5,19.8,0.59,1.21,138
+"12","20",1,20,"EAS",67,"Starkville, MS",1097,"pm 1560 bg",2,1.2,85.1,30,7.4,4.3,70,8.3,4.3,6.8,21.2,0.59,1.21,133
+"12","11",1,20,"EAS",67,"Starkville, MS",1102,"dpl 5415rr",1,1.2,84.7,32,8.7,4.5,69,7.3,4.5,8.3,20.3,0.57,1.15,125
+"12","12",1,20,"EAS",67,"Starkville, MS",1102,"dpl 5415rr",2,1.2,85.6,32,8.9,5.1,71,7.8,5,8.5,20.8,0.6,1.19,130
+"12","17",1,20,"EAS",67,"Starkville, MS",1103,"fm 989",1,1.2,85.6,36,7.5,3.8,72,7.9,3.8,6.8,23.2,0.6,1.21,157
+"12","18",1,20,"EAS",67,"Starkville, MS",1103,"fm 989",2,1.2,86.3,35,7.5,4.1,71,7.8,4.1,6.8,23.1,0.59,1.21,143
+"12","7",1,20,"EAS",67,"Starkville, MS",1104,"sg 747",1,1.2,86.6,29,8.9,5.1,72,8.7,5,8.5,18.4,0.57,1.17,128
+"12","8",1,20,"EAS",67,"Starkville, MS",1104,"sg 747",2,1.2,85.8,28,8.7,5,72,8.4,5.1,7.8,18.1,0.59,1.17,127
+".",".",1,20,"EAS",67,"Starkville, MS",1106,"stv bxn 47",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,20,"EAS",67,"Starkville, MS",1106,"stv bxn 47",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"12","21",1,20,"EAS",67,"Starkville, MS",1137,"phy psc 355",1,1.2,85.4,30,9,4.8,76,8.5,5.3,8.5,22.8,0.59,1.17,136
+"12","22",1,20,"EAS",67,"Starkville, MS",1137,"phy psc 355",2,1.2,86.7,31,9.4,4.9,75,8.9,4.7,8.8,22.9,0.59,1.17,135
+"12","9",1,20,"EAS",67,"Starkville, MS",1155,"dpl 451br",1,1.2,85.7,29,8.7,4.7,78,7.8,4.7,6.5,20,0.59,1.19,136
+"12","9",1,20,"EAS",67,"Starkville, MS",1155,"dpl 451br",1,1.2,85.7,29,8.7,4.7,78,7.8,4.7,6.5,20,0.59,1.19,136
+"12","10",1,20,"EAS",67,"Starkville, MS",1155,"dpl 451br",2,1.2,85.1,28,8.7,4.7,79,8.6,4.7,6.5,20.1,0.59,1.19,144
+"12","10",1,20,"EAS",67,"Starkville, MS",1155,"dpl 451br",2,1.2,85.1,28,8.7,4.7,79,8.6,4.7,6.5,20.1,0.59,1.19,144
+"12","23",1,20,"EAS",67,"Starkville, MS",1163,"suregrow 105",1,1.2,86.6,31,8.9,5,76,7.7,4.9,6.8,20.8,0.6,1.21,142
+"12","24",1,20,"EAS",67,"Starkville, MS",1163,"suregrow 105",2,1.2,86.3,31,8.9,4.8,77,7.9,4.9,7,21.5,0.6,1.19,139
+"12","13",1,20,"EAS",67,"Starkville, MS",1169,"fm 958",1,1.2,84.8,34,7.7,4.9,76,6.9,5.1,5,23,0.6,1.19,160
+"12","14",1,20,"EAS",67,"Starkville, MS",1169,"fm 958",2,1.2,86.5,35,8.5,4.9,78,7.5,5.1,5.3,23.9,0.6,1.21,155
+"12","25",1,20,"EAS",67,"Starkville, MS",1170,"sg 501br",1,1.2,85,30,8.7,4.7,76,8.3,4.7,8,19.8,0.58,1.15,142
+"12","26",1,20,"EAS",67,"Starkville, MS",1170,"sg 501br",2,1.2,86.8,32,9.8,4.9,71,7.9,4.6,7.8,21.6,0.59,1.17,137
+"12","15",1,20,"EAS",67,"Starkville, MS",1175,"fm 966",1,1.2,88,41,8.7,4.4,75,6.8,4.5,5,25.3,0.63,1.23,175
+"12","16",1,20,"EAS",67,"Starkville, MS",1175,"fm 966",2,1.2,86.9,39,8.6,4.5,71,6.9,4.5,6,24.5,0.61,1.23,167
+"12","29",1,20,"EAS",67,"Starkville, MS",1196,"stv 4892br",1,1.1,85.2,31,8.7,5.2,73,8.4,5.2,7,20.7,0.57,1.15,129
+"12","30",1,20,"EAS",67,"Starkville, MS",1196,"stv 4892br",2,1.2,86.8,30,8.3,5.1,70,8.8,5.2,7,19,0.59,1.17,138
+"12","27",1,20,"EAS",67,"Starkville, MS",1199,"st 4793r",1,1.2,85.8,30,8.7,5.1,74,8.9,5,6.8,20.5,0.64,1.19,131
+"12","28",1,20,"EAS",67,"Starkville, MS",1199,"st 4793r",2,1.2,85.5,31,8.6,4.7,71,8,4.6,6.8,19.6,0.58,1.15,129
+"12","1",1,20,"EAS",67,"Starkville, MS",7730,"??",1,1.2,85,36,7.5,4.1,72,7.8,4,6.8,23.7,0.59,1.17,152
+"12","2",1,20,"EAS",67,"Starkville, MS",7730,NA,2,1.2,85.7,35,7.5,3.8,72,7.9,3.7,7.3,22.9,0.59,1.17,153
+"11","31",1,20,"EAS",87,"Belle Mina, AL",773,"acala maxxa",1,1.2,85.2,38,8.7,4,75,8.5,4.2,8.3,25.2,0.6,1.21,158
+"11","32",1,20,"EAS",87,"Belle Mina, AL",773,"acala maxxa",2,1.2,84.8,32,7.9,3.6,74,8,4,7.5,20.1,0.59,1.19,146
+"11","35",1,20,"EAS",87,"Belle Mina, AL",1009,"nu 33b",1,1.2,84,29,9.2,4.3,74,8.1,4.4,10,21.1,0.55,1.15,127
+"11","36",1,20,"EAS",87,"Belle Mina, AL",1009,"nu 33b",2,1.2,84.2,29,8.9,4.1,75,7.7,4.3,10,18.8,0.55,1.15,134
+"11","33",1,20,"EAS",87,"Belle Mina, AL",1019,"all tex atlas",1,1.1,83.5,28,8.7,4.3,73,8,4.4,9.3,19.4,0.55,1.1,112
+"11","34",1,20,"EAS",87,"Belle Mina, AL",1019,"all tex atlas",2,1.1,82,27,8.9,4.3,69,8.2,4.3,8.8,19.6,0.54,1.11,113
+"11","49",1,20,"EAS",87,"Belle Mina, AL",1097,"pm 1560 bg",1,1.2,84.7,30,8.7,4.1,72,7.6,4.3,7.5,21.6,0.57,1.17,136
+"11","50",1,20,"EAS",87,"Belle Mina, AL",1097,"pm 1560 bg",2,1.2,84.9,32,9,3.6,76,8.5,3.7,8.5,19.7,0.56,1.17,145
+"11","41",1,20,"EAS",87,"Belle Mina, AL",1102,"dpl 5415rr",1,1.2,85.2,32,9.4,4.5,76,7.3,4.5,8.8,23.4,0.57,1.15,136
+"11","42",1,20,"EAS",87,"Belle Mina, AL",1102,"dpl 5415rr",2,1.2,84.6,29,9.2,4.9,73,7.3,4.5,8.8,20.9,0.55,1.15,130
+"11","47",1,20,"EAS",87,"Belle Mina, AL",1103,"fm 989",1,1.2,84.9,35,8.7,3.9,76,8.4,4.1,6,24.1,0.55,1.15,157
+"11","48",1,20,"EAS",87,"Belle Mina, AL",1103,"fm 989",2,1.2,84.7,32,8.7,4,74,7.3,4.1,6.3,24.4,0.55,1.15,150
+"11","37",1,20,"EAS",87,"Belle Mina, AL",1104,"sg 747",1,1.1,84.8,28,8.9,4.6,67,7.2,4.5,11,18.8,0.57,1.13,127
+"11","38",1,20,"EAS",87,"Belle Mina, AL",1104,"sg 747",2,1.2,85.2,26,9.4,5,67,7.8,5,11,18.2,0.55,1.13,113
+"11","51",1,20,"EAS",87,"Belle Mina, AL",1137,"phy psc 355",1,1.1,83.8,30,10,4.9,67,8,4.9,9.3,20.7,0.58,1.15,130
+"11","52",1,20,"EAS",87,"Belle Mina, AL",1137,"phy psc 355",2,1.1,85,34,10,4.7,71,8.5,4.6,8.5,22.3,0.56,1.13,134
+"11","39",1,20,"EAS",87,"Belle Mina, AL",1155,"dpl 451br",1,1.2,85,26,8.9,4.5,76,7.7,4.3,8.8,18.5,0.56,1.13,126
+"11","40",1,20,"EAS",87,"Belle Mina, AL",1155,"dpl 451br",2,1.2,84.5,26,8.7,4.3,75,8,4.3,8.8,17.9,0.54,1.15,118
+"11","53",1,20,"EAS",87,"Belle Mina, AL",1163,"suregrow 105",1,1.2,85,29,8.9,4.7,75,8.2,4.8,8,20.6,0.55,1.15,124
+"11","54",1,20,"EAS",87,"Belle Mina, AL",1163,"suregrow 105",2,1.2,84.4,31,9,4.6,73,8,4.6,8,20.3,0.57,1.15,126
+"11","43",1,20,"EAS",87,"Belle Mina, AL",1169,"fm 958",1,1.2,83.9,35,8.5,4.4,75,8.3,4.4,6.5,20.3,0.55,1.15,140
+"11","44",1,20,"EAS",87,"Belle Mina, AL",1169,"fm 958",2,1.2,85.2,31,7.9,4,74,7.4,3.8,6.3,21.9,0.55,1.17,137
+"11","55",1,20,"EAS",87,"Belle Mina, AL",1170,"sg 501br",1,1.1,84.1,27,9.4,4.8,71,8.1,4.6,8.3,19.8,0.56,1.11,128
+"11","56",1,20,"EAS",87,"Belle Mina, AL",1170,"sg 501br",2,1.1,84.7,31,9.2,4.3,73,8.4,4,9.5,22.2,0.55,1.11,124
+"11","45",1,20,"EAS",87,"Belle Mina, AL",1175,"fm 966",1,1.1,82.9,34,7.9,4.6,69,7.6,4.4,6.3,23.1,0.55,1.11,152
+"11","46",1,20,"EAS",87,"Belle Mina, AL",1175,"fm 966",2,1.2,82.8,36,8.7,4.6,73,8,4.5,5.8,23.1,0.55,1.13,152
+"11","59",1,20,"EAS",87,"Belle Mina, AL",1196,"stv 4892br",1,1.1,83.7,28,8.9,4.3,77,9,4.4,8.8,20.3,0.56,1.13,122
+"11","60",1,20,"EAS",87,"Belle Mina, AL",1196,"stv 4892br",2,1.2,84.7,28,8.9,4.7,74,9,4.9,9,20.3,0.54,1.11,121
+"11","57",1,20,"EAS",87,"Belle Mina, AL",1199,"st 4793r",1,1.1,83.8,29,8.7,4.2,74,7.8,4.1,8.3,20.5,0.53,1.1,117
+"11","58",1,20,"EAS",87,"Belle Mina, AL",1199,"st 4793r",2,1.1,83.3,28,8.7,4.1,74,7.9,4.6,8,20.5,0.54,1.11,125
+"26","9",1,30,"CEN",19,"College Station, TX",689,"dpl 50",1,1.1,82.5,27,8.7,4.9,71,5.4,4.9,7.5,17.5,0.54,1.09,113
+"26","10",1,30,"CEN",19,"College Station, TX",689,"dpl 50",3,1.1,82.7,27,8.7,5.3,68,5.9,4.9,7,18.9,0.54,1.11,113
+"26","1",1,30,"CEN",19,"College Station, TX",773,"acala maxxa",1,1.1,84.4,34,7.7,4.2,58,6.7,3.9,5.3,23.7,0.56,1.13,128
+"26","2",1,30,"CEN",19,"College Station, TX",773,"acala maxxa",3,1.2,83.9,36,7.9,4.4,62,5.3,4.3,6.3,24,0.56,1.13,140
+"26","15",1,30,"CEN",19,"College Station, TX",953,"sg 125",1,1.1,82.3,25,7.7,4.8,61,6.8,4.7,7.3,18.6,0.52,1.09,114
+"26","16",1,30,"CEN",19,"College Station, TX",953,"sg 125",3,1.1,84.2,27,8.5,5,65,7,4.9,7.8,17.8,0.53,1.11,108
+"26","17",1,30,"CEN",19,"College Station, TX",971,"stv 474",1,1.1,83.1,32,8.6,5.5,63,5,5.3,6.8,20.2,0.56,1.13,125
+"26","18",1,30,"CEN",19,"College Station, TX",971,"stv 474",3,1.1,83.5,33,8.6,5.4,62,7,5.1,7,21,0.56,1.13,124
+"26","5",1,30,"CEN",19,"College Station, TX",1009,"nu 33b",1,1.1,80.9,28,7.7,4.9,67,6.5,4.6,7.3,17.8,0.51,1.05,117
+"26","6",1,30,"CEN",19,"College Station, TX",1009,"nu 33b",3,1.1,82.6,26,8.1,5.2,70,6,5.1,7.3,19.1,0.5,1.07,109
+"26","3",1,30,"CEN",19,"College Station, TX",1019,"all tex atlas",1,1.1,82.3,31,8.7,4.7,60,7,4.7,7,21.2,0.53,1.07,117
+"26","4",1,30,"CEN",19,"College Station, TX",1019,"all tex atlas",3,1.1,82.1,32,8.3,5.1,66,6.2,4.9,7.8,19.7,0.54,1.08,125
+"26","13",1,30,"CEN",19,"College Station, TX",1097,"pm 1560 bg",1,1.1,83,29,8.5,5.4,66,5.9,5.2,7.3,18.5,0.54,1.11,115
+"26","14",1,30,"CEN",19,"College Station, TX",1097,"pm 1560 bg",3,1.1,83.9,32,8.6,5.3,61,6.7,5.1,6.5,21.5,0.56,1.11,125
+"26","7",1,30,"CEN",19,"College Station, TX",1104,"sg 747",1,1.1,82.8,29,8.7,5.3,62,6.4,4.9,7.5,18.5,0.52,1.08,101
+"26","8",1,30,"CEN",19,"College Station, TX",1104,"sg 747",3,1.1,83.5,28,8.7,5.2,61,7.4,5,7.5,18.1,0.51,1.09,100
+"26","11",1,30,"CEN",19,"College Station, TX",1117,"fm 832",1,1.2,84.4,33,7.5,4.4,64,5.7,4.4,6,20.2,0.54,1.13,136
+"26","12",1,30,"CEN",19,"College Station, TX",1117,"fm 832",3,1.2,83.5,32,7.5,4.6,65,6.1,4.6,6.3,19.9,0.55,1.13,140
+"26","27",1,30,"CEN",21,"Weslaco, TX",689,"dpl 50",1,1.1,82.5,26,7.7,4.4,64,6.6,4.6,6.3,19.4,0.54,1.11,128
+"26","28",1,30,"CEN",21,"Weslaco, TX",689,"dpl 50",3,1.2,83.4,25,7.5,5,66,4,4.7,6.8,19,0.56,1.13,127
+"26","19",1,30,"CEN",21,"Weslaco, TX",773,"acala maxxa",1,1.2,83.7,33,7.5,4.4,64,6.7,4.2,6.3,20.8,0.56,1.13,155
+"26","20",1,30,"CEN",21,"Weslaco, TX",773,"acala maxxa",3,1.2,83.3,31,7.5,4.2,63,7.4,4.3,6.3,20.5,0.57,1.13,143
+"26","33",1,30,"CEN",21,"Weslaco, TX",953,"sg 125",1,1.1,83.9,28,8.7,5.3,64,6.7,5,7,18.8,0.56,1.14,120
+"26","34",1,30,"CEN",21,"Weslaco, TX",953,"sg 125",3,1.2,84.9,30,8.5,5,65,8,4.9,7.5,19.4,0.57,1.15,122
+"26","35",1,30,"CEN",21,"Weslaco, TX",971,"stv 474",1,1.1,83.5,30,8.1,5.3,63,5.5,5.2,6,19.4,0.57,1.13,128
+"26","36",1,30,"CEN",21,"Weslaco, TX",971,"stv 474",3,1.1,83.4,31,8.5,5.2,64,6.1,5,6.5,20.1,0.57,1.13,127
+"26","23",1,30,"CEN",21,"Weslaco, TX",1009,"nu 33b",1,1.1,81.6,31,8.1,4.8,68,6.5,4.8,6.5,19.5,0.51,1.07,130
+"26","24",1,30,"CEN",21,"Weslaco, TX",1009,"nu 33b",3,1.1,84.1,29,8.5,5.1,65,5.8,5.1,6.8,21.5,0.52,1.09,121
+"26","21",1,30,"CEN",21,"Weslaco, TX",1019,"all tex atlas",1,1.1,81.1,32,8.5,5.3,62,7,5.2,7,19.4,0.53,1.07,132
+"26","22",1,30,"CEN",21,"Weslaco, TX",1019,"all tex atlas",3,1.1,82,33,8.1,4.8,60,5.3,4.7,6.3,21.1,0.53,1.06,129
+"26","31",1,30,"CEN",21,"Weslaco, TX",1097,"pm 1560 bg",1,1.1,83.6,32,8.7,5.1,61,7.2,4.8,6,21.8,0.56,1.09,130
+"26","32",1,30,"CEN",21,"Weslaco, TX",1097,"pm 1560 bg",3,1.1,83.5,30,8.3,5.4,66,6.4,5.2,6.8,21.7,0.58,1.11,131
+"26","25",1,30,"CEN",21,"Weslaco, TX",1104,"sg 747",1,1.1,84.3,29,8.7,5.5,67,8,5.3,7.8,18.3,0.53,1.1,118
+"26","26",1,30,"CEN",21,"Weslaco, TX",1104,"sg 747",3,1.1,84.3,27,8.7,5.6,68,7.7,5.2,8,19,0.56,1.11,115
+"26","29",1,30,"CEN",21,"Weslaco, TX",1117,"fm 832",1,1.2,85.1,32,8.3,4.8,68,6.3,4.7,5.5,23.3,0.59,1.21,168
+"26","30",1,30,"CEN",21,"Weslaco, TX",1117,"fm 832",3,1.2,85.8,33,7.9,4.6,70,7.3,4.6,5.3,24.8,0.59,1.19,162
+"80","29",1,30,"CEN",23,"Bossier City, LA",689,"dpl 50",1,1.1,83.7,27,7.5,4.4,68,6.3,4.5,7.3,17.5,0.54,1.11,114
+"80","30",1,30,"CEN",23,"Bossier City, LA",689,"dpl 50",2,1.1,83.1,27,7.7,5,72,6.2,4.7,7,18.1,0.53,1.11,108
+"80","21",1,30,"CEN",23,"Bossier City, LA",773,"acala maxxa",1,1.1,82.7,35,7.9,4.4,69,7.3,4.5,6,22.6,0.54,1.11,151
+"80","22",1,30,"CEN",23,"Bossier City, LA",773,"acala maxxa",2,1.1,83.4,33,7.5,4.2,69,7.8,4.1,6,19.9,0.54,1.11,143
+"80","35",1,30,"CEN",23,"Bossier City, LA",953,"sg 125",1,1.1,84.2,29,8.3,4.5,67,7,4.3,7.5,19.5,0.54,1.09,112
+"80","36",1,30,"CEN",23,"Bossier City, LA",953,"sg 125",2,1.1,84.5,28,8.1,5,67,7.5,4.7,8,19.3,0.54,1.09,119
+"80","37",1,30,"CEN",23,"Bossier City, LA",971,"stv 474",1,1.1,81.8,27,7.7,5.1,66,7.1,4.9,5.8,18.8,0.52,1.07,115
+"80","38",1,30,"CEN",23,"Bossier City, LA",971,"stv 474",2,1.1,83.1,27,7.7,4.9,65,7.3,4.7,6.3,18.1,0.52,1.07,110
+"80","25",1,30,"CEN",23,"Bossier City, LA",1009,"nu 33b",1,1.1,82.7,27,7.5,4.7,68,6.4,4.6,7,17.7,0.52,1.09,110
+"80","26",1,30,"CEN",23,"Bossier City, LA",1009,"nu 33b",2,1.1,80.6,27,7.5,4.5,70,6.4,4.2,7,18.1,0.54,1.11,103
+"80","23",1,30,"CEN",23,"Bossier City, LA",1019,"all tex atlas",1,1.1,82.8,32,8.7,4.7,70,7.5,4.7,8.3,21.3,0.53,1.06,125
+"80","24",1,30,"CEN",23,"Bossier City, LA",1019,"all tex atlas",2,1,82.2,32,8.8,5,70,7.5,5,8,18.8,0.52,1.03,122
+"80","33",1,30,"CEN",23,"Bossier City, LA",1097,"pm 1560 bg",1,1.1,83,28,7.5,3.9,67,7,4,7.5,19.3,0.53,1.11,120
+"80","34",1,30,"CEN",23,"Bossier City, LA",1097,"pm 1560 bg",2,1.1,83.6,29,7.5,4.4,71,6.4,4.3,7,17.7,0.55,1.11,125
+"80","27",1,30,"CEN",23,"Bossier City, LA",1104,"sg 747",1,1.1,83.6,28,8.5,5.1,69,7.6,4.8,8.5,19.1,0.56,1.13,113
+"80","28",1,30,"CEN",23,"Bossier City, LA",1104,"sg 747",2,1.1,82.9,27,8.7,5.1,67,7.6,4.8,9,19.3,0.54,1.12,106
+"80","31",1,30,"CEN",23,"Bossier City, LA",1117,"fm 832",1,1.1,84.3,32,7.4,4.5,71,7.2,4.5,5.5,22,0.55,1.15,152
+"80","32",1,30,"CEN",23,"Bossier City, LA",1117,"fm 832",2,1.2,85.3,32,7.7,4.8,71,6.8,4.5,5.5,21.8,0.55,1.15,145
+"26","45",1,30,"CEN",72,"Beeville, TX",689,"dpl 50",1,1.1,82.9,28,8.7,5.1,71,8.4,4.7,8,20.8,0.54,1.11,120
+"26","46",1,30,"CEN",72,"Beeville, TX",689,"dpl 50",3,1.1,83.2,29,8.6,5.2,73,8.1,4.9,7,20.8,0.54,1.06,122
+"26","37",1,30,"CEN",72,"Beeville, TX",773,"acala maxxa",1,1.1,83.3,35,8.7,4.2,67,8.6,4.3,6.8,23.7,0.57,1.13,159
+"26","38",1,30,"CEN",72,"Beeville, TX",773,"acala maxxa",3,1.1,83.1,37,8.3,4.2,69,8.3,4.3,6.8,24.7,0.55,1.1,154
+"26","51",1,30,"CEN",72,"Beeville, TX",953,"sg 125",1,1.1,85.1,27,8.7,5,68,9.7,4.9,8.3,19.4,0.55,1.11,124
+"26","52",1,30,"CEN",72,"Beeville, TX",953,"sg 125",3,1.1,83.3,28,8.7,4.9,66,9.3,4.6,7.5,19.6,0.54,1.07,126
+"26","53",1,30,"CEN",72,"Beeville, TX",971,"stv 474",1,1,81.9,31,8.7,5,65,8.2,5,6.5,21.4,0.55,1.05,122
+"26","54",1,30,"CEN",72,"Beeville, TX",971,"stv 474",3,1.1,82.8,31,8.7,5.2,68,9.3,5.1,6.8,20.3,0.53,1.07,129
+"26","41",1,30,"CEN",72,"Beeville, TX",1009,"nu 33b",1,1.1,83.4,30,8.7,5.2,70,7.6,4.7,6.8,19.9,0.54,1.1,129
+"26","42",1,30,"CEN",72,"Beeville, TX",1009,"nu 33b",3,1.1,82.9,31,8.1,4.7,72,8,4.8,7.8,22.3,0.54,1.1,129
+"26","39",1,30,"CEN",72,"Beeville, TX",1019,"all tex atlas",1,1.1,81.9,33,8.7,5.2,60,5.7,5.1,7.3,22.8,0.54,1.05,127
+"26","40",1,30,"CEN",72,"Beeville, TX",1019,"all tex atlas",3,1,82.5,32,8.7,5.4,66,6.6,5,6.5,21.5,0.54,1.03,123
+"26","49",1,30,"CEN",72,"Beeville, TX",1097,"pm 1560 bg",1,1.2,85.9,37,8.1,4.8,68,7.3,4.6,5,25.3,0.56,1.19,160
+"26","50",1,30,"CEN",72,"Beeville, TX",1097,"pm 1560 bg",3,1,82.4,32,8.7,5.2,69,8,5.2,7.5,20.9,0.53,1.02,124
+"26","43",1,30,"CEN",72,"Beeville, TX",1104,"sg 747",1,1.1,84.3,28,8.9,4.9,67,10,4.9,8.5,19.2,0.54,1.1,121
+"26","44",1,30,"CEN",72,"Beeville, TX",1104,"sg 747",3,1.1,83.2,28,8.8,5.2,67,9.5,5.1,8.3,19.7,0.54,1.09,119
+"26","47",1,30,"CEN",72,"Beeville, TX",1117,"fm 832",1,1.2,84.4,34,8.3,5,71,7.5,4.7,6,23.5,0.57,1.15,149
+"26","48",1,30,"CEN",72,"Beeville, TX",1117,"fm 832",3,1.2,85.1,35,8.3,4.6,70,7.1,4.2,6,24.6,0.58,1.15,160
+"80","1",1,40,"DEL",24,"Saint Joseph, LA",773,"acala maxxa",1,1.2,84.6,34,7.5,3.4,74,7.2,3.5,6.5,25.2,0.57,1.17,153
+"80","2",1,40,"DEL",24,"Saint Joseph, LA",773,"acala maxxa",2,1.2,86,34,7.5,3.3,74,6.9,3.5,7.5,25.3,0.58,1.17,157
+"80","5",1,40,"DEL",24,"Saint Joseph, LA",1009,"nu 33b",1,1.2,83.8,29,8.5,4.6,77,6.6,4.5,7.3,19.9,0.55,1.15,127
+"80","6",1,40,"DEL",24,"Saint Joseph, LA",1009,"nu 33b",2,1.2,84.8,32,8.5,4.3,77,6.6,4.3,7.3,20.2,0.57,1.15,135
+"80","3",1,40,"DEL",24,"Saint Joseph, LA",1019,"all tex atlas",1,1.1,83.3,34,8.5,3.6,75,7.5,3.9,7,21.6,0.56,1.09,148
+"80","4",1,40,"DEL",24,"Saint Joseph, LA",1019,"all tex atlas",2,1.1,83.9,33,8.7,4.4,76,6.8,4.3,8,21.5,0.56,1.11,146
+"80","7",1,40,"DEL",24,"Saint Joseph, LA",1104,"sg 747",1,1.1,85.6,30,8.7,5,75,7.8,4.7,8,18.9,0.57,1.15,126
+"80","8",1,40,"DEL",24,"Saint Joseph, LA",1104,"sg 747",2,1.2,85,29,8.3,4.8,72,6.6,4.6,7.5,18.7,0.57,1.15,122
+"80","19",1,40,"DEL",24,"Saint Joseph, LA",1106,"stv bxn 47",1,1.1,85.4,30,8.5,4.4,74,6.3,4.4,6.3,19.4,0.57,1.15,135
+"80","20",1,40,"DEL",24,"Saint Joseph, LA",1106,"stv bxn 47",2,1.2,85.4,31,8.5,4.7,74,6.9,4.4,6.8,19.6,0.57,1.15,132
+"80","15",1,40,"DEL",24,"Saint Joseph, LA",1137,"phy psc 355",1,1.1,84.7,33,9,4.8,74,7.1,4.5,8.3,20.6,0.57,1.17,134
+"80","16",1,40,"DEL",24,"Saint Joseph, LA",1137,"phy psc 355",2,1.2,85.3,33,8.9,4.7,74,6.6,4.6,8.3,19.3,0.57,1.17,132
+"80","9",1,40,"DEL",24,"Saint Joseph, LA",1155,"dpl 451br",1,1.2,84.8,28,8.3,5,77,6.7,4.7,7,19.6,0.57,1.15,126
+"80","10",1,40,"DEL",24,"Saint Joseph, LA",1155,"dpl 451br",2,1.2,85.3,29,8.5,5,75,6.8,4.7,6.8,18.7,0.57,1.15,130
+"80","13",1,40,"DEL",24,"Saint Joseph, LA",1168,"pm 1218br",1,1.1,83.7,28,7.9,4.8,76,7.4,4.5,5.5,21.3,0.57,1.13,130
+"80","14",1,40,"DEL",24,"Saint Joseph, LA",1168,"pm 1218br",2,1.1,84.4,30,8.5,5,77,7.6,4.6,6,21.5,0.58,1.13,128
+"80","11",1,40,"DEL",24,"Saint Joseph, LA",1175,"fm 966",1,1.2,85.7,36,7.7,4.8,77,6.9,4.6,5,24.3,0.57,1.17,167
+"80","12",1,40,"DEL",24,"Saint Joseph, LA",1175,"fm 966",2,1.2,86.1,36,7.7,4.2,73,5.3,4.1,5.5,24.1,0.59,1.17,161
+"80","17",1,40,"DEL",24,"Saint Joseph, LA",1196,"stv 4892br",1,1.2,86.3,32,8.7,5.1,77,7.3,4.9,7.5,18.7,0.58,1.15,131
+"80","18",1,40,"DEL",24,"Saint Joseph, LA",1196,"stv 4892br",2,1.2,84.6,33,8.1,5.2,75,7.7,4.9,7,19.3,0.58,1.15,131
+"29","1",1,40,"DEL",25,"Stoneville, MS",773,"acala maxxa",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","2",1,40,"DEL",25,"Stoneville, MS",773,"acala maxxa",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","5",1,40,"DEL",25,"Stoneville, MS",1009,"nu 33b",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","6",1,40,"DEL",25,"Stoneville, MS",1009,"nu 33b",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1009,"nu 33b",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1009,"nu 33b",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1009,"nu 33b",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1009,"nu 33b",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","3",1,40,"DEL",25,"Stoneville, MS",1019,"all tex atlas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","4",1,40,"DEL",25,"Stoneville, MS",1019,"all tex atlas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1019,"all tex atlas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1019,"all tex atlas",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1019,"all tex atlas",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1019,"all tex atlas",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","7",1,40,"DEL",25,"Stoneville, MS",1104,"sg 747",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","8",1,40,"DEL",25,"Stoneville, MS",1104,"sg 747",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1104,"sg 747",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1104,"sg 747",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1104,"sg 747",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1104,"sg 747",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","19",1,40,"DEL",25,"Stoneville, MS",1106,"stv bxn 47",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","20",1,40,"DEL",25,"Stoneville, MS",1106,"stv bxn 47",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1106,"stv bxn 47",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1106,"stv bxn 47",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1106,"stv bxn 47",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1106,"stv bxn 47",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","15",1,40,"DEL",25,"Stoneville, MS",1137,"phy psc 355",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","16",1,40,"DEL",25,"Stoneville, MS",1137,"phy psc 355",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1137,"phy psc 355",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1137,"phy psc 355",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1137,"phy psc 355",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1137,"phy psc 355",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","9",1,40,"DEL",25,"Stoneville, MS",1155,"dpl 451br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","10",1,40,"DEL",25,"Stoneville, MS",1155,"dpl 451br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1155,"dpl 451br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1155,"dpl 451br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1155,"dpl 451br",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1155,"dpl 451br",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","13",1,40,"DEL",25,"Stoneville, MS",1168,"pm 1218br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","14",1,40,"DEL",25,"Stoneville, MS",1168,"pm 1218br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1168,"pm 1218br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1168,"pm 1218br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1168,"pm 1218br",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1168,"pm 1218br",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","11",1,40,"DEL",25,"Stoneville, MS",1175,"fm 966",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","12",1,40,"DEL",25,"Stoneville, MS",1175,"fm 966",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1175,"fm 966",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1175,"fm 966",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1175,"fm 966",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1175,"fm 966",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","17",1,40,"DEL",25,"Stoneville, MS",1196,"stv 4892br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","18",1,40,"DEL",25,"Stoneville, MS",1196,"stv 4892br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1196,"stv 4892br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1196,"stv 4892br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1196,"stv 4892br",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",25,"Stoneville, MS",1196,"stv 4892br",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","25",1,40,"DEL",26,"Tunica, MS",1009,"nu 33b",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","26",1,40,"DEL",26,"Tunica, MS",1009,"nu 33b",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1009,"nu 33b",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1009,"nu 33b",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1009,"nu 33b",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1009,"nu 33b",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","23",1,40,"DEL",26,"Tunica, MS",1019,"all tex atlas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","24",1,40,"DEL",26,"Tunica, MS",1019,"all tex atlas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","27",1,40,"DEL",26,"Tunica, MS",1104,"sg 747",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","28",1,40,"DEL",26,"Tunica, MS",1104,"sg 747",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1104,"sg 747",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1104,"sg 747",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1104,"sg 747",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1104,"sg 747",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","39",1,40,"DEL",26,"Tunica, MS",1106,"stv bxn 47",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","40",1,40,"DEL",26,"Tunica, MS",1106,"stv bxn 47",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1106,"stv bxn 47",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1106,"stv bxn 47",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1106,"stv bxn 47",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1106,"stv bxn 47",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","35",1,40,"DEL",26,"Tunica, MS",1137,"phy psc 355",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","36",1,40,"DEL",26,"Tunica, MS",1137,"phy psc 355",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1137,"phy psc 355",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1137,"phy psc 355",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1137,"phy psc 355",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1137,"phy psc 355",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","29",1,40,"DEL",26,"Tunica, MS",1155,"dpl 451br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","30",1,40,"DEL",26,"Tunica, MS",1155,"dpl 451br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1155,"dpl 451br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1155,"dpl 451br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1155,"dpl 451br",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1155,"dpl 451br",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","33",1,40,"DEL",26,"Tunica, MS",1168,"pm 1218br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","34",1,40,"DEL",26,"Tunica, MS",1168,"pm 1218br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1168,"pm 1218br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1168,"pm 1218br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1168,"pm 1218br",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1168,"pm 1218br",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","31",1,40,"DEL",26,"Tunica, MS",1175,"fm 966",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","32",1,40,"DEL",26,"Tunica, MS",1175,"fm 966",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1175,"fm 966",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1175,"fm 966",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1175,"fm 966",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1175,"fm 966",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","37",1,40,"DEL",26,"Tunica, MS",1196,"stv 4892br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","38",1,40,"DEL",26,"Tunica, MS",1196,"stv 4892br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1196,"stv 4892br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1196,"stv 4892br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1196,"stv 4892br",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",26,"Tunica, MS",1196,"stv 4892br",6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","21",1,40,"DEL",26,"Tunica, MS",7730,"?",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"29","22",1,40,"DEL",26,"Tunica, MS",7730,"?",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"28","1",1,40,"DEL",27,"Clarkedale, AR",773,"acala maxxa",1,1.2,86,35,7.9,3.7,70,7.7,3.7,7.3,22.9,0.59,1.21,159
+"28","2",1,40,"DEL",27,"Clarkedale, AR",773,"acala maxxa",3,1.2,85.4,34,7.5,3.5,72,8.3,3.4,6.8,22.1,0.6,1.21,157
+"28","5",1,40,"DEL",27,"Clarkedale, AR",1009,"nu 33b",1,1.2,85.5,30,7.9,3.7,75,7.9,3.7,8.5,20,0.55,1.17,142
+"28","6",1,40,"DEL",27,"Clarkedale, AR",1009,"nu 33b",3,1.2,84.4,27,7.4,4.1,77,6.9,4,8,21.2,0.57,1.17,138
+"28","3",1,40,"DEL",27,"Clarkedale, AR",1019,"all tex atlas",1,1.1,84.4,30,8.5,3.9,74,7.8,4,8.8,19.7,0.57,1.13,130
+"28","4",1,40,"DEL",27,"Clarkedale, AR",1019,"all tex atlas",3,1.1,84.7,31,8.5,4.1,73,7.8,4.5,8.3,20.9,0.56,1.13,133
+"28","7",1,40,"DEL",27,"Clarkedale, AR",1104,"sg 747",1,1.2,85.2,25,7.9,4,73,8.3,4,9.5,19.4,0.57,1.17,125
+"28","8",1,40,"DEL",27,"Clarkedale, AR",1104,"sg 747",3,1.2,85.1,27,8.5,4.2,71,7.6,4.2,9.5,19.3,0.57,1.15,124
+"28","19",1,40,"DEL",27,"Clarkedale, AR",1106,"stv bxn 47",1,1.2,84.6,26,7.5,3.3,71,7.8,3.2,6.8,19.8,0.55,1.15,126
+"28","20",1,40,"DEL",27,"Clarkedale, AR",1106,"stv bxn 47",3,1.2,85.4,24,7.9,7,71,7.7,4,7.3,20,0.57,1.15,129
+"28","15",1,40,"DEL",27,"Clarkedale, AR",1137,"phy psc 355",1,1.2,85.1,30,8.7,4.5,72,7.9,4.5,8.8,20.6,0.59,1.17,129
+"28","16",1,40,"DEL",27,"Clarkedale, AR",1137,"phy psc 355",3,1.2,85.1,30,8.7,4.2,68,7.8,3.9,6.8,21.7,0.57,1.19,132
+"28","9",1,40,"DEL",27,"Clarkedale, AR",1155,"dpl 451br",1,1.2,86,26,7.7,3.5,76,8,3.3,7.3,19.8,0.57,1.19,144
+"28","10",1,40,"DEL",27,"Clarkedale, AR",1155,"dpl 451br",3,1.2,85,27,7.4,4,76,7.8,4.1,7,19.5,0.59,1.19,133
+"28","13",1,40,"DEL",27,"Clarkedale, AR",1168,"pm 1218br",1,1.1,84,28,7.9,4.4,74,7.8,4.2,6.8,18.9,0.56,1.13,132
+"28","14",1,40,"DEL",27,"Clarkedale, AR",1168,"pm 1218br",3,1.2,84.9,30,7.5,4.3,73,8.1,4.1,7.3,20,0.56,1.13,135
+"28","11",1,40,"DEL",27,"Clarkedale, AR",1175,"fm 966",1,1.2,86.2,35,7.5,3.9,77,7.2,3.7,5.8,24.7,0.6,1.19,169
+"28","12",1,40,"DEL",27,"Clarkedale, AR",1175,"fm 966",3,1.2,85.9,36,7.5,3.9,70,8.6,3.8,5,25.1,0.57,1.17,159
+"28","17",1,40,"DEL",27,"Clarkedale, AR",1196,"stv 4892br",1,1.1,85.6,31,8.7,4,70,7.9,3.9,7.8,21.1,0.57,1.15,140
+"28","18",1,40,"DEL",27,"Clarkedale, AR",1196,"stv 4892br",3,1.1,85.2,32,8.5,3.7,69,7.3,3.8,7.3,21.3,0.57,1.15,134
+".",".",1,40,"DEL",27,"Clarkedale, AR",1196,"stv 4892br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","1",1,40,"DEL",75,"Portageville, MO",773,"acala maxxa",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","2",1,40,"DEL",75,"Portageville, MO",773,"acala maxxa",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",773,"acala maxxa",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",773,"acala maxxa",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","5",1,40,"DEL",75,"Portageville, MO",1009,"nu 33b",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","6",1,40,"DEL",75,"Portageville, MO",1009,"nu 33b",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1009,"nu 33b",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1009,"nu 33b",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","3",1,40,"DEL",75,"Portageville, MO",1019,"all tex atlas",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","4",1,40,"DEL",75,"Portageville, MO",1019,"all tex atlas",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1019,"all tex atlas",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1019,"all tex atlas",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1019,"sg 747",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","7",1,40,"DEL",75,"Portageville, MO",1104,"sg 747",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","8",1,40,"DEL",75,"Portageville, MO",1104,"sg 747",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1104,"sg 747",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","19",1,40,"DEL",75,"Portageville, MO",1106,"stv bxn 47",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","20",1,40,"DEL",75,"Portageville, MO",1106,"stv bxn 47",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1106,"stv bxn 47",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1106,"stv bxn 47",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","15",1,40,"DEL",75,"Portageville, MO",1137,"phy psc 355",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","16",1,40,"DEL",75,"Portageville, MO",1137,"phy psc 355",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1137,"phy psc 355",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1137,"phy psc 355",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","9",1,40,"DEL",75,"Portageville, MO",1155,"dpl 451br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","10",1,40,"DEL",75,"Portageville, MO",1155,"dpl 451br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1155,"dpl 451br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1155,"dpl 451br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","13",1,40,"DEL",75,"Portageville, MO",1168,"pm 1218br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","14",1,40,"DEL",75,"Portageville, MO",1168,"pm 1218br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1168,"pm 1218br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1168,"pm 1218br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","11",1,40,"DEL",75,"Portageville, MO",1175,"fm 966",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","12",1,40,"DEL",75,"Portageville, MO",1175,"fm 966",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1175,"fm 966",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1175,"fm 966",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","17",1,40,"DEL",75,"Portageville, MO",1196,"stv 4892br",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"21","18",1,40,"DEL",75,"Portageville, MO",1196,"stv 4892br",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1196,"stv 4892br",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,40,"DEL",75,"Portageville, MO",1196,"stv 4892br",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"63","1",1,52,"WES",7,"University Park, NM",773,"acala maxxa",1,1.2,85.3,32,8.9,4.5,75,8.5,4.4,8.8,23.2,0.59,1.19,149
+"63","2",1,52,"WES",7,"University Park, NM",773,"acala maxxa",2,1.2,85.5,33,8.5,4.4,76,8.5,4.4,8.5,23.2,0.58,1.19,149
+"63","1",1,52,"WES",7,"University Park, NM",773,"acala maxxa",3,1.2,85.3,32,8.9,4.5,75,8.5,4.4,8.8,23.2,0.59,1.19,149
+"63","2",1,52,"WES",7,"University Park, NM",773,"acala maxxa",4,1.2,85.5,33,8.5,4.4,76,8.5,4.4,8.5,23.2,0.58,1.19,149
+"63","5",1,52,"WES",7,"University Park, NM",1009,"nu 33b",1,1.2,85.4,29,9.4,5.1,77,8,4.8,11,19.3,0.55,1.15,124
+"63","6",1,52,"WES",7,"University Park, NM",1009,"nu 33b",2,1.2,84,29,9,4.9,77,8.3,4.8,12,20.9,0.55,1.15,125
+"63","5",1,52,"WES",7,"University Park, NM",1009,"nu 33b",3,1.2,85.4,29,9.4,5.1,77,8,4.8,11,19.3,0.55,1.15,124
+"63","6",1,52,"WES",7,"University Park, NM",1009,"nu 33b",4,1.2,84,29,9,4.9,77,8.3,4.8,12,20.9,0.55,1.15,125
+"63","3",1,52,"WES",7,"University Park, NM",1019,"all tex atlas",1,1.1,84.2,29,9.8,5.1,77,7.7,4.9,12,21,0.56,1.11,123
+"63","4",1,52,"WES",7,"University Park, NM",1019,"all tex atlas",2,1.1,82.5,29,9.4,5,78,8.3,4.8,12,20,0.56,1.11,125
+"63","3",1,52,"WES",7,"University Park, NM",1019,"all tex atlas",3,1.1,84.2,29,9.8,5.1,77,7.7,4.9,12,21,0.56,1.11,123
+"63","4",1,52,"WES",7,"University Park, NM",1019,"all tex atlas",4,1.1,82.5,29,9.4,5,78,8.3,4.8,12,20,0.56,1.11,125
+"63","7",1,52,"WES",7,"University Park, NM",1104,"sg 747",1,1.2,84.5,25,8.7,5.4,76,9.4,5.2,10,16.4,0.55,1.15,107
+"63","8",1,52,"WES",7,"University Park, NM",1104,"sg 747",2,1.1,85,26,9.2,5.3,78,9.1,4.9,10,16.9,0.57,1.15,112
+"63","7",1,52,"WES",7,"University Park, NM",1104,"sg 747",3,1.2,84.5,25,8.7,5.4,76,9.4,5.2,10,16.4,0.55,1.15,107
+"63","8",1,52,"WES",7,"University Park, NM",1104,"sg 747",4,1.1,85,26,9.2,5.3,78,9.1,4.9,10,16.9,0.57,1.15,112
+"63","11",1,52,"WES",7,"University Park, NM",1128,"acala 1517-99",1,1.2,85.2,31,8.5,4.5,77,8.8,4.4,9.5,22.3,0.59,1.19,153
+"63","12",1,52,"WES",7,"University Park, NM",1128,"acala 1517-99",2,1.2,86.1,33,8.5,4.4,77,8.8,4.5,9.8,23.5,0.59,1.19,145
+"63","11",1,52,"WES",7,"University Park, NM",1128,"acala 1517-99",3,1.2,85.2,31,8.5,4.5,77,8.8,4.4,9.5,22.3,0.59,1.19,153
+"63","12",1,52,"WES",7,"University Park, NM",1128,"acala 1517-99",4,1.2,86.1,33,8.5,4.4,77,8.8,4.5,9.8,23.5,0.59,1.19,145
+"63","15",1,52,"WES",7,"University Park, NM",1167,"nm 970513",1,1.2,85.7,36,8.5,4.5,76,8.4,4.4,9,24.8,0.59,1.21,157
+"63","16",1,52,"WES",7,"University Park, NM",1167,"nm 970513",2,1.2,86,36,8.5,4.7,75,8.3,4.7,8.5,25.6,0.58,1.21,162
+"63","15",1,52,"WES",7,"University Park, NM",1167,"nm 970513",3,1.2,85.7,36,8.5,4.5,76,8.4,4.4,9,24.8,0.59,1.21,157
+"63","16",1,52,"WES",7,"University Park, NM",1167,"nm 970513",4,1.2,86,36,8.5,4.7,75,8.3,4.7,8.5,25.6,0.58,1.21,162
+"63","9",1,52,"WES",7,"University Park, NM",1197,"nm 970123",1,1.2,86.5,37,9,4.7,77,7.9,4.7,11,24.7,0.59,1.21,159
+"63","10",1,52,"WES",7,"University Park, NM",1197,"nm 970123",2,1.2,87,36,9,4.6,78,8.2,4.4,10,27,0.6,1.21,164
+"63","9",1,52,"WES",7,"University Park, NM",1197,"nm 970123",3,1.2,86.5,37,9,4.7,77,7.9,4.7,11,24.7,0.59,1.21,159
+"63","10",1,52,"WES",7,"University Park, NM",1197,"nm 970123",4,1.2,87,36,9,4.6,78,8.2,4.4,10,27,0.6,1.21,164
+"63","13",1,52,"WES",7,"University Park, NM",1198,"w 1218",1,1.3,85.6,31,8.3,4.4,78,8.7,4.4,12,21.6,0.59,1.23,140
+"63","14",1,52,"WES",7,"University Park, NM",1198,"w 1218",2,1.2,85.2,33,8.7,4.5,77,8.8,4.3,13,23.4,0.58,1.23,141
+"63","13",1,52,"WES",7,"University Park, NM",1198,"w 1218",3,1.3,85.6,31,8.3,4.4,78,8.7,4.4,12,21.6,0.59,1.23,140
+"63","14",1,52,"WES",7,"University Park, NM",1198,"w 1218",4,1.2,85.2,33,8.7,4.5,77,8.8,4.3,13,23.4,0.58,1.23,141
+"60","53",1,52,"WES",9,"Pecos, TX",773,"acala maxxa",1,1.1,84.4,31,7.5,4,75,8.2,4.2,7.3,19,0.55,1.15,144
+"60","54",1,52,"WES",9,"Pecos, TX",773,"acala maxxa",2,1.1,82.7,30,7.7,4.3,76,8.1,4.3,7.5,20.1,0.56,1.13,139
+"60","57",1,52,"WES",9,"Pecos, TX",1009,"nu 33b",1,1.1,81.2,27,7.9,4.4,77,8.1,4.2,8.3,16.7,0.52,1.11,120
+"60","58",1,52,"WES",9,"Pecos, TX",1009,"nu 33b",2,1.1,81.4,27,8.5,4,80,8.2,4.1,7.5,17.6,0.51,1.11,111
+"60","55",1,52,"WES",9,"Pecos, TX",1019,"all tex atlas",1,1,81,29,8.3,4.9,78,8.3,4.9,7.3,20.2,0.52,1.05,128
+"60","56",1,52,"WES",9,"Pecos, TX",1019,"all tex atlas",2,1,81.4,30,8.7,5,78,8.3,4.8,7.5,18.9,0.5,1.05,121
+"60","59",1,52,"WES",9,"Pecos, TX",1104,"sg 747",1,1.2,84.1,31,7.7,4.2,79,8.5,4.2,7.5,22,0.55,1.17,152
+"60","60",1,52,"WES",9,"Pecos, TX",1104,"sg 747",2,1.2,83.8,33,8.6,4.2,78,8.3,4.2,7.5,22.4,0.57,1.17,149
+"60","61",1,52,"WES",9,"Pecos, TX",1128,"acala 1517-99",1,1.2,84,33,8.4,4,78,8.4,4,7,23.7,0.57,1.17,149
+"60","62",1,52,"WES",9,"Pecos, TX",1128,"acala 1517-99",2,1.2,82.5,31,7.7,4,79,8.7,4,7.5,21.6,0.55,1.17,148
+"60","65",1,52,"WES",9,"Pecos, TX",1167,"nm 970513",1,1.2,82.9,37,7.9,4.3,77,8.5,4.3,6,25.3,0.57,1.17,168
+"60","66",1,52,"WES",9,"Pecos, TX",1167,"nm 970513",2,1.2,83.9,38,8.3,4.3,79,8.8,4.3,5.5,24.3,0.57,1.17,170
+"60","63",1,52,"WES",9,"Pecos, TX",1197,"nm 970123",1,1.2,85,34,8.3,4.4,79,7.9,4.3,7.3,24.3,0.57,1.19,160
+"60","64",1,52,"WES",9,"Pecos, TX",1197,"nm 970123",2,1.2,84.4,33,8.5,4.5,76,8,4.4,7.8,22.6,0.58,1.19,163
+"60","67",1,52,"WES",9,"Pecos, TX",1198,"w 1218",1,1.2,83.1,33,8.7,4.3,78,8.6,4.2,9.5,21.6,0.55,1.15,145
+"60","68",1,52,"WES",9,"Pecos, TX",1198,"w 1218",2,1.2,82.5,30,7.9,3.8,77,8.1,4,8,21.2,0.57,1.17,136
+"61","1",1,52,"WES",40,"Artesia, Nm(irri)",773,"acala maxxa",1,1.2,86.1,33,8.7,4.4,72,6.9,4.3,7.5,20.4,0.57,1.17,146
+"61","2",1,52,"WES",40,"Artesia, Nm(irri)",773,"acala maxxa",2,1.2,85.8,33,8.7,4.2,70,6.8,4.2,6.3,22.7,0.57,1.17,147
+"61","5",1,52,"WES",40,"Artesia, Nm(irri)",1009,"nu 33b",1,1.2,84.3,28,9.2,4.8,74,7.7,4.7,8,18.5,0.54,1.17,113
+"61","6",1,52,"WES",40,"Artesia, Nm(irri)",1009,"nu 33b",2,1.2,84.3,27,8.1,4.5,74,7.8,4.6,9,19.9,0.54,1.17,123
+"61","3",1,52,"WES",40,"Artesia, Nm(irri)",1019,"all tex atlas",1,1.1,83.8,29,8.7,4.7,76,8.2,4.7,6.5,19.3,0.54,1.11,116
+"61","4",1,52,"WES",40,"Artesia, Nm(irri)",1019,"all tex atlas",2,1.2,83.3,28,8.9,4.8,71,6.9,4.8,7.5,20.5,0.53,1.11,121
+"61","7",1,52,"WES",40,"Artesia, Nm(irri)",1104,"sg 747",1,1.2,85.3,25,8.9,5.2,72,8.7,5,8.5,17,0.55,1.15,103
+"61","8",1,52,"WES",40,"Artesia, Nm(irri)",1104,"sg 747",2,1.2,85.1,25,9.2,5.1,75,9.1,5.2,8.5,17.3,0.57,1.15,104
+"61","9",1,52,"WES",40,"Artesia, Nm(irri)",1128,"acala 1517-99",1,1.3,86.1,32,8.7,4.1,72,7.8,4.1,6.3,23,0.59,1.25,141
+"61","10",1,52,"WES",40,"Artesia, Nm(irri)",1128,"acala 1517-99",2,1.3,86.8,34,8.7,4.3,70,7.5,4.2,7,22.9,0.6,1.25,138
+"61","13",1,52,"WES",40,"Artesia, Nm(irri)",1167,"nm 970513",1,1.2,86.7,37,8.5,4.4,71,7.3,4.4,5.3,27.1,0.62,1.23,165
+"61","14",1,52,"WES",40,"Artesia, Nm(irri)",1167,"nm 970513",2,1.2,87.4,40,8.7,4.4,74,8.6,4.5,6.3,25,0.59,1.23,164
+"61","11",1,52,"WES",40,"Artesia, Nm(irri)",1197,"nm 970123",1,1.2,86.9,34,8.9,4.7,75,8.1,4.7,6.8,24.1,0.62,1.23,150
+"61","12",1,52,"WES",40,"Artesia, Nm(irri)",1197,"nm 970123",2,1.3,87.5,37,8.7,4.6,72,7.8,4.7,7.5,20,0.59,1.23,150
+"61","15",1,52,"WES",40,"Artesia, Nm(irri)",1198,"w 1218",1,1.3,86.6,31,8.5,4.5,74,8,4.4,7,24.8,0.55,1.25,129
+"61","16",1,52,"WES",40,"Artesia, Nm(irri)",1198,"w 1218",2,1.3,85.6,34,8.7,4.6,74,7.9,4.4,7.3,22,0.59,1.27,140
+"32","1",1,61,"PIM",8,"El Paso, TX(irri)",615,"pima s-7",1,1.3,88,44,9.4,4.6,65,11,4.4,7.8,28.6,0.62,1.33,167
+"32","2",1,61,"PIM",8,"El Paso, TX(irri)",615,"pima s-7",2,1.4,89.6,47,9.4,4.1,66,11,4.4,7,29.2,0.68,1.37,181
+"32","3",1,61,"PIM",8,"El Paso, TX(irri)",1108,"oa 325(dp-hto)",1,1.3,88.5,42,9.6,4.4,67,11,4.3,7.8,28.9,0.65,1.33,161
+"32","4",1,61,"PIM",8,"El Paso, TX(irri)",1108,"oa 325(dp-hto)",2,1.3,88.6,44,9.2,4.3,69,11,4.4,7.3,29,0.6,1.33,169
+"32","9",1,61,"PIM",8,"El Paso, TX(irri)",1113,"phy 57",1,1.3,88,49,10,3.9,68,11,4.2,7.5,32,0.63,1.35,171
+"32","10",1,61,"PIM",8,"El Paso, TX(irri)",1113,"phy 57",2,1.3,88.8,49,10,4,63,10,4.5,8.5,30.1,0.64,1.36,172
+"32","5",1,61,"PIM",8,"El Paso, TX(irri)",1182,"dpl 744",1,1.3,88.5,47,9.6,4.3,69,11,4.5,8.5,29,0.6,1.31,170
+"32","6",1,61,"PIM",8,"El Paso, TX(irri)",1182,"dpl 744",2,1.4,89.8,48,9.7,4.6,65,9.3,4.4,7.5,31.2,0.65,1.33,180
+"32","7",1,61,"PIM",8,"El Paso, TX(irri)",1210,"oa 340",1,1.3,88.6,45,9.4,4.5,66,10,4.5,7.5,26.1,0.62,1.35,165
+"32","8",1,61,"PIM",8,"El Paso, TX(irri)",1210,"oa 340",2,1.3,89.1,47,9.3,4.5,67,11,4.5,6.8,29.3,0.59,1.35,174
+"32","11",1,61,"PIM",8,"El Paso, TX(irri)",1211,"phy 76",1,1.4,90.2,52,10,4.3,60,11,4.4,8.3,32.3,0.62,1.39,173
+"32","12",1,61,"PIM",8,"El Paso, TX(irri)",1211,"phy 76",2,1.3,89.3,48,10,4.4,66,12,4.1,9,28.7,0.64,1.37,171
+"63","17",1,61,"PIM",155,"Las Cruces, NM",615,"pima s-7",1,1.4,91.7,48,10,4.5,68,10,4.5,11,33.8,0.69,1.43,193
+"63","18",1,61,"PIM",155,"Las Cruces, NM",615,"pima s-7",2,1.3,89.7,44,10,3.9,67,10,3.7,10,32.8,0.69,1.43,192
+"63","17",1,61,"PIM",155,"Las Cruces, NM",615,"pima s-7",3,1.4,91.7,48,10,4.5,68,10,4.5,11,33.8,0.69,1.43,193
+"63","18",1,61,"PIM",155,"Las Cruces, NM",615,"pima s-7",4,1.3,89.7,44,10,3.9,67,10,3.7,10,32.8,0.69,1.43,192
+"63","19",1,61,"PIM",155,"Las Cruces, NM",1108,"oa 325(dp-hto)",1,1.3,89.4,44,10,4.2,65,11,3.9,12,29.3,0.69,1.37,188
+"63","20",1,61,"PIM",155,"Las Cruces, NM",1108,"oa 325(dp-hto)",2,1.4,92,50,10,4.2,64,11,4.5,10,32.5,0.69,1.39,193
+"63","19",1,61,"PIM",155,"Las Cruces, NM",1108,"oa 325(dp-hto)",3,1.3,89.4,44,10,4.2,65,11,3.9,12,29.3,0.69,1.37,188
+"63","20",1,61,"PIM",155,"Las Cruces, NM",1108,"oa 325(dp-hto)",4,1.4,92,50,10,4.2,64,11,4.5,10,32.5,0.69,1.39,193
+"63","25",1,61,"PIM",155,"Las Cruces, NM",1113,"phy 57",1,1.3,88,47,9.8,4,67,13,4,7.5,35.5,0.69,1.41,197
+"63","26",1,61,"PIM",155,"Las Cruces, NM",1113,"phy 57",2,1.4,90.8,50,10,4.4,66,12,4.2,7,30.8,0.69,1.41,181
+"63","25",1,61,"PIM",155,"Las Cruces, NM",1113,"phy 57",3,1.3,88,47,9.8,4,67,13,4,7.5,35.5,0.69,1.41,197
+"63","26",1,61,"PIM",155,"Las Cruces, NM",1113,"phy 57",4,1.4,90.8,50,10,4.4,66,12,4.2,7,30.8,0.69,1.41,181
+"63","21",1,61,"PIM",155,"Las Cruces, NM",1182,"dpl 744",1,1.4,91.5,47,9.5,4.3,69,11,4.4,8.8,35.8,0.68,1.41,197
+"63","22",1,61,"PIM",155,"Las Cruces, NM",1182,"dpl 744",2,1.4,90.2,50,10,4.3,65,12,4.2,9.8,36.1,0.69,1.41,180
+"63","21",1,61,"PIM",155,"Las Cruces, NM",1182,"dpl 744",3,1.4,91.5,47,9.5,4.3,69,11,4.4,8.8,35.8,0.68,1.41,197
+"63","22",1,61,"PIM",155,"Las Cruces, NM",1182,"dpl 744",4,1.4,90.2,50,10,4.3,65,12,4.2,9.8,36.1,0.69,1.41,180
+"63","23",1,61,"PIM",155,"Las Cruces, NM",1210,"oa 340",1,1.3,89.8,42,9.6,4,59,10,3.7,7.8,36.5,0.69,1.41,186
+"63","24",1,61,"PIM",155,"Las Cruces, NM",1210,"oa 340",2,1.3,90.1,45,10,4.5,66,11,4.4,8,34.8,0.69,1.41,180
+"63","23",1,61,"PIM",155,"Las Cruces, NM",1210,"oa 340",3,1.3,89.8,42,9.6,4,59,10,3.7,7.8,36.5,0.69,1.41,186
+"63","24",1,61,"PIM",155,"Las Cruces, NM",1210,"oa 340",4,1.3,90.1,45,10,4.5,66,11,4.4,8,34.8,0.69,1.41,180
+"63","27",1,61,"PIM",155,"Las Cruces, NM",1211,"phy 76",1,1.4,90.5,45,10,4.1,66,10,3.9,8.3,30.3,0.69,1.41,189
+"63","28",1,61,"PIM",155,"Las Cruces, NM",1211,"phy 76",2,1.3,88.8,45,9,4.1,67,12,4.1,8,31.9,0.69,1.43,190
+"63","27",1,61,"PIM",155,"Las Cruces, NM",1211,"phy 76",3,1.4,90.5,45,10,4.1,66,10,3.9,8.3,30.3,0.69,1.41,189
+"63","28",1,61,"PIM",155,"Las Cruces, NM",1211,"phy 76",4,1.3,88.8,45,9,4.1,67,12,4.1,8,31.9,0.69,1.43,190
+"10","1",1,61,"PIM",160,"Safford, AZ",615,"pima s-7",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","2",1,61,"PIM",160,"Safford, AZ",615,"pima s-7",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","3",1,61,"PIM",160,"Safford, AZ",1108,"oa 325(dp-hto)",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","4",1,61,"PIM",160,"Safford, AZ",1108,"oa 325(dp-hto)",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","9",1,61,"PIM",160,"Safford, AZ",1113,"phy 57",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","10",1,61,"PIM",160,"Safford, AZ",1113,"phy 57",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","5",1,61,"PIM",160,"Safford, AZ",1182,"dpl 744",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","6",1,61,"PIM",160,"Safford, AZ",1182,"dpl 744",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","7",1,61,"PIM",160,"Safford, AZ",1210,"oa 340",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","8",1,61,"PIM",160,"Safford, AZ",1210,"oa 340",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","11",1,61,"PIM",160,"Safford, AZ",1211,"phy 76",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"10","12",1,61,"PIM",160,"Safford, AZ",1211,"phy 76",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"73","1",1,62,"PIM",61,"Maricopa, AZ",615,"pima s-7",1,1.4,89.3,44,8.9,4.4,67,11,4.1,5.8,31.6,0.62,1.39,176
+"73","2",1,62,"PIM",61,"Maricopa, AZ",615,"pima s-7",2,1.3,90,45,9.4,4.4,55,7.9,4.3,7,30.7,0.69,1.39,179
+"73","3",1,62,"PIM",61,"Maricopa, AZ",1108,"oa 325(dp-hto)",1,1.4,88.9,47,9,4.1,60,9.7,4.2,6.5,31.3,0.69,1.37,172
+"73","4",1,62,"PIM",61,"Maricopa, AZ",1108,"oa 325(dp-hto)",2,1.3,88.4,42,9.2,4.4,68,11,4.3,7.8,31,0.65,1.37,175
+"73","9",1,62,"PIM",61,"Maricopa, AZ",1113,"phy 57",1,1.3,88.8,43,9.8,4.2,70,11,4,8.3,29.4,0.64,1.37,175
+"73","10",1,62,"PIM",61,"Maricopa, AZ",1113,"phy 57",2,1.3,88.8,40,9.4,4,71,11,4.3,7.8,30.6,0.69,1.39,175
+"73","5",1,62,"PIM",61,"Maricopa, AZ",1182,"dpl 744",1,1.4,90.9,45,9,4.3,70,11,4.1,6.3,33.9,0.69,1.39,186
+"73","6",1,62,"PIM",61,"Maricopa, AZ",1182,"dpl 744",2,1.4,90.7,42,9.2,4.2,71,11,4.2,7,34.1,0.68,1.41,181
+"73","7",1,62,"PIM",61,"Maricopa, AZ",1210,"oa 340",1,1.3,89.1,41,8.9,4.2,70,11,4.3,6.3,29.6,0.62,1.39,166
+"73","8",1,62,"PIM",61,"Maricopa, AZ",1210,"oa 340",2,1.3,87.5,40,8.9,4.3,68,11,4.3,6,29,0.69,1.39,169
+"73","11",1,62,"PIM",61,"Maricopa, AZ",1211,"phy 76",1,1.3,88.2,40,8.9,3.8,61,12,3.9,7.8,32.2,0.62,1.39,167
+"73","12",1,62,"PIM",61,"Maricopa, AZ",1211,"phy 76",2,1.3,88.7,39,8.9,3.7,66,13,3.7,7.5,30.3,0.69,1.39,169
+"26","55",1,71,"RHQ",19,"College Station, TX",773,"acala maxxa",1,1.2,84.6,34,7.5,4,63,6.2,4.3,5.8,25.1,0.56,1.13,134
+"26","56",1,71,"RHQ",19,"College Station, TX",773,"acala maxxa",3,1.2,84.5,35,7.2,4.2,57,5.1,4.2,5.5,24.2,0.55,1.13,138
+"26","57",1,71,"RHQ",19,"College Station, TX",1009,"nu 33b",1,1.1,82.5,30,7.9,4.9,70,6.5,4.9,6.8,20.2,0.54,1.09,115
+"26","58",1,71,"RHQ",19,"College Station, TX",1009,"nu 33b",3,1.1,81.5,28,7.5,5,68,6.6,5.1,7,19.6,0.53,1.08,117
+"26","59",1,71,"RHQ",19,"College Station, TX",1104,"sg 747",1,1.1,83.4,28,8.7,5.2,65,6.8,5.2,7.3,19.1,0.57,1.09,111
+"26","60",1,71,"RHQ",19,"College Station, TX",1104,"sg 747",3,1.1,81.8,27,8.1,5.2,54,6.5,5.2,7,18.8,0.52,1.08,105
+"26","69",1,71,"RHQ",19,"College Station, TX",1117,"fm 832",1,1.2,85.2,34,7.5,4.6,66,5.4,4.6,5.5,24.4,0.56,1.19,150
+"26","70",1,71,"RHQ",19,"College Station, TX",1117,"fm 832",3,1.2,84.8,31,7.4,4.6,66,6.3,4.4,6,22.5,0.56,1.19,133
+"26","61",1,71,"RHQ",19,"College Station, TX",1128,"acala 1517-99",1,1.2,84.7,34,7.5,4.4,59,5.8,4.2,5.8,25,0.57,1.17,133
+"26","62",1,71,"RHQ",19,"College Station, TX",1128,"acala 1517-99",3,1.2,84,35,7.7,4.3,58,6.5,4.2,6.3,24.3,0.58,1.19,143
+"26","83",1,71,"RHQ",19,"College Station, TX",1137,"phy psc 355",1,1.1,84,31,8.7,5.4,63,7.6,4.1,8,21.1,0.56,1.13,116
+"26","84",1,71,"RHQ",19,"College Station, TX",1137,"phy psc 355",3,1.1,83.2,32,8.7,5.1,60,6.6,5.1,6.5,21.8,0.54,1.11,120
+"26","67",1,71,"RHQ",19,"College Station, TX",1140,"delta pearl",1,1.1,81,27,7.4,5.9,66,5.5,5.1,6.3,19.5,0.51,1.1,115
+"26","68",1,71,"RHQ",19,"College Station, TX",1140,"delta pearl",3,1.1,82.4,31,7.5,5.2,66,4.8,4.7,6,20.9,0.53,1.14,123
+"26","81",1,71,"RHQ",19,"College Station, TX",1167,"nm 970513",1,1.2,85.3,46,7.9,4.3,63,6.3,4.6,4.5,29.9,0.57,1.17,176
+"26","82",1,71,"RHQ",19,"College Station, TX",1167,"nm 970513",3,1.2,84.9,45,8.3,4.3,61,6.6,4.5,4.8,29.4,0.57,1.17,166
+"26","71",1,71,"RHQ",19,"College Station, TX",1175,"fm 966",1,1.2,84.4,38,7.4,4.9,63,6.7,4.6,5,25.1,0.58,1.17,141
+"26","72",1,71,"RHQ",19,"College Station, TX",1175,"fm 966",3,1.1,82.8,37,7.2,4.7,59,5.8,4.7,5.5,23.8,0.55,1.12,141
+"26","73",1,71,"RHQ",19,"College Station, TX",1176,"jajo 8067",1,1.2,84.3,34,7.9,4.6,64,6.6,4.6,6.8,21.8,0.57,1.15,128
+"26","74",1,71,"RHQ",19,"College Station, TX",1176,"jajo 8067",3,1.2,84,32,7.7,4.4,60,6.6,4.7,6.5,20.8,0.6,1.19,117
+"26","63",1,71,"RHQ",19,"College Station, TX",1200,"ark-x",1,1.1,84.4,31,8.7,5.5,55,3.8,5.3,7.3,21.8,0.56,1.12,126
+"26","64",1,71,"RHQ",19,"College Station, TX",1200,"ark-x",3,1.1,83.5,31,8.7,4.9,60,6.8,4.9,6.3,19.7,0.54,1.11,118
+"26","65",1,71,"RHQ",19,"College Station, TX",1201,"dpl 491",1,1.2,80.4,31,7.4,5.2,61,7,4.9,5,21.9,0.52,1.15,124
+"26","66",1,71,"RHQ",19,"College Station, TX",1201,"dpl 491",3,1.2,83.4,31,7.2,4.9,63,5.2,4.5,6,21.7,0.53,1.15,117
+"26","75",1,71,"RHQ",19,"College Station, TX",1202,"jajo 8164",1,1.1,83,38,8.6,5.2,63,5,5,8,21.8,0.56,1.05,139
+"26","76",1,71,"RHQ",19,"College Station, TX",1202,"jajo 8164",3,1.1,82.7,39,8.9,5,64,6.4,4.9,7,23.2,0.54,1.08,130
+"26","77",1,71,"RHQ",19,"College Station, TX",1204,"ms 32-1-9",1,1.1,84.6,32,7.9,5.2,65,6.7,5,5.8,23.7,0.56,1.13,133
+"26","78",1,71,"RHQ",19,"College Station, TX",1204,"ms 32-1-9",3,1.1,82.7,32,8.5,5.1,60,7.2,5,7,22.6,0.54,1.09,127
+"26","79",1,71,"RHQ",19,"College Station, TX",1205,"nc 98-34",1,1.1,84,39,8.3,4.8,67,6.6,4.9,5,25.4,0.56,1.13,145
+"26","80",1,71,"RHQ",19,"College Station, TX",1205,"nc 98-34",3,1.1,84.2,38,8.1,5.2,66,6.6,5.5,5.5,23.3,0.56,1.11,130
+"26","85",1,71,"RHQ",19,"College Station, TX",1206,"ss 0101",1,1.1,82.5,30,8.1,5.3,69,5.8,5.5,7.3,20.1,0.53,1.11,111
+"26","86",1,71,"RHQ",19,"College Station, TX",1206,"ss 0101",3,1.1,82.2,32,7.5,5.4,68,5.7,5.8,6,21.5,0.54,1.11,121
+"26","87",1,71,"RHQ",19,"College Station, TX",1207,"ss 0102",1,1.1,82.5,31,8.1,5.4,71,6.3,5.3,6.3,20.6,0.53,1.1,116
+"26","88",1,71,"RHQ",19,"College Station, TX",1207,"ss 0102",3,1.1,82.1,34,7.5,5.1,68,6.2,5.5,5,21.2,0.53,1.1,118
+"26","89",1,71,"RHQ",19,"College Station, TX",1208,"stv 580",1,1.1,82,31,7.9,5.3,68,6.9,5.3,7,21.8,0.53,1.1,125
+"26","90",1,71,"RHQ",19,"College Station, TX",1208,"stv 580",3,1.1,83.1,31,7.5,5.2,69,7,5.4,7,20.9,0.56,1.11,116
+"26","91",1,71,"RHQ",19,"College Station, TX",1209,"stv 8m009",1,1.1,83,35,7.9,4.8,58,6.4,5.1,6.3,21.9,0.54,1.11,124
+"26","92",1,71,"RHQ",19,"College Station, TX",1209,"stv 8m009",3,1.1,83.7,33,7.5,4.8,60,6.1,4.8,7,22.3,0.55,1.09,118
+"80","39",1,71,"RHQ",23,"Bossier City, LA",773,"acala maxxa",1,1.1,84.9,35,7.7,4.1,67,6.5,4,6.5,24.7,0.55,1.1,147
+"80","40",1,71,"RHQ",23,"Bossier City, LA",773,"acala maxxa",2,1.1,84.3,36,7.9,3.9,69,6.8,4,6.5,23.7,0.54,1.11,143
+"80","41",1,71,"RHQ",23,"Bossier City, LA",1009,"nu 33b",1,1.1,81.7,28,7.4,4.9,69,6.4,4.6,7.3,18.3,0.52,1.09,112
+"80","42",1,71,"RHQ",23,"Bossier City, LA",1009,"nu 33b",2,1.1,83.4,29,7.5,4.6,72,6.3,4.5,6.3,18.4,0.53,1.09,115
+"80","43",1,71,"RHQ",23,"Bossier City, LA",1104,"sg 747",1,1.1,82.9,32,8.3,3.8,63,6,5,7.3,17.6,0.54,1.09,111
+"80","44",1,71,"RHQ",23,"Bossier City, LA",1104,"sg 747",2,1.1,83.5,28,8.7,5.5,67,6.8,5.1,8,18.4,0.53,1.08,106
+"80","53",1,71,"RHQ",23,"Bossier City, LA",1117,"fm 832",1,1.1,84.2,33,7.7,4.6,71,7.1,4.7,5.5,21.3,0.53,1.11,150
+"80","54",1,71,"RHQ",23,"Bossier City, LA",1117,"fm 832",2,1.2,84.2,31,7.4,4.4,71,6.2,4.4,5.8,21.8,0.56,1.13,154
+"80","45",1,71,"RHQ",23,"Bossier City, LA",1128,"acala 1517-99",1,1.2,84,34,8.1,4.3,66,6.5,4.2,6.3,22,0.57,1.15,152
+"80","46",1,71,"RHQ",23,"Bossier City, LA",1128,"acala 1517-99",2,1.2,84,32,7.4,4.3,68,7.1,4.2,6,21.6,0.57,1.15,145
+"80","67",1,71,"RHQ",23,"Bossier City, LA",1137,"phy psc 355",1,1.1,84.2,33,9,5.1,67,6.6,5.1,7,20,0.56,1.11,124
+"80","68",1,71,"RHQ",23,"Bossier City, LA",1137,"phy psc 355",2,1.1,83.3,32,8.9,4.9,67,6.8,4.7,8.3,19.6,0.54,1.11,122
+"80","51",1,71,"RHQ",23,"Bossier City, LA",1140,"delta pearl",1,1.1,83.5,28,7.2,4.6,70,6,4.3,5.5,18.6,0.54,1.11,121
+"80","52",1,71,"RHQ",23,"Bossier City, LA",1140,"delta pearl",2,1.2,82.4,29,7.2,5.1,72,6.2,4.9,5,18.3,0.54,1.11,115
+"80","65",1,71,"RHQ",23,"Bossier City, LA",1167,"nm 970513",1,1.2,83.5,38,7.9,4.2,72,7,4.5,5.5,24,0.56,1.11,173
+"80","66",1,71,"RHQ",23,"Bossier City, LA",1167,"nm 970513",2,1.2,85.2,36,7.9,4.5,70,6.5,4.4,5.8,24.3,0.56,1.13,169
+"80","55",1,71,"RHQ",23,"Bossier City, LA",1175,"fm 966",1,1.1,83.6,31,7.2,4.8,70,6.3,4.7,5.3,18.8,0.54,1.09,144
+"80","56",1,71,"RHQ",23,"Bossier City, LA",1175,"fm 966",2,1.1,83.5,33,7.4,4.8,70,6.1,4.8,5.3,18.6,0.53,1.1,139
+"80","57",1,71,"RHQ",23,"Bossier City, LA",1176,"jajo 8067",1,1.2,84.1,31,7.5,4.3,72,7.9,4.4,6,21,0.55,1.15,120
+"80","58",1,71,"RHQ",23,"Bossier City, LA",1176,"jajo 8067",2,1.2,83.4,31,7.7,4.5,71,7,4.6,6.3,20.5,0.55,1.15,122
+"80","47",1,71,"RHQ",23,"Bossier City, LA",1200,"ark-x",1,1.1,84.3,31,8.9,5,67,6.8,4.7,7.5,18.8,0.54,1.09,127
+"80","48",1,71,"RHQ",23,"Bossier City, LA",1200,"ark-x",2,1.1,83.7,31,8.7,5,69,7.5,4.8,7.8,18.4,0.54,1.09,128
+"80","49",1,71,"RHQ",23,"Bossier City, LA",1201,"dpl 491",1,1.2,83.7,30,7.4,4.8,68,6.2,4.6,6,20.2,0.54,1.11,123
+"80","50",1,71,"RHQ",23,"Bossier City, LA",1201,"dpl 491",2,1.2,82.9,30,7.5,4.8,68,6.4,4.9,6.3,21.6,0.54,1.11,117
+"80","59",1,71,"RHQ",23,"Bossier City, LA",1202,"jajo 8164",1,1.1,83.3,35,8.5,4.7,68,5.8,4.7,8,18.1,0.56,1.09,134
+"80","60",1,71,"RHQ",23,"Bossier City, LA",1202,"jajo 8164",2,1.1,82.3,36,8.9,5.2,72,6.8,4.9,7,21.4,0.55,1.08,146
+"80","78",1,71,"RHQ",23,"Bossier City, LA",1203,"jajo 8192",1,1.1,84.2,29,8.7,4.7,67,6.4,4.4,8,18.4,0.53,1.1,123
+"80","79",1,71,"RHQ",23,"Bossier City, LA",1203,"jajo 8192",2,1.1,84.3,30,8.9,4.7,70,7,4.9,7.5,18.8,0.54,1.11,128
+"80","61",1,71,"RHQ",23,"Bossier City, LA",1204,"ms 32-1-9",1,1.1,82.8,30,8.5,4.6,68,6.9,4.4,6.5,20.3,0.54,1.09,132
+"80","62",1,71,"RHQ",23,"Bossier City, LA",1204,"ms 32-1-9",2,1.1,83.4,29,7.9,4.6,66,6.9,4.5,6.8,19.8,0.54,1.09,130
+"80","63",1,71,"RHQ",23,"Bossier City, LA",1205,"nc 98-34",1,1.1,83.3,32,8.1,5,70,6.5,4.7,6.3,18.2,0.54,1.09,132
+"80","64",1,71,"RHQ",23,"Bossier City, LA",1205,"nc 98-34",2,1.2,83.4,34,7.7,4.8,72,6.6,4.7,6.8,18.3,0.52,1.11,134
+"80","69",1,71,"RHQ",23,"Bossier City, LA",1206,"ss 0101",1,1.1,82.2,30,7.5,4.8,68,6.5,4.7,7,18.6,0.56,1.13,113
+"80","70",1,71,"RHQ",23,"Bossier City, LA",1206,"ss 0101",2,1.1,82.4,29,7.5,4.6,64,5.2,4.4,7,17.7,0.52,1.11,112
+"80","71",1,71,"RHQ",23,"Bossier City, LA",1207,"ss 0102",1,1.1,80.9,29,7.9,5.1,72,6.4,4.8,6.8,17.4,0.52,1.1,94
+"80","72",1,71,"RHQ",23,"Bossier City, LA",1207,"ss 0102",2,1.1,82.1,28,7.5,5,70,5.7,4.9,7,17.3,0.52,1.09,105
+"80","73",1,71,"RHQ",23,"Bossier City, LA",1208,"stv 580",1,1.1,82.3,30,7.5,4.7,69,6.8,4.7,7.5,19.6,0.52,1.1,115
+"80","75",1,71,"RHQ",23,"Bossier City, LA",1208,"stv 580",2,1.1,83,29,8.1,4.9,71,5.8,4.6,7.8,18.1,0.55,1.09,120
+"80","76",1,71,"RHQ",23,"Bossier City, LA",1209,"stv 8m009",1,1.1,82.3,32,8.5,4.7,68,6.7,4.6,7,20.4,0.54,1.11,127
+"80","77",1,71,"RHQ",23,"Bossier City, LA",1209,"stv 8m009",2,1.1,82,32,8.3,4.7,68,6.3,4.3,7,18.9,0.54,1.09,126
+"16","1",1,71,"RHQ",25,"Stoneville, MS",773,"acala maxxa",1,1.1,81.8,34,8.6,4.1,65,9.3,4.1,6.5,25.8,0.56,1.11,134
+"16","2",1,71,"RHQ",25,"Stoneville, MS",773,"acala maxxa",2,1.1,81.3,32,7.9,4.1,64,9.1,4,6,23.6,0.56,1.11,130
+"16","3",1,71,"RHQ",25,"Stoneville, MS",1009,"nu 33b",1,1,80.2,27,8.5,4.5,65,9.4,4.5,7.8,20,0.51,1.03,109
+"16","4",1,71,"RHQ",25,"Stoneville, MS",1009,"nu 33b",2,1.1,80.4,26,7.9,4.9,65,9.4,4.6,7.5,19.7,0.55,1.08,115
+"16","5",1,71,"RHQ",25,"Stoneville, MS",1104,"sg 747",1,1.1,82.8,27,9,5.1,64,9.4,5,8.5,20.1,0.57,1.07,113
+"16","6",1,71,"RHQ",25,"Stoneville, MS",1104,"sg 747",2,1.1,82.1,27,9.1,5.3,64,9.4,5,8.5,18.3,0.55,1.06,106
+"16","16",1,71,"RHQ",25,"Stoneville, MS",1117,"fm 832",2,1.2,83.8,33,8.1,4.4,65,9.3,4.4,5.5,24.5,0.6,1.18,143
+"16","7",1,71,"RHQ",25,"Stoneville, MS",1128,"acala 1517-99",1,1.2,83.7,32,8.3,4.2,65,9.4,4.3,6.8,22.8,0.62,1.19,139
+"16","8",1,71,"RHQ",25,"Stoneville, MS",1128,"acala 1517-99",2,1.2,83.3,31,8.3,4.3,64,9.2,4.2,6.8,23.5,0.59,1.14,138
+"16","29",1,71,"RHQ",25,"Stoneville, MS",1137,"phy psc 355",1,1.1,83.3,29,9.1,4.9,64,9.3,4.7,7.8,19.1,0.56,1.06,113
+"16","30",1,71,"RHQ",25,"Stoneville, MS",1137,"phy psc 355",2,1.1,82.6,30,8.8,4.9,64,9,4.9,8.5,19.8,0.56,1.05,118
+"16","13",1,71,"RHQ",25,"Stoneville, MS",1140,"delta pearl",1,1.1,80.8,29,7.5,5,65,9.5,4.9,5.8,20.2,0.54,1.11,106
+"16","14",1,71,"RHQ",25,"Stoneville, MS",1140,"delta pearl",2,1.1,81.1,28,7.9,5.1,65,9.3,5.1,6,19.1,0.56,1.12,120
+"16","27",1,71,"RHQ",25,"Stoneville, MS",1167,"nm 970513",1,1.1,81.8,37,7.9,4.2,64,9.3,4.2,4.8,27,0.57,1.08,166
+"16","28",1,71,"RHQ",25,"Stoneville, MS",1167,"nm 970513",2,1.1,83.2,43,8.7,4,65,9.3,4,4.8,28.4,0.62,1.14,159
+"16","17",1,71,"RHQ",25,"Stoneville, MS",1175,"fm 966",1,1.1,82.5,32,7.7,4.8,65,9.5,4.5,5,22.4,0.57,1.11,141
+"16","18",1,71,"RHQ",25,"Stoneville, MS",1175,"fm 966",2,1.1,82.3,33,7.7,4.9,64,9.3,4.9,4.5,24.6,0.56,1.1,138
+"16","19",1,71,"RHQ",25,"Stoneville, MS",1176,"jajo 8067",1,1.1,82.7,29,8.6,4.6,64,9.2,4.9,6.8,20.5,0.53,1.13,120
+"16","20",1,71,"RHQ",25,"Stoneville, MS",1176,"jajo 8067",2,1.1,82.8,30,8.7,4.6,64,9.3,4.4,6.5,20.3,0.55,1.11,121
+"16","9",1,71,"RHQ",25,"Stoneville, MS",1200,"ark-x",1,1.1,83.6,30,9.3,4.9,64,9.2,4.8,7.3,21.2,0.57,1.08,121
+"16","10",1,71,"RHQ",25,"Stoneville, MS",1200,"ark-x",2,1.1,83.3,32,9.2,4.7,64,9.3,4.8,8,21.5,0.59,1.08,127
+"16","11",1,71,"RHQ",25,"Stoneville, MS",1201,"dpl 491",1,1.2,83,30,7.5,4.7,65,9.4,4.6,6.8,20.1,0.56,1.15,130
+"16","12",1,71,"RHQ",25,"Stoneville, MS",1201,"dpl 491",2,1.1,83,28,7.8,4.7,65,9.5,4.8,5.8,21.3,0.56,1.15,124
+"16","21",1,71,"RHQ",25,"Stoneville, MS",1202,"jajo 8164",1,1,81,34,9.7,5.1,64,9.4,4.8,7.3,23.8,0.56,1.03,136
+"16","22",1,71,"RHQ",25,"Stoneville, MS",1202,"jajo 8164",2,1.1,82.1,33,9.2,4.6,64,9.2,4.6,8,22.3,0.55,1.02,133
+"16","59",1,71,"RHQ",25,"Stoneville, MS",1203,"jajo 8192",1,1.2,84.8,36,8.5,4,64,9.1,3.9,6,28.4,0.62,1.21,161
+"16","60",1,71,"RHQ",25,"Stoneville, MS",1203,"jajo 8192",2,1.2,84.2,35,8.6,4.3,64,9.3,4.2,6.3,26,0.65,1.23,148
+"16","23",1,71,"RHQ",25,"Stoneville, MS",1204,"ms 32-1-9",1,1.1,83,29,8.6,4.9,64,9.3,4.7,6.5,20.9,0.55,1.04,127
+"16","24",1,71,"RHQ",25,"Stoneville, MS",1204,"ms 32-1-9",2,1.1,82.2,30,8.3,4.8,64,8.9,4.6,7.5,20.8,0.56,1.07,125
+"16","25",1,71,"RHQ",25,"Stoneville, MS",1205,"nc 98-34",1,1.1,80.7,30,7.7,5.2,65,9.1,5.3,6.3,21.7,0.53,1.04,130
+"16","26",1,71,"RHQ",25,"Stoneville, MS",1205,"nc 98-34",2,1.1,81,32,8.6,5.2,64,9.3,4.9,6.3,21.9,0.53,1.04,128
+"16","31",1,71,"RHQ",25,"Stoneville, MS",1206,"ss 0101",1,1.1,80.4,27,8.4,4.8,64,9.3,4.8,7.8,18.8,0.52,1.04,115
+"16","32",1,71,"RHQ",25,"Stoneville, MS",1206,"ss 0101",2,1,79.8,29,8.5,5.1,65,9.4,4.8,7.5,19.4,0.5,1.02,111
+"16","33",1,71,"RHQ",25,"Stoneville, MS",1207,"ss 0102",1,1.1,81.1,27,8.3,5,64,8.6,5,7.3,19.1,0.53,1.03,115
+"16","34",1,71,"RHQ",25,"Stoneville, MS",1207,"ss 0102",2,1,81.4,29,8.1,4.7,65,9.4,4.6,7,18.8,0.54,1.07,116
+"16","35",1,71,"RHQ",25,"Stoneville, MS",1208,"stv 580",1,1,79.3,30,8.7,4.8,65,9.5,5,8.5,20.9,0.53,1.01,113
+"16","36",1,71,"RHQ",25,"Stoneville, MS",1208,"stv 580",2,1,81.3,30,9.7,5.2,64,9.3,4.9,7.8,21.8,0.52,1.03,118
+"16","37",1,71,"RHQ",25,"Stoneville, MS",1209,"stv 8m009",1,1.1,81.1,31,8.4,4.3,64,9.3,4.6,7.3,21.5,0.53,1.02,118
+"16","38",1,71,"RHQ",25,"Stoneville, MS",1209,"stv 8m009",2,1.1,81.2,30,8.7,4.7,64,9.2,4.6,7,21.1,0.53,1.05,117
+"21","21",1,71,"RHQ",75,"Portageville, MO",773,"acala maxxa",1,1.2,85,33,8.1,3.9,70,9.1,3.9,6.5,23.9,0.59,1.17,149
+"21","22",1,71,"RHQ",75,"Portageville, MO",773,"acala maxxa",2,1.2,84.4,33,7.5,4.2,57,6.1,4.1,5.5,25.7,0.59,1.19,153
+"21","23",1,71,"RHQ",75,"Portageville, MO",1009,"nu 33b",1,1.2,84.4,31,8.1,4.3,71,8.3,4.5,8,22,0.57,1.19,138
+"21","24",1,71,"RHQ",75,"Portageville, MO",1009,"nu 33b",2,1.2,83.2,31,8.3,4.4,65,7.1,4.5,7.8,20.7,0.55,1.17,122
+"21","25",1,71,"RHQ",75,"Portageville, MO",1104,"sg 747",1,1.1,83.9,27,8.5,4.6,71,9.2,4.5,9,18.7,0.57,1.19,118
+"21","26",1,71,"RHQ",75,"Portageville, MO",1104,"sg 747",2,1.2,84.6,29,8.9,5,70,9,4.8,9,18.3,0.59,1.17,123
+"21","35",1,71,"RHQ",75,"Portageville, MO",1117,"fm 832",1,1.2,85.8,35,7.9,4.4,71,8.5,4.2,6.5,26.4,0.6,1.23,157
+"21","36",1,71,"RHQ",75,"Portageville, MO",1117,"fm 832",2,1.2,85.1,34,7.7,4.2,72,8.5,4.3,7.5,24.3,0.59,1.21,155
+"21","27",1,71,"RHQ",75,"Portageville, MO",1128,"acala 1517-99",1,1.2,85.4,35,7.7,4.1,67,9.2,3.9,6,26.3,0.6,1.25,151
+"21","28",1,71,"RHQ",75,"Portageville, MO",1128,"acala 1517-99",2,1.2,84.8,34,7.5,4.3,69,8.7,4.3,7.8,25.8,0.59,1.21,147
+"21","49",1,71,"RHQ",75,"Portageville, MO",1137,"phy psc 355",1,1.2,84.8,30,8.9,4.5,67,9.6,4.4,9,20.8,0.57,1.19,128
+"21","50",1,71,"RHQ",75,"Portageville, MO",1137,"phy psc 355",2,1.1,83.9,32,9,5,71,8.9,4.8,8.3,22.7,0.57,1.13,131
+"21","33",1,71,"RHQ",75,"Portageville, MO",1140,"delta pearl",1,1.2,84.7,30,7.5,4.5,70,8.3,4.3,7.3,21.4,0.56,1.19,141
+"21","34",1,71,"RHQ",75,"Portageville, MO",1140,"delta pearl",2,1.2,84,32,7.4,4.8,73,8.3,4.6,8.3,21.3,0.56,1.19,140
+"21","47",1,71,"RHQ",75,"Portageville, MO",1167,"nm 970513",1,1.2,85.9,35,7.7,3.8,65,8.7,3.8,5.5,26.6,0.59,1.23,153
+"21","48",1,71,"RHQ",75,"Portageville, MO",1167,"nm 970513",2,1.2,84.7,39,8.3,4.4,71,9.1,4.3,7.5,28.3,0.6,1.23,157
+"21","37",1,71,"RHQ",75,"Portageville, MO",1175,"fm 966",1,1.2,84.7,37,7.5,4.7,70,8.5,4.5,6.5,26.6,0.59,1.21,166
+"21","38",1,71,"RHQ",75,"Portageville, MO",1175,"fm 966",2,1.2,83.8,33,7.9,4.3,68,8.3,4,7.8,23.9,0.59,1.21,154
+"21","39",1,71,"RHQ",75,"Portageville, MO",1176,"jajo 8067",1,1.2,85.1,33,8.3,4.1,70,9.5,3.9,6,24.2,0.59,1.21,142
+"21","40",1,71,"RHQ",75,"Portageville, MO",1176,"jajo 8067",2,1.2,85.1,33,8.3,4,67,8.3,3.9,6.3,22.8,0.58,1.21,139
+"21","29",1,71,"RHQ",75,"Portageville, MO",1200,"ark-x",1,1.2,85.1,30,8.7,4.4,67,8.2,4.3,9,19.5,0.59,1.17,135
+"21","30",1,71,"RHQ",75,"Portageville, MO",1200,"ark-x",2,1.2,84.5,30,8.7,4.9,69,9.4,4.7,8.3,23.5,0.59,1.19,134
+"21","31",1,71,"RHQ",75,"Portageville, MO",1201,"dpl 491",1,1.2,84.2,34,7.9,4.5,69,9,4.4,6.3,25.7,0.57,1.21,149
+"21","32",1,71,"RHQ",75,"Portageville, MO",1201,"dpl 491",2,1.2,84.7,32,7.5,4.5,64,8.9,4.5,6.3,24.7,0.59,1.21,148
+"21","41",1,71,"RHQ",75,"Portageville, MO",1202,"jajo 8164",1,1.2,85,34,8.5,3.9,68,8.7,3.7,7.8,24.5,0.59,1.19,152
+"21","42",1,71,"RHQ",75,"Portageville, MO",1202,"jajo 8164",2,1.1,82.9,33,8.3,4.2,71,8.6,3.8,8.8,23.9,0.58,1.15,144
+"21","59",1,71,"RHQ",75,"Portageville, MO",1203,"jajo 8192",1,1.2,85.5,30,8.7,4,68,9,3.9,9,22,0.59,1.19,139
+"21","60",1,71,"RHQ",75,"Portageville, MO",1203,"jajo 8192",2,1.2,85.6,29,8.7,4.1,71,9.2,4.1,7.5,21.2,0.59,1.21,136
+"21","43",1,71,"RHQ",75,"Portageville, MO",1204,"ms 32-1-9",1,NA,NA,NA,NA,NA,NA,NA,4.6,7,21.2,0.59,1.19,131
+"21","44",1,71,"RHQ",75,"Portageville, MO",1204,"ms 32-1-9",2,NA,NA,NA,NA,NA,NA,NA,4.7,8,19.7,0.57,1.17,129
+"21","45",1,71,"RHQ",75,"Portageville, MO",1205,"nc 98-34",1,NA,NA,NA,NA,NA,NA,NA,3.8,5.5,24.1,0.59,1.21,147
+"21","46",1,71,"RHQ",75,"Portageville, MO",1205,"nc 98-34",2,1.2,84.7,34,7.9,4.2,72,9,3.9,7.5,23.3,0.57,1.17,150
+"21","51",1,71,"RHQ",75,"Portageville, MO",1206,"ss 0101",1,1.2,84.8,32,8.1,4.2,71,8.2,4.1,8.5,21.4,0.59,1.19,137
+"21","52",1,71,"RHQ",75,"Portageville, MO",1206,"ss 0101",2,1.2,84.4,31,8.3,4.4,69,8.6,4.2,8.3,21.1,0.57,1.17,129
+"21","53",1,71,"RHQ",75,"Portageville, MO",1207,"ss 0102",1,1.2,83.7,30,7.5,3.6,71,9.4,3.5,8.3,22,0.57,1.19,140
+"21","54",1,71,"RHQ",75,"Portageville, MO",1207,"ss 0102",2,1.1,82.5,31,8.7,4.5,72,8.7,4.3,8.3,20.1,0.55,1.15,126
+"21","55",1,71,"RHQ",75,"Portageville, MO",1208,"stv 580",1,1.2,84.5,31,7.9,3.9,70,9.5,3.7,8.3,21.8,0.58,1.19,132
+"21","56",1,71,"RHQ",75,"Portageville, MO",1208,"stv 580",2,1.2,83.9,31,8.7,4.6,71,9.1,4.5,8,22.7,0.57,1.19,129
+"21","57",1,71,"RHQ",75,"Portageville, MO",1209,"stv 8m009",1,1.2,84.1,30,8.1,4.3,69,8.5,4.1,9,21.6,0.57,1.17,134
+"21","58",1,71,"RHQ",75,"Portageville, MO",1209,"stv 8m009",2,1.2,84.2,32,8.3,4.1,69,9.1,4.1,7.5,22.2,0.59,1.19,136
+"28","21",1,71,"RHQ",184,"Keiser, AR",773,"acala maxxa",1,1.2,85.8,31,7.9,3.2,77,8,3.1,7.8,22.6,0.55,1.15,147
+"28","22",1,71,"RHQ",184,"Keiser, AR",773,"acala maxxa",3,1.2,85.7,31,7.9,3.5,73,8.1,3.4,7,21.4,0.57,1.17,148
+"28","23",1,71,"RHQ",184,"Keiser, AR",1009,"nu 33b",1,1.2,84.5,30,7.4,3.3,72,7.8,3.3,6.3,22.2,0.57,1.21,140
+"28","24",1,71,"RHQ",184,"Keiser, AR",1009,"nu 33b",3,1.2,84.6,30,7.5,3.7,77,7.4,3.7,7,20.8,0.59,1.21,146
+"28","25",1,71,"RHQ",184,"Keiser, AR",1104,"sg 747",1,1.2,85.2,26,8.5,4,74,8.2,3.9,8.3,18.1,0.57,1.17,125
+"28","26",1,71,"RHQ",184,"Keiser, AR",1104,"sg 747",3,1.2,85.3,28,8.7,4,74,8.2,4.1,8.5,19.6,0.59,1.19,125
+"28","35",1,71,"RHQ",184,"Keiser, AR",1117,"fm 832",1,1.2,86.8,32,7.5,3.4,73,7.6,3.5,7.5,24.5,0.62,1.25,157
+"28","36",1,71,"RHQ",184,"Keiser, AR",1117,"fm 832",3,1.3,87.1,32,7.5,3.8,75,7.6,3.9,7,25.2,0.62,1.25,166
+"28","27",1,71,"RHQ",184,"Keiser, AR",1128,"acala 1517-99",1,1.2,85.9,34,7.9,3.3,73,7.9,3.2,7.3,25,0.59,1.23,158
+"28","28",1,71,"RHQ",184,"Keiser, AR",1128,"acala 1517-99",3,1.3,87.6,34,7.9,3.4,74,7.8,3.8,6.5,25.3,0.57,1.21,160
+"28","49",1,71,"RHQ",184,"Keiser, AR",1137,"phy psc 355",1,1.2,85,31,8.3,4.3,69,7.5,4.6,9,21.2,0.57,1.19,136
+"28","50",1,71,"RHQ",184,"Keiser, AR",1137,"phy psc 355",3,1.2,85.8,31,8.7,4.5,71,8.2,4.6,9,21.7,0.57,1.19,136
+"28","33",1,71,"RHQ",184,"Keiser, AR",1140,"delta pearl",1,1.2,84.8,29,7.5,3.5,75,7.9,3.6,7,22.1,0.57,1.23,133
+"28","34",1,71,"RHQ",184,"Keiser, AR",1140,"delta pearl",3,1.2,85.1,31,7.2,3.1,79,7.3,3.3,6.5,22.2,0.58,1.23,160
+"28","47",1,71,"RHQ",184,"Keiser, AR",1167,"nm 970513",1,1.2,86.6,38,8.3,3.8,75,8.3,3.7,6.3,26.4,0.59,1.19,170
+"28","48",1,71,"RHQ",184,"Keiser, AR",1167,"nm 970513",3,1.2,86.3,36,7.9,4.1,73,7.3,4.2,5.3,26.8,0.59,1.19,169
+"28","37",1,71,"RHQ",184,"Keiser, AR",1175,"fm 966",1,1.2,86.2,35,7.4,3.7,75,7.6,3.7,5.5,24.7,0.57,1.15,164
+"28","38",1,71,"RHQ",184,"Keiser, AR",1175,"fm 966",3,1.2,86.2,34,7.4,4.2,77,7.2,4,5,24.4,0.57,1.17,163
+"28","39",1,71,"RHQ",184,"Keiser, AR",1176,"jajo 8067",1,1.2,85.6,31,8.5,3.2,72,8.5,3.9,8,20.9,0.59,1.21,138
+"28","40",1,71,"RHQ",184,"Keiser, AR",1176,"jajo 8067",3,1.2,85.1,31,8.1,3.5,75,9.1,3.5,9.3,23,0.56,1.21,154
+"28","29",1,71,"RHQ",184,"Keiser, AR",1200,"ark-x",1,1.2,86.3,29,8.7,3.8,69,6.8,3.7,10,21.1,0.57,1.21,138
+"28","30",1,71,"RHQ",184,"Keiser, AR",1200,"ark-x",3,1.2,85.1,28,8.7,3.6,72,7.7,3.6,9,22.1,0.59,1.21,140
+"28","31",1,71,"RHQ",184,"Keiser, AR",1201,"dpl 491",1,1.3,86.4,32,7.5,3.6,75,7.7,3.6,7.3,20.6,0.59,1.27,152
+"28","32",1,71,"RHQ",184,"Keiser, AR",1201,"dpl 491",3,1.2,85,31,7.5,3.6,76,7.9,3.5,7,22.9,0.58,1.25,157
+"28","41",1,71,"RHQ",184,"Keiser, AR",1202,"jajo 8164",1,1.1,84,33,8.5,3.4,71,8.6,3.4,9.5,22.6,0.59,1.13,152
+"28","42",1,71,"RHQ",184,"Keiser, AR",1202,"jajo 8164",3,1.1,85.2,35,8.7,3.5,72,7.5,3.6,8.5,23.3,0.59,1.15,158
+"28","43",1,71,"RHQ",184,"Keiser, AR",1204,"ms 32-1-9",1,1.2,84.7,32,8.3,4.3,70,8,4.1,8.5,22.2,0.57,1.15,142
+"28","44",1,71,"RHQ",184,"Keiser, AR",1204,"ms 32-1-9",3,1.2,86,32,8.1,3.7,71,8,3.7,8.3,22.1,0.59,1.17,141
+"28","45",1,71,"RHQ",184,"Keiser, AR",1205,"nc 98-34",1,1.2,86.8,32,7.5,3.6,76,7.8,3.3,7,23.4,0.59,1.21,162
+"28","46",1,71,"RHQ",184,"Keiser, AR",1205,"nc 98-34",3,1.2,84,33,7.5,4.2,74,8.8,4.3,6.5,24.4,0.58,1.15,150
+"28","51",1,71,"RHQ",184,"Keiser, AR",1206,"ss 0101",1,1.2,85.2,30,7.7,3.6,75,7.9,3.4,9,20.6,0.58,1.23,142
+"28","52",1,71,"RHQ",184,"Keiser, AR",1206,"ss 0101",3,1.2,85.3,30,8.1,3.6,75,7.4,3.6,8.3,20,0.57,1.21,140
+"28","53",1,71,"RHQ",184,"Keiser, AR",1207,"ss 0102",1,1.2,84.2,32,8.5,3.8,76,7.8,3.7,8,22.2,0.54,1.17,145
+"28","54",1,71,"RHQ",184,"Keiser, AR",1207,"ss 0102",3,1.2,84.7,32,7.5,2.9,73,8.4,3,8.5,22,0.57,1.17,150
+"28","55",1,71,"RHQ",184,"Keiser, AR",1208,"stv 580",1,1.2,84.2,32,7.5,3.2,73,8.6,3.3,9,21.4,0.55,1.15,137
+"28","56",1,71,"RHQ",184,"Keiser, AR",1208,"stv 580",3,1.2,84.2,32,8.5,3.7,74,8.7,3.6,8,21.9,0.57,1.17,143
+"28","57",1,71,"RHQ",184,"Keiser, AR",1209,"stv 8m009",1,1.2,85.3,31,8.5,3.6,71,7.8,3.8,7.3,21.7,0.57,1.15,145
+"28","58",1,71,"RHQ",184,"Keiser, AR",1209,"stv 8m009",3,1.2,85.8,31,7.9,3.3,67,7.1,3.2,7.8,20.1,0.57,1.17,137
+"31","31",1,72,"RHQ",35,"Tifton, GA",773,"acala maxxa",1,1.1,84.6,34,7.9,3.8,76,7.3,3.6,6.5,22,0.59,1.17,154
+"31","32",1,72,"RHQ",35,"Tifton, GA",773,"acala maxxa",2,1.1,84.9,34,7.7,3.5,82,7.5,3.6,6.5,25.6,0.57,1.15,153
+"31","33",1,72,"RHQ",35,"Tifton, GA",1009,"nu 33b",1,1.1,83.6,29,7.5,4.2,82,7.2,4,8.5,19.5,0.56,1.13,125
+"31","34",1,72,"RHQ",35,"Tifton, GA",1009,"nu 33b",2,1.1,84.5,29,8.2,4,82,7.6,4.3,9,16.6,0.54,1.11,128
+"31","35",1,72,"RHQ",35,"Tifton, GA",1104,"sg 747",1,1.1,84.8,27,8.5,5,75,7.7,4.7,9,17.2,0.57,1.13,111
+"31","36",1,72,"RHQ",35,"Tifton, GA",1104,"sg 747",2,1.2,86.4,28,9,5,78,7.5,5.1,9.5,17.3,0.57,1.13,115
+"31","45",1,72,"RHQ",35,"Tifton, GA",1117,"fm 832",1,1.2,87.6,32,7.5,3.8,78,6.7,3.7,8,24.8,0.59,1.21,153
+"31","46",1,72,"RHQ",35,"Tifton, GA",1117,"fm 832",2,1.2,85.2,33,7.9,4.1,83,7.4,4,7.3,22.1,0.59,1.19,158
+"31","37",1,72,"RHQ",35,"Tifton, GA",1128,"acala 1517-99",1,1.2,84.7,33,7.7,4.2,81,7.8,4.1,8.5,21,0.55,1.17,155
+"31","38",1,72,"RHQ",35,"Tifton, GA",1128,"acala 1517-99",2,1.2,84.8,32,8.3,4.5,78,7.2,4.4,8.5,23.2,0.59,1.17,146
+"31","59",1,72,"RHQ",35,"Tifton, GA",1137,"phy psc 355",1,1.1,85,29,9,4.9,74,7.9,4.9,8.5,18.9,0.56,1.11,132
+"31","60",1,72,"RHQ",35,"Tifton, GA",1137,"phy psc 355",2,1.1,84.4,29,9.2,4.8,79,8.1,4.9,8.3,19.6,0.56,1.11,127
+"31","43",1,72,"RHQ",35,"Tifton, GA",1140,"delta pearl",1,1.2,84.5,29,7.5,4.1,81,6.9,4,7.8,18.8,0.55,1.15,137
+"31","44",1,72,"RHQ",35,"Tifton, GA",1140,"delta pearl",2,1.2,85.4,28,7.5,4.4,81,7.7,4.2,7.3,19.9,0.54,1.17,143
+"31","57",1,72,"RHQ",35,"Tifton, GA",1167,"nm 970513",1,1.1,83.6,37,8.2,4.1,78,7.3,3.9,6,25.5,0.59,1.17,156
+"31","58",1,72,"RHQ",35,"Tifton, GA",1167,"nm 970513",2,1.2,86.1,35,8.3,4.2,81,7.5,4.2,6,25.4,0.59,1.17,158
+"31","47",1,72,"RHQ",35,"Tifton, GA",1175,"fm 966",1,1.2,85.3,35,7.7,4.2,76,6.1,4.1,5.8,23,0.59,1.17,148
+"31","48",1,72,"RHQ",35,"Tifton, GA",1175,"fm 966",2,1.2,85.9,37,7.9,4.7,74,5.5,4.5,6.3,23.6,0.57,1.15,151
+"31","49",1,72,"RHQ",35,"Tifton, GA",1176,"jajo 8067",1,1.2,85.3,29,8.3,4.3,73,6.5,4.3,7.5,21.2,0.59,1.19,130
+"31","50",1,72,"RHQ",35,"Tifton, GA",1176,"jajo 8067",2,1.2,84.1,32,8.7,4.3,71,7.1,4.3,8.3,20.1,0.57,1.17,139
+"31","39",1,72,"RHQ",35,"Tifton, GA",1200,"ark-x",1,1.1,84.9,31,8.7,4.3,78,8.4,4.4,9,20.6,0.57,1.13,136
+"31","40",1,72,"RHQ",35,"Tifton, GA",1200,"ark-x",2,1.1,84.7,30,8.6,4.5,72,7.8,4.2,9,20.9,0.58,1.15,135
+"31","41",1,72,"RHQ",35,"Tifton, GA",1201,"dpl 491",1,1.2,85.5,32,7.5,4,80,7.9,3.8,7.8,21.4,0.59,1.19,152
+"31","42",1,72,"RHQ",35,"Tifton, GA",1201,"dpl 491",2,1.2,85.1,31,7.9,4.4,77,7.2,4.3,7.3,21.7,0.59,1.19,146
+"31","51",1,72,"RHQ",35,"Tifton, GA",1202,"jajo 8164",1,1.1,83.1,32,8.8,4.5,77,7.4,4.3,9.3,20.8,0.58,1.09,129
+"31","52",1,72,"RHQ",35,"Tifton, GA",1202,"jajo 8164",2,1.1,83.6,34,8.9,4.7,80,8.1,4.5,9.5,23.6,0.56,1.1,142
+"31","69",1,72,"RHQ",35,"Tifton, GA",1203,"jajo 8192",1,1.1,85.8,29,8.6,4.6,73,8,4.6,9,20.3,0.58,1.15,137
+"31","70",1,72,"RHQ",35,"Tifton, GA",1203,"jajo 8192",2,1.2,86.1,28,9,4.8,78,8.5,4.7,8.3,20.4,0.55,1.15,131
+"31","53",1,72,"RHQ",35,"Tifton, GA",1204,"ms 32-1-9",1,1.1,83.3,32,8.6,4.7,79,7.5,4.6,7.8,21.8,0.56,1.11,132
+"31","54",1,72,"RHQ",35,"Tifton, GA",1204,"ms 32-1-9",2,1.1,84.5,30,8.8,4.5,79,7.3,4.4,8,20.7,0.56,1.11,132
+"31","55",1,72,"RHQ",35,"Tifton, GA",1205,"nc 98-34",1,1.1,84.5,35,8.3,4.5,81,7.6,4.3,7.5,23.4,0.57,1.13,146
+"31","56",1,72,"RHQ",35,"Tifton, GA",1205,"nc 98-34",2,1.1,84.4,34,8.5,4.2,81,7.9,4.1,6.5,21.8,0.56,1.13,151
+"31","61",1,72,"RHQ",35,"Tifton, GA",1206,"ss 0101",1,1.1,83.4,30,8.7,4.7,82,6.9,4.9,7.5,18.9,0.56,1.11,125
+"31","62",1,72,"RHQ",35,"Tifton, GA",1206,"ss 0101",2,1.1,83.7,32,8.5,4.1,83,7.7,4.3,7.8,20.1,0.53,1.1,135
+"31","63",1,72,"RHQ",35,"Tifton, GA",1207,"ss 0102",1,1.1,83.3,30,8.4,4.6,82,7.5,4.6,6.8,19.5,0.54,1.1,126
+"31","64",1,72,"RHQ",35,"Tifton, GA",1207,"ss 0102",2,1.1,84.1,31,8.6,5,81,7.7,4.9,8,19.3,0.54,1.11,122
+"31","65",1,72,"RHQ",35,"Tifton, GA",1208,"stv 580",1,1.1,84.1,28,8.8,5.2,79,7.6,4.9,9,20.2,0.52,1.09,126
+"31","66",1,72,"RHQ",35,"Tifton, GA",1208,"stv 580",2,1.1,83.8,32,9,4.1,80,7.7,4.3,9,21.1,0.56,1.11,132
+"31","67",1,72,"RHQ",35,"Tifton, GA",1209,"stv 8m009",1,1.1,84.5,33,8.5,4.2,75,7.5,4.2,8.5,19.5,0.56,1.11,136
+"31","68",1,72,"RHQ",35,"Tifton, GA",1209,"stv 8m009",2,1.1,85.6,32,8.5,4.2,78,8,4.1,7.8,23.3,0.56,1.11,139
+"18","1",1,72,"RHQ",36,"Florence, SC",773,"acala maxxa",1,1.1,83.2,37,8.5,3.9,69,8.7,3.9,6.3,24,0.55,1.09,151
+"18","2",1,72,"RHQ",36,"Florence, SC",773,"acala maxxa",3,1.1,82,36,8.5,4.3,73,8.2,4.2,6.8,22.4,0.54,1.09,142
+"18","3",1,72,"RHQ",36,"Florence, SC",1009,"nu 33b",1,1.1,81.2,34,9.4,5.4,73,9,5.1,9.5,20,0.54,1.08,124
+"18","4",1,72,"RHQ",36,"Florence, SC",1009,"nu 33b",3,1,78.8,31,9,5.2,68,8.2,5.1,8.3,18.4,0.5,0.98,118
+"18","5",1,72,"RHQ",36,"Florence, SC",1104,"sg 747",1,1,81.7,31,9.3,5.4,68,9.7,5.2,9.8,17.9,0.51,1,110
+"18","6",1,72,"RHQ",36,"Florence, SC",1104,"sg 747",3,1.1,84,29,9.8,5.3,74,9.3,5.2,11,18.7,0.58,1.07,107
+"18","15",1,72,"RHQ",36,"Florence, SC",1117,"fm 832",1,1.1,83.4,38,8.7,4.8,72,9.3,4.5,6.5,21.5,0.54,1.08,149
+"18","16",1,72,"RHQ",36,"Florence, SC",1117,"fm 832",3,1.1,82.1,36,8.5,5.1,69,9,4.9,7.3,20.5,0.52,1.01,151
+"18","7",1,72,"RHQ",36,"Florence, SC",1128,"acala 1517-99",1,1.2,84,37,8.7,4.5,72,9.1,4.5,7.8,24.4,0.57,1.13,152
+"18","8",1,72,"RHQ",36,"Florence, SC",1128,"acala 1517-99",3,1.2,82.3,37,8.7,4.7,70,8.8,4.5,8,22.1,0.55,1.15,148
+"18","29",1,72,"RHQ",36,"Florence, SC",1137,"phy psc 355",1,1,82.8,34,10,5.8,70,9.9,5.4,9.8,20.1,0.51,1.01,115
+"18","30",1,72,"RHQ",36,"Florence, SC",1137,"phy psc 355",3,1.1,84.1,35,10,5.4,69,8.7,5.2,10,20.8,0.56,1.09,122
+"18","13",1,72,"RHQ",36,"Florence, SC",1140,"delta pearl",1,1.1,84.2,35,8.9,5.1,68,7.6,4.9,7,21,0.55,1.09,140
+"18","14",1,72,"RHQ",36,"Florence, SC",1140,"delta pearl",3,1.1,84.5,35,8.7,5.5,74,8.3,5.3,6.8,20.3,0.56,1.11,139
+"18","27",1,72,"RHQ",36,"Florence, SC",1167,"nm 970513",1,1.2,83.6,41,8.5,4.5,72,8.6,4.2,6.5,26.1,0.56,1.11,162
+"18","28",1,72,"RHQ",36,"Florence, SC",1167,"nm 970513",3,1.1,84.3,39,8.7,4.8,72,9.5,4.5,6.5,26.2,0.57,1.1,162
+"18","17",1,72,"RHQ",36,"Florence, SC",1175,"fm 966",1,1.1,82,36,7.9,5,74,8.2,4.8,6,23.5,0.53,1.01,136
+"18","18",1,72,"RHQ",36,"Florence, SC",1175,"fm 966",3,1.1,83.7,36,8.3,5.1,74,9,4.9,5.8,23.8,0.54,1.06,151
+"18","19",1,72,"RHQ",36,"Florence, SC",1176,"jajo 8067",1,1.1,82.5,37,8.9,5.1,67,8,5.1,7.8,22.6,0.56,1.06,137
+"18","20",1,72,"RHQ",36,"Florence, SC",1176,"jajo 8067",3,1.1,83.2,35,9.2,5.3,65,8.3,5,7.5,22.8,0.53,1.07,133
+"18","9",1,72,"RHQ",36,"Florence, SC",1200,"ark-x",1,1.1,83.5,34,10,5.3,69,9.6,5,8.5,20.6,0.53,1.05,127
+"18","10",1,72,"RHQ",36,"Florence, SC",1200,"ark-x",3,1,81.9,34,10,5.5,65,7,5.1,8.5,20.2,0.5,0.98,126
+"18","11",1,72,"RHQ",36,"Florence, SC",1201,"dpl 491",1,1.1,84.2,34,8.9,5.1,72,9.4,4.7,7.8,23.3,0.56,1.11,144
+"18","12",1,72,"RHQ",36,"Florence, SC",1201,"dpl 491",3,1.1,83.7,35,9,5.1,67,7.4,4.8,8,22.1,0.54,1.11,138
+"18","21",1,72,"RHQ",36,"Florence, SC",1202,"jajo 8164",1,1,82.8,40,10,5,72,9.6,4.8,9.3,23.7,0.54,1,141
+"18","22",1,72,"RHQ",36,"Florence, SC",1202,"jajo 8164",3,1,82.8,37,9.4,5.1,73,9.5,4.9,8.5,22.3,0.52,1,133
+"18","23",1,72,"RHQ",36,"Florence, SC",1204,"ms 32-1-9",1,1,82.5,32,9.2,5.4,65,8.6,5.3,8.3,19.9,0.52,1,121
+"18","24",1,72,"RHQ",36,"Florence, SC",1204,"ms 32-1-9",3,1,81.3,32,8.9,5.2,73,9.5,4.9,9.3,21.6,0.52,1.01,122
+"18","25",1,72,"RHQ",36,"Florence, SC",1205,"nc 98-34",1,1.1,82.4,38,8.7,4.9,70,8.8,4.7,7.8,23.9,0.54,1.07,139
+"18","26",1,72,"RHQ",36,"Florence, SC",1205,"nc 98-34",3,1.1,82.4,37,8.9,5.2,72,9.2,5.1,7.5,22.1,0.51,1.04,139
+"18","31",1,72,"RHQ",36,"Florence, SC",1206,"ss 0101",1,1,81.4,34,9.6,5.2,73,8.6,4.9,9.8,20.9,0.52,1.02,126
+"18","32",1,72,"RHQ",36,"Florence, SC",1206,"ss 0101",3,1.1,82.1,34,9.2,5,74,7.8,4.6,9.8,19.9,0.55,1.05,126
+"18","33",1,72,"RHQ",36,"Florence, SC",1207,"ss 0102",1,1,82.1,36,9.6,5.3,74,8.7,5,11,19.2,0.54,1.03,121
+"18","34",1,72,"RHQ",36,"Florence, SC",1207,"ss 0102",3,1,80.7,34,9.4,5.1,69,6.9,4.7,10,19.5,0.54,1.03,128
+"18","35",1,72,"RHQ",36,"Florence, SC",1208,"stv 580",1,1.1,82.6,35,9.2,5.5,71,9.2,4.9,9.3,21.1,0.54,1.03,126
+"18","36",1,72,"RHQ",36,"Florence, SC",1208,"stv 580",3,1,82.6,35,10,5.4,70,8.2,5.2,9.5,20.8,0.54,1.01,122
+"18","37",1,72,"RHQ",36,"Florence, SC",1209,"stv 8m009",1,1.1,81.9,36,9.4,5.2,71,9.4,4.9,7.8,20.8,0.53,1.05,134
+"18","38",1,72,"RHQ",36,"Florence, SC",1209,"stv 8m009",3,1.1,82.4,36,8.9,4.8,73,9.9,4.6,7.8,21.2,0.56,1.09,132
+".",".",1,72,"RHQ",36,"Florence, SC",1209,"stv 8m009",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","1",1,72,"RHQ",37,"Rocky Mount, NC",773,"acala maxxa",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","2",1,72,"RHQ",37,"Rocky Mount, NC",773,"acala maxxa",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",773,"acala maxxa",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",773,"acala maxxa",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","3",1,72,"RHQ",37,"Rocky Mount, NC",1009,"nu 33b",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","4",1,72,"RHQ",37,"Rocky Mount, NC",1009,"nu 33b",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1009,"nu 33b",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1009,"nu 33b",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","5",1,72,"RHQ",37,"Rocky Mount, NC",1104,"sg 747",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","6",1,72,"RHQ",37,"Rocky Mount, NC",1104,"sg 747",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1104,"sg 747",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1104,"sg 747",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","15",1,72,"RHQ",37,"Rocky Mount, NC",1117,"fm 832",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","16",1,72,"RHQ",37,"Rocky Mount, NC",1117,"fm 832",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1117,"fm 832",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1117,"fm 832",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","7",1,72,"RHQ",37,"Rocky Mount, NC",1128,"acala 1517-99",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","8",1,72,"RHQ",37,"Rocky Mount, NC",1128,"acala 1517-99",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1128,"acala 1517-99",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1128,"acala 1517-99",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","29",1,72,"RHQ",37,"Rocky Mount, NC",1137,"phy psc 355",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","30",1,72,"RHQ",37,"Rocky Mount, NC",1137,"phy psc 355",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1137,"phy psc 355",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1137,"phy psc 355",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","13",1,72,"RHQ",37,"Rocky Mount, NC",1140,"delta pearl",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","14",1,72,"RHQ",37,"Rocky Mount, NC",1140,"delta pearl",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1140,"delta pearl",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1140,"delta pearl",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","27",1,72,"RHQ",37,"Rocky Mount, NC",1167,"nm 970513",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","28",1,72,"RHQ",37,"Rocky Mount, NC",1167,"nm 970513",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1167,"nm 970513",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1167,"nm 970513",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","17",1,72,"RHQ",37,"Rocky Mount, NC",1175,"fm 966",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","18",1,72,"RHQ",37,"Rocky Mount, NC",1175,"fm 966",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1175,"fm 966",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1175,"fm 966",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","19",1,72,"RHQ",37,"Rocky Mount, NC",1176,"jajo 8067",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","20",1,72,"RHQ",37,"Rocky Mount, NC",1176,"jajo 8067",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1176,"jajo 8067",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1176,"jajo 8067",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","9",1,72,"RHQ",37,"Rocky Mount, NC",1200,"ark-x",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","10",1,72,"RHQ",37,"Rocky Mount, NC",1200,"ark-x",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1200,"ark-x",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1200,"ark-x",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","11",1,72,"RHQ",37,"Rocky Mount, NC",1201,"dpl 491",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","12",1,72,"RHQ",37,"Rocky Mount, NC",1201,"dpl 491",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1201,"dpl 491",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1201,"dpl 491",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","21",1,72,"RHQ",37,"Rocky Mount, NC",1202,"jajo 8164",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","22",1,72,"RHQ",37,"Rocky Mount, NC",1202,"jajo 8164",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1202,"jajo 8164",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1202,"jajo 8164",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","39",1,72,"RHQ",37,"Rocky Mount, NC",1203,"jajo 8192",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","40",1,72,"RHQ",37,"Rocky Mount, NC",1203,"jajo 8192",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1203,"jajo 8192",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1203,"jajo 8192",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","23",1,72,"RHQ",37,"Rocky Mount, NC",1204,"ms 32-1-9",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","24",1,72,"RHQ",37,"Rocky Mount, NC",1204,"ms 32-1-9",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1204,"ms 32-1-9",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1204,"ms 32-1-9",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","25",1,72,"RHQ",37,"Rocky Mount, NC",1205,"nc 98-34",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","26",1,72,"RHQ",37,"Rocky Mount, NC",1205,"nc 98-34",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1205,"nc 98-34",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1205,"nc 98-34",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","31",1,72,"RHQ",37,"Rocky Mount, NC",1206,"ss 0101",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","32",1,72,"RHQ",37,"Rocky Mount, NC",1206,"ss 0101",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1206,"ss 0101",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1206,"ss 0101",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","33",1,72,"RHQ",37,"Rocky Mount, NC",1207,"ss 0102",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","34",1,72,"RHQ",37,"Rocky Mount, NC",1207,"ss 0102",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1207,"ss 0102",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1207,"ss 0102",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","35",1,72,"RHQ",37,"Rocky Mount, NC",1208,"stv 580",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","36",1,72,"RHQ",37,"Rocky Mount, NC",1208,"stv 580",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1208,"stv 580",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1208,"stv 580",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","37",1,72,"RHQ",37,"Rocky Mount, NC",1209,"stv 8m009",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"25","38",1,72,"RHQ",37,"Rocky Mount, NC",1209,"stv 8m009",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1209,"stv 8m009",3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+".",".",1,72,"RHQ",37,"Rocky Mount, NC",1209,"stv 8m009",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"11","61",1,72,"RHQ",87,"Belle Mina, AL",773,"acala maxxa",1,1.2,85.9,33,8.5,3.7,76,8.7,3.5,8.5,23.9,0.59,1.25,148
+"11","62",1,72,"RHQ",87,"Belle Mina, AL",773,"acala maxxa",2,1.2,85.7,35,8.5,3.8,75,7.9,4,8.5,24.4,0.59,1.23,157
+"11","63",1,72,"RHQ",87,"Belle Mina, AL",1009,"nu 33b",1,1.1,83.8,29,8.6,4.1,76,7.3,4,8.5,23.1,0.55,1.15,137
+"11","64",1,72,"RHQ",87,"Belle Mina, AL",1009,"nu 33b",2,1.2,84.6,30,9,4,76,7.8,4.1,9.5,20.4,0.58,1.17,129
+"11","65",1,72,"RHQ",87,"Belle Mina, AL",1104,"sg 747",1,1.2,85.4,28,9.2,4.7,72,8.7,4.9,11,18.4,0.54,1.17,114
+"11","66",1,72,"RHQ",87,"Belle Mina, AL",1104,"sg 747",2,1.1,84.1,26,9.2,5,72,8.8,4.8,10,18,0.55,1.17,109
+"11","75",1,72,"RHQ",87,"Belle Mina, AL",1117,"fm 832",1,1.2,85.5,33,8.5,3.2,76,7.2,3.3,8.8,27.1,0.59,1.21,157
+"11","76",1,72,"RHQ",87,"Belle Mina, AL",1117,"fm 832",2,1.2,85,31,8.6,3.4,76,7.1,3.4,8.3,26.7,0.59,1.21,156
+"11","67",1,72,"RHQ",87,"Belle Mina, AL",1128,"acala 1517-99",1,1.2,84.8,34,8.4,3.7,70,8.7,3.7,8.5,23.9,0.57,1.23,145
+"11","68",1,72,"RHQ",87,"Belle Mina, AL",1128,"acala 1517-99",2,1.2,85,31,8.7,3.9,71,9.3,3.9,9,24.7,0.58,1.23,153
+"11","89",1,72,"RHQ",87,"Belle Mina, AL",1137,"phy psc 355",1,1.1,83.4,31,9.3,4.5,72,8.6,4.4,9.5,21.9,0.55,1.15,125
+"11","90",1,72,"RHQ",87,"Belle Mina, AL",1137,"phy psc 355",2,1.1,83.8,30,9.6,5,71,7.8,5,9.8,21.4,0.55,1.15,122
+"11","73",1,72,"RHQ",87,"Belle Mina, AL",1140,"delta pearl",1,1.2,85.6,32,8.1,3.7,78,7.4,3.6,7.5,24.9,0.57,1.19,145
+"11","74",1,72,"RHQ",87,"Belle Mina, AL",1140,"delta pearl",2,1.2,84.3,32,8.5,4.3,76,8.3,4.3,8.3,22.1,0.56,1.19,139
+"11","87",1,72,"RHQ",87,"Belle Mina, AL",1167,"nm 970513",1,1.2,85.7,36,8.4,4.2,74,8.4,4.4,6.5,26.6,0.58,1.23,166
+"11","88",1,72,"RHQ",87,"Belle Mina, AL",1167,"nm 970513",2,1.2,84,38,8.5,4.2,70,8.6,4.3,6,26.2,0.59,1.21,166
+"11","77",1,72,"RHQ",87,"Belle Mina, AL",1175,"fm 966",1,1.1,83.5,36,8.3,4.1,75,7.5,4,6.5,25.1,0.56,1.17,149
+"11","78",1,72,"RHQ",87,"Belle Mina, AL",1175,"fm 966",2,1.2,85.4,37,8.5,4.8,73,8.3,4.6,6.5,25.6,0.57,1.17,153
+"11","79",1,72,"RHQ",87,"Belle Mina, AL",1176,"jajo 8067",1,1.2,84.7,32,8.4,4,74,9.3,4.2,8.5,22.8,0.56,1.19,139
+"11","80",1,72,"RHQ",87,"Belle Mina, AL",1176,"jajo 8067",2,1.2,85.3,34,9.2,3.4,74,9.1,3.6,8.8,25.1,0.56,1.19,144
+"11","69",1,72,"RHQ",87,"Belle Mina, AL",1200,"ark-x",1,1.1,85.7,29,9.7,3.5,75,8.5,3.6,9.8,20.4,0.6,1.19,134
+"11","70",1,72,"RHQ",87,"Belle Mina, AL",1200,"ark-x",2,1.2,86.5,32,10,4.5,75,9.2,4.4,9.5,21.3,0.59,1.2,141
+"11","71",1,72,"RHQ",87,"Belle Mina, AL",1201,"dpl 491",1,1.2,84.6,32,8.5,4.3,73,8.6,4.3,8,23,0.58,1.22,147
+"11","72",1,72,"RHQ",87,"Belle Mina, AL",1201,"dpl 491",2,1.2,84.5,32,8.6,3.7,75,9.2,3.9,8.8,20.7,0.59,1.23,143
+"11","81",1,72,"RHQ",87,"Belle Mina, AL",1202,"jajo 8164",1,1.1,83.9,33,9.7,4.2,74,8.1,4.4,10,24.2,0.58,1.15,143
+"11","82",1,72,"RHQ",87,"Belle Mina, AL",1202,"jajo 8164",2,1.1,84,33,9,4.1,75,8.6,4.1,10,26.6,0.55,1.15,153
+"11","99",1,72,"RHQ",87,"Belle Mina, AL",1203,"jajo 8192",1,1.2,85.9,30,9.5,4.6,75,8.3,4.4,8.5,20.4,0.56,1.21,135
+"11","100",1,72,"RHQ",87,"Belle Mina, AL",1203,"jajo 8192",2,1.2,86.7,30,9.4,4.4,77,8.8,4.3,9.5,21.9,0.59,1.21,143
+"11","83",1,72,"RHQ",87,"Belle Mina, AL",1204,"ms 32-1-9",1,1.1,84.5,29,8.7,4.2,71,7,4.2,8.5,19.1,0.57,1.15,129
+"11","84",1,72,"RHQ",87,"Belle Mina, AL",1204,"ms 32-1-9",2,1.1,84.4,30,8.7,4.8,71,7.2,4.9,8.8,19.9,0.56,1.15,133
+"11","85",1,72,"RHQ",87,"Belle Mina, AL",1205,"nc 98-34",1,1.2,83.8,34,8.4,3.5,74,8.5,3.4,7.5,22.6,0.57,1.15,145
+"11","86",1,72,"RHQ",87,"Belle Mina, AL",1205,"nc 98-34",2,1.2,85.2,33,8.6,3.9,76,8.2,4,8,23.7,0.55,1.15,154
+"11","91",1,72,"RHQ",87,"Belle Mina, AL",1206,"ss 0101",1,1.1,83.1,30,8.6,4.1,76,8.6,3.8,8,21.9,0.56,1.13,132
+"11","92",1,72,"RHQ",87,"Belle Mina, AL",1206,"ss 0101",2,1.2,84.1,30,8.8,4.3,72,7.4,4.3,8.8,20.7,0.55,1.15,130
+"11","93",1,72,"RHQ",87,"Belle Mina, AL",1207,"ss 0102",1,1.1,82.7,30,9,3.9,76,7.2,3.8,9.3,21.5,0.55,1.15,138
+"11","94",1,72,"RHQ",87,"Belle Mina, AL",1207,"ss 0102",2,1.2,83.9,32,9.2,4.1,75,7.8,4.2,8.8,21.2,0.55,1.15,132
+"11","95",1,72,"RHQ",87,"Belle Mina, AL",1208,"stv 580",1,1.2,84.4,30,9.6,4.6,75,8.4,4.6,9.3,20.6,0.57,1.17,122
+"11","96",1,72,"RHQ",87,"Belle Mina, AL",1208,"stv 580",2,1.2,84.5,31,9.2,3.9,76,8.4,3.6,11,23.8,0.57,1.17,140
+"11","97",1,72,"RHQ",87,"Belle Mina, AL",1209,"stv 8m009",1,1.1,85.2,31,9.2,4.2,73,8.3,3.8,8.5,21.4,0.57,1.17,137
+"11","98",1,72,"RHQ",87,"Belle Mina, AL",1209,"stv 8m009",2,1.2,84.3,33,8.8,4.3,73,8.2,4.3,8.5,22.4,0.59,1.19,140
+"26","101",1,160,"BLA",180,"Dallas, TX",689,"dpl 90",1,1.1,81.2,28,7.5,5.3,64,7.3,5.1,7.3,17.9,0.51,1.07,118
+"26","102",1,160,"BLA",180,"Dallas, TX",689,"dpl 90",3,1.1,81.7,27,8,6.3,68,7.1,5.4,7.5,19.9,0.53,1.08,106
+"26","93",1,160,"BLA",180,"Dallas, TX",773,"acala maxxa",1,1.1,83.5,43,8.7,5.1,63,7,5.1,6,27.3,0.56,1.13,156
+"26","94",1,160,"BLA",180,"Dallas, TX",773,"acala maxxa",3,1.1,84.4,40,8.1,5.2,60,5.6,5.2,6.5,29.3,0.55,1.13,165
+"26","97",1,160,"BLA",180,"Dallas, TX",1009,"nu 33b",1,1.1,83.4,31,7.9,5.7,68,6.8,5.6,7.3,22.5,0.53,1.11,125
+"26","98",1,160,"BLA",180,"Dallas, TX",1009,"nu 33b",3,1.1,83,33,8.3,5.7,65,6,5.7,6.8,21.6,0.54,1.11,124
+"26","103",1,160,"BLA",180,"Dallas, TX",1018,"tamcot sphinx",1,1,81.8,35,7.7,5.5,66,7.3,5.5,6.8,19.6,0.5,0.99,126
+"26","104",1,160,"BLA",180,"Dallas, TX",1018,"tamcot sphinx",3,1,81,33,7.9,5.5,66,8.1,5.1,6,23.5,0.5,0.99,127
+"26","95",1,160,"BLA",180,"Dallas, TX",1019,"all tex atlas",1,1,82,37,8.6,5.3,62,6.6,5.5,6.3,23.4,0.51,1.01,125
+"26","96",1,160,"BLA",180,"Dallas, TX",1019,"all tex atlas",3,1,81.3,38,8.5,5.4,64,5.9,5.7,7.8,18.1,0.5,1.01,122
+"26","99",1,160,"BLA",180,"Dallas, TX",1104,"sg 747",1,1,82.2,30,8.5,5.5,67,8,5.5,8.3,17.6,0.52,1.03,103
+"26","100",1,160,"BLA",180,"Dallas, TX",1104,"sg 747",3,1,81.6,30,8.7,6.1,67,7.7,6,8,20.1,0.52,1.01,92
+"26","113",1,160,"BLA",181,"Thrall, TX",689,"dpl 90",1,1.1,81.4,26,8.3,4.8,64,5.1,4.8,7,17,0.52,1.06,112
+"26","114",1,160,"BLA",181,"Thrall, TX",689,"dpl 90",3,1.1,81.7,26,8.7,5,71,6.9,4.7,6.8,18.4,0.51,1.07,113
+"26","105",1,160,"BLA",181,"Thrall, TX",773,"acala maxxa",1,1.1,83.8,40,8.7,4,64,6.3,4,6,26.5,0.58,1.13,171
+"26","106",1,160,"BLA",181,"Thrall, TX",773,"acala maxxa",3,1.1,84.4,38,8.5,4.3,68,6.6,4.3,5.5,27.1,0.57,1.13,178
+"26","109",1,160,"BLA",181,"Thrall, TX",1009,"nu 33b",1,1.1,81.6,29,8.1,4.8,70,6.8,4.8,6,19,0.53,1.1,119
+"26","110",1,160,"BLA",181,"Thrall, TX",1009,"nu 33b",3,1.1,81.6,29,8.3,5.1,68,5.3,5.1,6.3,20.3,0.54,1.07,122
+"26","115",1,160,"BLA",181,"Thrall, TX",1018,"tamcot sphinx",1,1,81.6,32,7.7,4.7,65,7.3,4.7,5,21.6,0.52,1.03,127
+"26","116",1,160,"BLA",181,"Thrall, TX",1018,"tamcot sphinx",3,1.1,81.3,32,8.1,4.9,69,6.6,4.9,6.3,19.2,0.54,1.06,140
+"26","107",1,160,"BLA",181,"Thrall, TX",1019,"all tex atlas",1,1,81.7,36,8.9,4.9,67,6.7,4.8,6.5,22,0.53,1.04,131
+"26","108",1,160,"BLA",181,"Thrall, TX",1019,"all tex atlas",3,1.1,82.1,33,8.6,4.3,62,7.2,4.3,6,20.5,0.54,1.07,133
+"26","111",1,160,"BLA",181,"Thrall, TX",1104,"sg 747",1,1.1,83.4,29,8.8,5.3,68,7.2,5.3,7.3,19.8,0.54,1.08,119
+"26","112",1,160,"BLA",181,"Thrall, TX",1104,"sg 747",3,1,83.1,28,8.7,5.6,68,7.3,5.3,7.5,17.4,0.53,1.07,119
