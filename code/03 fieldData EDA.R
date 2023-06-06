@@ -13,6 +13,9 @@ df_csv <- read.csv("output/combined_data.csv")
 
 # Finding columns with 100% NAs
 na100 <- df_csv %>%
+
+# Finding columns with 100% NAs
+na100 <- df %>%
   summarise(across(everything(), ~sum(is.na(.)))) %>%
   pivot_longer(cols = everything()) %>%
   arrange(desc(value)) %>%
@@ -25,6 +28,9 @@ na100 <- df_csv %>%
 df_w <- df_csv %>%
   dplyr::select(-all_of(na100)) %>% # consider removing x22, x23 also 
   dplyr::select(-x20, -x22, -x23)
+df_w <- df %>%
+  dplyr::select(-all_of(na100))
+
 View(df_w)
 
 
@@ -36,6 +42,7 @@ df_w %>%
 
   
 df_csv %>%
+df %>%
   filter(yr == 87) %>%
   View
   dplyr::select(contains("star"), yr) #%>%
@@ -47,4 +54,4 @@ str(df_csv)
 str(df_w)
 
 
-
+str(test)
