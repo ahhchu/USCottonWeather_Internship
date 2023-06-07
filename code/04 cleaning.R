@@ -27,11 +27,12 @@ df_mic <- df_filtered %>%
     names_to = "names",
     values_to = "value",
   ) %>% separate(names, sep = "_", into = c("mic", "lab")) %>%
-  group_by(loc, yr, var, sample, breeder, reg) %>%
+  group_by(loc, yr, var, sample, breeder, regcode, 
+           reg, loccode, vcode, rep) %>%
   summarize(mean_mic = mean(value, na.rm = TRUE)) %>%
   arrange(yr)
 
-  
+
 # for str
 df_str <- df_filtered %>%
   pivot_longer(
@@ -39,7 +40,8 @@ df_str <- df_filtered %>%
     names_to = "names",
     values_to = "value",
   ) %>% separate(names, sep = "_", into = c("str", "lab")) %>%
-  group_by(loc, yr, var, sample, breeder) %>%
+  group_by(loc, yr, var, sample, breeder, regcode, 
+           reg, loccode, vcode, rep) %>%
   summarize(mean_str = mean(value, na.rm = TRUE)) %>%
   arrange(yr)
 
@@ -50,7 +52,8 @@ df_uhm <- df_filtered %>%
     names_to = "names",
     values_to = "value",
   ) %>% separate(names, sep = "_", into = c("str", "lab")) %>%
-  group_by(loc, yr, var, sample, breeder) %>%
+  group_by(loc, yr, var, sample, breeder, regcode, 
+           reg, loccode, vcode, rep) %>%
   summarize(mean_uhm = mean(value, na.rm = TRUE)) %>%
   arrange(yr)
 
@@ -61,7 +64,8 @@ df_ui <- df_filtered %>%
     names_to = "names",
     values_to = "value",
   ) %>% separate(names, sep = "_", into = c("ui", "lab")) %>%
-  group_by(loc, yr, var, sample, breeder) %>%
+  group_by(loc, yr, var, sample, breeder, regcode, 
+           reg, loccode, vcode, rep) %>%
   summarize(mean_ui = mean(value, na.rm = TRUE)) %>%
   arrange(yr)
 
@@ -71,8 +75,10 @@ df_rd <- df_filtered %>%
     cols = c('rd', 'rd_spin', 'rd_mot', 'rd_star'),
     names_to = "names",
     values_to = "value",
-  ) %>% separate(names, sep = "_", into = c("rd", "lab")) %>%
-  group_by(loc, yr, var, sample, breeder) %>%
+  ) %>% 
+  separate(names, sep = "_", into = c("rd", "lab")) %>%
+  group_by(loc, yr, var, sample, breeder, regcode, 
+           reg, loccode, vcode, rep) %>%
   summarize(mean_rd = mean(value, na.rm = TRUE)) %>%
   arrange(yr)
 
@@ -83,8 +89,9 @@ df_b <- df_filtered %>%
     names_to = "names",
     values_to = "value",
   ) %>% separate(names, sep = "_", into = c("b", "lab")) %>%
-  group_by(loc, yr, var, sample, breeder) %>%
-  summarize(mean_rd = mean(value, na.rm = TRUE)) %>%
+  group_by(loc, yr, var, sample, breeder, regcode, 
+           reg, loccode, vcode, rep) %>%
+  summarize(mean_b = mean(value, na.rm = TRUE)) %>%
   arrange(yr)
 
 
@@ -97,8 +104,18 @@ mean_df <- merge(df_uhm, df_mic, by = c("loc", "yr", "var", "sample", "breeder")
   merge(df_b, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
   arrange(yr)
 
-View(mean_df)
-
+# write to files
 write_xlsx(mean_df, "output/mean data.xlsx")
+write_csv(mean_df, "output/mean data.csv")
+
+df <- read_csv("output/mean data.csv") %>% 
+  View()
+
+year_list <- 1980:2020  
+for (year in year_list) {
+    assign(paste0("df", year), df_filtered %>% filter(yr == year))
+}
+
+
 
 
