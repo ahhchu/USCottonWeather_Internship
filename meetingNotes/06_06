@@ -1,0 +1,49 @@
+Dealing with mot, spin, star, hvi 
+1. Some have all the suffix afterwards but some only have the suffix at the last column 
+    meaning that all the variables that are before it belong to the suffix located in the last column  (1991)
+    
+  
+      helpful packages:
+      library(tidyr)
+      libary(dplyr)
+      
+      # use these to help properly categorize the suffixes (those that only have the lab in the last column)
+      select() rename()
+      
+      
+    Let's say we use 2 columns to compare with (mic_star, mic_mot)
+    So we create a new table that has column name and value and looks like this # pivot_longer() 
+          name    | value
+        mic_star  | 1 
+        mic_star  | 2
+        mic_star  | 1
+        mic_mot   | 1
+        mic_mot   | 1
+        mic_mot   | 2
+        
+        we want to transform into new table like below # separate()
+        
+        
+        mic | lab  | value           1. column mic: referring to the prefix (mic variable) (only gonna have mic in mic column)
+        mic | star | 1               2. lab: type of lab recorded at (in this case: star/mot)
+        mic | star | 2               3. value 
+        mic | mot  | 1
+        mic | mot  | 1
+      
+        ... ect ... 
+    
+    then we want to (group the observation values by unique values # group_by()
+    1. group by loc (ex:lubock,tx) 
+    2. same year (obv)
+    3. same variety 
+    4. same ect 
+    
+    then find the mean of the similar rows (if there is a NA spot make sure to remove) # summarize() ? not sure what this function is
+  
+    
+    df >
+      pivot_longer(mic_star, mic_mot) >
+      separate(name, sep = "_", into=c("mic", "lab")) >
+      group_by(loc, year, var) >
+      sumarize(?_mic = mean(value, na.rm=T)) # this line recheck picture 
+      
