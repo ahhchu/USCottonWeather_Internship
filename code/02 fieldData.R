@@ -75,6 +75,13 @@ rename_columns <- function(data) {
   if ("name" %in% colnames(data)) {
     colnames(data)[colnames(data) == "name"] <- "var"
   }
+  if ("scn_cnt" %in% colnames(data)) {
+    colnames(data)[colnames(data) == "scn_cnt"] <- "scn"
+  }
+  if ("scn_ct" %in% colnames(data)) {
+    colnames(data)[colnames(data) == "scn_ct"] <- "scn"
+  }
+  
   return(data)
 }
 
@@ -148,8 +155,8 @@ combined_data <- combined_data %>% mutate_if(mixed_cols, as.numeric)
 data_frames <- lapply(1:41, function(i) get(paste0("data", i))) 
 combined_data <- dplyr::bind_rows(data_frames)
 
-write_csv(combined_data, "output/combined data.csv")
-write_xlsx(combined_data,"output/combined data.xlsx")
+write_csv(combined_data, "output/uncleanedCombined/combined data.csv")
+write_xlsx(combined_data,"output/uncleanedCombined/combined data.xlsx")
 
 
 

@@ -5,15 +5,16 @@ library(readxl)
 library(openxlsx)
 library(writexl)
 library(dplyr)
-
+library(readr)
 # Load data ###############
-df_csv <- read.csv("output/combined data.csv")  # must save data as csv in 02 fieldData 
+df_csv <- read.csv("output/uncleanedCombined/combined data.csv")  # must save data as csv in 02 fieldData 
 na_percentage <- colMeans(is.na(df_csv)) * 100 # reading the csv from xlsx will change most values to logical 
 
+df <- read.xlsx("output/uncleanedCombined/combined data.xlsx")
+
 # Selecting out ~100% NAs and removing those columns 
-df_filtered <- df_csv %>%
-  dplyr::select_if(~!(all(is.na(.)))) %>%
-  dplyr::select(-x20, -x22, -x23)
+df_filtered <- df %>%
+  dplyr::select_if(~!(all(is.na(.)))) 
 
 #  rename mic to mic_star for years 1989->1992. 
 years1 <- 89:92
@@ -25,7 +26,7 @@ df_filtered %>%
 df_mic <- df_filtered %>%
   mutate(row_index = row_number()) %>%
   pivot_longer(
-    cols = c('mic_star', 'mic_spin', 'mic_st', 'mic_str', 'mic_mot', 'mic'),
+    cols = c('mic_star', 'mic_spin', 'mic_st', 'mic_str', 'mic_mot', 'mic', 'mic_hvi'),
     names_to = "names",
     values_to = "value"
   ) %>% separate(names, sep = "_", into = c("mic", "lab")) %>%
@@ -116,44 +117,13 @@ df_b <- df_filtered %>%
 
 mean_df<- bind_cols(df_mic, df_rd, df_str, df_uhm, df_ui)
 
-# using reduce 
-df_list <- list(df_uhm, df_mic, df_str, df_ui, df_rd, df_b)
-mean_df <- Reduce(function(x, y) merge(x, y, by = c("loc", "yr", "var", "sample", "breeder",  "reg", "loccode", "vcode", "rep", "regcode"), all = TRUE), df_list) %>%
-  arrange(yr)
-
-# using tidyverse 
-df_list <- list(df_uhm, df_mic, df_str, df_ui, df_rd, df_b)
-df_list %>% reduce(full_join, by='yr', 'loc')
-
-# Convert data frames to data.tables
- dt_uhm <- as.data.table(df_uhm)
- dt_mic <- as.data.table(df_mic)
- dt_str <- as.data.table(df_str)
- dt_ui <- as.data.table(df_ui)
- dt_rd <- as.data.table(df_rd)
- dt_b <- as.data.table(df_b)
- mean_dt <- merge(dt_uhm, dt_mic, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-     merge(dt_str, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-     merge(dt_ui, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-     merge(dt_rd, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-     merge(dt_b, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-     .[order(yr)]  # Sort by "yr" column
-
- # merge as DF (original)
- mean_df <- merge(df_uhm, df_mic, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-   merge(df_str, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-   merge(df_ui, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-   merge(df_rd, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-   merge(df_b, by = c("loc", "yr", "var", "sample", "breeder"), all = TRUE) %>%
-   arrange(yr)
-
- 
 # write to files
-write_xlsx(mean_df, "output/mean data.xlsx")
-write_csv(mean_df, "output/mean data.csv")
+write_xlsx(mean_df, "output/mean/mean data.xlsx")
+write_csv(mean_df, "output/mean/mean data.csv")
 
 # write df_filtered to file (comparison purposes)
-write_xlsx(df_filtered, "output/filtered.xlsx")
+write_xlsx(df_filtered, "output/cleaned/filtered.xlsx")
+write_csv(df_filtered, "output/cleaned/filtered.csv")
 
 
 
