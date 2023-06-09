@@ -69,7 +69,11 @@ sfc_percent_yr <- unique(combined_df$yr[!is.na(combined_df$sfc_percent)])
 
 sfc_values <- combined_df$sfc[!is.na(combined_df$sfc)]
 sfc_yr <-  unique(combined_df$yr[!is.na(combined_df$sfc)])
+
+sf_values <- combined_df$sf[!is.na(combined_df$sf)]
+sf_yr <-  unique(combined_df$yr[!is.na(combined_df$sf)])
                                       
+
 # len_w
 len_w_values <- combined_df$len_w[!is.na(combined_df$len_w)]
 len_w_yr <-  unique(combined_df$yr[!is.na(combined_df$len_w)])
@@ -139,6 +143,23 @@ len_n_yr <-  unique(combined_df$yr[!is.na(combined_df$len_n)])
 l_n_values <- combined_df$l_n[!is.na(combined_df$l_n)]
 l_n_yr <-  unique(combined_df$yr[!is.na(combined_df$l_n)])
 
+#uhml
+uhml_values <- combined_df$uhml[!is.na(combined_df$uhml)]
+uhml_yr <-  unique(combined_df$yr[!is.na(combined_df$uhml)])
+
+# unml
+unml_values <- combined_df$unml[!is.na(combined_df$unml)]
+unml_yr <-  unique(combined_df$yr[!is.na(combined_df$unml)])
+
+# test 
+test_values <- combined_df$test[!is.na(combined_df$test)]
+test_yr <-  unique(combined_df$yr[!is.na(combined_df$test)])
+
+# reg
+reg_values <- combined_df$reg[!is.na(combined_df$reg)]
+reg_yr <-  unique(combined_df$yr[!is.na(combined_df$reg)])
+
+
 # move code column into regcode 
 combined_df <- combined_df %>%
   mutate(regcode = ifelse(yr %in% code_yr, code, regcode), # code -> regcode 
@@ -171,7 +192,14 @@ combined_df <- combined_df %>%
          x25_sl = ifelse(yr %in% x25_sl_yr, NA, x25_sl)) %>%
   mutate(l_n = ifelse(yr %in% len_n_yr, len_n, l_n), # len_n -> l_n
          len_n = ifelse(yr %in% len_n_yr, NA, len_n)) %>%
-  select(-code, -sf_n, -maturity, -sfc_percent, -len_w, -mat_rat, -x50_sl, -nep_cnt, -nepct, -elg_hvi, -elong, -elo, -x25sl_star, -x20, -x22, -x23, -elg_star, -x25_sl, -len_n)
+  mutate(uhml = ifelse(yr %in% unml_yr, unml, uhml), # unml -> uhml
+         unml = ifelse(yr %in% unml_yr, NA, unml)) %>%
+  mutate(reg = ifelse(yr %in% test_yr, test, reg), # test -> reg 
+         test = ifelse(yr %in% test_yr, NA, test)) %>%
+  mutate(sfc = ifelse(yr %in% sf_yr, sf, sfc), # sf -> sfc 
+         sf = ifelse(yr %in% sf_yr, NA, sf)) %>%
+  select(-code, -sf_n, -maturity, -sfc_percent, -len_w, -mat_rat, -x50_sl, -nep_cnt, -nepct, -elg_hvi,
+         -elong, -elo, -x25sl_star, -x20, -x22, -x23, -elg_star, -x25_sl, -len_n, -unml, -test, -sf)
 
 View(combined_df)
 
@@ -190,9 +218,23 @@ na80 <- combined_df %>%
   pull(name)
 
 
+
+# mean_uhm uhml elg 
+# row left, right, inner, outer ect JOIN() 
+
   
   
+mean_uhm_values <- combined_df$mean_uhm[!is.na(combined_df$mean_uhm)]
+mean_uhm_yr <-  unique(combined_df$yr[!is.na(combined_df$mean_uhm)])
   
+
+uhml_values <- combined_df$uhml[!is.na(combined_df$uhml)]
+uhml_yr <-  unique(combined_df$yr[!is.na(combined_df$uhml)])
+
+
+elg_values <- combined_df$elg[!is.na(combined_df$elg)]
+elg_yr <-  unique(combined_df$yr[!is.na(combined_df$elg)])
+
   
   
   
