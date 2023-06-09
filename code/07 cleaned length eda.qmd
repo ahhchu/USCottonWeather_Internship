@@ -1,0 +1,75 @@
+---
+title: "Untitled"
+format: html
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+df <- read_csv("output/cleaned/cleaned.cvs")
+```
+
+```{r}
+df %>%
+  summary
+```
+
+```{r}
+df %>%
+  dplyr::select(loc, yr, rep, vcode, yt:e1, #elg, 
+                mean_mic:mean_ui, -mean_uhm) %>%
+  drop_na #%>%
+  summary
+  
+  
+  
+```
+
+uhml, mean_uhm, elg
+
+
+```{r}
+df %>%
+  dplyr::select(uhml, mean_uhm, elg) %>%
+  summary
+  
+  
+df %>%
+  dplyr::select(uhml, mean_uhm, elg) %>%
+  filter(is.na(uhml) & is.na(mean_uhm)) #18,920 rowa
+
+df %>%
+  dplyr::select(uhml, mean_uhm, elg) %>%
+  filter(!is.na(uhml) & !is.na(mean_uhm)) #0
+
+df %>%
+  dplyr::select(uhml, mean_uhm, elg) %>%
+  filter(is.na(uhml) & !is.na(mean_uhm)) #9,963
+
+df %>%
+  dplyr::select(uhml, mean_uhm, elg) %>%
+  filter(!is.na(uhml) & is.na(mean_uhm)) #10,073
+
+
+nrow(df) - 20000
+
+df %>%
+  filter(uhml <= 5 | is.na(uhml)) %>%
+  dplyr::select(uhml, mean_uhm) %>%
+  mutate(mean_uhm = round(mean_uhm, 2)) %>%
+  #summary
+  pivot_longer(cols = everything()) %>%
+  ggplot()+
+  geom_density(aes(x=value, fill = name), alpha=.7)+
+  #facet_wrap(~name, scales = "free")+
+  labs(x = "Length value", y="Density",
+       fill = "Length variable")+
+  theme(legend.position = c(.15, .8))
+
+ggsave("output/length_comparison.png",
+       width = 6,
+       height = 4)
+```
+
