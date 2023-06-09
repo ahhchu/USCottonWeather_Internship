@@ -112,10 +112,24 @@ df_b <- df_filtered %>%
   ungroup() %>%
   select(-row_index, -yr, -loc, -var, -sample, -breeder, -regcode, -reg, -loccode, -vcode, -rep)
 
+# x25sl 
+df_x25sl <- df_filtered %>%
+  mutate(row_index = row_number()) %>%
+  pivot_longer(
+    cols = c('x25sl_star', 'x25sl'),
+    names_to = "names",
+    values_to = "value",
+  ) %>% separate(names, sep = "_", into = c("x25sl", "lab")) %>%
+  group_by(row_index,loc, yr, var, sample, breeder, regcode, 
+           reg, loccode, vcode, rep) %>%
+  summarize(mean_x25sl = mean(value, na.rm = TRUE)) %>%
+  arrange(row_index) %>%
+  ungroup() %>%
+  select(-row_index, -yr, -loc, -var, -sample, -breeder, -regcode, -reg, -loccode, -vcode, -rep)
 
 # Merge #############
 
-mean_df<- bind_cols(df_mic, df_rd, df_str, df_uhm, df_ui)
+mean_df<- bind_cols(df_mic, df_rd, df_str, df_uhm, df_ui, df_b, df_x25sl)
 
 # write to files
 write_xlsx(mean_df, "output/mean/mean data.xlsx")
