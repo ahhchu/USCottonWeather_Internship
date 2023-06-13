@@ -2,6 +2,60 @@
  # Check with USDA what e1 and t1 are
  
       
-      
-      
-      
+  Goals: Combine quality and coordinates file using join() (inner, left, right, outer ,ect)
+  Steps: 1. clean coordinate and quality files so that locations have the same format/name 
+            (if not join() will not properly work as it requires same format)
+          2. after joining quality and coordinates files start looking at daymet 
+          
+          
+          # locations changes to make 
+              
+          rename 
+          (c) Phenix, AZ / spell Phoenix, AZ
+          
+          Fresno County / add state
+          
+          El Paso, TX(irri) / keep
+          EL Paso, TX(irri) / lowercase L to El 
+          EL Paso, TX(PIMA) / remove regcode 
+          El Paso, TX / keep
+          El Paso, TX(irri) / keep
+          
+          Pecos, TX / keep
+          Pecos, TX(irri) / keep
+          Pecos, TX (IRRI) / lowercase irri 
+          Pecos / add state 
+          
+          Lubbock, TX / keep
+          lubbock, TX(irri / add ) 
+          Lubbock, TX(irri) / keep
+          LUB / change to Lubbock, TX 
+          Lubbock / add state
+          lubbock / Capitalize and add state 
+          Lubbock (irri) / add state
+          Lubbock, TX(IRR) / lowercase IRR to irri 
+          NA / says loccode 11 so check if is LUBBOCK 
+          
+          Chillicothe, TX(irri) / keep
+          Chillicoth, TX(irri) / correclty spell 
+          Chillicothe, TX(iiri) / irri 
+          Chillicothe, TX(IRR) / irri
+          hillicothe, TX / spell
+          NA / says 15 check
+          
+          Altus, OK(irri)
+          Altus, TX(irri)
+          Altus, OK
+          Altus
+          Altus, OK(dry)
+          
+
+          
+          
+          
+          
+          
+          (q) University park, NM  -> University Park, NM
+          
+          
+          
