@@ -1,0 +1,197 @@
+---
+title: "06 location cleaning.R"
+format: html
+editor: visual
+---
+
+# setup #####################
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readxl)
+library(readr)
+library(writexl)
+```
+# library(neatr) # for R markdown 
+
+# load data ##################
+```{r}
+df_c <- read_csv("data/Cotton heatress Longitde and Latitude.csv")
+df_q <- read_csv("output/cleaned/cleaned.csv")
+```
+
+# viewing mispelled values
+
+```{r}
+loc_q <- df_q %>%
+  dplyr::select(loc, loccode) %>% 
+  arrange(loccode) %>% 
+  distinct()
+
+loc_c <- df_c %>% 
+  dplyr::select(loc, loccode) %>%
+  arrange(loccode) %>%
+  distinct() 
+```
+
+
+```{r}
+df_c %>% 
+  dplyr::select(loc, loccode) %>%
+  distinct() %>%
+  arrange(loccode)
+  filter(grepl("(*)", loc))
+```
+
+# Case when
+```{r}
+df_c %>%
+  distinct(loc) %>%
+  arrange(loc) %>%
+  mutate(irrigation = case_when(
+    grepl("iir|irri|IRRI", loc) ~ "irrigated",
+    grepl("dry", loc) ~ "dryland",
+    T ~ NA
+  )) %>%
+  mutate(loc_fixed = case_when(
+    grepl("Altus|ALTUS",loc) ~ "Altus, OK",
+    grepl("Artesia", loc) ~ "Artesia, NM",
+    grepl("Phenix", loc) ~ "Phoenix, AZ",
+    grepl("EL Paso|El Paso", loc) ~ "El Paso, TX",
+    grepl("Pecos", loc) ~ "Pecos, TX",
+    grepl("lubbock|LUB|Lubbock|lubbock", loc) ~ "Lubbock, TX",
+    grepl("Chillicothe|hillicothe|Chillicoth", loc) ~ "Chillicothe, TX",
+    grepl("College", loc) ~ "College Station, TX",
+    grepl("Weslaco|Weslago" ,loc) ~ "Weslaco, TX",
+    grepl("Bosserier|Bossier", loc) ~ "Bossier City, LA",
+    grepl("Saint Joesph,TX|San Joesph,LA|Saint Joseph|Saint Joesph, LA|San Joesph, LA", loc) ~ "Saint Joesph, LA",
+    grepl("stoneville|Stonvelle|Stoneville,MS|Stoneville", loc) ~ "Stoneville, MS",
+    grepl("Clarkedale|Clarkdale", loc) ~ "Clarkedale, AZ",
+    grepl("Alburn|Aubur|Auburn", loc) ~ "Auburn, AL",
+    grepl("Tipton", loc) ~ "Tifton, GA",
+    grepl("Forence|Florence", loc) ~ "Florence, SC",
+    grepl("Ricky|Rocky mount", loc) ~ "Rocky Mount, NC",
+    grepl("Chickasa|Chickasha", loc) ~ "Chickasha, OK",
+    grepl("Artesia, NM", loc) ~ "Artesia, NM",
+    grepl("Maricopa|Maricopa, AX", loc) ~ "Maricopa, AZ",
+    grepl("Starkeville|starkville|Starkville", loc) ~ "Starkville, MS",
+    grepl("Beeville|Beeville, OK", loc) ~ "Beeville, TX",
+    grepl("Portageville, MS|Portegeville|Portageville", loc) ~ "Portageville, MO",
+    grepl("Lamesa, NM" ,loc) ~ "La Mesa, NM",
+    grepl("Bell Mina|Belle Mina", loc) ~ "Belle Mina, AL",
+    grepl("Rohwer, AZ", loc) ~ "Rohwer, AR",
+    grepl("Five Points", loc) ~ "Five Points, CA",
+    grepl("Lemore", loc) ~ "Lemoore, CA",
+    grepl("W field station, CA|w side field station, CA|W. Side Field Station, CA|W side field station, CA", loc) ~ "W Side Field Station, CA", 
+    grepl("Griffin", loc) ~ "Griffin, GA",
+    grepl("Las Cruces|Las cruces", loc) ~ "Las Cruces, NM",
+    grepl("Lamesa", loc) ~ "Lamesa, TX",
+    grepl("Suffolk, CA|Suffolk, VA ??", loc) ~ "Suffolk, VA",
+    grepl("Ames Plantatino", loc) ~ "Ames Plantaion, TN",
+    grepl("Yuma, AZ??", loc) ~ "Yuma, AZ",
+    grepl("Dallas", loc) ~ "Dallas, TX",
+    grepl("Thrall", loc) ~ "Thrall, TX",
+    grepl("Kerser|Keiser", loc) ~ "Keiser, AR",
+    grepl("tiptop|Tipton", loc) ~ "Tipton, OK",
+    grepl("Commerce", loc) ~ "Commerce, TX",
+    grepl("C Christi|C Christi-D|Corpus Christi", loc) ~ "Corpus Christi, TX",
+    grepl("maricopa", loc) ~ "Maricopa, AZ",
+    grepl("knoxville ???", loc) ~ "Knoxville, TN",
+    grepl("Halfway", loc) ~ "Halfway, TX",
+    grepl("Mangum", loc) ~ "Mangum, OK",
+
+
+    T ~ loc
+  )) %>% 
+  View()
+```
+
+# df_q
+```{r}
+df_q %>% 
+  distinct(loc) %>%
+  arrange(loc) %>%
+  mutate(irrigation = case_when(
+    grepl("iir|irri|IRRI", loc) ~ "irrigated",
+    grepl("dry", loc) ~ "dryland",
+    T ~ NA
+  )) %>%
+  mutate(loc_fixed = case_when(
+    grepl("ALTUS|Altus", loc) ~ "Altus, OK",
+    grepl("Artesia", loc) ~ "Artesia, NM",
+    grepl("Auburn", loc) ~ "Auburn, AL",
+    grepl("BELLA MINA|Belle Mina", loc) ~ "Belle Mina, AL",
+    grepl("Beeville", loc) ~ "Beeville, TX",
+    grepl("Bosserier|Bossier Cith|Bossier City", loc) ~ "Bossier City, LA",
+    grepl("C CHRISTI-D|Corpus Christi", loc) ~ "Corpus Christi, TX",
+    grepl("CHILLOCOTHE|Chillicothe|hillicothe", loc) ~ "Chillicothe, TX",
+    grepl("Chickasa|Chickasha", loc) ~ "Chickasha, OK",
+    grepl("COMMERCE|Commerce", loc) ~ "Commerce, TX",
+    grepl("Clarkedale, LA", loc ) ~ "Clarkedale, AR",
+    grepl("College|College station", loc) ~ "College Station, TX",
+    grepl("Dallas", loc) ~ "Dallas, TX",
+    grepl("EL Paso|El Paso", loc) ~ "El Paso, TX",
+    grepl("FIVE POINTS|Five Points", loc) ~ "Five Points, CA",
+    grepl("FLORENCE|Florence", loc) ~ "Florence, SC",
+    grepl("Fort Cobb", loc) ~ "Fort Cobb, OK",
+    grepl("GRIFFIN, GA|Griffin", loc) ~ "Griffin, GA",
+    grepl("Halfway", loc) ~ "Halfway, TX",
+    grepl("JACKSON|Jackson", loc) ~ "Jackson, TN",
+    grepl("Keiser|Keiser|Kerser|KEISER", loc) ~ "Keiser, AR",
+    grepl("LAMESA-D|LEMESA|Lamesa", loc) ~ "Lamesa, TX",
+    grepl("LAS CRUCES|Las Cruces|Las cruces", loc) ~ "Las Cruces, NM",
+    grepl("LUB|LUBBOCK|Lubbock|lubbock",loc) ~ "Lubbock, TX",
+    grepl("Lemore", loc) ~ "Lemoore, CA",
+    grepl("MARICOPA|Maricopa", loc) ~ "Maricopa, AZ",
+    grepl("Mangum", loc)  ~ "Mangum, OK",
+    grepl("Marama", loc) ~ "Marana, AZ",
+    grepl("Pecos", loc) ~ "Pecos, TX",
+    grepl("Fresno County", loc) ~ "Fresno County, CA",
+    grepl("Kings County", loc) ~ "Kings County, CA",
+    grepl("Portgeville|Portegeville|PORTAG|Portageville", loc) ~ "Portageville, MO",
+    grepl("Rocky mount|ROCKY MT", loc) ~ "Rocky Mount, NC",
+    grepl("Rowher", loc) ~ "Rowher, AR",
+    grepl("Saint Joesph,TX|San Joesph,LA|Saint Joseph|Saint Joesph, LA|San Joesph, LA|Saint, Joesph|Sant Joseph", loc) ~ "Saint Joesph, LA",
+    grepl("Stoneville|STONEVILLE|stoneville", loc) ~ "Stoneville, MS",
+    grepl("Suffolk|SUFFOLK", loc) ~ "Suffolk, VA",
+    grepl("starkville|STARKVILLE|Starkville", loc) ~ "Starkville, MS",
+    grepl("THRALL|Thrall", loc) ~ "Thrall, TX",
+    grepl("TIPTON", loc) ~ "Tifton, GA",
+    grepl("Univeristy park", loc) ~ "University Park, NM",
+    grepl("W field station, CA|w side field station, CA|W. Side Field Station, CA|W side field station, CA", loc) ~ "W Side Field Station, CA",
+    grepl("WESLACO|Weslaco|Weslago|Weslago", loc) ~ "Weslaco, TX",
+    grepl("knoxville", loc)  ~ "Knoxville, TN",
+    grepl("yuma", loc) ~ "Yuma, AZ",
+    T ~ loc
+  )) %>%
+  filter(year=97&loccode=19)
+  View()
+```
+  
+
+
+```{r}
+df_filtered <- df_c %>% 
+  filter(year == 97 & loccode == 19) %>%
+  mutate(
+    loc = ifelse(is.na(loc), "College Station, TX", loc),
+    Latitude = ifelse(is.na(Latitude), "30.6280° N", Latitude),
+    Longitude = ifelse(is.na(Longitude), "96.3344° W", Longitude)
+  )
+
+df_filtered
+
+```
+```{r}
+target_columns <- c("loc", "Latitude", "Longitude")  # Specify the columns where you expect NA values
+reference_column <- "loccode"  # Specify the column where you expect non-NA values
+
+rows_with_na <- df_c[rowSums(is.na(df_c[, target_columns])) > 0 & !is.na(df_c[, reference_column]), ]
+
+print(rows_with_na)
+```
+
+ 
+
+
+
