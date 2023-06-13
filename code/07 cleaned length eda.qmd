@@ -8,12 +8,35 @@ library(tidyverse)
 ```
 
 ```{r}
-df <- read_csv("output/cleaned/cleaned.cvs")
+df <- read_csv("../output/cleaned/cleaned.cvs")
 ```
 
 ```{r}
 df %>%
   summary
+```
+
+# EDA 
+## Sites
+```{r}
+df %>%
+  group_by(loc, loccode) %>%
+  tally
+```
+
+## Years
+```{r}
+df %>%
+  group_by(yr) %>%
+  tally
+```
+
+## Site-years
+How many site-years?
+```{r}
+df %>%
+  group_by(loc, loccode, yr) %>%
+  tally
 ```
 
 ```{r}
@@ -71,5 +94,38 @@ df %>%
 ggsave("output/length_comparison.png",
        width = 6,
        height = 4)
+```
+
+
+```{r}
+df %>% 
+  dplyr::select(loc, loccode) %>%
+  distinct() %>%
+  arrange(loccode)
+  filter(grepl("(*)", loc))
+```
+
+# Case when
+```{r}
+df %>%
+  distinct(loc) %>%
+  arrange(loc) %>%
+  mutate(irrigation = case_when(
+    grepl("iir|irri", loc) ~ "irrigated",
+    grepl("dry", loc) ~ "dryland",
+    T ~ NA
+  )) %>%
+  mutate(loc_fixed = case_when(
+    grepl("Altus|ALTUS",loc) ~ "Altus, OK",
+    grepl("Artesia", loc) ~ "Artesia, NM",
+    T ~ loc
+  ))
+
+
+```
+
+# Coordinates
+```{r}
+coords <- read_csv("../data/")
 ```
 
