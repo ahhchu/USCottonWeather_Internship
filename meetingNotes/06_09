@@ -17,7 +17,7 @@
           
           El Paso, TX(irri) / keep
           EL Paso, TX(irri) / lowercase L to El 
-          EL Paso, TX(PIMA) / remove regcode 
+          EL Paso, TX(PIMA) / remove regcode # already has regcode in original file 
           El Paso, TX / keep
           El Paso, TX(irri) / keep
           
@@ -34,13 +34,17 @@
           lubbock / Capitalize and add state 
           Lubbock (irri) / add state
           Lubbock, TX(IRR) / lowercase IRR to irri 
-          NA / says loccode 11 so check if is LUBBOCK 
+          
+          still do: 
+          NA / says loccode 11 so check if is LUBBOCK !!!! 
           
           Chillicothe, TX(irri) / keep
           Chillicoth, TX(irri) / correclty spell 
           Chillicothe, TX(iiri) / irri 
           Chillicothe, TX(IRR) / irri
           hillicothe, TX / spell
+          
+          STILL DO: 
           NA / says 15 check
           
           Altus, OK(irri)
