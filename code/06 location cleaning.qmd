@@ -62,7 +62,7 @@ df_c %>%
 
 # Case when for Cotton heatress Lat and Long
 ```{r}
-df_c %>%
+df_c <- df_c %>%
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
     grepl("dry", loc) ~ "dryland",
@@ -117,13 +117,12 @@ df_c %>%
     T ~ loc
   )) %>%
   mutate(loc = loc_fixed) %>%
-  select(-loc_fixed) %>%
-  View()
+  select(-loc_fixed)
 ```
 
 # Case when for cleaned data 
 ```{r}
- df_q %>% 
+df_q <- df_q %>% 
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
     grepl("dry", loc) ~ "dryland",
@@ -178,14 +177,14 @@ df_c %>%
     T ~ loc
   )) %>%
   mutate(loc = loc_fixed) %>%
-  select(-loc_fixed) %>%
-   View()
+  select(-loc_fixed) 
 ```
   
 # joining df_c and df_q 
 
 ```{r}
-# combined <- inner_join(df_c, df_q, by=c("year"="yr", "loc", "loccode")) fix 
+combined <- inner_join(df_c, df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg"))
+write_xlsx(combined, "output/cleaned/tester.xlsx")
 ```
 # testers #######
 ```{r}
