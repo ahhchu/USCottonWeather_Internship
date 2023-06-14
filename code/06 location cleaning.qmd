@@ -20,8 +20,26 @@ df_c <- read_csv("data/Cotton heatress Longitde and Latitude.csv")
 df_q <- read_csv("output/cleaned/cleaned.csv")
 ```
 
-# viewing mispelled values
+# clean df_c
+```{r}
+# change years to match other file 
+replacements <- c(0, 1, 2, 4, 6, 10:19)
+  new_values <- c(2000, 2001, 2002, 2004, 2006, 2010:2019)
+for (i in seq_along(replacements)) {
+  df_c$year <- ifelse(df_c$year == replacements[i], new_values[i], df_c$year)
+} 
+df_c <- df_c %>%
+  # Fill in NA location and coordinates with matching loccodes. 
+  group_by(loccode) %>%
+  mutate(
+    loc = ifelse(is.na(loc), first(loc[!is.na(loc)]), loc),
+    Latitude = ifelse(is.na(Latitude), first(Latitude[!is.na(Latitude)]), Latitude),
+    Longitude = ifelse(is.na(Longitude), first(Longitude[!is.na(Longitude)]), Longitude)
+  ) %>%
+  ungroup()
+```
 
+# to show distinct location and loccodes
 ```{r}
 loc_q <- df_q %>%
   dplyr::select(loc, loccode) %>% 
@@ -34,7 +52,6 @@ loc_c <- df_c %>%
   distinct() 
 ```
 
-
 ```{r}
 df_c %>% 
   dplyr::select(loc, loccode) %>%
@@ -43,11 +60,9 @@ df_c %>%
   filter(grepl("(*)", loc))
 ```
 
-# Case when
+# Case when for Cotton heatress Lat and Long
 ```{r}
 df_c %>%
-  distinct(loc) %>%
-  arrange(loc) %>%
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
     grepl("dry", loc) ~ "dryland",
@@ -99,18 +114,16 @@ df_c %>%
     grepl("knoxville ???", loc) ~ "Knoxville, TN",
     grepl("Halfway", loc) ~ "Halfway, TX",
     grepl("Mangum", loc) ~ "Mangum, OK",
-
-
     T ~ loc
-  )) %>% 
+  )) %>%
+  mutate(loc = loc_fixed) %>%
+  select(-loc_fixed) %>%
   View()
 ```
 
-# df_q
+# Case when for cleaned data 
 ```{r}
-df_q %>% 
-  distinct(loc) %>%
-  arrange(loc) %>%
+ df_q %>% 
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
     grepl("dry", loc) ~ "dryland",
@@ -164,24 +177,27 @@ df_q %>%
     grepl("yuma", loc) ~ "Yuma, AZ",
     T ~ loc
   )) %>%
-  filter(year=97&loccode=19)
-  View()
+  mutate(loc = loc_fixed) %>%
+  select(-loc_fixed) %>%
+   View()
 ```
   
-
+# joining df_c and df_q 
 
 ```{r}
-df_filtered <- df_c %>% 
-  filter(year == 97 & loccode == 19) %>%
-  mutate(
-    loc = ifelse(is.na(loc), "College Station, TX", loc),
-    Latitude = ifelse(is.na(Latitude), "30.6280° N", Latitude),
-    Longitude = ifelse(is.na(Longitude), "96.3344° W", Longitude)
-  )
-
-df_filtered
-
+# combined <- inner_join(df_c, df_q, by=c("year"="yr", "loc", "loccode")) fix 
 ```
+# testers #######
+```{r}
+test <- filter(df_c, year == 90, loccode == 306)
+#View(test)
+test2 <- filter(df_c, loccode == 306)
+View(test2)
+test3 <- filter(df_q, loccode == 306)
+View(test3)
+```
+
+# see which columns are NA's (should be none excpet ? values)
 ```{r}
 target_columns <- c("loc", "Latitude", "Longitude")  # Specify the columns where you expect NA values
 reference_column <- "loccode"  # Specify the column where you expect non-NA values
@@ -192,6 +208,20 @@ print(rows_with_na)
 ```
 
  
+ # check to see if year values are the same 
+```{r}
 
+unique_values_dfc <- setdiff(unique(df_c$year), unique(df_q$yr))
 
+# Get unique values in 'column_name' from df2 that are not in df1
+unique_values_dfq <- setdiff(unique(df_q$yr), unique(df_c$year))
+
+# Check if there are any unique values in either data frame
+if (length(unique_values_dfc) > 0 || length(unique_values_dfq) > 0) {
+  cat("There are unique values in the column 'column_name' between the two data frames.\n")
+} else {
+  cat("The column 'column_name' has the same values in both data frames.\n")
+}
+
+```
 
