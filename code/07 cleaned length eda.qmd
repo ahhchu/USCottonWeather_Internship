@@ -5,6 +5,7 @@ format: html
 
 ```{r}
 library(tidyverse)
+library(knitr)
 ```
 
 ```{r}
@@ -126,6 +127,21 @@ df %>%
 
 # Coordinates
 ```{r}
-coords <- read_csv("../data/")
+coords <- read_csv("../data/Cotton heatress Longitde and Latitude.csv") 
+
+coords
+```
+
+
+```{r}
+coords %>%
+  mutate(loc_fixed = case_when(
+    loccode == 19 & year == 97 ~ "College Station, TX",
+    T ~ loc
+  )) %>%
+  filter(loccode == 19 & year == 97) %>%
+  distinct()
+
+grepl("pattern", colname)
 ```
 
