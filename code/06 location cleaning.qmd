@@ -22,6 +22,15 @@ df_q <- read_csv("output/cleaned/cleaned.csv")
 
 # clean df_c
 ```{r}
+# Convert character column to numeric
+df_c$Breeder <- as.numeric(df_c$Breeder)
+df_c$Samples <- as.numeric(df_c$Samples)
+df_c$loccode <- as.numeric(df_c$loccode)
+
+names(df_c)[names(df_c) == 'Breeder'] <- 'breeder'
+names(df_c)[names(df_c) == 'Samples'] <- 'sample'
+names(df_c)[names(df_c) == 'Var'] <- 'var'
+
 # change years to match other file 
 replacements <- c(0, 1, 2, 4, 6, 10:19)
   new_values <- c(2000, 2001, 2002, 2004, 2006, 2010:2019)
@@ -180,12 +189,15 @@ df_q <- df_q %>%
   select(-loc_fixed) 
 ```
   
-# joining df_c and df_q 
 
+# joining df_c and df_q 
 ```{r}
-combined <- inner_join(df_c, df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg"))
-write_xlsx(combined, "output/cleaned/tester.xlsx")
+combined <- inner_join(df_c, df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var"))
+write_xlsx(combined, "output/cleaned/combined_Coordinates_Quality.xlsx")
 ```
+
+
+
 # testers #######
 ```{r}
 test <- filter(df_c, year == 90, loccode == 306)
