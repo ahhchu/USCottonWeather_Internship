@@ -1,10 +1,10 @@
 ---
 title: "06 location cleaning.R"
 format: html
-editor: visual
 ---
 
-# setup #####################
+# setup
+
 ```{r}
 library(tidyverse)
 library(dplyr)
@@ -12,15 +12,18 @@ library(readxl)
 library(readr)
 library(writexl)
 ```
-# library(neatr) # for R markdown 
 
-# load data ##################
+# library(neatr) \# for R markdown
+
+# load data
+
 ```{r}
-df_c <- read_csv("data/Cotton heatress Longitde and Latitude.csv")
-df_q <- read_csv("output/cleaned/cleanedQuality/cleaned.csv")
+df_c <- read_csv("../data/Cotton heatress Longitde and Latitude.csv")
+df_q <- read_csv("../output/cleaned/cleanedQuality/cleaned.csv")
 ```
 
 # clean df_c
+
 ```{r}
 # Convert character column to numeric
 df_c$Breeder <- as.numeric(df_c$Breeder)
@@ -52,7 +55,8 @@ df_c <- df_c %>%
     filter(!(loc == "?" & Latitude == "0" & Longitude == "0" ))
 ```
 
-# to show distinct location and loccodes # not necessary to do 
+# to show distinct location and loccodes \# not necessary to do
+
 ```{r}
 loc_q <- df_q %>%
   dplyr::select(loc, loccode) %>% 
@@ -70,12 +74,13 @@ df_c %>%
   dplyr::select(loc, loccode) %>%
   distinct() %>%
   arrange(loccode)
-  filter(grepl("(*)", loc))
+  #filter(grepl("(*)", loc))
 ```
 
 # Case when for Cotton heatress Lat and Long
+
 ```{r}
-df_c <- df_c %>%
+df_c_w <- df_c %>%
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
     grepl("dry", loc) ~ "dryland",
@@ -130,12 +135,17 @@ df_c <- df_c %>%
     T ~ loc
   )) %>%
   mutate(loc = loc_fixed) %>%
-  select(-loc_fixed)
+  select(-loc_fixed) %>%
+  distinct(year, loc, Latitude, Longitude)
+  
+
+df_c_w
 ```
 
-# Case when for cleaned data 
+# Case when for cleaned data
+
 ```{r}
-df_q <- df_q %>% 
+df_q_w <- df_q %>% 
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
     grepl("dry", loc) ~ "dryland",
@@ -190,20 +200,45 @@ df_q <- df_q %>%
     T ~ loc
   )) %>%
   mutate(loc = loc_fixed) %>%
-  select(-loc_fixed) 
-```
-  
+  select(-loc_fixed) %>%
+  rename(year = yr)
 
-# joining df_c and df_q 
+df_q_w
+```
+
+# joining df_c and df_q
+
 # should have same number of rows as the left/top/first df but more columns
+
 ```{r}
-tester <- df_c %>% 
-  left_join(df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var")) %>% 
+tester <-  df_q_w %>% 
+  left_join(df_c_w) %>% 
   arrange(year)
 
-write_xlsx(tester, "output/cleaned/cleanedBoth/tester.xlsx")
+tester %>%
+  distinct(year, loc, Latitude, Longitude) %>%
+  arrange(loc) %>%
+  group_by(year, loc) %>%
+  tally() %>%
+  filter(n > 1)
+
+#write_xlsx(tester, "output/cleaned/cleanedBoth/tester.xlsx")
 ```
-# values with "?" for loc, Latitude, Longitude will be droppped since the loccode does not match any others 
+Check  
+- 2018	Altus, OK  
+
+```{r}
+tester %>%
+  filter(year == 86 & loc == "Saint Joesph, LA")
+
+tester %>%
+  filter(year == 88 & loc == "Tifton, GA") %>%
+  dplyr::select(year, loc, loccode, Latitude, Longitude)
+```
+
+
+# values with "?" for loc, Latitude, Longitude will be droppped since the loccode does not match any others
+
 ```{r}
 combined <- df_c %>% 
   inner_join(df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var")) %>% 
@@ -214,9 +249,8 @@ write_xlsx(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.xl
 write_csv(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.csv")
 ```
 
+# testers
 
-
-# testers #######
 ```{r}
 test <- filter(df_c, year == 90, loccode == 306)
 #View(test)
@@ -227,6 +261,7 @@ View(test3)
 ```
 
 # see which columns are NA's (should be none excpet ? values)
+
 ```{r}
 target_columns <- c("loc", "Latitude", "Longitude")  # Specify the columns where you expect NA values
 reference_column <- "loccode"  # Specify the column where you expect non-NA values
@@ -236,8 +271,8 @@ rows_with_na <- df_c[rowSums(is.na(df_c[, target_columns])) > 0 & !is.na(df_c[, 
 print(rows_with_na)
 ```
 
- 
- # check to see if year values are the same 
+\# check to see if year values are the same
+
 ```{r}
 
 unique_values_dfc <- setdiff(unique(df_c$year), unique(df_q$yr))
@@ -253,4 +288,3 @@ if (length(unique_values_dfc) > 0 || length(unique_values_dfq) > 0) {
 }
 
 ```
-
