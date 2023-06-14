@@ -17,7 +17,7 @@ library(writexl)
 # load data ##################
 ```{r}
 df_c <- read_csv("data/Cotton heatress Longitde and Latitude.csv")
-df_q <- read_csv("output/cleaned/cleaned.csv")
+df_q <- read_csv("output/cleaned/cleanedQuality/cleaned.csv")
 ```
 
 # clean df_c
@@ -46,9 +46,13 @@ df_c <- df_c %>%
     Longitude = ifelse(is.na(Longitude), first(Longitude[!is.na(Longitude)]), Longitude)
   ) %>%
   ungroup()
+
+  # drop  values with ? in loc and 0 for lat and long (these loccodes do not match with anything)
+  df_c <- df_c %>%
+    filter(!(loc == "?" & Latitude == "0" & Longitude == "0" ))
 ```
 
-# to show distinct location and loccodes
+# to show distinct location and loccodes # not necessary to do 
 ```{r}
 loc_q <- df_q %>%
   dplyr::select(loc, loccode) %>% 
@@ -191,8 +195,21 @@ df_q <- df_q %>%
   
 
 # joining df_c and df_q 
+# should have same number of rows as the left/top/first df but more columns
 ```{r}
-combined <- inner_join(df_c, df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var"))
+tester <- df_c %>% 
+  left_join(df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var")) %>% 
+  arrange(year)
+
+write_xlsx(tester, "output/cleaned/cleanedBoth/tester.xlsx")
+```
+# values with "?" for loc, Latitude, Longitude will be droppped since the loccode does not match any others 
+```{r}
+combined <- df_c %>% 
+  inner_join(df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var")) %>% 
+  arrange(year)
+
+
 write_xlsx(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
 write_csv(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.csv")
 ```
