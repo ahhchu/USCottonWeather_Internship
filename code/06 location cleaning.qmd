@@ -193,7 +193,8 @@ df_q <- df_q %>%
 # joining df_c and df_q 
 ```{r}
 combined <- inner_join(df_c, df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var"))
-write_xlsx(combined, "output/cleaned/combined_Coordinates_Quality.xlsx")
+write_xlsx(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+write_csv(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.csv")
 ```
 
 
