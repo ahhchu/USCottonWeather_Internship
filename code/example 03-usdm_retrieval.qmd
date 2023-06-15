@@ -1,0 +1,88 @@
+---
+title: "03 usdm"
+format: html
+---
+
+# Setup  
+```{r}
+#| message: false
+library(XML)
+library(tidyverse)
+library(httr)
+library(USAboundaries)
+```
+
+
+## Information  
+https://usdmdataservices.unl.edu/api/[area]/[statistics type]?aoi=[aoi]&startdate=[start date]&enddate=[end date]&statisticsType=[statistics type]
+
+Fields:  
+- [area]  
+- [statistics type]  
+- [aoi]: 5-dgit FIPS code (use spatial information here)  
+- [start date]  
+- [end date]  
+- [statistics type]
+
+```{r}
+area <- "CountyStatistics"
+
+statistics_type <- "GetDroughtSeverityStatisticsByAreaPercent"
+
+start_date <- "1/1/2016"  
+
+end_date <- "12/1/2021"
+
+statistics_type <- "2"
+```
+
+```{r}
+ga_co <- us_counties(states = "GA")
+
+ga_co 
+```
+
+
+# Mass retrieval  
+```{r}
+df_all <- ga_co %>%
+  as.data.frame() %>%
+  dplyr::select(statefp, countyfp, name) %>%
+  arrange(countyfp) %>%
+  mutate(fips = paste0(statefp,countyfp)) %>%
+  mutate(url=paste0("https://usdmdataservices.unl.edu/api/CountyStatistics/GetDroughtSeverityStatisticsByAreaPercent?aoi=", fips,
+  "&startdate=", start_date,
+  "&enddate=", end_date,"&statisticsType=2")) %>%
+  mutate(content=map(url, ~GET(.x) %>% content())) %>%
+  mutate(df=map(content,
+                ~data.frame(matrix(unlist(.x), 
+                        nrow=length(.x), 
+                        byrow=TRUE)) %>%
+  dplyr::select(date=X1,
+         fips=X2,
+         county=X3,
+         state=X4,
+         none=X5,
+         d0=X6,
+         d1=X7,
+         d2=X8,
+         d3=X9,
+         d4=X10,
+         begin=X11,
+         end=X12
+         ))) %>%
+  dplyr::select(name, df) 
+    
+
+df_all$df[[1]]
+```
+
+
+# Exporting  
+```{r}
+df_all %>%
+  unnest(df) %>%
+  write_csv("../data/usdm_all.csv")
+```
+
+
