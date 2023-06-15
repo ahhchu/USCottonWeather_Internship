@@ -12,11 +12,14 @@ library(ggplot2)
 library(USAboundaries)
 library(USAboundariesData)
 library(magrittr)
+library(readxl)
 ```
 
 # Loading Data #############
 ```{r}
-coords <- read_csv("output/cleaned/cleanedBoth/combined_Coordinates_Quality.csv")
+coords <- read_excel("../output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+
+coords
 ```
 
 # Wrangling
@@ -25,31 +28,32 @@ coords_w <- coords %>%
   # Standardizing names
   #clean_names() %>%
   # Select target columns  
-  select(year, regcode, loc, loccode, varcode, Latitude, Longitude) %>%
   mutate(Latitude = gsub("° N", "", as.character(Latitude)),
          Longitude = gsub("° W", "", as.character(Longitude))) %>%
   mutate(Latitude = as.numeric(Latitude),
          Longitude = as.numeric(Longitude))
 
 ## View entire decimal value  ########
- options(digits =6)
+options(digits =6)
 
 ## Transform into geospatial object #################
 # remove NA and * -1 
-  test <- coords_w |>
-    drop_na(Latitude, Longitude) |> 
-    mutate(Longitude = Longitude *-1)
-  
-   # Transform into numeric
-  coords_w$Latitude <- as.numeric(coords_w$Latitude)
-  coords_w$Longitude <- as.numeric(coords_w$Longitude)
+test <- coords_w |>
+  drop_na(Latitude, Longitude) |> 
+  mutate(Longitude = Longitude *-1)
 
-  # To see the entire value and not just rounded format 
-  options(digits =6)
-  #print(as.data.frame(coords_w[30:45, ])) # these rows show values that had N/W
+#print(as.data.frame(coords_w[30:45, ])) # these rows show values that had N/W
+
+# Transform into geospatial object
+coords_w %>%
+  filter(is.na(loc)) %>%
+  distinct(year)
+  filter(is.na(Longitude) | is.na(Latitude))
+  dplyr::select(Longitude, Latitude) %>%
+  summary
   
-  # Transform into geospatial object
-  coords_w
+coords_w
+  
 ```
 
 # EDA
@@ -63,12 +67,18 @@ coord_plot <- ggplot()+
   geom_sf(data = states_contemporary, fill = NA)
 
 coord_plot  
+
+```
+Checking Alaska location
+```{r}
+coords_w %>%
+  filter(Longitude > 121) 
 ```
 
 # Plot to file 
 
 ```{r}
 # use ggsave() (svg, png, pdf)
-  ggsave(path = "../figs", "coords_plot.png", plot=coord_plot) 
+ggsave(path = "../figs", "coords_plot.png", plot=coord_plot) 
 ```
 

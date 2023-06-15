@@ -16,8 +16,8 @@ library(writexl)
 
 # load data
 ```{r}
-df_c <- read_csv("data/Cotton heatress Longitde and Latitude.csv")
-df_q <- read_csv("output/cleaned/cleanedQuality/cleaned.csv")
+df_c <- read_csv("../data/Cotton heatress Longitde and Latitude.csv")
+df_q <- read_csv("../output/cleaned/cleanedQuality/cleaned.csv")
 ```
 
 # Wrangling
@@ -34,7 +34,7 @@ names(df_c)[names(df_c) == 'Var'] <- 'var'
 
 # change years to match other file 
 replacements <- c(0, 1, 2, 4, 6, 10:19)
-  new_values <- c(2000, 2001, 2002, 2004, 2006, 2010:2019)
+new_values <- c(2000, 2001, 2002, 2004, 2006, 2010:2019)
 for (i in seq_along(replacements)) {
   df_c$year <- ifelse(df_c$year == replacements[i], new_values[i], df_c$year)
 } 
@@ -53,10 +53,10 @@ df_c <- df_c %>%
   ) %>%
   ungroup()
 
-  # drop  values with ? in loc and 0 for lat and long (these loccodes do not match with anything)
-  df_c <- df_c %>%
-    filter(!(loc == "?" & Latitude == "0" & Longitude == "0" )) %>%
-    filter(!(year == 95 & loccode == 90 & is.na(loc) & is.na(Latitude) & is.na(Longitude)))
+# drop  values with ? in loc and 0 for lat and long (these loccodes do not match with anything)
+df_c <- df_c %>%
+  filter(!(loc == "?" & Latitude == "0" & Longitude == "0" )) %>%
+  filter(!(year == 95 & loccode == 90 & is.na(loc) & is.na(Latitude) & is.na(Longitude)))
 ```
 
 ```{r}
@@ -74,7 +74,7 @@ df_c %>%
 ```
 
 
-```{r}
+```{r df_c_w}
 # Case when for coordinates
 df_c_w <- df_c %>%
   mutate(irrigation = case_when(
@@ -134,14 +134,19 @@ df_c_w <- df_c %>%
   )) %>%
   mutate(loc = loc_fixed) %>%
   select(-loc_fixed) %>%
-  distinct(year, loc, Latitude, Longitude)
-  
+  distinct(year, loc, Latitude, Longitude) %>%
+  # fixing Chillicothe TX coordinates
+  mutate(Longitude = case_when(
+    loc == "Chillicothe, TX" ~ "99.5168° W",
+    T ~ Longitude
+  ))
+
 
 df_c_w # 1,171 × 4
 ```
 
 
-```{r}
+```{r df_q_w}
 # Case when for quality data
 df_q_w <- df_q %>% 
   mutate(irrigation = case_when(
@@ -207,13 +212,12 @@ df_q_w # 38,956 × 62
 ```
 
 # Joinging df_c and df_q 
-```{r}
+```{r join_fixed}
 # joining df_c and df_q
 # should have same number of rows as the first df but more columns
 join <-  df_q_w %>% 
   left_join(df_c_w) %>% 
   arrange(year)
-
 
 # fill in missing coordinates (this happens when coordinates file does not have information on a location for a specific year)
 join_na <- join %>%
@@ -226,7 +230,7 @@ join_na <- join %>%
 
 join_fixed <- join_na %>%
   mutate(  
-   Latitude = ifelse(loc == "Tipton, OK" & loccode == 191 & is.na(Latitude), "31.4505° N", Latitude),
+    Latitude = ifelse(loc == "Tipton, OK" & loccode == 191 & is.na(Latitude), "31.4505° N", Latitude),
     Longitude = ifelse(loc == "Tipton, OK" & loccode == 191 & is.na(Longitude), "83.5085° W", Longitude), 
   ) %>% 
   mutate(
@@ -240,8 +244,12 @@ join_fixed %>%
   group_by(year, loc) %>%
   tally() %>%
   filter(n > 1)
+```
 
-write_xlsx(join_fixed, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+
+```{r exporting join_fixed}
+write_xlsx(join_fixed, "../output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+
 
 ```
 Check  
@@ -260,25 +268,25 @@ loccode - 90 yr - 95
 
 # TESTERS
 ```{r}
-tester_check %>%
+join_fixed %>%
   filter(loc=="Maricopa, AZ") %>% # yr 86 Saint Jo, TX is spelled Saint Joseph, TX 
   dplyr::select(year, loc, loccode, Latitude, Longitude) # (which was confused with Saint Joseph, LA)
- 
+
 df_c_w %>%
   filter(loc == "Maricopa, AZ") %>%
   dplyr::select(year, loc, Latitude, Longitude)
 
 df_q_w %>%
-filter(loc=="Maricopa, AZ") %>% # yr 88 Tipton, OK is spelled Tipton, GA (fixed)
-dplyr::select(year, loc)
+  filter(loc=="Maricopa, AZ") %>% # yr 88 Tipton, OK is spelled Tipton, GA (fixed)
+  dplyr::select(year, loc)
 
-tester %>% # COLL-STA-1, COLL-STA, COLL-STA-I all match College Station loccode
-filter(loc=="College station") %>%
-dplyr::select(loc, Latitude, Longitude, loccode)
+join_fixed %>% # COLL-STA-1, COLL-STA, COLL-STA-I all match College Station loccode
+  filter(loc=="College station") %>%
+  dplyr::select(loc, Latitude, Longitude, loccode)
 
-tester %>%
-filter(loccode==19) %>%
-dplyr::select(loc, Latitude, Longitude, loccode)
+join_fixed %>%
+  filter(loccode==19) %>%
+  dplyr::select(loc, Latitude, Longitude, loccode)
 ```
 
 
@@ -318,4 +326,19 @@ if (length(unique_values_dfc) > 0 || length(unique_values_dfq) > 0) {
   cat("The column 'column_name' has the same values in both data frames.\n")
 }
 
+df_q %>%
+  filter(yr == 2020)
 ```
+
+```{r}
+join_fixed %>%
+  filter(year == 2020) %>%
+  distinct(loc, Latitude, Longitude)
+```
+
+```{r}
+df_c_w %>%
+  filter(grepl("Lubbock|Lamesa|Chillicothe", loc)) %>%
+  distinct(loc, Latitude, Longitude)
+```
+

@@ -1,11 +1,9 @@
 ---
 title: "01 eda"
 format: html
-editor: visual
 ---
 
 # Setup
-
 
 ```{r}
 library(tidyverse)
@@ -83,9 +81,9 @@ coord_plot
 ```
 
 # Export to file
+
 ```{r}
 # use ggsave() (svg, png, pdf)
   ggsave(path = "../figs", "coords_plot.png", plot=coord_plot) 
 # ggsave(createName, what plot to save)
 ```
-
