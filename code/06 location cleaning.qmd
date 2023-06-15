@@ -13,18 +13,16 @@ library(readr)
 library(writexl)
 ```
 
-# library(neatr) \# for R markdown
 
 # load data
-
 ```{r}
-df_c <- read_csv("../data/Cotton heatress Longitde and Latitude.csv")
-df_q <- read_csv("../output/cleaned/cleanedQuality/cleaned.csv")
+df_c <- read_csv("data/Cotton heatress Longitde and Latitude.csv")
+df_q <- read_csv("output/cleaned/cleanedQuality/cleaned.csv")
 ```
 
-# clean df_c
-
+# Wrangling
 ```{r}
+# cleaning df_c (coordinates data)
 # Convert character column to numeric
 df_c$Breeder <- as.numeric(df_c$Breeder)
 df_c$Samples <- as.numeric(df_c$Samples)
@@ -40,6 +38,11 @@ replacements <- c(0, 1, 2, 4, 6, 10:19)
 for (i in seq_along(replacements)) {
   df_c$year <- ifelse(df_c$year == replacements[i], new_values[i], df_c$year)
 } 
+
+# loccode for quality Thrall, TX is wrong should be 181
+df_q$loccode <- ifelse(df_q$loccode == 182, 181, df_q$loccode)
+
+
 df_c <- df_c %>%
   # Fill in NA location and coordinates with matching loccodes. 
   group_by(loccode) %>%
@@ -52,34 +55,27 @@ df_c <- df_c %>%
 
   # drop  values with ? in loc and 0 for lat and long (these loccodes do not match with anything)
   df_c <- df_c %>%
-    filter(!(loc == "?" & Latitude == "0" & Longitude == "0" ))
+    filter(!(loc == "?" & Latitude == "0" & Longitude == "0" )) %>%
+    filter(!(year == 95 & loccode == 90 & is.na(loc) & is.na(Latitude) & is.na(Longitude)))
 ```
 
-# to show distinct location and loccodes \# not necessary to do
-
 ```{r}
-loc_q <- df_q %>%
+# to show distinct location and loccodes / not necessary to do
+df_q %>%
   dplyr::select(loc, loccode) %>% 
   arrange(loccode) %>% 
-  distinct()
+  distinct() %>%
+  View()
 
-loc_c <- df_c %>% 
+df_c %>% 
   dplyr::select(loc, loccode) %>%
   arrange(loccode) %>%
   distinct() 
 ```
 
-```{r}
-df_c %>% 
-  dplyr::select(loc, loccode) %>%
-  distinct() %>%
-  arrange(loccode)
-  #filter(grepl("(*)", loc))
-```
-
-# Case when for Cotton heatress Lat and Long
 
 ```{r}
+# Case when for coordinates
 df_c_w <- df_c %>%
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
@@ -97,11 +93,11 @@ df_c_w <- df_c %>%
     grepl("College", loc) ~ "College Station, TX",
     grepl("Weslaco|Weslago" ,loc) ~ "Weslaco, TX",
     grepl("Bosserier|Bossier", loc) ~ "Bossier City, LA",
-    grepl("Saint Joesph,TX|San Joesph,LA|Saint Joseph|Saint Joesph, LA|San Joesph, LA", loc) ~ "Saint Joesph, LA",
+    grepl("San Joseph, LA", loc) ~ "Saint Joseph, LA",
+    grepl("Saint Joseph, TX", loc) ~ "Saint Jo, TX",
     grepl("stoneville|Stonvelle|Stoneville,MS|Stoneville", loc) ~ "Stoneville, MS",
-    grepl("Clarkedale|Clarkdale", loc) ~ "Clarkedale, AZ",
+    grepl("Clarkedale|Clarkdale", loc) ~ "Clarkdale, LA",
     grepl("Alburn|Aubur|Auburn", loc) ~ "Auburn, AL",
-    grepl("Tipton", loc) ~ "Tifton, GA",
     grepl("Forence|Florence", loc) ~ "Florence, SC",
     grepl("Ricky|Rocky mount", loc) ~ "Rocky Mount, NC",
     grepl("Chickasa|Chickasha", loc) ~ "Chickasha, OK",
@@ -109,13 +105,13 @@ df_c_w <- df_c %>%
     grepl("Maricopa|Maricopa, AX", loc) ~ "Maricopa, AZ",
     grepl("Starkeville|starkville|Starkville", loc) ~ "Starkville, MS",
     grepl("Beeville|Beeville, OK", loc) ~ "Beeville, TX",
-    grepl("Portageville, MS|Portegeville|Portageville", loc) ~ "Portageville, MO",
+    grepl("Portageville, MS|Portegeville|Portageville|Porgetageville, MO", loc) ~ "Portageville, MO",
     grepl("Lamesa, NM" ,loc) ~ "La Mesa, NM",
     grepl("Bell Mina|Belle Mina", loc) ~ "Belle Mina, AL",
     grepl("Rohwer, AZ", loc) ~ "Rohwer, AR",
     grepl("Five Points", loc) ~ "Five Points, CA",
     grepl("Lemore", loc) ~ "Lemoore, CA",
-    grepl("W field station, CA|w side field station, CA|W. Side Field Station, CA|W side field station, CA", loc) ~ "W Side Field Station, CA", 
+    grepl("W field station, CA|w side field station, CA|W. Side Field Station, CA|W side field station, CA|W Side Field Statsion,CA", loc) ~ "W Side Field Station, CA", 
     grepl("Griffin", loc) ~ "Griffin, GA",
     grepl("Las Cruces|Las cruces", loc) ~ "Las Cruces, NM",
     grepl("Lamesa", loc) ~ "Lamesa, TX",
@@ -125,13 +121,15 @@ df_c_w <- df_c %>%
     grepl("Dallas", loc) ~ "Dallas, TX",
     grepl("Thrall", loc) ~ "Thrall, TX",
     grepl("Kerser|Keiser", loc) ~ "Keiser, AR",
-    grepl("tiptop|Tipton", loc) ~ "Tipton, OK",
+    grepl("Tipton, GA|tiptop, OK", loc) ~ "Tipton, OK",
+    grepl("Tipton", loc) ~ "Tipton, GA",
     grepl("Commerce", loc) ~ "Commerce, TX",
     grepl("C Christi|C Christi-D|Corpus Christi", loc) ~ "Corpus Christi, TX",
     grepl("maricopa", loc) ~ "Maricopa, AZ",
     grepl("knoxville ???", loc) ~ "Knoxville, TN",
     grepl("Halfway", loc) ~ "Halfway, TX",
     grepl("Mangum", loc) ~ "Mangum, OK",
+    grepl("Tranquiliity, CA", loc) ~ "Tranquility, CA",
     T ~ loc
   )) %>%
   mutate(loc = loc_fixed) %>%
@@ -139,12 +137,12 @@ df_c_w <- df_c %>%
   distinct(year, loc, Latitude, Longitude)
   
 
-df_c_w
+df_c_w # 1,171 × 4
 ```
 
-# Case when for cleaned data
 
 ```{r}
+# Case when for quality data
 df_q_w <- df_q %>% 
   mutate(irrigation = case_when(
     grepl("iir|irri|IRRI", loc) ~ "irrigated",
@@ -162,8 +160,8 @@ df_q_w <- df_q %>%
     grepl("CHILLOCOTHE|Chillicothe|hillicothe", loc) ~ "Chillicothe, TX",
     grepl("Chickasa|Chickasha", loc) ~ "Chickasha, OK",
     grepl("COMMERCE|Commerce", loc) ~ "Commerce, TX",
-    grepl("Clarkedale, LA", loc ) ~ "Clarkedale, AR",
-    grepl("College|College station", loc) ~ "College Station, TX",
+    grepl("Clarkedale, LA|Clarkedale, AR|Clarkdale, AR", loc ) ~ "Clarkdale, LA",
+    grepl("College|College station|COLL STA|COLL STA-1|COLL STA-I", loc) ~ "College Station, TX",
     grepl("Dallas", loc) ~ "Dallas, TX",
     grepl("EL Paso|El Paso", loc) ~ "El Paso, TX",
     grepl("FIVE POINTS|Five Points", loc) ~ "Five Points, CA",
@@ -183,17 +181,18 @@ df_q_w <- df_q %>%
     grepl("Pecos", loc) ~ "Pecos, TX",
     grepl("Fresno County", loc) ~ "Fresno County, CA",
     grepl("Kings County", loc) ~ "Kings County, CA",
-    grepl("Portgeville|Portegeville|PORTAG|Portageville", loc) ~ "Portageville, MO",
+    grepl("Portgeville|Portegeville|PORTAG|Portageville|Porgetageville, MO", loc) ~ "Portageville, MO",
     grepl("Rocky mount|ROCKY MT", loc) ~ "Rocky Mount, NC",
-    grepl("Rowher", loc) ~ "Rowher, AR",
-    grepl("Saint Joesph,TX|San Joesph,LA|Saint Joseph|Saint Joesph, LA|San Joesph, LA|Saint, Joesph|Sant Joseph", loc) ~ "Saint Joesph, LA",
-    grepl("Stoneville|STONEVILLE|stoneville", loc) ~ "Stoneville, MS",
+    grepl("Rowher|Rohwer", loc) ~ "Rohwer, AR",
+    grepl("Saint Joseph, TX", loc) ~ "Saint Jo, TX",
+    grepl("Saint Joseph|ST. JOE|Sant Joseph, LA|Saint, Joseph, LA|Sain Joseph, LA", loc) ~ "Saint Joseph, LA",
+    grepl("Stoneville|STONEVILLE|stoneville|ST'VILLE", loc) ~ "Stoneville, MS",
     grepl("Suffolk|SUFFOLK", loc) ~ "Suffolk, VA",
     grepl("starkville|STARKVILLE|Starkville", loc) ~ "Starkville, MS",
     grepl("THRALL|Thrall", loc) ~ "Thrall, TX",
-    grepl("TIPTON", loc) ~ "Tifton, GA",
-    grepl("Univeristy park", loc) ~ "University Park, NM",
-    grepl("W field station, CA|w side field station, CA|W. Side Field Station, CA|W side field station, CA", loc) ~ "W Side Field Station, CA",
+    grepl("TIPTON-D", loc) ~ "Tipton, OK",
+    grepl("Univeristy park|University park, NM", loc) ~ "University Park, NM",
+    grepl("W field station, CA|w side field station, CA|W. Side Field Station, CA|W side field station, CA|W Side Field Statsion,CA|W Side field Station, CA", loc) ~ "W Side Field Station, CA",
     grepl("WESLACO|Weslaco|Weslago|Weslago", loc) ~ "Weslaco, TX",
     grepl("knoxville", loc)  ~ "Knoxville, TN",
     grepl("yuma", loc) ~ "Yuma, AZ",
@@ -203,55 +202,88 @@ df_q_w <- df_q %>%
   select(-loc_fixed) %>%
   rename(year = yr)
 
-df_q_w
+
+df_q_w # 38,956 × 62
 ```
 
-# joining df_c and df_q
-
-# should have same number of rows as the left/top/first df but more columns
-
+# Joinging df_c and df_q 
 ```{r}
-tester <-  df_q_w %>% 
+# joining df_c and df_q
+# should have same number of rows as the first df but more columns
+join <-  df_q_w %>% 
   left_join(df_c_w) %>% 
   arrange(year)
 
-tester %>%
+
+# fill in missing coordinates (this happens when coordinates file does not have information on a location for a specific year)
+join_na <- join %>%
+  group_by(loc, loccode) %>%
+  mutate(
+    Latitude = ifelse(is.na(Latitude), first(Latitude[!is.na(Latitude)]), Latitude),
+    Longitude = ifelse(is.na(Longitude), first(Longitude[!is.na(Longitude)]), Longitude)
+  ) %>%
+  ungroup()
+
+join_fixed <- join_na %>%
+  mutate(  
+   Latitude = ifelse(loc == "Tipton, OK" & loccode == 191 & is.na(Latitude), "31.4505° N", Latitude),
+    Longitude = ifelse(loc == "Tipton, OK" & loccode == 191 & is.na(Longitude), "83.5085° W", Longitude), 
+  ) %>% 
+  mutate(
+    Latitude = ifelse(loc == "Maricopa, AZ" & loccode == 175 & is.na(Latitude), "33.0581° N", Latitude),
+    Longitude = ifelse(loc == "Maricopa, AZ" & loccode == 175 & is.na(Longitude), "112.0476° W", Longitude), 
+  )
+
+join_fixed %>%
   distinct(year, loc, Latitude, Longitude) %>%
   arrange(loc) %>%
   group_by(year, loc) %>%
   tally() %>%
   filter(n > 1)
 
-#write_xlsx(tester, "output/cleaned/cleanedBoth/tester.xlsx")
+write_xlsx(join_fixed, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+
 ```
 Check  
 - 2018	Altus, OK  
 
+to fix: 
+9 Pecos, TX X
+175 Maricopa, AZ
+7 University park, NM X 
+181 Thrall, TX X 
+190 Poston, AZ X
+191 Tipton, OK (1992) (1996) (1997)
+165 Tranquility, CA
+
+loccode - 90 yr - 95 
+
+# TESTERS
 ```{r}
-tester %>%
-  filter(year == 86 & loc == "Saint Joesph, LA")
+tester_check %>%
+  filter(loc=="Maricopa, AZ") %>% # yr 86 Saint Jo, TX is spelled Saint Joseph, TX 
+  dplyr::select(year, loc, loccode, Latitude, Longitude) # (which was confused with Saint Joseph, LA)
+ 
+df_c_w %>%
+  filter(loc == "Maricopa, AZ") %>%
+  dplyr::select(year, loc, Latitude, Longitude)
+
+df_q_w %>%
+filter(loc=="Maricopa, AZ") %>% # yr 88 Tipton, OK is spelled Tipton, GA (fixed)
+dplyr::select(year, loc)
+
+tester %>% # COLL-STA-1, COLL-STA, COLL-STA-I all match College Station loccode
+filter(loc=="College station") %>%
+dplyr::select(loc, Latitude, Longitude, loccode)
 
 tester %>%
-  filter(year == 88 & loc == "Tifton, GA") %>%
-  dplyr::select(year, loc, loccode, Latitude, Longitude)
+filter(loccode==19) %>%
+dplyr::select(loc, Latitude, Longitude, loccode)
 ```
 
 
-# values with "?" for loc, Latitude, Longitude will be droppped since the loccode does not match any others
-
 ```{r}
-combined <- df_c %>% 
-  inner_join(df_q, by = c("year" = "yr", "loc", "loccode", "rep", "reg", "irrigation", "breeder", "sample", "var")) %>% 
-  arrange(year)
-
-
-write_xlsx(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
-write_csv(combined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.csv")
-```
-
-# testers
-
-```{r}
+# Testing NA's loc, lat, long but has loccode (no matches found)
 test <- filter(df_c, year == 90, loccode == 306)
 #View(test)
 test2 <- filter(df_c, loccode == 306)
@@ -260,9 +292,9 @@ test3 <- filter(df_q, loccode == 306)
 View(test3)
 ```
 
-# see which columns are NA's (should be none excpet ? values)
 
 ```{r}
+# see which columns are NA's (should be none excpet ? values)
 target_columns <- c("loc", "Latitude", "Longitude")  # Specify the columns where you expect NA values
 reference_column <- "loccode"  # Specify the column where you expect non-NA values
 
@@ -271,10 +303,9 @@ rows_with_na <- df_c[rowSums(is.na(df_c[, target_columns])) > 0 & !is.na(df_c[, 
 print(rows_with_na)
 ```
 
-\# check to see if year values are the same
 
 ```{r}
-
+# check to see if year values are the same
 unique_values_dfc <- setdiff(unique(df_c$year), unique(df_q$yr))
 
 # Get unique values in 'column_name' from df2 that are not in df1
