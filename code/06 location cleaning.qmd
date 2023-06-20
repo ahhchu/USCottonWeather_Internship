@@ -18,6 +18,10 @@ library(writexl)
 ```{r}
 df_c <- read_csv("data/Cotton heatress Longitde and Latitude.csv")
 df_q <- read_csv("output/cleaned/cleanedQuality/cleaned.csv")
+
+#df_c <- read_csv("../data/Cotton heatress Longitde and Latitude.csv")
+#df_q <- read_csv("../output/cleaned/cleanedQuality/cleaned.csv")
+
 ```
 
 # Wrangling
@@ -279,6 +283,16 @@ final_joined <- nona_joined |>
 
 ```{r exporting join_fixed}
 write_xlsx(final_joined, "output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+```
+
+```{r @@}
+final_joined %>%
+  distinct(year, loc, loccode, Latitude, Longitude) %>%
+  rename(lon = Longitude,
+         lat = Latitude) %>%
+  arrange(loc, year) %>%
+  mutate(lon = lon*-1) %>%
+  write_csv("../data/daymet/index.csv")
 ```
 
 # TESTERS

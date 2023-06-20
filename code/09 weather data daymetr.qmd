@@ -1,0 +1,55 @@
+---
+title: "09 weather data daymetr"
+format: html
+---
+
+# Setup
+```{r}
+library(tidyverse)
+library(daymetr)
+```
+
+```{r}
+df <- read_csv("../data/daymet/index.csv")
+
+
+```
+
+```{r}
+df_test <- df %>%
+  filter(loc == "Altus, OK")
+
+df_test %>%
+  distinct(year) %>%
+  nrow
+
+30*365
+
+df_test_w <- df %>%
+  mutate(weather = pmap(list(.y = year,
+                        .site = loc,
+                        .lat = lat,
+                        .lon = lon),
+                        function(.y, .site, .lat, .lon)
+                          download_daymet(
+  site = .site,
+  lat = .lat,
+  lon = .lon,
+  start = .y,
+  end = .y,
+  internal = TRUE,
+  simplify = TRUE # return tidy data !!
+  ) %>%
+    rename(yr = year)
+                          
+                        
+                        ))
+
+
+
+df_test_w %>%
+  unnest(weather) %>%
+  pivot_wider(names_from = measurement,
+              values_from = value)
+```
+
