@@ -1,0 +1,49 @@
+06 location (further wrangling)
+- NA values for 90, 2000, 2005
+- change state code for Palmer, AZ to Palmer, AK (cause coords match up to AK)
+-  standadize all years in before 2000 (ect: 89 -> 1989 ect)
+- double check for NA's, duplicates, ect ! finish wrangling ! 
+- fix in 06: 
+df_c <- df_c %>%
+  filter(!(loc == "?" & Latitude == "0" & Longitude == "0" )) %>%
+  filter(!(year == 95 & loccode == 90 & is.na(loc) & is.na(Latitude) & is.na(Longitude))) %>%
+  filter(!(year == 90 | year == 2000 | year == 005 & is.na(Latitude) & is.na(Longitude)))
+
+
+09 weather data (API)
+- map() functions library(tidyverse) package purrr  (loops in R)
+- maybe use Python for loops 
+
+Read up on 
+- functions called nest(), map() 
+- use all 3 functions together group_by() and map() in nest() 
+- muatate(wrangled = map(data, ~function()))
+
+Extra: 
+- when using map() it looks like this !
+   ie: df_all$colname[[1]]
+- API to use -> NetCDF Subset Serivces (NCSS)
+- might have to transform NCSS into a data frame 
+- Import netcd data with star packages/functions 
+- daymet  does not use location names but uses coordinates instead (so loc is irrelevant)
+
+WEATHER DF: 
+does not need quality datasets  (because we don’t want it downloading multiple times for a location: ie there's like 1000 lubbock, tx for 1990)
+
+column names examples: 
+Year start | Year end |  longitude | latitude | doy | temperature | precipitation | ... ect weather data 
+  
+Year -> split into Year_start and Year_end
+Year_start: 2020-01-01
+Year_end: 2020-12-31
+(we'll feed year_start, end into query)
+
+
+DOY -> day of year (1, 2, 3, ... 365)
+The api might not use DOY so double check before doing this (might use DATES)
+
+ 
+We want DAILY temporal data  (hence DOY)
+Collect all data variables (5-10#. Temp, precipitation ect) 
+
+The predicted Weather data dimensions df should be (1,000 site_years x365)

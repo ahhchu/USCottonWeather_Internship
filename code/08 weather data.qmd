@@ -1,0 +1,57 @@
+# Setup 
+```{r}
+library(XML)
+library(tidyverse)
+library(httr)
+library(USAboundaries)
+library(ncdf4) # package for netcdf manipulation
+library(raster) # package for raster manipulation
+library(rgdal) # package for geospatial analysis
+library(ggplot2) # package for plotting
+library(daymetr)
+```
+
+```{r}
+# Source directory where the netCDF files are currently located
+source_directory <- "USCottonWeather"
+
+# Destination directory where you want to move the netCDF files
+destination_directory <- "data/daymet"
+
+# Get a list of all netCDF files in the source directory
+nc_files <- list.files(path = source_directory, pattern = "\\.nc$", full.names = TRUE)
+
+# Move each netCDF file to the destination directory
+for (file in nc_files) {
+  destination_path <- file.path(destination_directory, basename(file))
+  file.rename(file, destination_path)
+  cat(paste("Moved", file, "to", destination_directory, "\n"))
+}
+
+```
+
+# read in netCDF file contents
+```{r}
+nc_data <- nc_open('data/daymet/daymet_v4_daily_hi_dayl_1980.nc')
+{
+    sink('data/daymet/daymet_v4_daily_hi_dayl_1980.nc')
+ print(nc_data)
+    sink()
+}
+#install.packages("stars")
+#library(stars)
+nc_data_leo <- read_stars()
+```
+
+```{r}
+lon <- ncvar_get(nc_data, "lon")
+lat <- ncvar_get(nc_data, "lat", verbose = F)
+t <- ncvar_get(nc_data, "time")
+tmax <- ncvar_get(nc_data, "tmax")
+```
+
+```{r}
+ggplot()+
+geom_line(data=df, aes(x-yday)) |>
+facet_wrapt(-m)
+```
