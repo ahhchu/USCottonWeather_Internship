@@ -7,12 +7,16 @@ format: html
 ```{r}
 library(tidyverse)
 library(daymetr)
+library(readr)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(USAboundaries)
+library(USAboundariesData)
 ```
 
 ```{r}
-df <- read_csv("../data/daymet/index.csv")
-
-
+df <- read_csv("data/daymet/index.csv")
 ```
 
 ```{r}
@@ -47,9 +51,56 @@ df_test_w <- df %>%
 
 
 
-df_test_w %>%
+df_unnest <- df_test_w %>%
   unnest(weather) %>%
   pivot_wider(names_from = measurement,
               values_from = value)
+
+
+data <- df_unnest
 ```
 
+# wrangling 
+```{r}
+# Create new columns for Year Start and Year End
+data$year_Start <- as.Date(paste0(data$year, "-01-01"))
+data$year_End <- as.Date(paste0(data$year, "-12-31"))
+
+# dropped duplicated columns
+df_final <- data %>%
+select(-site, -lat, -lon, -yr) 
+```
+
+# plot coords
+
+```{r}
+states_contemporary <- us_states()
+
+# save plot to coord_plot object 
+coord_plot <- ggplot()+
+  geom_point(data = df_final, aes(x = longitude, y = latitude))+
+  geom_sf(data = states_contemporary, fill = NA) +
+   xlim(-180, -60) + 
+   labs(title = "Coordinates of sites") + 
+     theme(plot.title = element_text(hjust = 0.5)) + 
+     geom_tile(data = df_final, aes(x = longitude, y = latitude, fill = prcp..mm.day.), alpha = 0.5) +
+  scale_fill_gradient(low = "blue", high = "red")
+
+
+coord_plot <- ggplot() +
+  geom_sf(data = states_contemporary, fill = "gray") +
+  geom_sf(data = df_final, aes(fill = prcp..mm.day.), color = NA) +
+  xlim(-120, -60) +
+  ylim(20, 50) +
+  labs(title = "Longitude Range: >120°W to 60°W") +
+  scale_fill_gradient(low = "blue", high = "red")
+
+coord_plot
+
+coord_plot  
+```
+
+export as csv
+```{r}
+write_xlsx(df_new, "data/daymet/table.xlsx")
+```

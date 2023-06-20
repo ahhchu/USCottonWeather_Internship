@@ -32,7 +32,8 @@ does not need quality datasets  (because we don’t want it downloading multiple
 
 column names examples: 
 Year start | Year end |  longitude | latitude | doy | temperature | precipitation | ... ect weather data 
-  
+
+
 Year -> split into Year_start and Year_end
 Year_start: 2020-01-01
 Year_end: 2020-12-31
@@ -47,3 +48,15 @@ We want DAILY temporal data  (hence DOY)
 Collect all data variables (5-10#. Temp, precipitation ect) 
 
 The predicted Weather data dimensions df should be (1,000 site_years x365)
+
+
+df_test_w <- df_test |> 
+muataue(Wearther = pmap())
+
+
+year -> year_start and year_end (look at yday) (delete yr)
+loc -> site 
+lat -> latitude
+long -> longitude
+yday is 1-365 
+change all column names to be readable 
