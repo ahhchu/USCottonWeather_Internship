@@ -1,0 +1,22 @@
+for every site year:
+
+find mean of: temperatuer, solar radiation, vapor pressure defecit (ect  except prcp)
+
+find sum of: prcrp
+
+temporal variables: 
+
+1. entire growing season (April-November) (largest temporal scale)
+2. monthly (April -November) (smallest temporal scale)
+3. every 2 months
+4. every 3 months
+
+Ex for naming variables: 
+
+weathervariabke_summarizationfunction_periodoftime
+
+mean of tmax for april → tmax_mean_april
+
+mean of tmax for april - may → tmax_mean_aprilmay
+
+machine learning  → random forest model

@@ -13,6 +13,7 @@ library(lubridate)
 library(ggplot2)
 library(USAboundaries)
 library(USAboundariesData)
+library(reticulate)
 ```
 
 ```{r}
@@ -71,36 +72,133 @@ df_final <- data %>%
 select(-site, -lat, -lon, -yr) 
 ```
 
-# plot coords
 
-```{r}
-states_contemporary <- us_states()
+```{r growing season}
+date <- as.Date(df_final$yday, origin = df_final$year_Start)
+month <- as.numeric(format(date, "%m"))
 
-# save plot to coord_plot object 
-coord_plot <- ggplot()+
-  geom_point(data = df_final, aes(x = longitude, y = latitude))+
-  geom_sf(data = states_contemporary, fill = NA) +
-   xlim(-180, -60) + 
-   labs(title = "Coordinates of sites") + 
-     theme(plot.title = element_text(hjust = 0.5)) + 
-     geom_tile(data = df_final, aes(x = longitude, y = latitude, fill = prcp..mm.day.), alpha = 0.5) +
-  scale_fill_gradient(low = "blue", high = "red")
+# april/4 : nov:11 (growing season)
+filtered_rows <- which(month>=4 & month<=11)
+
+srad_mean_growingseason <- aggregate(df_final$srad..W.m.2.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>% rename(loc = Group.1, year = Group.2, srad_mean_growingseason = x)
+
+swe_mean_growingseason <- aggregate(df_final$swe..kg.m.2.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>% 
+    rename(swe_mean_growingseason = x)
+
+tmax_mean_growingseason <- aggregate(df_final$tmax..deg.c.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(tmax_mean_growingseason = x)
+
+tmin_mean_growingseason <- aggregate(df_final$tmin..deg.c.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(tmin_mean_growingseason = x)
+
+vp_mean_growingseason <- aggregate(df_final$vp..Pa.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(vp_mean_growingseason = x)
+
+prcp_sum_growingseason <- aggregate(df_final$prcp..mm.day.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = sum) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(prcp_mean_growingseason = x)
 
 
-coord_plot <- ggplot() +
-  geom_sf(data = states_contemporary, fill = "gray") +
-  geom_sf(data = df_final, aes(fill = prcp..mm.day.), color = NA) +
-  xlim(-120, -60) +
-  ylim(20, 50) +
-  labs(title = "Longitude Range: >120°W to 60°W") +
-  scale_fill_gradient(low = "blue", high = "red")
-
-coord_plot
-
-coord_plot  
+# combined growingseasonmean 
+growing_season_combined_data <- srad_mean_growingseason %>%
+  bind_cols(swe_mean_growingseason) %>%
+  bind_cols(tmax_mean_growingseason) %>%
+  bind_cols(tmin_mean_growingseason) %>%
+  bind_cols(vp_mean_growingseason) %>%
+  bind_cols(prcp_sum_growingseason)
 ```
 
-export as csv
+```{r monthly}
+# april/4
+april_rows <- which(month==4)
+may_rows <- which(month==5)
+june_rows <- which(month == 6)
+
+srad_mean_april <- aggregate(df_final$srad..W.m.2.[april_rows], list(df_final$loc[april_rows], df_final$year[april_rows]), FUN = mean) %>% rename(loc = Group.1, year = Group.2, srad_mean_april = x)
+
+swe_mean_april <- aggregate(df_final$swe..kg.m.2.[april_rows], list(df_final$loc[april_rows], df_final$year[april_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>% 
+    rename(swe_mean_april = x)
+
+tmax_mean_april <- aggregate(df_final$tmax..deg.c.[april_rows], list(df_final$loc[april_rows], df_final$year[april_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(tmax_mean_april = x)
+
+tmin_mean_april <- aggregate(df_final$tmin..deg.c.[april_rows], list(df_final$loc[april_rows], df_final$year[april_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(tmin_mean_april = x)
+
+vp_mean_april <- aggregate(df_final$vp..Pa.[april_rows], list(df_final$loc[april_rows], df_final$year[april_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(vp_mean_april = x)
+
+prcp_sum_april <- aggregate(df_final$prcp..mm.day.[april_rows], list(df_final$loc[april_rows], df_final$year[april_rows]), FUN = sum) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(prcp_mean_april = x)
+
+monthly <- growing_season_combined_data %>%
+  bind_cols(swe_mean_april) %>%
+  bind_cols(tmax_mean_april) %>%
+  bind_cols(tmin_mean_april) %>%
+  bind_cols(vp_mean_april) %>%
+  bind_cols(prcp_sum_april)
+
+```
+
+```{r monthly}
+months <- c(4:11)  # Define the months for which you want to calculate means
+
+monthly_combined <- data.frame()
+for (month in months) {
+  month_rows <- which(as.numeric(format(date, "%m")) == month)
+  
+  srad_mean <- aggregate(df_final$srad..W.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+   select(-Group.1, -Group.2) %>% 
+    rename(!!paste0("srad_mean_", month) := x)
+    assign(paste0("srad_mean_", month), srad_mean)
+
+  swe_mean <- aggregate(df_final$swe..kg.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>% 
+    rename(swe_mean_april = x, !!paste0("swe_mean_", month) := x)
+
+    assign(paste0("swe_mean_", month), swe_mean)
+  
+  tmax_mean <- aggregate(df_final$tmax..deg.c.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("tmax_mean_", month) := x)
+     assign(paste0("tmax_mean_", month), tmax_mean)
+
+  tmin_mean <- aggregate(df_final$tmin..deg.c.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("tmin_mean_", month) := x)
+     assign(paste0("tmin_mean_", month), tmin_mean)
+
+  vp_mean <- aggregate(df_final$vp..Pa.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("vp_mean_", month) := x)
+     assign(paste0("vp_mean_", month), vp_mean)
+
+  prcp_sum <- aggregate(df_final$prcp..mm.day.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = sum) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("prcp_sum_", month) := x)
+    assign(paste0("prcp_sum_", month), prcp_sum)
+
+   current_month_combined <- bind_cols(get(paste0("swe_mean_", month)), 
+                                      get(paste0("srad_mean_", month)), 
+                                      get(paste0("tmax_mean_", month)), 
+                                      get(paste0("tmin_mean_", month)), 
+                                      get(paste0("vp_mean_", month)), 
+                                      get(paste0("prcp_sum_", month)))
+  
+}
+  
+```
+
+
 ```{r}
 write_xlsx(df_new, "data/daymet/table.xlsx")
 ```
