@@ -258,12 +258,112 @@ for (i in seq_along(months)) {
 
 ```
 
+```{r every 4 months}
+months <- c(4, 8)
+four_combined <- monthly_combined  # Create an initial data frame with columns from growing_season_combined_data
+
+for (i in seq_along(months)) {
+  month1 <- months[i]
+  month2 <- months[i] + 1
+  month3 <- months[i] + 2
+  month4 <- months[i] + 3
+  
+  month_rows <- which(as.numeric(format(date, "%m")) %in% c(month1, month2, month3, month4))
+  
+  srad_mean <- aggregate(df_final$srad..W.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>% 
+    rename(!!paste0("srad_mean_", month1, month2, month3, month4) := x)
+  
+  assign(paste0("srad_mean_", month1, month2, month3, month4), srad_mean)
+
+  swe_mean <- aggregate(df_final$swe..kg.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>% 
+    rename(!!paste0("swe_mean_", month1, month2, month3, month4) := x)
+
+  assign(paste0("swe_mean_", month1, month2, month3, month4), swe_mean)
+  
+  tmax_mean <- aggregate(df_final$tmax..deg.c.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("tmax_mean_", month1, month2, month3, month4) := x)
+  
+  assign(paste0("tmax_mean_", month1, month2, month3, month4), tmax_mean)
+
+  tmin_mean <- aggregate(df_final$tmin..deg.c.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("tmin_mean_", month1, month2, month3, month4) := x)
+  
+  assign(paste0("tmin_mean_", month1, month2, month3, month4), tmin_mean)
+
+  vp_mean <- aggregate(df_final$vp..Pa.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("vp_mean_", month1, month2, month3, month4) := x)
+  
+  assign(paste0("vp_mean_", month1, month2, month3, month4), vp_mean)
+
+  prcp_sum <- aggregate(df_final$prcp..mm.day.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = sum) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("prcp_sum_", month1, month2, month3, month4) := x)
+  
+  assign(paste0("prcp_sum_", month1, month2, month3, month4), prcp_sum)
+  
+  # Combine the current month's data frames with the previously combined data
+  current_four_combined <- bind_cols(get(paste0("swe_mean_", month1, month2, month3, month4)), 
+                                      get(paste0("srad_mean_", month1, month2, month3, month4)), 
+                                      get(paste0("tmax_mean_", month1, month2, month3, month4)), 
+                                      get(paste0("tmin_mean_", month1, month2, month3, month4)), 
+                                      get(paste0("vp_mean_", month1, month2, month3, month4)), 
+                                      get(paste0("prcp_sum_", month1, month2, month3, month4)))
+  
+  four_combined <- bind_cols(four_combined, current_four_combined)
+  
+  # Rename the columns with the combined month values
+  four_combined <- four_combined %>%
+    rename_with(~sub(paste0(month1, month2, month3, month4), paste0(month1, "_", month2, "_", month3, "_", month4), .)) %>%
+    rename_with(~sub("4", "April", .), contains("4")) %>%
+    rename_with(~sub("5", "May", .), contains("5")) %>%
+    rename_with(~sub("6", "June", .), contains("6")) %>%
+    rename_with(~sub("7", "July", .), contains("7")) %>%
+    rename_with(~sub("8", "August", .), contains("8")) %>%
+    rename_with(~sub("9", "September", .), contains("9")) %>%
+    rename_with(~sub("10", "October", .), contains("10")) %>%
+    rename_with(~sub("11", "November", .), contains("11")) 
+  }
+
+```
 
 twice_combined is the final dataframe and has
 1. growing_season
 2. monthly (april-nov)
 3. every two months (april-may, june-july, aug-sep, oct-nov)
+
+four_combined (just added)
+1. growing season
+2. monthly (april-nov)
+3. every two months (april-may, june-july, aug-sep, oct-nov)
+4. every 4 months (April, may, june, july) & (Aug, sep, oct, nov)
+
+
 ```{r twice_combined}
 write.csv(twice_combined, "data/daymet/weatherDataDaymetr.csv")
 
 ```
+
+
+# plotting
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r density plots}
+# growing season VP 
+densityplot <- ggplot(twice_combined, aes(x=vp_mean_growingseason)) + 
+  geom_density()
+
+densityplot
+# Add mean line
+densityplot+ geom_vline(aes(xintercept=mean(vp_mean_growingseason)),
+            color="blue", linetype="dashed", size=1)
+```
+
