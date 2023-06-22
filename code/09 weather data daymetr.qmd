@@ -56,7 +56,17 @@ df_unnest <- df_test_w %>%
               values_from = value)
 
 
-data <- df_unnest
+#data <- df_unnest
+df_weather_unnest <- df_unnest
+```
+
+# write data table 
+```{r data}
+write.csv(df_weather_unnest, "data/daymet/unnestedWeatherData.csv")
+tester <- read.csv("data/daymet/unnestedWeatherData.csv")
+
+data <- tester %>%
+  select(-X)
 ```
 
 # wrangling 
@@ -111,8 +121,6 @@ growing_season_combined_data <- srad_mean_growingseason %>%
 ```
 
 ```{r every month}
-library(dplyr)
-
 months <- c(4:11)
 monthly_combined <- growing_season_combined_data  # Create an initial data frame with columns from growing_season_combined_data
 
@@ -180,8 +188,6 @@ for (month in months) {
 ```
 
 ```{r every 2 months}
-library(dplyr)
-
 months <- c(4, 6, 8, 10)
 twice_combined <- monthly_combined  # Create an initial data frame with columns from growing_season_combined_data
 
@@ -259,4 +265,5 @@ twice_combined is the final dataframe and has
 3. every two months (april-may, june-july, aug-sep, oct-nov)
 ```{r twice_combined}
 write.csv(twice_combined, "data/daymet/weatherDataAggregated.csv")
+
 ```
