@@ -1,0 +1,93 @@
+---
+title: "10 field str blues"
+format: html
+---
+
+# Setup  
+```{r}
+library(tidyverse)
+library(readxl)
+library(lme4)
+library(car)
+library(emmeans)
+```
+
+
+```{r field}
+field <- read_excel("../output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+
+field %>%
+  summary
+```
+
+```{r}
+field_w <- field %>%
+  dplyr::select(year, loc, rep, vcode, mean_str, irrigation, lat=Latitude, lon=Longitude) %>%
+  drop_na(mean_str) %>%
+  mutate(loc = factor(loc),
+         rep = factor(rep),
+         vcode = factor(vcode),
+         year_f = factor(year)) %>%
+  mutate(sy = paste0(loc,"_",year_f),
+         sy = factor(sy))
+
+field_w
+```
+
+
+```{r}
+field_w %>%
+  filter(year == 1980 & loc == "Lubbock, TX") %>%
+  arrange(rep) %>%
+  distinct(vcode)
+```
+
+# Field models  
+## Random effect model
+```{r mod_random}
+mod_random <- lmer(data = field_w,
+            mean_str ~ (1|vcode) + (1|sy) + (1|vcode:sy)
+            )
+
+mod_random
+```
+
+
+# Mixed effect model  
+```{r}
+mod_mixed <- lmer(data = field_w,
+            mean_str ~ (1|vcode) + sy + (1|vcode:sy)
+            )
+
+mod_mixed
+```
+
+```{r}
+Anova(mod_mixed, type = 3)
+```
+
+```{r}
+str_blues <- emmeans(mod_mixed, ~sy) %>%
+  as.data.frame() %>%
+  dplyr::select(sy, str_emmean = emmean, se=SE)
+
+str_blues 
+```
+
+```{r}
+str_blues_final <- str_blues %>%
+  left_join(field_w %>%
+              distinct(year, loc, irrigation, lat, lon, sy)
+              ) %>%
+  dplyr::select(year, loc, lat, lon,irrigation,
+                str_emmean)
+
+
+str_blues_final
+```
+
+# Exporting blues
+```{r}
+write_csv(str_blues_final, "../data/field_blues_str.csv")
+```
+
