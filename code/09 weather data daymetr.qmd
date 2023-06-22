@@ -90,9 +90,9 @@ filtered_rows <- which(month>=4 & month<=11)
 
 srad_mean_growingseason <- aggregate(df_final$srad..W.m.2.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>% rename(loc = Group.1, year = Group.2, srad_mean_growingseason = x)
 
-swe_mean_growingseason <- aggregate(df_final$swe..kg.m.2.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>%
+srad_sum_growingseason <- aggregate(df_final$srad..W.m.2.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = sum) %>%
     select(-Group.1, -Group.2) %>% 
-    rename(swe_mean_growingseason = x)
+    rename(srad_sum_growingseason = x)
 
 tmax_mean_growingseason <- aggregate(df_final$tmax..deg.c.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>%
     select(-Group.1, -Group.2) %>%
@@ -106,17 +106,22 @@ vp_mean_growingseason <- aggregate(df_final$vp..Pa.[filtered_rows], list(df_fina
     select(-Group.1, -Group.2) %>%
     rename(vp_mean_growingseason = x)
 
+dayl_mean_growingseason <- aggregate(df_final$dayl..s.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(dayl_mean_growingseason = x)
+
 prcp_sum_growingseason <- aggregate(df_final$prcp..mm.day.[filtered_rows], list(df_final$loc[filtered_rows], df_final$year[filtered_rows]), FUN = sum) %>%
     select(-Group.1, -Group.2) %>%
-    rename(prcp_mean_growingseason = x)
+    rename(prcp_sum_growingseason = x)
 
 
 # combined growingseasonmean 
 growing_season_combined_data <- srad_mean_growingseason %>%
-  bind_cols(swe_mean_growingseason) %>%
+  bind_cols(srad_sum_growingseason) %>%
   bind_cols(tmax_mean_growingseason) %>%
   bind_cols(tmin_mean_growingseason) %>%
   bind_cols(vp_mean_growingseason) %>%
+  bind_cols(dayl_mean_growingseason) %>%
   bind_cols(prcp_sum_growingseason)
 ```
 
@@ -133,11 +138,11 @@ for (month in months) {
   
   assign(paste0("srad_mean_", month), srad_mean)
 
-  swe_mean <- aggregate(df_final$swe..kg.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+  srad_sum <- aggregate(df_final$srad..W.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = sum) %>%
     select(-Group.1, -Group.2) %>% 
-    rename(swe_mean_april = x, !!paste0("swe_mean_", month) := x)
+    rename(!!paste0("srad_sum_", month) := x)
 
-  assign(paste0("swe_mean_", month), swe_mean)
+  assign(paste0("srad_sum_", month), srad_sum)
   
   tmax_mean <- aggregate(df_final$tmax..deg.c.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
     select(-Group.1, -Group.2) %>%
@@ -157,6 +162,12 @@ for (month in months) {
   
   assign(paste0("vp_mean_", month), vp_mean)
 
+  dayl_mean <- aggregate(df_final$dayl..s.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("dayl_mean_", month) := x)
+  
+  assign(paste0("dayl_mean_", month), dayl_mean)
+
   prcp_sum <- aggregate(df_final$prcp..mm.day.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = sum) %>%
     select(-Group.1, -Group.2) %>%
     rename(!!paste0("prcp_sum_", month) := x)
@@ -164,11 +175,12 @@ for (month in months) {
   assign(paste0("prcp_sum_", month), prcp_sum)
   
   # Combine the current month's data frames with the previously combined data
-  current_month_combined <- bind_cols(get(paste0("swe_mean_", month)), 
-                                      get(paste0("srad_mean_", month)), 
+  current_month_combined <- bind_cols(get(paste0("srad_mean_", month)), 
+                                      get(paste0("srad_sum_", month)), 
                                       get(paste0("tmax_mean_", month)), 
                                       get(paste0("tmin_mean_", month)), 
                                       get(paste0("vp_mean_", month)), 
+                                      get(paste0("dayl_mean_", month)), 
                                       get(paste0("prcp_sum_", month)))
   
   monthly_combined <- bind_cols(monthly_combined, current_month_combined)
@@ -203,11 +215,11 @@ for (i in seq_along(months)) {
   
   assign(paste0("srad_mean_", month1, month2), srad_mean)
 
-  swe_mean <- aggregate(df_final$swe..kg.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+  srad_sum <- aggregate(df_final$srad..W.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN =sum) %>%
     select(-Group.1, -Group.2) %>% 
-    rename(!!paste0("swe_mean_", month1, month2) := x)
+    rename(!!paste0("srad_sum_", month1, month2) := x)
 
-  assign(paste0("swe_mean_", month1, month2), swe_mean)
+  assign(paste0("srad_sum_", month1, month2), srad_sum)
   
   tmax_mean <- aggregate(df_final$tmax..deg.c.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
     select(-Group.1, -Group.2) %>%
@@ -227,6 +239,12 @@ for (i in seq_along(months)) {
   
   assign(paste0("vp_mean_", month1, month2), vp_mean)
 
+dayl_mean <- aggregate(df_final$dayl..s.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("dayl_mean_", month1, month2) := x)
+  
+  assign(paste0("dayl_mean_", month1, month2), dayl_mean)
+
   prcp_sum <- aggregate(df_final$prcp..mm.day.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = sum) %>%
     select(-Group.1, -Group.2) %>%
     rename(!!paste0("prcp_sum_", month1, month2) := x)
@@ -234,11 +252,12 @@ for (i in seq_along(months)) {
   assign(paste0("prcp_sum_", month1, month2), prcp_sum)
   
   # Combine the current month's data frames with the previously combined data
-  current_twice_combined <- bind_cols(get(paste0("swe_mean_", month1, month2)), 
-                                      get(paste0("srad_mean_", month1, month2)), 
+  current_twice_combined <- bind_cols(get(paste0("srad_mean_", month1, month2)), 
+                                      get(paste0("srad_sum_", month1, month2)), 
                                       get(paste0("tmax_mean_", month1, month2)), 
                                       get(paste0("tmin_mean_", month1, month2)), 
-                                      get(paste0("vp_mean_", month1, month2)), 
+                                      get(paste0("vp_mean_", month1, month2)),
+                                      get(paste0("dayl_mean_", month1, month2)), 
                                       get(paste0("prcp_sum_", month1, month2)))
   
   twice_combined <- bind_cols(twice_combined, current_twice_combined)
@@ -276,11 +295,11 @@ for (i in seq_along(months)) {
   
   assign(paste0("srad_mean_", month1, month2, month3, month4), srad_mean)
 
-  swe_mean <- aggregate(df_final$swe..kg.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+  srad_sum <- aggregate(df_final$srad..W.m.2.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = sum) %>%
     select(-Group.1, -Group.2) %>% 
-    rename(!!paste0("swe_mean_", month1, month2, month3, month4) := x)
+    rename(!!paste0("srad_sum_", month1, month2, month3, month4) := x)
 
-  assign(paste0("swe_mean_", month1, month2, month3, month4), swe_mean)
+  assign(paste0("srad_sum_", month1, month2, month3, month4), srad_sum)
   
   tmax_mean <- aggregate(df_final$tmax..deg.c.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
     select(-Group.1, -Group.2) %>%
@@ -300,6 +319,12 @@ for (i in seq_along(months)) {
   
   assign(paste0("vp_mean_", month1, month2, month3, month4), vp_mean)
 
+  dayl_mean <- aggregate(df_final$dayl..s.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = mean) %>%
+    select(-Group.1, -Group.2) %>%
+    rename(!!paste0("dayl_mean_", month1, month2, month3, month4) := x)
+  
+  assign(paste0("dayl_mean_", month1, month2, month3, month4), dayl_mean)
+
   prcp_sum <- aggregate(df_final$prcp..mm.day.[month_rows], list(df_final$loc[month_rows], df_final$year[month_rows]), FUN = sum) %>%
     select(-Group.1, -Group.2) %>%
     rename(!!paste0("prcp_sum_", month1, month2, month3, month4) := x)
@@ -307,11 +332,12 @@ for (i in seq_along(months)) {
   assign(paste0("prcp_sum_", month1, month2, month3, month4), prcp_sum)
   
   # Combine the current month's data frames with the previously combined data
-  current_four_combined <- bind_cols(get(paste0("swe_mean_", month1, month2, month3, month4)), 
-                                      get(paste0("srad_mean_", month1, month2, month3, month4)), 
+  current_four_combined <- bind_cols(get(paste0("srad_mean_", month1, month2, month3, month4)), 
+                                      get(paste0("srad_sum_", month1, month2, month3, month4)), 
                                       get(paste0("tmax_mean_", month1, month2, month3, month4)), 
                                       get(paste0("tmin_mean_", month1, month2, month3, month4)), 
                                       get(paste0("vp_mean_", month1, month2, month3, month4)), 
+                                      get(paste0("dayl_mean_", month1, month2, month3, month4)), 
                                       get(paste0("prcp_sum_", month1, month2, month3, month4)))
   
   four_combined <- bind_cols(four_combined, current_four_combined)
@@ -331,12 +357,12 @@ for (i in seq_along(months)) {
 
 ```
 
-twice_combined is the final dataframe and has
+twice_combined has
 1. growing_season
 2. monthly (april-nov)
 3. every two months (april-may, june-july, aug-sep, oct-nov)
 
-four_combined (just added) (FINAL)
+four_combined (Final data frame)
 1. growing season
 2. monthly (april-nov)
 3. every two months (april-may, june-july, aug-sep, oct-nov)
