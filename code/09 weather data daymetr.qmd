@@ -264,6 +264,6 @@ twice_combined is the final dataframe and has
 2. monthly (april-nov)
 3. every two months (april-may, june-july, aug-sep, oct-nov)
 ```{r twice_combined}
-write.csv(twice_combined, "data/daymet/weatherDataAggregated.csv")
+write.csv(twice_combined, "data/daymet/weatherDataDaymetr.csv")
 
 ```
