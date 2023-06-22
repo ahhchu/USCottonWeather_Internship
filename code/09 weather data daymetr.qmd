@@ -260,7 +260,7 @@ for (i in seq_along(months)) {
 
 ```{r every 4 months}
 months <- c(4, 8)
-four_combined <- monthly_combined  # Create an initial data frame with columns from growing_season_combined_data
+four_combined <- twice_combined  # Create an initial data frame with columns from growing_season_combined_data
 
 for (i in seq_along(months)) {
   month1 <- months[i]
@@ -336,15 +336,15 @@ twice_combined is the final dataframe and has
 2. monthly (april-nov)
 3. every two months (april-may, june-july, aug-sep, oct-nov)
 
-four_combined (just added)
+four_combined (just added) (FINAL)
 1. growing season
 2. monthly (april-nov)
 3. every two months (april-may, june-july, aug-sep, oct-nov)
 4. every 4 months (April, may, june, july) & (Aug, sep, oct, nov)
 
 
-```{r twice_combined}
-write.csv(twice_combined, "data/daymet/weatherDataDaymetr.csv")
+```{r four_combined}
+write.csv(four_combined, "data/daymet/weatherDataDaymetrFinal.csv")
 
 ```
 
