@@ -1,0 +1,84 @@
+Run some exploratory regressions with fiber strength vs. year
+
+overall (one regression line)
+per region (SE, SW, SC, etc.), one line per region
+per state, one line per state
+
+# setup 
+
+```{r}
+library(tidyverse)
+library(readr)
+library(ggplot2)
+library(usmap)
+library(dplyr)
+```
+
+# load data
+```{r}
+data <- read.csv("data/daymet/fieldweather_final.csv")
+```
+```{r overall}
+# linear regression model
+model <- lm(str_emmean ~ year, data = data)
+
+# scatter plot w regression line for overall 
+# fiber strength vs year 
+overallPlot <- ggplot(data, aes(x = year, y = str_emmean)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(x = "Year", y = "Fiber Strength")
+```
+
+```{r per region} 
+# SE, SW, SC,
+# Define regions based on states or locations
+# Define regions based on patterns in loc column
+data <- data %>%
+  mutate(region = case_when(
+    grepl("AZ|NM|OK|CA", loc) ~ "South West",
+    grepl("TX|LA|AR|LA|MO", loc) ~ "South Central",
+    grepl("FL|GA|AL|TN|MS", loc) ~ "South East",
+    TRUE ~ "Other"
+  ))
+
+# Fit linear regression models per region
+models <- data %>%
+  group_by(region) %>%
+  nest() %>%
+  mutate(model = map(data, ~ lm(str_emmean ~ year, data = .x)),
+         predicted = map2(model, data, ~ predict(.x, newdata = .y))) %>%
+  select(region, predicted)
+
+# Create a scatter plot with regression lines per region
+ggplot(data, aes(x = year, y = str_emmean, color = region)) +
+  geom_point() +
+  geom_smooth(data = models %>% unnest(predicted), 
+              aes(x = after_stat(x), y = predicted, color = region),
+              method = "lm", se = FALSE) +
+  labs(x = "Year", y = "Fiber Strength")
+```
+
+
+```{r per state}
+states <- unique(data$loc)
+
+# Create an empty list to store the regression models
+models <- list()
+
+# Fit linear regression models per state
+for (state in states) {
+  subset_data <- subset(data, loc == state)
+  model <- lm(str_emmean ~ year, data = subset_data)
+  models[[state]] <- model
+}
+
+# Create a scatter plot with regression lines per state
+state <- ggplot(data, aes(x = year, y = str_emmean, color = loc)) +
+  geom_point() +
+  geom_smooth(data = data.frame(loc = states), 
+              aes(group = loc, color = loc),
+              method = "lm", se = FALSE) +
+  labs(x = "Year", y = "Fiber Strength")
+
+```
