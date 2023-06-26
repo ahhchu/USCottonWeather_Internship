@@ -10,7 +10,6 @@ per state, one line per state
 library(tidyverse)
 library(readr)
 library(ggplot2)
-library(usmap)
 library(dplyr)
 ```
 
@@ -33,52 +32,54 @@ overallPlot <- ggplot(data, aes(x = year, y = str_emmean)) +
 ```{r per region} 
 # SE, SW, SC,
 # Define regions based on states or locations
-# Define regions based on patterns in loc column
 data <- data %>%
   mutate(region = case_when(
-    grepl("AZ|NM|OK|CA", loc) ~ "South West",
-    grepl("TX|LA|AR|LA|MO", loc) ~ "South Central",
-    grepl("FL|GA|AL|TN|MS", loc) ~ "South East",
+    grepl("AZ|NM|OK|CA", loc) ~ "South_West",
+    grepl("TX|LA|AR|LA|MO", loc) ~ "South_Central",
+    grepl("FL|GA|AL|TN|MS", loc) ~ "South_East",
     TRUE ~ "Other"
   ))
 
-# Fit linear regression models per region
-models <- data %>%
-  group_by(region) %>%
-  nest() %>%
-  mutate(model = map(data, ~ lm(str_emmean ~ year, data = .x)),
-         predicted = map2(model, data, ~ predict(.x, newdata = .y))) %>%
-  select(region, predicted)
+region_plot_list <- list()
 
-# Create a scatter plot with regression lines per region
-ggplot(data, aes(x = year, y = str_emmean, color = region)) +
-  geom_point() +
-  geom_smooth(data = models %>% unnest(predicted), 
-              aes(x = after_stat(x), y = predicted, color = region),
-              method = "lm", se = FALSE) +
-  labs(x = "Year", y = "Fiber Strength")
+# Create separate plots for each region
+for (reg in unique(data$region)) {
+  region_df <- data %>% filter(region == reg)
+  
+  # Create ggplot object for the current region
+  plot <- ggplot(region_df, aes(x = year, y = str_emmean)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    labs(x = "Year", y = "str_emmean", title = paste("Regression Line for", reg))
+  
+  # Store the plot object in the list with the region information as the name
+  region_plot_list[[reg]] <- plot
+}
+region_plot_list[['South_West']]
+region_plot_list[['South_Central']]
+region_plot_list[['South_East']]
 ```
 
 
 ```{r per state}
-states <- unique(data$loc)
+# splitting data by loc 
+grouped <- split(data, data$loc)
+state_plot_list <- list()
 
-# Create an empty list to store the regression models
-models <- list()
 
-# Fit linear regression models per state
-for (state in states) {
-  subset_data <- subset(data, loc == state)
-  model <- lm(str_emmean ~ year, data = subset_data)
-  models[[state]] <- model
+for (loc in names(grouped)) {
+  group_df <- grouped[[loc]]
+    # ggplot for each loc
+  plot <- ggplot(group_df, aes(x = year, y = str_emmean)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    labs(x = "Year", y = "str_emmean", title = paste("Regression Line for", loc))
+    state_plot_list[[loc]] <- plot
 }
 
-# Create a scatter plot with regression lines per state
-state <- ggplot(data, aes(x = year, y = str_emmean, color = loc)) +
-  geom_point() +
-  geom_smooth(data = data.frame(loc = states), 
-              aes(group = loc, color = loc),
-              method = "lm", se = FALSE) +
-  labs(x = "Year", y = "Fiber Strength")
+# accessing a state Altus, OK
+ state_plot_list[['Altus, OK']]
+# Yuma, AZ
+state_plot_list[['Yuma, AZ']]
 
 ```
