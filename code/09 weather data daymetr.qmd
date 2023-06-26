@@ -17,7 +17,7 @@ library(reticulate)
 ```
 
 ```{r}
-df <- read_csv("data/daymet/index.csv")
+df <- read_csv("../data/daymet/index.csv")
 ```
 
 ```{r}
@@ -63,7 +63,7 @@ df_weather_unnest <- df_unnest
 # write data table 
 ```{r data}
 write.csv(df_weather_unnest, "data/daymet/unnestedWeatherData.csv")
-tester <- read.csv("data/daymet/unnestedWeatherData.csv")
+tester <- read.csv("../data/daymet/unnestedWeatherData.csv")
 
 data <- tester %>%
   select(-X) 
@@ -80,14 +80,24 @@ data$gdd_tmax <- ifelse(data$tmax..deg.c. < 37.7 & data$tmax..deg.c. > tb, data$
                         ifelse(data$tmax..deg.c. >= 37.7, 37.7,
                                ifelse(data$tmax..deg.c. <= tb, tb, NA)))
 
-
+ggplot(data = data, aes(x=tmax..deg.c., y=gdd_tmax))+
+  geom_abline()+
+  geom_point()
+  
 #tmin
 data$gdd_tmin <- ifelse(data$tmin..deg.c. < 37.7 & data$tmin..deg.c. > tb, data$tmin..deg.c.,
                         ifelse(data$tmin..deg.c. >= 37.7, 37.7,
                                ifelse(data$tmin..deg.c. <= tb, tb, NA)))
 
+ggplot(data = data, aes(x=tmin..deg.c., y=gdd_tmin))+
+  geom_abline()+
+  geom_point()
+
 # tmax+tmin/2 - tb
 data$gdd <- (data$gdd_tmax + data$gdd_tmin) / 2 - tb
+
+data %>%
+  dplyr::select(gdd_tmax, gdd_tmin, gdd)
                
 ```
 
@@ -101,6 +111,8 @@ data$year_End <- as.Date(paste0(data$year, "-12-31"))
 # dropped duplicated columns
 df_final <- data %>%
 select(-site, -lat, -lon, -yr) 
+
+
 ```
 
 

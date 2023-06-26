@@ -15,7 +15,7 @@ library(dplyr)
 
 # load data
 ```{r}
-data <- read.csv("data/daymet/fieldweather_final.csv")
+data <- read.csv("../data/daymet/fieldweather_final.csv")
 ```
 ```{r overall}
 # linear regression model
@@ -78,8 +78,37 @@ for (loc in names(grouped)) {
 }
 
 # accessing a state Altus, OK
- state_plot_list[['Altus, OK']]
+state_plot_list[['Altus, OK']]
 # Yuma, AZ
 state_plot_list[['Yuma, AZ']]
 
 ```
+
+
+
+```{r per region 2}
+data %>%
+  ggplot(aes(x = year, y = str_emmean, color = region)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE)+
+  facet_grid(.~region)+
+  theme(legend.position = "none")
+
+str ~ region*year
+str ~ region + year + region:year
+
+```
+
+```{r per state 2}
+data %>%
+  ggplot(aes(x = year, y = str_emmean, color = state)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE)+
+  facet_grid(.~state)+
+  theme(legend.position = "none")
+
+str ~ region*year
+str ~ region + year + region:year
+
+```
+

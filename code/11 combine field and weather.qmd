@@ -10,13 +10,13 @@ library(tidyverse)
 
 
 ```{r weather}
-weather <- read_csv("data/daymet/weatherDataDaymetrFinal.csv")
+weather <- read_csv("../data/daymet/weatherDataDaymetrFinal.csv")
 
 weather
 ```
 
 ```{r}
-str_blue <- read_csv("data/daymet/field_blues_str.csv")
+str_blue <- read_csv("../data/daymet/field_blues_str.csv")
 
 str_blue
 ```
@@ -32,6 +32,7 @@ fieldweather
 
 ```{r}
 write_csv(fieldweather,
-          "data/daymet/fieldweather_final.csv")
+          "../data/daymet/fieldweather_final.csv")
+
 ```
 
