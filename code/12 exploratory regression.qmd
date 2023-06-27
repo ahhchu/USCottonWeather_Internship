@@ -15,8 +15,15 @@ library(dplyr)
 
 # load data
 ```{r}
-data <- read.csv("../data/daymet/fieldweather_final.csv")
+tester <- read.csv("data/daymet/fieldweather_final.csv")
 ```
+
+# wrangling data / removing alaska point 
+```{r}
+data <- tester %>%
+filter(loc != "Palmer, AK")
+```
+
 ```{r overall}
 # linear regression model
 model <- lm(str_emmean ~ year, data = data)
@@ -27,85 +34,73 @@ overallPlot <- ggplot(data, aes(x = year, y = str_emmean)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "red") +
   labs(x = "Year", y = "Fiber Strength")
+
+ggsave("data/regression/overallPlot.png", overallPlot)
 ```
 
 ```{r per region} 
-# SE, SW, SC,
-# Define regions based on states or locations
+# Far West, Southwest, Midsouth, Southeast
+# https://www.cottoninc.com/cotton-production/quality/us-cotton-fiber-chart/
 data <- data %>%
   mutate(region = case_when(
-    grepl("AZ|NM|OK|CA", loc) ~ "South_West",
-    grepl("TX|LA|AR|LA|MO", loc) ~ "South_Central",
-    grepl("FL|GA|AL|TN|MS", loc) ~ "South_East",
+    grepl("CA|AZ|NM|NV", loc) ~ "FarWest",
+    grepl("TX|OK|KS", loc) ~ "Southwest",
+    grepl("MO|AR|LA|MS|TN", loc) ~ "Midsouth",
+    grepl("AL|GA|SC|NC|VA|FL", loc)  ~ "Southeast",
     TRUE ~ "Other"
   ))
 
-region_plot_list <- list()
 
-# Create separate plots for each region
-for (reg in unique(data$region)) {
-  region_df <- data %>% filter(region == reg)
-  
-  # Create ggplot object for the current region
-  plot <- ggplot(region_df, aes(x = year, y = str_emmean)) +
-    geom_point() +
-    geom_smooth(method = "lm", se = FALSE) +
-    labs(x = "Year", y = "str_emmean", title = paste("Regression Line for", reg))
-  
-  # Store the plot object in the list with the region information as the name
-  region_plot_list[[reg]] <- plot
-}
-region_plot_list[['South_West']]
-region_plot_list[['South_Central']]
-region_plot_list[['South_East']]
-```
-
-
-```{r per state}
-# splitting data by loc 
-grouped <- split(data, data$loc)
-state_plot_list <- list()
-
-
-for (loc in names(grouped)) {
-  group_df <- grouped[[loc]]
-    # ggplot for each loc
-  plot <- ggplot(group_df, aes(x = year, y = str_emmean)) +
-    geom_point() +
-    geom_smooth(method = "lm", se = FALSE) +
-    labs(x = "Year", y = "str_emmean", title = paste("Regression Line for", loc))
-    state_plot_list[[loc]] <- plot
-}
-
-# accessing a state Altus, OK
-state_plot_list[['Altus, OK']]
-# Yuma, AZ
-state_plot_list[['Yuma, AZ']]
-
-```
-
-
-
-```{r per region 2}
-data %>%
+# shows grapht plots
+region_plot <- data %>%
   ggplot(aes(x = year, y = str_emmean, color = region)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE)+
   facet_grid(.~region)+
   theme(legend.position = "none")
 
+ggsave("data/regression/region_plot.png", region_plot)
+# 
 str ~ region*year
 str ~ region + year + region:year
 
+
 ```
 
-```{r per state 2}
-data %>%
+
+```{r per state}
+data <- data %>%
+  mutate(state = case_when(
+    grepl("TX", loc) ~ "Texas",
+    grepl("OK", loc) ~ "Oklahoma",
+    grepl("KS", loc) ~ "Kansas",
+    grepl("MO", loc) ~ "Missouri",
+    grepl("AR", loc) ~ "Arkansas",
+    grepl("LA", loc) ~ "Louisiana",
+    grepl("MS", loc) ~ "Mississippi",
+    grepl("TN", loc) ~ "Tennessee",
+    grepl("AL", loc) ~ "Alabama",
+    grepl("GA", loc) ~ "Georgia",
+    grepl("SC", loc) ~ "South Carolina",
+    grepl("NC", loc) ~ "North Carolina",
+    grepl("VA", loc) ~ "Virginia",
+    grepl("FL", loc) ~ "Florida",
+    grepl("CA", loc) ~ "California",
+    grepl("AZ", loc)  ~ "Arizona",
+    grepl("NM", loc ) ~ "New Mexico",
+    grepl("NV", loc) ~ "Nevada",
+    TRUE ~ "Other"
+  ))
+
+state_plot <- data %>%
+    filter(loc != "Logandale, NV") %>% # logandale only has one point (not useful in this information)
   ggplot(aes(x = year, y = str_emmean, color = state)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE)+
   facet_grid(.~state)+
   theme(legend.position = "none")
+
+  ggsave("data/regression/state_plot.png", state_plot)
 
 str ~ region*year
 str ~ region + year + region:year
