@@ -1,0 +1,122 @@
+# setup 
+
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(randomForest)
+library(tidymodels)
+library(skimr)
+library(yardstick)
+```
+
+# loading data / preprocess data 
+```{r}
+tester <- read.csv("data/daymet/fieldweather_final.csv")
+data <- tester %>%
+    select(-lat, -lon, -irrigation) %>%
+    na.omit() # exclue na values 
+    # %>%  mutate_if(is.character, as.factor) ? maybe
+
+```
+
+# training/testing set
+```{r}
+set.seed(123) # change later?
+data_split <- initial_split(data, prop = 3/4)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+```
+
+# preprocess with recipes
+```{r}
+#preprocsessing recipies
+data_rec <-  # model_outcome ~ predictors 
+    recipe(str_emmean~.,data=train_data) %>%
+    update_role(loc, year, new_role = "ID") %>%
+    step_normalize(all_predictors())
+    #keep loc/year but don't use as outcomes/predictors  
+
+# build linear regresiion model
+lr_mod <- 
+  linear_reg() %>% 
+  set_engine("lm")
+
+
+# bundeled model + recipie with workflows
+data_wflow <- 
+  workflow() %>% 
+  add_model(lr_mod) %>% 
+  add_recipe(data_rec)
+
+data_wflow
+
+# trained workflow
+data_fit <- 
+  data_wflow %>% 
+  fit(data = train_data)
+
+data_fit %>% 
+  extract_fit_parsnip() %>% 
+  tidy()
+
+# use trained workflow to predict
+predictions <- predict(data_fit, test_data)
+predictions
+
+data_aug <- 
+  augment(data_fit, test_data)
+data_aug
+
+# roc curve
+```
+
+
+
+
+
+
+
+# creating the model 
+## all variables not including response var 
+```{r}
+randomForest_model <- randomForest(str_emmean ~., data=train_data)
+
+var_imp <- importance(randomForest_model)
+var_imp
+varImpPlot(randomForest_model)
+
+#PLOT
+# taller bars shows more important vars 
+```
+
+# filtering out those with high incnodepurity values 
+```{r}
+threshold <- 0.05  # Set your desired threshold value
+
+# Filter out variables with high IncNodePurity values
+important_vars <- names(var_imp[, "IncNodePurity"])[var_imp[, "IncNodePurity"] > threshold]
+
+# Subset your data using the important variables
+train_data_subset <- train_data[, names(train_data) %in% important_vars]
+
+
+```
+
+
+
+
+## growingseason
+```{r growingseason}
+rf_gs_model <- randomForest(str_emmean ~ srad_mean_growingseason+srad_sum_growingseason+tmax_mean_growingseason+tmin_mean_growingseason+gdd_mean_growingseason+gdd_sum_growingseason+vp_mean_growingseason+dayl_mean_growingseason+prcp_sum_growingseason, data=train_data)
+```
+```{r}
+var_imp <- importance(rf_gs_model)
+var_imp
+varImpPlot(rf_gs_model)
+```
+
+
+```{r}
+
+```

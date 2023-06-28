@@ -1,0 +1,10 @@
+IncNodePurity 
+- higher value indicares greater variable importance 
+- the "IncNodePurity" measure represents the total decrease in node impurity achieved by each predictor variable. Node impurity refers to the heterogeneity or lack of homogeneity within a node in the decision tree. By reducing node impurity, a predictor variable becomes more important as it contributes to better separation or classification of the target variable.
+
+#PLOTs
+taller bars shows more important variables
+
+The ordering of the bars is from left to right, starting with the most important variable (highest MeanDecreaseGini) on the left.
+
+#mayve make str_emmean a factor so can run all the tidymodels tests 
