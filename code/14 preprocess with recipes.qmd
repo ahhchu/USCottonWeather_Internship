@@ -1,0 +1,95 @@
+# setup
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(randomForest)
+library(tidymodels)
+library(skimr)
+library(pROC) # roc curves 
+library(yardstick)
+```
+
+# loading data 
+```{r}
+tester <- read.csv("data/daymet/fieldweather_final.csv")
+```
+
+# wrangling data
+```{r}
+field_data <- tester %>%
+    mutate(
+        str_emmean = ifelse(str_emmean >= 30.45, "above_mean", "below_mean"),
+        str_emmean = factor(str_emmean)
+        ) %>% # select() maybe
+        na.omit() %>%
+        mutate_if(is.character, as.factor)
+```
+
+# data splitting
+```{r}
+set.seed(222)
+# Put 3/4 of the data into the training set 
+data_split <- initial_split(field_data, prop = 3/4)
+
+# Create data frames for the two sets:
+train_data <- training(data_split)
+test_data  <- testing(data_split)
+```
+
+# creating recipies + roles
+```{r}
+field_rec <- 
+  recipe(str_emmean ~ ., data = train_data)  %>% 
+  update_role(loc, year, lat, lon, irrigation, new_role = "ID") 
+```
+
+# fit model with a recipie
+```{r}
+lr_mod <- 
+  logistic_reg() %>% 
+  set_engine("glm")
+
+field_wflow <- 
+  workflow() %>% 
+  add_model(lr_mod) %>% 
+  add_recipe(field_rec)
+
+field_fit <- 
+ field_wflow %>% 
+  fit(data = train_data)
+# warning message:
+# glm:fit: fitted probabilities numerically 0 or 1 occurred
+
+field_fit %>% 
+  extract_fit_parsnip() %>% 
+  tidy()
+```
+
+# predict
+```{r}
+predict(field_fit, test_data)
+
+field_aug <- 
+  augment(field_fit, test_data)
+
+  #roc curve
+  # above mean 
+  field_aug %>% 
+  roc_curve(truth = str_emmean, .pred_above_mean) %>% 
+  autoplot()
+
+  # below mean
+  field_aug %>% 
+  roc_curve(truth = str_emmean, .pred_below_mean) %>% 
+  autoplot()
+
+  # calculating area under curve
+  field_aug %>% 
+  roc_auc(truth = str_emmean, .pred_above_mean)
+
+  field_aug %>% 
+  roc_auc(truth = str_emmean, .pred_below_mean)
+
+
+```

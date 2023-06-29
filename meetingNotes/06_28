@@ -8,3 +8,8 @@ taller bars shows more important variables
 The ordering of the bars is from left to right, starting with the most important variable (highest MeanDecreaseGini) on the left.
 
 #mayve make str_emmean a factor so can run all the tidymodels tests 
+
+
+# high OOB means that random forest is not performing well 
+
+# set.mode("regression") NOT classification
