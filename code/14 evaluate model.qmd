@@ -1,0 +1,246 @@
+# setup 
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(randomForest)
+library(tidymodels)
+library(skimr)
+library(yardstick)
+```
+
+# loading data
+```{r}
+tester <- read.csv("data/daymet/fieldweather_final.csv")
+```
+
+# wrangling data
+```{r}
+field_data <- tester %>%
+        mutate_if(is.character, as.factor)
+```
+
+# splitting data 
+```{r}
+set.seed(4595)
+# Put 3/4 of the data into the training set 
+data_split <- initial_split(field_data, ,strata = "str_emmean", prop = 0.75)
+
+# Create data frames for the two sets:
+train_data <- training(data_split)
+test_data  <- testing(data_split) %>%
+na.omit()
+
+# random forest 
+rf_mod <- rand_forest(mode = "regression",  mtry = 3, trees = 1000)
+```
+
+
+# modeling
+# temporal scale: entire temporal scale
+```{r entire temporal scale}
+# all temporal scales 
+preds <- colnames(train_data)[grep("^srad_mean_growingseason", colnames(train_data)):ncol(train_data)]
+
+rf_all_fit <- 
+  rf_mod %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = train_data[, preds],
+    y = log10(train_data$str_emmean)
+  )
+
+rf_all_fit
+#Mean of squared residuals: 0.00168 (OOB prediction error MSE )
+#% Var explained: 22.61 R^2 (OOB needs to be higher)
+```
+
+# estimating performance
+```{r}
+predicted_values <- predict(rf_all_fit, new_data = test_data[, preds])
+
+plot_data <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values)
+
+# plot for actual VS predicted values (point=test_data)
+plot_data %>%
+  ggplot(aes(x = Actual, y = .pred)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Actual", y = "Predicted") +
+  ggtitle("Actual vs. Predicted Values")
+
+# linear regression model
+lm_model <- lm(Actual ~ .pred, data = plot_data)
+lm_summary <- summary(lm_model)
+r_squared <- lm_summary$r.squared #25.49538
+
+# Extract the slope coefficient
+slope <- coef(lm_model)[".pred"]
+slope # 1.03 indiicates efficiently estimated actual values
+
+```
+
+# temporal scale: growing season
+# training
+```{r growing season}
+# all temporal scales 
+growingseason <- colnames(train_data)[grep("^(srad_mean_growingseason|prcp_sum_growingseason)|growingseason", colnames(train_data))]
+
+
+rf_growingseason_fit <- 
+  rf_mod %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = train_data[, growingseason],
+    y = log10(train_data$str_emmean)
+  )
+
+rf_growingseason_fit
+#Mean of squared residuals: 0.001957698 (prediction error)
+#% Var explained: 12.89 (R^2)
+```
+
+```{r testing}
+predicted_values_gs <- predict(rf_growingseason_fit, new_data = test_data)
+
+plot_data_gs <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_gs)
+
+# plot for actual VS predicted values (point=test_data)
+plot_data_gs %>%
+  ggplot(aes(x = Actual, y = .pred)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Actual", y = "Predicted") +
+  ggtitle("Growing Season: Actual vs. Predicted Values")
+
+lm_model_gs <- lm(Actual ~ .pred, data = plot_data_gs)
+lm_summary_gs <- summary(lm_model_gs)
+r_squared_gs <- lm_summary_gs$r.squared #14.68369
+
+# Extract the slope coefficient
+slope_gs <- coef(lm_model_gs)[".pred"]
+slope_gs # 0.5808563 (low)
+
+```
+
+# temporal scale: 4 months
+```{r quadramonths}
+
+quadramonths <- colnames(train_data)[grep("(April_May_June_July|August_September_October_November)", colnames(train_data))]
+
+rf_quadra_fit <- 
+  rf_mod %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = train_data[, quadramonths],
+    y = log10(train_data$str_emmean)
+  )
+
+rf_quadra_fit
+#Mean of squared residuals: 0.001851192 (prediction error)
+#% Var explained: 15.19 (R^2)
+```
+
+```{r testing}
+predicted_values_quadra <- predict(rf_quadra_fit, new_data = test_data)
+
+plot_data_quadra <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_quadra)
+
+# plot for actual VS predicted values (point=test_data)
+plot_data_quadra %>%
+  ggplot(aes(x = Actual, y = .pred)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Actual", y = "Predicted") +
+  ggtitle("Every Four Months: Actual vs. Predicted Values")
+
+lm_model_quadra <- lm(Actual ~ .pred, data = plot_data_quadra)
+lm_summary_quadra <- summary(lm_model_quadra)
+r_squared_quadra <- lm_summary_quadra$r.squared # 0.2098211
+
+# Extract the slope coefficient
+slope_quadra <- coef(lm_model_quadra)[".pred"]
+slope_quadra # 0.7295688
+```
+
+# Temporal Scale: bi monthly 
+```{r bi monthly}
+bimonths <- colnames(train_data)[grep("(April_May|June_July|August_September|October_November)", colnames(train_data))]
+bimonths <- bimonths[!grepl("April_May_June_July|August_September_October_November", bimonths)]
+
+rf_bi_fit <- 
+  rf_mod %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = train_data[, bimonths],
+    y = log10(train_data$str_emmean)
+  )
+
+rf_bi_fit
+#Mean of squared residuals: 0.00178051 (prediction error)
+#% Var explained: 21.15 (R^2)
+```
+
+```{r testing}
+predicted_values_bi <- predict(rf_bi_fit, new_data = test_data)
+
+plot_data_bi <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_bi)
+
+# plot for actual VS predicted values (point=test_data)
+plot_data_bi %>%
+  ggplot(aes(x = Actual, y = .pred)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Actual", y = "Predicted") +
+  ggtitle("Bimonthly: Actual vs. Predicted Values")
+
+lm_model_bi <- lm(Actual ~ .pred, data = plot_data_bi)
+lm_summary_bi <- summary(lm_model_bi)
+r_squared_bi <- lm_summary_bi$r.squared # 0.2997164
+
+# Extract the slope coefficient
+slope_bi <- coef(lm_model_bi)[".pred"]
+slope_bi #1.083225 
+```
+
+# Temporal Scale: monthly
+```{r monthly}
+months <- colnames(train_data)[grep("(April_May|June_July|August_September|October_November)", colnames(train_data))]
+months <- months[!grepl("April_May_June_July|August_September_October_November", bimonths)]
+
+rf_monthly_fit <- 
+  rf_mod %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = train_data[, months],
+    y = log10(train_data$str_emmean)
+  )
+
+rf_monthly_fit
+#Mean of squared residuals: 0.001792061 (prediction error)
+#% Var explained: 19.76 (R^2)
+```
+
+
+```{r testing}
+predicted_values_monthly <- predict(rf_monthly_fit, new_data = test_data)
+
+plot_data_monthly  <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_monthly)
+
+# plot for actual VS predicted values (point=test_data)
+plot_data_monthly  %>%
+  ggplot(aes(x = Actual, y = .pred)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Actual", y = "Predicted") +
+  ggtitle("Monthly: Actual vs. Predicted Values")
+
+lm_model_monthly  <- lm(Actual ~ .pred, data = plot_data_monthly)
+lm_summary_monthly  <- summary(lm_model_monthly )
+r_squared_monthly  <- lm_summary_monthly $r.squared  # 0.2653291
+
+# Extract the slope coefficient
+slope_monthly  <- coef(lm_model_monthly)[".pred"]
+slope_monthly  # 0.9390052 
+```
+```
