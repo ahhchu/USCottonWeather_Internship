@@ -7,6 +7,8 @@ library(randomForest)
 library(tidymodels)
 library(skimr)
 library(yardstick)
+library(caret)
+library(xgboost)
 ```
 
 # loading data
@@ -24,10 +26,12 @@ field_data <- tester %>%
 ```{r}
 set.seed(123)
 # Put 3/4 of the data into the training set 
-data_split <- initial_split(field_data, strata = "str_emmean", prop = 0.75)
+data_split <- initial_split(field_data, strata = "str_emmean", prop = 0.80)
 
 # Create data frames for the two sets:
-train_data <- training(data_split)
+train_data <- training(data_split) %>%
+na.omit()
+
 test_data  <- testing(data_split) %>%
 na.omit()
 
@@ -347,4 +351,31 @@ lm_model_temp  <- lm(Actual ~ .pred, data = plot_data_temp)
 # Extract the slope coefficient
 slope_temp  <- coef(lm_model_temp)[".pred"]
 slope_temp  #1.395424 
+```
+
+
+# tuning hyper params using grid search 
+```{r grid search}
+## specifying the CV technique which will be passed into the train() function later and number parameter is the "k" in K-fold cross validation
+train_control = trainControl(method = "cv", number = 5, search = "grid")
+
+set.seed(50)
+# Customsing the tuning grid
+gbmGrid <-  expand.grid(max_depth = c(3, 5, 7), 
+                        nrounds = (1:10)*50,    # number of trees
+                        # default values below
+                        eta = 0.3,
+                        gamma = 0,
+                        subsample = 1,
+                        min_child_weight = 1,
+                        colsample_bytree = 0.6)
+
+# training a XGboost Regression tree model while tuning parameters
+train_data <- na.omit(train_data)
+strength <- train_data$str_emmean
+
+model = train(str_emmean~., data = train_data, method = "xgbTree", trControl = train_control, tuneGrid = gbmGrid)
+
+# summarising the results
+print(model)
 ```
