@@ -15,7 +15,7 @@ library(dplyr)
 
 # load data
 ```{r}
-tester <- read.csv("data/daymet/fieldweather_final.csv")
+tester <- read.csv("../data/daymet/fieldweather_final.csv")
 ```
 
 # wrangling data / removing alaska point 
