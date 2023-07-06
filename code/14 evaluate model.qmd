@@ -9,18 +9,19 @@ library(skimr)
 library(yardstick)
 library(caret)
 library(xgboost)
+library(mlr)
 ```
 
 # loading data
 ```{r}
-tester <- read.csv("../data/daymet/fieldweather_final.csv") 
+tester <- read.csv("data/daymet/finalWeatherandRegions.csv") 
 ```
 
 # wrangling data
 ```{r}
 field_data <- tester %>%
   mutate_if(is.character, as.factor) %>%
-  dplyr::select(-irrigation) %>%
+  dplyr::select(-irrigation, -loc, -lat, -lon) %>%
   drop_na()
 
 ```
@@ -28,7 +29,7 @@ field_data <- tester %>%
 # splitting data 
 ```{r}
 set.seed(123)
-# Put 3/4 of the data into the training set 
+# Put 80% of the data into the training set 
 data_split <- initial_split(field_data, strata = "str_emmean", prop = 0.80)
 
 # Create data frames for the two sets:
@@ -37,7 +38,7 @@ train_data <- training(data_split)
 test_data  <- testing(data_split) 
 
 # random forest 
-rf_mod <- rand_forest(mode = "regression",  mtry = 10, trees = 2000)
+rf_mod <- rand_forest(mode = "regression",  mtry = 104, trees = 72)
 ```
 
 
@@ -45,8 +46,9 @@ rf_mod <- rand_forest(mode = "regression",  mtry = 10, trees = 2000)
 # temporal scale: entire temporal scale
 ```{r entire temporal scale}
 # all temporal scales 
+set.seed(123)
 preds <- train_data %>%
-  dplyr::select(-c(year:loc))
+  dplyr::select(-c(year:loc)) 
   
 rf_all_fit <-  rf_mod %>%
   set_engine("randomForest") %>%
@@ -55,22 +57,21 @@ rf_all_fit <-  rf_mod %>%
     y = preds$str_emmean
   )
 
-rf_all_fit
-
 # r^2 
-train_r_squared <- train_data %>%
-  #select(all_of(preds)) %>%
+train_predictions <- train_data %>%
   predict(rf_all_fit, .) %>%
   bind_cols(actual = train_data$str_emmean) %>%
-  mutate(residuals = actual - .) %>%
-  summarise(r_squared = 1 - sum(residuals^2) / sum((actual - mean(actual))^2)) %>%
-  pull(r_squared)
+  mutate(residuals = actual - .)
 
-train_r_squared #0.87076
+R2(train_predictions$.pred, train_data$str_emmean)
+RMSE(train_predictions$.pred, train_data$str_emmean)
+
+
 ```
 
 # estimating performance
 ```{r}
+set.seed(123)
 predicted_values <- predict(rf_all_fit, new_data = test_data)
 
 plot_data <- test_data %>% 
@@ -85,21 +86,20 @@ plot_data %>%
 
 plot_data %>%
   filter(residual < -5) %>%
-  dplyr::select(year, loc, str_emmean, .pred)
+  dplyr::select(year, region, state, str_emmean, .pred)
 
-# plot for actual VS predicted values (point=test_data)
-plot_data %>%
+# plot for actual VS predicted valuesp (point=test_data)
+ plot_data %>%
   ggplot(aes(x = str_emmean, y = .pred)) +
-  geom_point(aes(color = year)) +
+  geom_point(aes(color = year)) + # changed from color = year 
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
   ggtitle("Actual vs. Predicted Values")
 
-# linear regression model
-r_squared <- plot_data %>%
-  lm(str_emmean ~ .pred, data = .) %>%
-  summary() %>%
-  .$r.squared # 0.3791808
+# R^2 / RMSE
+set.seed(123)
+R2(predicted_values, test_data$str_emmean)
+RMSE(predicted_values$.pred, test_data$str_emmean)
 
 # Extract the slope coefficient
 lm_model  <- lm(str_emmean ~ .pred, data = plot_data)
@@ -112,51 +112,64 @@ slope # 1.375308 might indiicates efficiently estimated actual values
 # training
 ```{r growing season}
 # growing seasons
-growingseason <- colnames(train_data)[grep("^(srad_mean_growingseason|prcp_sum_growingseason)|growingseason", colnames(train_data))]
+set.seed(123)
+growingseason <- train_data %>%
+  dplyr::select(-c(year:loc)) %>%
+  dplyr::select(c(srad_mean_growingseason:prcp_sum_growingseason), str_emmean)
 
 rf_growingseason_fit <- rf_mod %>%
   set_engine("randomForest") %>%
   fit_xy(
-    x = train_data[, growingseason],
-    y = log10(train_data$str_emmean)
+    x = dplyr::select(growingseason, -str_emmean),
+    y = growingseason$str_emmean
   )
 
 rf_growingseason_fit
 
 # r^2
-train_r_squared_gs <- train_data %>%
-  select(all_of(growingseason)) %>%
+train_predictions_gs <- train_data %>%
   predict(rf_growingseason_fit, .) %>%
-  bind_cols(actual = log10(train_data$str_emmean)) %>%
-  mutate(residuals = actual - .) %>%
-  summarise(r_squared = 1 - sum(residuals^2) / sum((actual - mean(actual))^2)) %>%
-  pull(r_squared)
+  bind_cols(actual = train_data$str_emmean) %>%
+  mutate(residuals = actual - .)
 
-train_r_squared_gs
+R2(train_predictions_gs$.pred, train_data$str_emmean)
+RMSE(train_predictions_gs$.pred, train_data$str_emmean)
+
 
 ```
 
 ```{r testing}
-predicted_values_gs <- predict(rf_growingseason_fit, new_data = test_data[, growingseason])
+set.seed(123)
+predicted_values_gs <- predict(rf_growingseason_fit, new_data = test_data)
 
-plot_data_gs <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_gs)
+plot_data_gs <- test_data %>%
+  bind_cols(data.frame(Predicted = predicted_values_gs)) %>%
+  mutate(residual = str_emmean - .pred)
+
+# residual vs year
+plot_data_gs %>%
+  ggplot(aes(x=year, y=residual))+
+  geom_point()+
+  geom_hline(yintercept=c(-2,0,2), color="red")
+
+plot_data_gs %>%
+  filter(residual < -5) %>%
+  dplyr::select(year, loc, str_emmean, .pred)
 
 # plot for actual VS predicted values (point=test_data)
 plot_data_gs %>%
-  ggplot(aes(x = Actual, y = .pred)) +
-  geom_point() +
+  ggplot(aes(x = str_emmean, y = .pred)) +
+  geom_point(aes(color=year)) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
   ggtitle("Growing Season: Actual vs. Predicted Values")
 
-# r^2 testing
-r_squared_gs <- plot_data_gs %>%
-  lm(Actual ~ .pred, data = .) %>%
-  summary() %>%
-  .$r.squared # 0.2881525
+# R^2  / RMSE
+R2(predicted_values_gs, test_data$str_emmean)
+RMSE(predicted_values_gs$.pred, test_data$str_emmean)
 
 # Extract the slope coefficient
-lm_model_gs  <- lm(Actual ~ .pred, data = plot_data_gs)
+lm_model_gs  <- lm(str_emmean ~ .pred, data = plot_data_gs)
 slope_gs <- coef(lm_model_gs)[".pred"]
 slope_gs # 1.096859  (efficient since close to 1)
 
@@ -164,100 +177,124 @@ slope_gs # 1.096859  (efficient since close to 1)
 
 # temporal scale: 4 months
 ```{r quadramonths}
-quadramonths <- colnames(train_data)[grep("(April_May_June_July|August_September_October_November)", colnames(train_data))]
+quadramonths <- train_data %>%
+  dplyr::select(-c(year:loc)) %>%
+  dplyr::select(c(srad_mean_April_May_June_July:prcp_sum_August_September_October_November), str_emmean)
 
+set.seed(123)
 rf_quadra_fit <- rf_mod %>%
   set_engine("randomForest") %>%
   fit_xy(
-    x = train_data[, quadramonths],
-    y = log10(train_data$str_emmean)
+    x = dplyr::select(quadramonths, -str_emmean),
+    y = quadramonths$str_emmean
   )
 
 rf_quadra_fit
 
 # r^2 for training
-train_r_squared_quadra <- train_data %>%
-  select(all_of(quadramonths)) %>%
+train_predictions_quadra <- train_data %>%
   predict(rf_quadra_fit, .) %>%
-  bind_cols(actual = log10(train_data$str_emmean)) %>%
-  mutate(residuals = actual - .) %>%
-  summarise(r_squared = 1 - sum(residuals^2) / sum((actual - mean(actual))^2)) %>%
-  pull(r_squared)
+  bind_cols(actual = train_data$str_emmean) %>%
+  mutate(residuals = actual - .)
 
-train_r_squared_quadra
+R2(train_predictions_quadra$.pred, train_data$str_emmean)
+RMSE(train_predictions_quadra$.pred, train_data$str_emmean)
 ```
 
 ```{r testing}
-predicted_values_quadra <- predict(rf_quadra_fit, new_data = test_data[, quadramonths])
+set.seed(123)
+predicted_values_quadra <- predict(rf_quadra_fit, new_data = test_data)
 
-plot_data_quadra <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_quadra)
+plot_data_quadra <- test_data %>%
+  bind_cols(data.frame(Predicted = predicted_values_quadra)) %>%
+  mutate(residual = str_emmean - .pred)
+
+# residual vs year 
+plot_data_quadra %>%
+  ggplot(aes(x=year, y=residual))+
+  geom_point()+
+  geom_hline(yintercept=c(-2,0,2), color="red")
+
+plot_data_gs %>%
+  filter(residual < -5) %>%
+  dplyr::select(year, loc, str_emmean, .pred)
 
 # plot for actual VS predicted values (point=test_data)
 plot_data_quadra %>%
-  ggplot(aes(x = Actual, y = .pred)) +
-  geom_point() +
+  ggplot(aes(x = str_emmean, y = .pred)) +
+  geom_point(aes(color=year)) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
   ggtitle("Every Four Months: Actual vs. Predicted Values")
 
-r_squared_quadra <- plot_data_quadra %>%
-  lm(Actual ~ .pred, data = .) %>%
-  summary() %>%
-  .$r.squared # 0.3332
+# R^2 / RMSE 
+R2(predicted_values_quadra, test_data$str_emmean)
+RMSE(predicted_values_quadra$.pred, test_data$str_emmean)
 
 # Extract the slope coefficient
-lm_model_quadra  <- lm(Actual ~ .pred, data = plot_data_quadra)
+lm_model_quadra  <- lm(str_emmean ~ .pred, data = plot_data_quadra)
 slope_quadra <- coef(lm_model_quadra)[".pred"]
 slope_quadra # 0.7295688
 ```
 
 # Temporal Scale: bi monthly 
 ```{r bi monthly}
-bimonths <- colnames(train_data)[grep("(April_May|June_July|August_September|October_November)", colnames(train_data))]
-bimonths <- bimonths[!grepl("April_May_June_July|August_September_October_November", bimonths)]
+bimonths <- train_data %>%
+  dplyr::select(-c(year:loc)) %>%
+  dplyr::select(c(srad_mean_April_May:prcp_sum_October_November), str_emmean)
 
+set.seed(123)
 rf_bi_fit <- rf_mod %>%
   set_engine("randomForest") %>%
   fit_xy(
-    x = train_data[, bimonths],
-    y = log10(train_data$str_emmean)
+    x = dplyr::select(bimonths, -str_emmean),
+    y = bimonths$str_emmean
   )
 
 rf_bi_fit
 
 # r^2 for training
-train_r_squared_bi <- train_data %>%
-  select(all_of(bimonths)) %>%
+train_predictions_bi <- train_data %>%
   predict(rf_bi_fit, .) %>%
-  bind_cols(actual = log10(train_data$str_emmean)) %>%
-  mutate(residuals = actual - .) %>%
-  summarise(r_squared = 1 - sum(residuals^2) / sum((actual - mean(actual))^2)) %>%
-  pull(r_squared)
+  bind_cols(actual = train_data$str_emmean) %>%
+  mutate(residuals = actual - .) 
 
-train_r_squared_bi
-
+R2(train_predictions_bi$.pred, train_data$str_emmean)
+RMSE(train_predictions_bi$.pred, train_data$str_emmean)
 ```
 
 ```{r testing}
-predicted_values_bi <- predict(rf_bi_fit, new_data = test_data[, bimonths])
+set.seed(123)
+predicted_values_bi <- predict(rf_bi_fit, new_data = test_data)
 
-plot_data_bi <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_bi)
+plot_data_bi <- test_data %>%
+  bind_cols(data.frame(Predicted = predicted_values_bi)) %>%
+  mutate(residual = str_emmean - .pred)
+
+# residual vs year 
+plot_data_bi %>%
+  ggplot(aes(x=year, y = residual)) + 
+  geom_point() +
+   geom_hline(yintercept=c(-2,0,2), color="red")
+
+plot_data_bi %>%
+  filter(residual < -5) %>%
+  dplyr::select(year,loc ,str_emmean, .pred)
+
 
 # plot for actual VS predicted values (point=test_data)
 plot_data_bi %>%
-  ggplot(aes(x = Actual, y = .pred)) +
-  geom_point() +
+  ggplot(aes(x = str_emmean, y=.pred)) +
+  geom_point(aes(color=year)) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
   ggtitle("Bimonthly: Actual vs. Predicted Values")
 
-r_squared_bi <- plot_data_bi %>%
-  lm(Actual ~ .pred, data = .) %>%
-  summary() %>%
-  .$r.squared # 0.35288
+R2(predicted_values_bi, test_data$str_emmean)
+RMSE(predicted_values_bi$.pred, test_data$str_emmean)
 
 # Extract the slope coefficient
-lm_model_bi  <- lm(Actual ~ .pred, data = plot_data_bi)
+lm_model_bi  <- lm(str_emmean ~ .pred, data = plot_data_bi)
 slope_bi <- coef(lm_model_bi)[".pred"]
 slope_bi #1.083225 
 ```
@@ -265,131 +302,107 @@ slope_bi #1.083225
 # Temporal Scale: monthly
 ```{r monthly}
 set.seed(123)
-months <- colnames(train_data)[grep("(April|May|June|July|August|September|October|November)", colnames(train_data))]
-months <- months[!grepl("April_May_June_July|August_September_October_November|April_May|June_July|August_September|October_November", months)]
+months <- train_data %>%
+  dplyr::select(-c(year:loc)) %>%
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean)
 
 rf_monthly_fit <- rf_mod %>%
   set_engine("randomForest") %>%
   fit_xy(
-    x = train_data[, months],
-    y = log10(train_data$str_emmean)
+    x = dplyr::select(months, -str_emmean),
+    y = months$str_emmean
   )
 
 rf_monthly_fit
 
 # r^2 for training
-train_r_squared_monthly <- train_data %>%
-  select(all_of(months)) %>%
+train_predictions_monthly <- train_data %>%
   predict(rf_monthly_fit, .) %>%
-  bind_cols(actual = log10(train_data$str_emmean)) %>%
-  mutate(residuals = actual - .) %>%
-  summarise(r_squared = 1 - sum(residuals^2) / sum((actual - mean(actual))^2)) %>%
-  pull(r_squared)
+  bind_cols(actual = train_data$str_emmean) 
 
-train_r_squared_monthly
+R2(train_predictions_monthly$.pred, train_data$str_emmean)
+RMSE(train_predictions_monthly$.pred, train_data$str_emmean)
+
 ```
 
 
 ```{r testing}
-predicted_values_monthly <- predict(rf_monthly_fit, new_data = test_data[, months])
+predicted_values_monthly <- predict(rf_monthly_fit, new_data = test_data)
 
-plot_data_monthly  <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_monthly)
+plot_data_monthly <- test_data %>%
+  bind_cols(data.frame(Predicted = predicted_values_monthly)) %>%
+  mutate(residual = str_emmean - .pred)
+
+# residual vs year 
+plot_data_monthly %>%
+  ggplot(aes(x=year, y =residual)) + 
+  geom_point() + 
+  geom_hline(yintercept=c(-2,0,2), color="red")
 
 # plot for actual VS predicted values (point=test_data)
 plot_data_monthly  %>%
-  ggplot(aes(x = Actual, y = .pred)) +
-  geom_point() +
+  ggplot(aes(x = str_emmean, y=.pred)) +
+  geom_point(aes(color=year)) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
   ggtitle("Monthly: Actual vs. Predicted Values")
 
-set.seed(123)
-r_squared_monthly <- plot_data_monthly %>%
-  lm(Actual ~ .pred, data = .) %>%
-  summary() %>%
-  .$r.squared # 0.3798698
+
+R2(predicted_values_monthly, test_data$str_emmean)
+RMSE(predicted_values_monthly$.pred, test_data$str_emmean)
 
 # Extract the slope coefficient
-lm_model_monthly  <- lm(Actual ~ .pred, data = plot_data_monthly)
+lm_model_monthly  <- lm(str_emmean ~ .pred, data = plot_data_monthly)
 slope_monthly  <- coef(lm_model_monthly)[".pred"]
 slope_monthly  # 0.9390052 
 ```
 
-# checking only specific weather variables
-```{r}
-# tmin
-temp <- colnames(train_data)[grep("(tmax_mean|tmin_mean|tamp)", colnames(train_data))]
 
-rf_temp_fit <- rf_mod %>%
+# region 
+```{r}
+location <- train_data %>%
+  dplyr::select(-c(year:loc)) %>%
+  dplyr::select(c(region:state), str_emmean)
+
+rf_location_fit <- rf_mod %>%
   set_engine("randomForest") %>%
   fit_xy(
-    x = train_data[, temp],
-    y = log10(train_data$str_emmean)
+    x = dplyr::select(location, -str_emmean),
+    y = location$str_emmean
   )
-
-rf_temp_fit # % of variance 26.71
+train_predictions_location <- train_data %>%
+  predict(rf_location_fit, .) %>%
+  bind_cols(actual = train_data$str_emmean)
 
 # r^2 for training
-train_r_squared_temp <- train_data %>%
-  select(all_of(temp)) %>%
-  predict(rf_temp_fit, .) %>%
-  bind_cols(actual = log10(train_data$str_emmean)) %>%
-  mutate(residuals = actual - .) %>%
-  summarise(r_squared = 1 - sum(residuals^2) / sum((actual - mean(actual))^2)) %>%
-  pull(r_squared)
-
-```
-
-
-```{r}
-predicted_values_temp <- predict(rf_temp_fit, new_data = test_data[, temp])
-
-plot_data_temp  <- data.frame(Actual = log10(test_data$str_emmean), Predicted = predicted_values_temp)
-
-# plot for actual VS predicted values (point=test_data)
-plot_data_temp  %>%
-  ggplot(aes(x = Actual, y = .pred)) +
-  geom_point() +
-  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
-  labs(x = "Actual", y = "Predicted") +
-  ggtitle("Monthly: Actual vs. Predicted Values")
-
-# Extract the slope coefficient
-r_squared_temp <- plot_data_temp %>%
-  lm(Actual ~ .pred, data = .) %>%
-  summary() %>%
-  .$r.squared # 0.3500018
-
-
-lm_model_temp  <- lm(Actual ~ .pred, data = plot_data_temp)
-# Extract the slope coefficient
-slope_temp  <- coef(lm_model_temp)[".pred"]
-slope_temp  #1.395424 
+R2(train_predictions_location$.pred, train_data$str_emmean)
+RMSE(train_predictions_location$.pred, train_data$str_emmean)
 ```
 
 
 # tuning hyper params using grid search 
 ```{r grid search}
-## specifying the CV technique which will be passed into the train() function later and number parameter is the "k" in K-fold cross validation
-train_control = trainControl(method = "cv", number = 5, search = "grid")
+# when doing this i removed loc from train_data or field_data so BEWARE OF ERRORS! 
+rf_learner <- makeLearner("classif.randomForest", predict.type = "prob")
 
-set.seed(50)
-# Customsing the tuning grid
-gbmGrid <-  expand.grid(max_depth = c(3, 5, 7), 
-                        nrounds = (1:10)*50,    # number of trees
-                        # default values below
-                        eta = 0.3,
-                        gamma = 0,
-                        subsample = 1,
-                        min_child_weight = 1,
-                        colsample_bytree = 0.6)
+trainTask <- makeClassifTask(data = train_data, target = "region")
+# grid search to find hyper params
+rf_param <- makeParamSet(
+  makeIntegerParam("ntree", lower=10, upper=floor(0.1*nrow(train_data))),
+  makeIntegerParam("mtry", lower = floor((ncol(train_data)-1)/3),
+                           upper = ncol(train_data)))
 
-# training a XGboost Regression tree model while tuning parameters
-train_data <- na.omit(train_data)
-strength <- train_data$str_emmean
+# random search for 10 new_iteration_results
+rancontrol <- makeTuneControlRandom(maxit=10L)
 
-model = train(str_emmean~., data = train_data, method = "xgbTree", trControl = train_control, tuneGrid = gbmGrid)
+# set 3 fold cross validation
+set_cv <- makeResampleDesc("CV", iters=3L)
 
-# summarising the results
-print(model)
+rf_tune <- tuneParams(learner = rf_learner,
+                      resampling = set_cv,
+                      task = trainTask,
+                      par.set = rf_param,
+                      control = rancontrol,
+                      measures = acc)
 ```
+
