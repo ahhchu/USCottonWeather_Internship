@@ -3,3 +3,22 @@ mostly all r^2 for training is ~ 0.85
 
 TESTING:
 mostly all r^2 are very low ~0.30
+
+Notes:
+- remove log10() because we want to see the initial variability of everything
+- Make table for R^2 and RMSE train and test values for all temporal scales
+- include the following into the random forest alg 
+        -State
+        -Regions
+- after including the following color the state/regions where the places aren’t properly being modeled 
+- Remove year and location (not beneficial for model)
+- Keep lat/long instead of actual location name 
+
+For new region/state data keep on the right side (exploratory variable) -> response ~ exploratory
+
+When there's enough time for next tasks:
+"segmented picker "
+- Leave a year out for testing (1988) 
+- And the rest of the year for training 
+
+
