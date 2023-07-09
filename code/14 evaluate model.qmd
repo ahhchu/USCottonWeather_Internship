@@ -21,7 +21,7 @@ tester <- read.csv("data/daymet/finalWeatherandRegions.csv")
 ```{r}
 field_data <- tester %>%
   mutate_if(is.character, as.factor) %>%
-  dplyr::select(-irrigation, -loc, -lat, -lon) %>%
+#  dplyr::select(-irrigation, -loc, -lat, -lon) %>%
   drop_na()
 
 ```
@@ -44,7 +44,7 @@ rf_mod <- rand_forest(mode = "regression",  mtry = 104, trees = 72)
 
 # modeling
 # temporal scale: entire temporal scale
-```{r entire temporal scale}
+```{r training entire temporal scale}
 # all temporal scales 
 set.seed(123)
 preds <- train_data %>%
@@ -70,7 +70,7 @@ RMSE(train_predictions$.pred, train_data$str_emmean)
 ```
 
 # estimating performance
-```{r}
+```{r testing entire temporal scale}
 set.seed(123)
 predicted_values <- predict(rf_all_fit, new_data = test_data)
 
@@ -110,7 +110,7 @@ slope # 1.375308 might indiicates efficiently estimated actual values
 
 # temporal scale: growing season
 # training
-```{r growing season}
+```{r training growing season}
 # growing seasons
 set.seed(123)
 growingseason <- train_data %>%
@@ -138,7 +138,7 @@ RMSE(train_predictions_gs$.pred, train_data$str_emmean)
 
 ```
 
-```{r testing}
+```{r testing growingseason}
 set.seed(123)
 predicted_values_gs <- predict(rf_growingseason_fit, new_data = test_data)
 
@@ -154,7 +154,7 @@ plot_data_gs %>%
 
 plot_data_gs %>%
   filter(residual < -5) %>%
-  dplyr::select(year, loc, str_emmean, .pred)
+  dplyr::select(year, str_emmean, .pred)
 
 # plot for actual VS predicted values (point=test_data)
 plot_data_gs %>%
@@ -176,7 +176,7 @@ slope_gs # 1.096859  (efficient since close to 1)
 ```
 
 # temporal scale: 4 months
-```{r quadramonths}
+```{r testing quadramonths}
 quadramonths <- train_data %>%
   dplyr::select(-c(year:loc)) %>%
   dplyr::select(c(srad_mean_April_May_June_July:prcp_sum_August_September_October_November), str_emmean)
@@ -201,7 +201,7 @@ R2(train_predictions_quadra$.pred, train_data$str_emmean)
 RMSE(train_predictions_quadra$.pred, train_data$str_emmean)
 ```
 
-```{r testing}
+```{r testing quadramonths}
 set.seed(123)
 predicted_values_quadra <- predict(rf_quadra_fit, new_data = test_data)
 
@@ -238,7 +238,7 @@ slope_quadra # 0.7295688
 ```
 
 # Temporal Scale: bi monthly 
-```{r bi monthly}
+```{r testing bi monthly}
 bimonths <- train_data %>%
   dplyr::select(-c(year:loc)) %>%
   dplyr::select(c(srad_mean_April_May:prcp_sum_October_November), str_emmean)
@@ -263,7 +263,7 @@ R2(train_predictions_bi$.pred, train_data$str_emmean)
 RMSE(train_predictions_bi$.pred, train_data$str_emmean)
 ```
 
-```{r testing}
+```{r testing bimonths}
 set.seed(123)
 predicted_values_bi <- predict(rf_bi_fit, new_data = test_data)
 
@@ -300,7 +300,7 @@ slope_bi #1.083225
 ```
 
 # Temporal Scale: monthly
-```{r monthly}
+```{r training monthly}
 set.seed(123)
 months <- train_data %>%
   dplyr::select(-c(year:loc)) %>%
@@ -326,7 +326,7 @@ RMSE(train_predictions_monthly$.pred, train_data$str_emmean)
 ```
 
 
-```{r testing}
+```{r testing monthly}
 predicted_values_monthly <- predict(rf_monthly_fit, new_data = test_data)
 
 plot_data_monthly <- test_data %>%
@@ -357,9 +357,8 @@ slope_monthly  <- coef(lm_model_monthly)[".pred"]
 slope_monthly  # 0.9390052 
 ```
 
-
 # region 
-```{r}
+```{r training region }
 location <- train_data %>%
   dplyr::select(-c(year:loc)) %>%
   dplyr::select(c(region:state), str_emmean)
@@ -379,9 +378,42 @@ R2(train_predictions_location$.pred, train_data$str_emmean)
 RMSE(train_predictions_location$.pred, train_data$str_emmean)
 ```
 
+ # testing for region 
+
+```{r testing region }
+predicted_values_region <- predict(rf_region_fit, new_data = test_data)
+
+plot_data_region <- test_data %>%
+  bind_cols(data.frame(Predicted = predicted_values_region)) %>%
+  mutate(residual = str_emmean - .pred)
+
+# residual vs year 
+plot_data_region %>%
+  ggplot(aes(x=year, y =residual)) + 
+  geom_point() + 
+  geom_hline(yintercept=c(-2,0,2), color="red")
+
+# plot for actual VS predicted values (point=test_data)
+plot_data_region  %>%
+  ggplot(aes(x = str_emmean, y=.pred)) +
+  geom_point(aes(color=year)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Actual", y = "Predicted") +
+  ggtitle("By Region: Actual vs. Predicted Values")
+
+
+R2(predicted_values_region, test_data$str_emmean) 
+RMSE(predicted_values_region$.pred, test_data$str_emmean) 
+
+# Extract the slope coefficient
+lm_model_region  <- lm(str_emmean ~ .pred, data = plot_data_region)
+slope_region  <- coef(lm_model_region)[".pred"]
+slope_region  # 0.9390052 
+```
 
 # tuning hyper params using grid search 
-```{r grid search}
+# fix keeps outputting invalid or not great results
+```{r grid search} # youtube video 
 # when doing this i removed loc from train_data or field_data so BEWARE OF ERRORS! 
 rf_learner <- makeLearner("classif.randomForest", predict.type = "prob")
 
@@ -406,3 +438,59 @@ rf_tune <- tuneParams(learner = rf_learner,
                       measures = acc)
 ```
 
+# leave a year out (1988 since it has the most outliers? or not well predicted values)
+```{r training !1988}
+set.seed(123)
+not_1988 <- train_data %>%
+  filter(year != 1988)
+  
+rf_not1988_fit <-  rf_mod %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = dplyr::select(not_1988, -str_emmean),
+    y = not_1988$str_emmean
+  )
+
+# r^2 
+train_predictions_not1988 <- train_data %>%
+  predict(rf_not1988_fit, .) %>%
+  bind_cols(actual = train_data$str_emmean) %>%
+  mutate(residuals = actual - .)
+
+R2(train_predictions_not1988$.pred, train_data$str_emmean)
+RMSE(train_predictions_not1988$.pred, train_data$str_emmean)
+
+```
+
+# testing
+
+```{r testing !1988}
+predicted_values_not1988 <- predict(rf_not1988_fit, new_data = test_data)
+
+plot_data_not1988 <- test_data %>%
+  bind_cols(data.frame(Predicted = predicted_values_not1988)) %>%
+  mutate(residual = str_emmean - .pred)
+
+# residual vs year 
+plot_data_not1988 %>%
+  ggplot(aes(x=year, y =residual)) + 
+  geom_point() + 
+  geom_hline(yintercept=c(-2,0,2), color="red")
+
+# plot for actual VS predicted values (point=test_data)
+plot_data_not1988  %>%
+  ggplot(aes(x = str_emmean, y=.pred)) +
+  geom_point(aes(color=year)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Actual", y = "Predicted") +
+  ggtitle("All years except 1988: Actual vs. Predicted Values")
+
+
+R2(predicted_values_not1988, test_data$str_emmean) # 0.5866246 alot better ! 
+RMSE(predicted_values_not1988$.pred, test_data$str_emmean) # 2.12736
+
+# Extract the slope coefficient
+lm_model_not1988  <- lm(str_emmean ~ .pred, data = plot_data_not1988)
+slope_not1988  <- coef(lm_model_not1988)[".pred"]
+slope_not1988  # 0.9390052 
+```
