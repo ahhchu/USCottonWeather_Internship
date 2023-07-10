@@ -24,4 +24,10 @@ When there's enough time for next tasks:
 - And the rest of the year for training 
 
 
+RSME: O.2 - 0.5 shows that the model can relatively predict the data accurately
+R^2: more than 0.75 shows good accuracy 
 
+
+# results 
+including year, state, region along with the temporal scales helped increase R^2 (especially year)
+- removed loc on most because too many categorical predictors (causes memory/performance issues) 
