@@ -1,0 +1,73 @@
+---
+title: "Cotton Incorporated funded project - Quarterly Report"
+format: docx
+author: Leonardo Bastos, University of Georgia
+---
+```{r setup}
+#| include: false
+library(sf)
+library(tidyverse)
+
+theme_set(theme_gray()+
+            theme(panel.grid.minor = element_blank())
+            )
+```
+
+```{r df}
+df <- read.csv("../data/daymet/fieldweather_final.csv") %>%
+  mutate(region = case_when(
+    grepl("CA|AZ|NM|NV", loc) ~ "FarWest",
+    grepl("TX|OK|KS", loc) ~ "Southwest",
+    grepl("MO|AR|LA|MS|TN", loc) ~ "Midsouth",
+    grepl("AL|GA|SC|NC|VA|FL", loc)  ~ "Southeast",
+    TRUE ~ "Other"
+  ))
+
+df
+```
+
+
+This quarterly report describes progress towards the final goal of utilizing the USDA long-term cotton variety trial and publicly available weather data to understand the historical effects of weather on cotton fiber quality.  
+
+# Achieved tasks in the last quarter  
+During this quarter, the following was achieved:  
+- Downloaded, processed, and merged USDA cotton variety trial data sets into one data frame.  
+
+- Appended each study site with the geographical coordinates of the centroid of nearest town.  
+
+- Used site centroids to retrieve historical weather data from [Dayment](https://daymet.ornl.gov):  
+  - Temporal resolution: daily  
+  - Temporal extent: from 1980 through 2020
+  - Spatial resolution: 1 x 1 km  
+  - Primary weather variables:  
+    - Precipitation (mm)  
+    - Solar radiation (W/m2)  
+    - Minimum air temperature (C)  
+    - Maximum air temperature (C)  
+    - Vapor pressure deficit (Pa)  
+
+- Used primary weather variables to derive secondary weather variables:  
+  - Temperature amplitude (C)  
+  - Growing degree days  
+
+- Summarized primary and secondary weather variables by summing (precipitation, solar radiation, growing degree days) or averaging (all others) across different temporal scales including:  
+  - Growing season (April through November)  
+  - Every month   
+  - Every 2 months  
+  - Every 4 months  
+
+- Extracted the best linear unbiased estimators (BLUEs) of one fiber quality parameter (strength) across all site-years in the data set.  
+
+- Merged summarized weather variables with fiber strength BLUEs in the same data set for machine learning training:  
+  - Number of unique sites: 69  
+  - Number of years: 41    
+  - Number of site-years: 1,103  
+  - Number of summarized weather predictor variables: 151    
+
+# Future tasks  
+- Train random forest models in the context of machine learning (data split, hyperparameter optimization, predictive power assessment) to predict cotton fiber strength as a function of weather. A different model will be trained for each of the summarized temporal scales (from monthly to entire growing season), and one including all temporal scales in same model.  
+
+- Once the workflow has been developed for cotton fiber strength, similar analysis will be conducted for the remaining fiber quality variables (length, uniformity, micronaire).  
+
+
+
