@@ -316,7 +316,6 @@ train_predictions_monthly <- train_data %>%
 
 R2(train_predictions_monthly$.pred, train_data$str_emmean)
 RMSE(train_predictions_monthly$.pred, train_data$str_emmean)
-
 ```
 
 
