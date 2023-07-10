@@ -1,0 +1,87 @@
+# setup 
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(randomForest)
+library(tidymodels)
+library(skimr)
+library(yardstick)
+library(caret)
+library(mlr)
+```
+
+# loading data 
+```{r}
+tester <- read.csv("data/daymet/finalWeatherandRegions.csv")
+```
+
+# wrangling data
+ ```{r}
+ field_data <- tester %>%
+  mutate_if(is.character, as.factor) %>%
+  dplyr::select(-irrigation) %>%
+  drop_na()
+
+```
+
+# splitting data 
+```{r}
+set.seed(123)
+# Put 80% of the data into the training set 
+data_split <- initial_split(field_data, strata = "str_emmean", prop = 0.80)
+# Create data frames for the two sets:
+train_data <- training(data_split)
+test_data  <- testing(data_split) 
+
+# random forest 
+months <- train_data %>%
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
+  # year was at the top for varimp s
+
+rf_mod <- randomForest(
+  x = dplyr::select(months, -str_emmean),
+  y = months$str_emmean,
+  mtry = 4,
+  ntree = 100,
+  importance = TRUE
+)
+
+# returning variable imporantance (most important -> least)
+varImp <- varImp(rf_mod) %>%
+  as.data.frame() %>% 
+  tibble::rownames_to_column(var = "variable") %>% 
+  arrange(desc(Overall))# overall is average importance across all trees 
+
+# plot 
+varImpPlot(rf_mod, type=2, main)
+# plot showing %IncMSE & IncNodePurity
+varImpPlot(rf_mod , sort = TRUE , n.var=10 , main = "Variable Importance: Monthly" )
+
+
+##### REMOVE YEAR ############# 
+months_noyear <- train_data %>%
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
+
+rf_noyear <- randomForest(
+    x = dplyr::select(months_noyear, -str_emmean),
+    y = months$str_emmean,
+    mtry=4,
+    ntree=100,
+    importance = TRUE
+)
+
+varImp_noyear <- varImp(rf_noyear) %>%
+  as.data.frame() %>% 
+  tibble::rownames_to_column(var = "variable") %>% 
+  arrange(desc(Overall))
+
+# dayl_mean_Sep
+# tamp_mean_Aug
+# tmin_mean_Nov
+# tmax_mean_June
+# gdd_sum_Oct
+# srad_sum _April 
+# ( i would say maybe temperature has the highest factor out of all? specially TAMP)
+ ```
+

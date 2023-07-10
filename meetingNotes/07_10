@@ -1,0 +1,14 @@
+Exploring variable importance: 
+- select model (monthly scale since it performed the best) and find variable importance.
+- look at the impact of year, region, and weather variables on str_emmean
+- if year is at the top of variable importance, remove because we want to focus on the weather variables at the top 
+- if loc is at the top of variable importance, we can infer that loc is a proxy for soil (remove still)
+- play around with the model because we want to focus on the weather variables at the top 
+
+
+
+Mean Decrease Accuracy (%IncMSE) - This shows how much our model accuracy decreases if we leave out that variable.
+
+Mean Decrease Gini (IncNodePurity) - This is a measure of variable importance based on the Gini impurity index used for the calculating the splits in trees.
+
+(higher MDA/MDG = higher the importance of the variable to our model)
