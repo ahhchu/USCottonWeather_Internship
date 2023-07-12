@@ -34,6 +34,10 @@ data_split <- initial_split(field_data, strata = "str_emmean", prop = 0.80)
 train_data <- training(data_split)
 test_data  <- testing(data_split) 
 
+```
+
+# BEFORE REMOVING YEAR: MONTHLY MODEL HAD THE BEST STATS 
+```{r}
 # random forest 
 months <- train_data %>%
   dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
@@ -85,3 +89,38 @@ varImp_noyear <- varImp(rf_noyear) %>%
 # ( i would say maybe temperature has the highest factor out of all? specially TAMP)
  ```
 
+
+
+# AFTER REMOVING YEAR: ALL TEMPORAL SCALE HAD THE BEST STATS
+```{r}
+set.seed(123)
+preds <- train_data %>%
+  dplyr::select(-loc, -year)
+
+
+rf_all_mod <- randomForest(
+  x = dplyr::select(preds, -str_emmean),
+  y = preds$str_emmean,
+  mtry = 4,
+  ntree = 100,
+  importance = TRUE
+)
+
+# returning variable imporantance (most important -> least)
+varImp_all <- varImp(rf_all_mod) %>%
+  as.data.frame() %>% 
+  tibble::rownames_to_column(var = "variable") %>% 
+  arrange(desc(Overall))# overall is average importance across all trees 
+
+# plot 
+varImpPlot(rf_all_mod, type=2, main)
+# plot showing %IncMSE & IncNodePurity
+varImpPlot(rf_all_mod , sort = TRUE , n.var=10 , main = "Variable Importance: All Temporal Scales" )
+
+#                                        variable    Overall
+#1                              gdd_sum_November  4.4389873
+#2                                tamp_mean_July  4.2799157
+#3                            gdd_mean_June_July  4.1157730
+#4                        gdd_mean_growingseason  3.9875056
+#5                            srad_sum_September  3.8805598
+```
