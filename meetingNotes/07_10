@@ -12,3 +12,10 @@ Mean Decrease Accuracy (%IncMSE) - This shows how much our model accuracy decrea
 Mean Decrease Gini (IncNodePurity) - This is a measure of variable importance based on the Gini impurity index used for the calculating the splits in trees.
 
 (higher MDA/MDG = higher the importance of the variable to our model)
+
+
+vip() calculates variable importance based on permutation importance. It provides a measure of the relative importance of each variable by permuting their values and evaluating the impact on model performance.
+# relative importance of variables and capturing complex relationships
+
+varImp() calculates variable importance using the Mean Decrease Accuracy (MDA) method. It measures the decrease in model accuracy when each variable is permuted. It is useful when you want to assess the importance of variables in terms of model accuracy.
+# impact of variables on model accuracy 
