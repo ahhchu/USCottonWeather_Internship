@@ -21,7 +21,7 @@ tester <- read.csv("data/daymet/finalWeatherandRegions.csv")
 ```{r}
 field_data <- tester %>%
   mutate_if(is.character, as.factor) %>%
-  dplyr::select(-irrigation) %>%
+  dplyr::select(-irrigation, -year) %>%
   drop_na()
 
 ```
@@ -115,7 +115,7 @@ slope # 1.375308 might indiicates efficiently estimated actual values
 set.seed(123)
 growingseason <- train_data %>%
   dplyr::select(-loc) %>%
-  dplyr::select(c(srad_mean_growingseason:prcp_sum_growingseason), str_emmean, state, region, year)
+  dplyr::select(c(srad_mean_growingseason:prcp_sum_growingseason), str_emmean, state, region)
 
 rf_growingseason_fit <- rf_mod %>%
   set_engine("randomForest") %>%
@@ -177,7 +177,7 @@ slope_gs
 # temporal scale: 4 months
 ```{r testing quadramonths}
 quadramonths <- train_data %>%
-  dplyr::select(c(srad_mean_April_May_June_July:prcp_sum_August_September_October_November), str_emmean, state, region, year)
+  dplyr::select(c(srad_mean_April_May_June_July:prcp_sum_August_September_October_November), str_emmean, state, region)
 
 set.seed(123)
 rf_quadra_fit <- rf_mod %>%
@@ -236,7 +236,7 @@ slope_quadra # 0.7295688
 # Temporal Scale: bi monthly 
 ```{r testing bi monthly}
 bimonths <- train_data %>%
-  dplyr::select(c(srad_mean_April_May:prcp_sum_October_November), str_emmean, state, region, year)
+  dplyr::select(c(srad_mean_April_May:prcp_sum_October_November), str_emmean, state, region)
 
 set.seed(123)
 rf_bi_fit <- rf_mod %>%
@@ -298,7 +298,7 @@ slope_bi #1.083225
 ```{r training monthly}
 set.seed(123)
 months <- train_data %>%
-  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
 
 rf_monthly_fit <- rf_mod %>%
   set_engine("randomForest") %>%
