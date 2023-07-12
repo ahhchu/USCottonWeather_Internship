@@ -9,6 +9,7 @@ library(skimr)
 library(yardstick)
 library(caret)
 library(mlr)
+library(parsnip)
 ```
 
 # loading data 
@@ -36,11 +37,12 @@ test_data  <- testing(data_split)
 
 ```
 
-# BEFORE REMOVING YEAR: MONTHLY MODEL HAD THE BEST STATS 
+# USING varImp() 
+## REMOVING YEAR: MONTHLY MODEL HAD THE BEST STATS 
 ```{r}
 # random forest 
 months <- train_data %>%
-  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
   # year was at the top for varimp s
 
 rf_mod <- randomForest(
@@ -58,7 +60,7 @@ varImp <- varImp(rf_mod) %>%
   arrange(desc(Overall))# overall is average importance across all trees 
 
 # plot 
-varImpPlot(rf_mod, type=2, main)
+varImpPlot(rf_mod, type=2, main = "Variable Importance Plot: Monthly")
 # plot showing %IncMSE & IncNodePurity
 varImpPlot(rf_mod , sort = TRUE , n.var=10 , main = "Variable Importance: Monthly" )
 
@@ -91,7 +93,7 @@ varImp_noyear <- varImp(rf_noyear) %>%
 
 
 
-# AFTER REMOVING YEAR: ALL TEMPORAL SCALE HAD THE BEST STATS
+## AFTER REMOVING YEAR: ALL TEMPORAL SCALE HAD THE BEST STATS
 ```{r}
 set.seed(123)
 preds <- train_data %>%
@@ -105,6 +107,15 @@ rf_all_mod <- randomForest(
   ntree = 100,
   importance = TRUE
 )
+
+
+train_predictions <- train_data %>%
+  predict(rf_all_mod, .) %>%
+  bind_cols(actual = train_data$str_emmean) %>%
+  mutate(residuals = actual - .)
+
+R2(train_predictions$.pred, train_data$str_emmean)
+RMSE(train_predictions$.pred, train_data$str_emmean)
 
 # returning variable imporantance (most important -> least)
 varImp_all <- varImp(rf_all_mod) %>%
@@ -124,3 +135,41 @@ varImpPlot(rf_all_mod , sort = TRUE , n.var=10 , main = "Variable Importance: Al
 #4                        gdd_mean_growingseason  3.9875056
 #5                            srad_sum_September  3.8805598
 ```
+
+
+# using vip() from parsnip package 
+```{r}
+# random forest 
+rf_parsnip <- rand_forest(mode = "regression",  mtry = 90, trees = 35)
+```
+
+## monthly
+```{r}
+rf_monthly_fit <- rf_parsnip %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = dplyr::select(months, -str_emmean),
+    y = months$str_emmean # resuse months 
+  )
+
+varImp_data_monthly <- vip(rf_monthly_fit) %>%
+  .$data %>%
+  arrange(desc(Importance))
+
+```
+
+# entire temporal scale
+```{r}
+rf_entirescale_fit <-  rf_parsnip %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = dplyr::select(preds, -str_emmean),
+    y = preds$str_emmean
+  )
+
+varImp_data_entirescale <- vip(rf_entirescale_fit) %>%
+    .$data %>%
+    arrange(desc(Importance))
+```
+
+
