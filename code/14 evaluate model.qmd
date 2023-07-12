@@ -10,6 +10,7 @@ library(yardstick)
 library(caret)
 library(xgboost)
 library(mlr)
+library(parsnip)
 ```
 
 # loading data
@@ -56,6 +57,17 @@ rf_all_fit <-  rf_mod %>%
     x = dplyr::select(preds, -str_emmean),
     y = preds$str_emmean
   )
+
+var_importance_plot <- vip(rf_all_fit)
+
+var_importance_data <- var_importance_plot$data
+
+# Sort the variable importance values in descending order
+var_importance_data <- var_importance_data[order(-var_importance_data$Importance), ]
+
+# Print the variable importance dataframe
+print(var_importance_data)
+
 
 # r^2 
 train_predictions <- train_data %>%
