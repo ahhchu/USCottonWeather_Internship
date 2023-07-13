@@ -6,10 +6,9 @@ library(dplyr)
 library(randomForest)
 library(tidymodels)
 library(skimr)
-library(yardstick)
-library(caret)
-library(mlr)
 library(parsnip)
+library(vip)
+library(ggplot2)
 ```
 
 # loading data 
@@ -38,13 +37,14 @@ test_data  <- testing(data_split)
 ```
 
 # USING varImp() 
-## REMOVING YEAR: MONTHLY MODEL HAD THE BEST STATS 
+## MONTHLY MODEL 
 ```{r}
 # random forest 
 months <- train_data %>%
-  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
   # year was at the top for varimp s
 
+set.seed(123)
 rf_mod <- randomForest(
   x = dplyr::select(months, -str_emmean),
   y = months$str_emmean,
@@ -54,10 +54,12 @@ rf_mod <- randomForest(
 )
 
 # returning variable imporantance (most important -> least)
-varImp <- varImp(rf_mod) %>%
+varImp_monthly_withYear <- varImp(rf_mod) %>%
   as.data.frame() %>% 
   tibble::rownames_to_column(var = "variable") %>% 
   arrange(desc(Overall))# overall is average importance across all trees 
+
+top5 <- head(varImp, 5)
 
 # plot 
 varImpPlot(rf_mod, type=2, main = "Variable Importance Plot: Monthly")
@@ -69,6 +71,7 @@ varImpPlot(rf_mod , sort = TRUE , n.var=10 , main = "Variable Importance: Monthl
 months_noyear <- train_data %>%
   dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
 
+set.seed(123)
 rf_noyear <- randomForest(
     x = dplyr::select(months_noyear, -str_emmean),
     y = months$str_emmean,
@@ -77,29 +80,22 @@ rf_noyear <- randomForest(
     importance = TRUE
 )
 
-varImp_noyear <- varImp(rf_noyear) %>%
+varImp_monthly <- varImp(rf_noyear) %>%
   as.data.frame() %>% 
   tibble::rownames_to_column(var = "variable") %>% 
-  arrange(desc(Overall))
+  arrange(desc(Overall)) 
 
-# dayl_mean_Sep
-# tamp_mean_Aug
-# tmin_mean_Nov
-# tmax_mean_June
-# gdd_sum_Oct
-# srad_sum _April 
-# ( i would say maybe temperature has the highest factor out of all? specially TAMP)
  ```
 
 
 
-## AFTER REMOVING YEAR: ALL TEMPORAL SCALE HAD THE BEST STATS
+## AFTER REMOVING YEAR: ALL TEMPORAL SCALES
 ```{r}
 set.seed(123)
 preds <- train_data %>%
   dplyr::select(-loc, -year)
 
-
+set.seed(123)
 rf_all_mod <- randomForest(
   x = dplyr::select(preds, -str_emmean),
   y = preds$str_emmean,
@@ -108,43 +104,35 @@ rf_all_mod <- randomForest(
   importance = TRUE
 )
 
-
-train_predictions <- train_data %>%
-  predict(rf_all_mod, .) %>%
-  bind_cols(actual = train_data$str_emmean) %>%
-  mutate(residuals = actual - .)
-
-R2(train_predictions$.pred, train_data$str_emmean)
-RMSE(train_predictions$.pred, train_data$str_emmean)
-
 # returning variable imporantance (most important -> least)
-varImp_all <- varImp(rf_all_mod) %>%
+varImp_entireScale <- varImp(rf_all_mod) %>%
   as.data.frame() %>% 
   tibble::rownames_to_column(var = "variable") %>% 
   arrange(desc(Overall))# overall is average importance across all trees 
 
 # plot 
-varImpPlot(rf_all_mod, type=2, main)
+varImpPlot(rf_all_mod, type=2, main="Variable Importance: All Temporal Scales")
 # plot showing %IncMSE & IncNodePurity
 varImpPlot(rf_all_mod , sort = TRUE , n.var=10 , main = "Variable Importance: All Temporal Scales" )
 
-#                                        variable    Overall
-#1                              gdd_sum_November  4.4389873
-#2                                tamp_mean_July  4.2799157
-#3                            gdd_mean_June_July  4.1157730
-#4                        gdd_mean_growingseason  3.9875056
-#5                            srad_sum_September  3.8805598
+# similarities with monthly and temporal 
+# 2/8 srad_mean_April, 6/10 tamp_mean_September, 7/2 tamp_mean_July, 8/6 tmin_mean_September, 
+# negative variable importance means that variable does not have a role in the prediction (not important)
+# srad_mean_May, region
 ```
 
 
 # using vip() from parsnip package 
 ```{r}
 # random forest 
+set.seed(123)
 rf_parsnip <- rand_forest(mode = "regression",  mtry = 90, trees = 35)
 ```
 
 ## monthly
 ```{r}
+# with year just to see how much impact year has on varImp
+set.seed(123)
 rf_monthly_fit <- rf_parsnip %>%
   set_engine("randomForest") %>%
   fit_xy(
@@ -152,7 +140,20 @@ rf_monthly_fit <- rf_parsnip %>%
     y = months$str_emmean # resuse months 
   )
 
-varImp_data_monthly <- vip(rf_monthly_fit) %>%
+vip_monthly_withYear <- vip(rf_monthly_fit) %>%
+  .$data %>%
+  arrange(desc(Importance))
+
+# remove year 
+set.seed(123)
+rf_monthly_fit_noyear <- rf_parsnip %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = dplyr::select(months_noyear, -str_emmean),
+    y = months$str_emmean 
+  )
+
+vip_monthly <- vip(rf_monthly_fit_noyear) %>%
   .$data %>%
   arrange(desc(Importance))
 
@@ -160,6 +161,7 @@ varImp_data_monthly <- vip(rf_monthly_fit) %>%
 
 # entire temporal scale
 ```{r}
+set.seed(123)
 rf_entirescale_fit <-  rf_parsnip %>%
   set_engine("randomForest") %>%
   fit_xy(
@@ -167,9 +169,44 @@ rf_entirescale_fit <-  rf_parsnip %>%
     y = preds$str_emmean
   )
 
-varImp_data_entirescale <- vip(rf_entirescale_fit) %>%
+vip_entireScale <- vip(rf_entirescale_fit) %>%
     .$data %>%
     arrange(desc(Importance))
+
+# only similar varImp was dayl_mean_September for both varImp() monthly/entirescale 
+```
+
+# comparing common variables # check ggplots and summaries
+# varImp_all and varImp_noyear 
+```{r}
+# find common weather variables between varImp_all and varImp_noyear 
+varImp_common <- varImp_entireScale$variable[1:10] %>%
+  intersect(varImp_monthly$variable[1:10])
+
+varImp_data <- train_data %>% # check this part? 
+  select(all_of(varImp_common), str_emmean)
+
+ggplot(varImp_data, aes(x = tmin_mean_September, y = str_emmean)) +
+  geom_point() +
+  labs(x = "tmin_mean_September", y = "str_emmean") +
+  ggtitle("Relationship between tmin_mean_September and Target Variable")
+
+model <- lm(str_emmean ~ ., data = varImp_data)
+summary(model)
 ```
 
 
+# Vip
+```{r}
+vip_common <- vip_monthly$Variable[1:10] %>%
+  intersect(vip_entireScale$Variable[1:10])
+
+vip_data <- train_data %>%
+  select(all_of(vip_common), str_emmean)
+
+ggplot(vip_data, aes(x = tamp_mean_July, y = str_emmean)) +
+  geom_point() +
+  labs(x = "tamp_mean_July", y = "str_emmean") +
+  ggtitle("Relationship between tamp_mean_July and Target Variable")
+
+```
