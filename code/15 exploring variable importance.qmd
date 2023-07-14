@@ -36,14 +36,21 @@ test_data  <- testing(data_split)
 
 ```
 
+# required for both vip() and varImp()
+```{r}
+months <- train_data %>%
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
+
+months_noyear <- train_data %>%
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
+
+preds <- train_data %>%
+  dplyr::select(-loc, -year)
+```
+
 # USING varImp() 
 ## MONTHLY MODEL 
 ```{r}
-# random forest 
-months <- train_data %>%
-  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
-  # year was at the top for varimp s
-
 set.seed(123)
 rf_mod <- randomForest(
   x = dplyr::select(months, -str_emmean),
@@ -56,10 +63,10 @@ rf_mod <- randomForest(
 # returning variable imporantance (most important -> least)
 varImp_monthly_withYear <- varImp(rf_mod) %>%
   as.data.frame() %>% 
-  tibble::rownames_to_column(var = "variable") %>% 
+  tibble::rownames_to_column(var = "Variable") %>% 
   arrange(desc(Overall))# overall is average importance across all trees 
 
-top5 <- head(varImp, 5)
+top5 <- head(varImp_monthly_withYear, 5)
 
 # plot 
 varImpPlot(rf_mod, type=2, main = "Variable Importance Plot: Monthly")
@@ -68,9 +75,6 @@ varImpPlot(rf_mod , sort = TRUE , n.var=10 , main = "Variable Importance: Monthl
 
 
 ##### REMOVE YEAR ############# 
-months_noyear <- train_data %>%
-  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
-
 set.seed(123)
 rf_noyear <- randomForest(
     x = dplyr::select(months_noyear, -str_emmean),
@@ -82,7 +86,7 @@ rf_noyear <- randomForest(
 
 varImp_monthly <- varImp(rf_noyear) %>%
   as.data.frame() %>% 
-  tibble::rownames_to_column(var = "variable") %>% 
+  tibble::rownames_to_column(var = "Variable") %>% 
   arrange(desc(Overall)) 
 
  ```
@@ -91,10 +95,6 @@ varImp_monthly <- varImp(rf_noyear) %>%
 
 ## AFTER REMOVING YEAR: ALL TEMPORAL SCALES
 ```{r}
-set.seed(123)
-preds <- train_data %>%
-  dplyr::select(-loc, -year)
-
 set.seed(123)
 rf_all_mod <- randomForest(
   x = dplyr::select(preds, -str_emmean),
@@ -107,7 +107,7 @@ rf_all_mod <- randomForest(
 # returning variable imporantance (most important -> least)
 varImp_entireScale <- varImp(rf_all_mod) %>%
   as.data.frame() %>% 
-  tibble::rownames_to_column(var = "variable") %>% 
+  tibble::rownames_to_column(var = "Variable") %>% 
   arrange(desc(Overall))# overall is average importance across all trees 
 
 # plot 
@@ -129,7 +129,7 @@ set.seed(123)
 rf_parsnip <- rand_forest(mode = "regression",  mtry = 90, trees = 35)
 ```
 
-## monthly
+## monthly (the better model)
 ```{r}
 # with year just to see how much impact year has on varImp
 set.seed(123)
@@ -149,7 +149,7 @@ set.seed(123)
 rf_monthly_fit_noyear <- rf_parsnip %>%
   set_engine("randomForest") %>%
   fit_xy(
-    x = dplyr::select(months_noyear, -str_emmean),
+    x = dplyr::select(months_noyear, -str_emmean), # reuse months_noyear
     y = months$str_emmean 
   )
 
@@ -159,7 +159,7 @@ vip_monthly <- vip(rf_monthly_fit_noyear) %>%
 
 ```
 
-# entire temporal scale
+# entire temporal scale 
 ```{r}
 set.seed(123)
 rf_entirescale_fit <-  rf_parsnip %>%
@@ -177,11 +177,11 @@ vip_entireScale <- vip(rf_entirescale_fit) %>%
 ```
 
 # comparing common variables # check ggplots and summaries
-# varImp_all and varImp_noyear 
+# varImp_entireScale and varImp_monthly 
 ```{r}
 # find common weather variables between varImp_all and varImp_noyear 
-varImp_common <- varImp_entireScale$variable[1:10] %>%
-  intersect(varImp_monthly$variable[1:10])
+varImp_common <- varImp_entireScale$ariable[1:10] %>%
+  intersect(varImp_monthly$Variable[1:10])
 
 varImp_data <- train_data %>% # check this part? 
   select(all_of(varImp_common), str_emmean)
@@ -196,7 +196,7 @@ summary(model)
 ```
 
 
-# Vip
+# vip_entireScale and vip_monthly
 ```{r}
 vip_common <- vip_monthly$Variable[1:10] %>%
   intersect(vip_entireScale$Variable[1:10])
@@ -209,4 +209,22 @@ ggplot(vip_data, aes(x = tamp_mean_July, y = str_emmean)) +
   labs(x = "tamp_mean_July", y = "str_emmean") +
   ggtitle("Relationship between tamp_mean_July and Target Variable")
 
+```
+
+# vip and varImp
+```{r}
+overall_common <- vip_common %>%
+                  intersect(varImp_common)
+
+# the two weather variables that are both in vip and varimp are tamp_mean_July, tamp_mean_September -> might indicate tamp is the variable with the strongest influence on str_emmean 
+```
+
+
+# monthly and yearly
+```{r}
+monthly_common <- vip_monthly$Variable[1:10] %>%
+                  intersect(varImp_monthly$Variable[1:10])
+
+entireScale_common <- vip_entireScale$Variable[1:10] %>%
+                  intersect(varImp_entireScale$Variable[1:10])                  
 ```
