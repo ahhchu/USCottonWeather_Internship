@@ -22,7 +22,7 @@ tester <- read.csv("data/daymet/finalWeatherandRegions.csv")
 ```{r}
 field_data <- tester %>%
   mutate_if(is.character, as.factor) %>%
-  dplyr::select(-irrigation, -year) %>%
+  dplyr::select(-irrigation, -year, -loc) %>% # remove year 
   drop_na()
 
 ```
@@ -48,8 +48,7 @@ rf_mod <- rand_forest(mode = "regression",  mtry = 90, trees = 35)
 ```{r training entire temporal scale}
 # all temporal scales 
 set.seed(123)
-preds <- train_data %>%
-  dplyr::select(-loc)
+preds <- train_data 
   
 rf_all_fit <-  rf_mod %>%
   set_engine("randomForest") %>%
@@ -126,7 +125,6 @@ slope # 1.375308 might indiicates efficiently estimated actual values
 # growing seasons
 set.seed(123)
 growingseason <- train_data %>%
-  dplyr::select(-loc) %>%
   dplyr::select(c(srad_mean_growingseason:prcp_sum_growingseason), str_emmean, state, region)
 
 rf_growingseason_fit <- rf_mod %>%
