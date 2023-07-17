@@ -9,11 +9,13 @@ library(skimr)
 library(parsnip)
 library(vip)
 library(ggplot2)
+#library(varImp)
+library(caret)
 ```
 
 # loading data 
 ```{r}
-tester <- read.csv("data/daymet/finalWeatherandRegions.csv")
+tester <- read.csv("../data/daymet/finalWeatherandRegions.csv")
 ```
 
 # wrangling data
@@ -180,7 +182,7 @@ vip_entireScale <- vip(rf_entirescale_fit) %>%
 # varImp_entireScale and varImp_monthly 
 ```{r}
 # find common weather variables between varImp_all and varImp_noyear 
-varImp_common <- varImp_entireScale$ariable[1:10] %>%
+varImp_common <- varImp_entireScale$Variable[1:10] %>%
   intersect(varImp_monthly$Variable[1:10])
 
 varImp_data <- train_data %>% # check this part? 
