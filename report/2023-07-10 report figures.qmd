@@ -1,7 +1,8 @@
 ---
 title: "Cotton Incorporated funded project - Quarterly Report"
 format: docx
-author: Leonardo Bastos, University of Georgia
+author: Assistant Professor, University of Georgia
+subtitle: Leonardo Bastos
 ---
 ```{r setup}
 #| include: false
@@ -9,11 +10,12 @@ library(sf)
 library(tidyverse)
 
 theme_set(theme_gray()+
-            theme(panel.grid.minor = element_blank())
+            theme(panel.grid = element_blank())
             )
 ```
 
 ```{r df}
+#| echo: false
 df <- read.csv("../data/daymet/fieldweather_final.csv") %>%
   mutate(region = case_when(
     grepl("CA|AZ|NM|NV", loc) ~ "FarWest",
@@ -23,7 +25,6 @@ df <- read.csv("../data/daymet/fieldweather_final.csv") %>%
     TRUE ~ "Other"
   ))
 
-df
 ```
 
 
@@ -31,43 +32,160 @@ This quarterly report describes progress towards the final goal of utilizing the
 
 # Achieved tasks in the last quarter  
 During this quarter, the following was achieved:  
+
 - Downloaded, processed, and merged USDA cotton variety trial data sets into one data frame.  
 
 - Appended each study site with the geographical coordinates of the centroid of nearest town.  
 
-- Used site centroids to retrieve historical weather data from [Dayment](https://daymet.ornl.gov):  
-  - Temporal resolution: daily  
-  - Temporal extent: from 1980 through 2020
-  - Spatial resolution: 1 x 1 km  
-  - Primary weather variables:  
-    - Precipitation (mm)  
-    - Solar radiation (W/m2)  
-    - Minimum air temperature (C)  
-    - Maximum air temperature (C)  
-    - Vapor pressure deficit (Pa)  
+- Used site centroid to retrieve historical weather data from [Dayment](https://daymet.ornl.gov):  
 
-- Used primary weather variables to derive secondary weather variables:  
-  - Temperature amplitude (C)  
-  - Growing degree days  
+  - Temporal resolution: daily
+  - Temporal extent: from 1980 through 2020
+  - Spatial resolution: 1 x 1 km
+  - Primary weather variables:  
+    - Day length (h)
+    - Precipitation (mm)
+    - Solar radiation (W/m2)
+    - Minimum air temperature (C)
+    - Maximum air temperature (C)
+    - Vapor pressure deficit (Pa)
+
+
+```{r}
+#| fig-cap: Figure 1. Distribution of daily primary weather variables (summarized by the growing season). dayl is day length (h), prcp is precipitation (mm), srad is solar radiation (W/m2), tmax is maximum air temperature (C), tmin is minimum air temperature (C), vp is vapor pressure deficit. 
+#| echo: false
+#| fig-width: 7
+df %>%
+  dplyr::select(contains("growingseason")) %>%
+  dplyr::select(!contains(c("gdd", "tamp"))) %>%
+  mutate(dayl_mean_growingseason = dayl_mean_growingseason/3600) %>%
+  pivot_longer(cols = dplyr::everything()) %>%
+  mutate(name = str_remove(name, "_growingseason")) %>%
+  ggplot(aes(x=value))+
+  geom_density(aes(fill=name), alpha = .7)+
+  facet_wrap(~name, scales = "free")+
+  theme(legend.position = "none",
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title = element_blank()
+        )
+```
+
+
+- Used primary weather variables to derive secondary weather variables:
+  - Temperature amplitude (C)
+  - Growing degree days
+  
+```{r}
+#| fig-cap: Figure 2. Distribution of daily secondary weather variables (summarized by the growing season). tamp is temperature amplitude, gdd is growing degree days.   
+#| echo: false
+#| fig-height: 2
+
+df %>%
+  dplyr::select(contains("growingseason")) %>%
+  dplyr::select(contains(c("gdd", "tamp"))) %>%
+  pivot_longer(cols = dplyr::everything()) %>%
+  mutate(name = str_remove(name, "_growingseason")) %>%
+  ggplot(aes(x=value))+
+  geom_density(aes(fill=name), alpha = .7)+
+  facet_wrap(~name, scales = "free")+
+  theme(legend.position = "none",
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title = element_blank()
+        )
+```
+
 
 - Summarized primary and secondary weather variables by summing (precipitation, solar radiation, growing degree days) or averaging (all others) across different temporal scales including:  
+  - Every month
+  - Every 2 months
+  - Every 4 months
   - Growing season (April through November)  
-  - Every month   
-  - Every 2 months  
-  - Every 4 months  
+  
+```{r}
+#| fig-cap: Figure 3. Distribution of minimum air temperature summarized at different temporal scales. 
+#| echo: false    
+#| fig-width: 7
+df %>%
+  dplyr::select(contains("tmin")) %>%
+  pivot_longer(cols = dplyr::everything()) %>%
+    mutate(name = str_remove(name, "_mean")) %>%
+  mutate(name = factor(name,
+                       levels = c("tmin_April",
+                                  "tmin_May",
+                                  "tmin_June",
+                                  "tmin_July",
+                                  "tmin_August",
+                                  "tmin_September",
+                                  "tmin_October",
+                                  "tmin_November",
+                                  
+                                  "tmin_April_May",
+                                  "tmin_June_July",
+                                  "tmin_August_September",
+                                  "tmin_October_November",
+                                  
+                                  "tmin_April_May_June_July",
+                                  "tmin_August_September_October_November",
+                         
+                         
+                         
+                         "tmin_growingseason"
+                                  
+                                  )
+                       
+                       )) %>%
+  ggplot(aes(x=value))+
+  geom_density(aes(fill=name), alpha = .7)+
+  facet_wrap(~name, scales = "free_y")+
+  theme(legend.position = "none",
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title = element_blank()
+        )
+
+```
+
 
 - Extracted the best linear unbiased estimators (BLUEs) of one fiber quality parameter (strength) across all site-years in the data set.  
 
+```{r}
+#| fig-cap: Figure 3. Distribution of cotton fiber strength best linear unbiased estimator.   
+#| echo: false
+#| fig-height: 3
+#| warning: false
+df %>%
+  ggplot(aes(x=str_emmean))+
+  geom_density(fill = "blue", alpha = .7)+
+  labs(x="Strength best linear unbiased estimator")+
+  theme(legend.position = "none",
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()
+        )
+```
+```{r}
+#| fig-cap: Figure 4. Cotton fiber strength time-series.
+#| echo: false
+#| warning: false
+df %>%
+  ggplot(aes(x=year, y=str_emmean))+
+  geom_point(shape = 21, size = 2, alpha = .5)+
+  labs(y="Strength best linear unbiased estimator",
+       x="Year")+
+  geom_smooth(method = "lm", color = "blue")
+
+```
+
+
 - Merged summarized weather variables with fiber strength BLUEs in the same data set for machine learning training:  
-  - Number of unique sites: 69  
-  - Number of years: 41    
-  - Number of site-years: 1,103  
-  - Number of summarized weather predictor variables: 151    
+  - Number of unique sites: 69
+  - Number of years: 41
+  - Number of site-years: 1,103
+  - Number of summarized weather predictor variables: 151
 
 # Future tasks  
-- Train random forest models in the context of machine learning (data split, hyperparameter optimization, predictive power assessment) to predict cotton fiber strength as a function of weather. A different model will be trained for each of the summarized temporal scales (from monthly to entire growing season), and one including all temporal scales in same model.  
+- Train random forest models in a machine learning framework (data split, hyperparameter optimization, predictive power assessment) to predict cotton fiber strength as a function of weather. A different model will be trained for each of the summarized temporal scales (from monthly to entire growing season), and one including all temporal scales in same model.  
 
-- Once the workflow has been developed for cotton fiber strength, similar analysis will be conducted for the remaining fiber quality variables (length, uniformity, micronaire).  
-
-
-
+- Once the workflow has been developed for cotton fiber strength, similar analysis will be conducted for the remaining fiber quality variables (length, uniformity, micronaire).

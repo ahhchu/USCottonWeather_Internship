@@ -14,7 +14,7 @@ library(mlr)
 
 # loading data
 ```{r}
-tester <- read.csv("data/daymet/finalWeatherandRegions.csv") 
+tester <- read.csv("../data/daymet/finalWeatherandRegions.csv") 
 ```
 
 # wrangling data
@@ -353,7 +353,8 @@ slope_monthly  # 0.9390052
  
 # tuning hyper params using grid search 
 # fix keeps outputting invalid or not great results
-```{r grid search} # youtube video 
+```{r grid search} 
+# youtube video 
 grid_train <- train_data %>%
   select(-loc) # too many diff categorical values 
 
@@ -384,7 +385,7 @@ rf_tune <- tuneParams(learner = rf_learner,
 
 # extra testing 
 # leave a year out (1988 since it has the most outliers? or not well predicted values)
-```{r training !1988}
+```{r training 1988}
 set.seed(123) # 789 x 156
 not_1988 <- train_data %>%
   select(-loc) %>%
@@ -409,7 +410,7 @@ RMSE(train_predictions_not1988$.pred, train_data$str_emmean)
 ```
 
 # testing
-```{r testing !1988}
+```{r testing 1988}
 predicted_values_not1988 <- predict(rf_not1988_fit, new_data = test_data)
 
 plot_data_not1988 <- test_data %>%
@@ -442,7 +443,7 @@ slope_not1988  # 0.9390052
 
 
 # filter out 1988 and look at growing season 
-```{r not1988 + growing season }
+```{r not1988  growing season }
 set.seed(123)
 not1988_gs <- train_data %>%
   filter(year != 1988) %>%
@@ -490,7 +491,8 @@ RMSE(predicted_values_not1988_gs$.pred, test_data$str_emmean) # 2.12736
 
 
 # region 
-```{r training region } # regions (state+region+monthly)
+```{r training region } 
+# regions (state+region+monthly)
 location <- train_data %>%
   dplyr::select(c(region:state), c(srad_mean_April:prcp_sum_November), str_emmean) 
 
@@ -509,7 +511,7 @@ R2(train_predictions_location$.pred, train_data$str_emmean)
 RMSE(train_predictions_location$.pred, train_data$str_emmean)
 ```
 
-```{r testing region }
+```{r testing region}
 predicted_values_region <- predict(rf_location_fit, new_data = test_data)
 
 plot_data_region <- test_data %>%
