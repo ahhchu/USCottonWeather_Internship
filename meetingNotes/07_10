@@ -1,0 +1,26 @@
+# Exploring variable importance: 
+- select model (monthly scale since it performed the best) and find variable importance.
+- look at the impact of year, region, and weather variables on str_emmean
+- if year is at the top of variable importance, remove because we want to focus on the weather variables at the top 
+- if loc is at the top of variable importance, we can infer that loc is a proxy for soil (remove still)
+- play around with the model because we want to focus on the weather variables at the top 
+
+
+
+Mean Decrease Accuracy (%IncMSE) - This shows how much our model accuracy decreases if we leave out that variable.
+
+Mean Decrease Gini (IncNodePurity) - This is a measure of variable importance based on the Gini impurity index used for the calculating the splits in trees.
+
+(higher MDA/MDG = higher the importance of the variable to our model)
+
+
+vip() calculates variable importance based on permutation importance. It provides a measure of the relative importance of each variable by permuting their values and evaluating the impact on model performance.
+#relative importance of variables and capturing complex relationships
+
+varImp() calculates variable importance using the Mean Decrease Accuracy (MDA) method. It measures the decrease in model accuracy when each variable is permuted. It is useful when you want to assess the importance of variables in terms of model accuracy.
+#impact of variables on model accuracy 
+
+# Using both varImp() amd vip() 
+to identify the most important variables for predicting str_emmean in your random forest regression models. 
+Comparing the results from both approaches and exploring the common variables that appear in the top importance rankings.
+Examining the variable importance rankings for different temporal scales, specifically focusing on monthly and entire temporal scale models

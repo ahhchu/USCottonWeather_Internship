@@ -1,0 +1,232 @@
+# setup 
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(randomForest)
+library(tidymodels)
+library(skimr)
+library(parsnip)
+library(vip)
+library(ggplot2)
+#library(varImp)
+library(caret)
+```
+
+# loading data 
+```{r}
+tester <- read.csv("../data/daymet/finalWeatherandRegions.csv")
+```
+
+# wrangling data
+ ```{r}
+ field_data <- tester %>%
+  mutate_if(is.character, as.factor) %>%
+  dplyr::select(-irrigation) %>%
+  drop_na()
+
+```
+
+# splitting data 
+```{r}
+set.seed(123)
+# Put 80% of the data into the training set 
+data_split <- initial_split(field_data, strata = "str_emmean", prop = 0.80)
+# Create data frames for the two sets:
+train_data <- training(data_split)
+test_data  <- testing(data_split) 
+
+```
+
+# required for both vip() and varImp()
+```{r}
+months <- train_data %>%
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
+
+months_noyear <- train_data %>%
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
+
+preds <- train_data %>%
+  dplyr::select(-loc, -year)
+```
+
+# USING varImp() 
+## MONTHLY MODEL 
+```{r}
+set.seed(123)
+rf_mod <- randomForest(
+  x = dplyr::select(months, -str_emmean),
+  y = months$str_emmean,
+  mtry = 4,
+  ntree = 100,
+  importance = TRUE
+)
+
+# returning variable imporantance (most important -> least)
+varImp_monthly_withYear <- varImp(rf_mod) %>%
+  as.data.frame() %>% 
+  tibble::rownames_to_column(var = "Variable") %>% 
+  arrange(desc(Overall))# overall is average importance across all trees 
+
+top5 <- head(varImp_monthly_withYear, 5)
+
+# plot 
+varImpPlot(rf_mod, type=2, main = "Variable Importance Plot: Monthly")
+# plot showing %IncMSE & IncNodePurity
+varImpPlot(rf_mod , sort = TRUE , n.var=10 , main = "Variable Importance: Monthly" )
+
+
+##### REMOVE YEAR ############# 
+set.seed(123)
+rf_noyear <- randomForest(
+    x = dplyr::select(months_noyear, -str_emmean),
+    y = months$str_emmean,
+    mtry=4,
+    ntree=100,
+    importance = TRUE
+)
+
+varImp_monthly <- varImp(rf_noyear) %>%
+  as.data.frame() %>% 
+  tibble::rownames_to_column(var = "Variable") %>% 
+  arrange(desc(Overall)) 
+
+ ```
+
+
+
+## AFTER REMOVING YEAR: ALL TEMPORAL SCALES
+```{r}
+set.seed(123)
+rf_all_mod <- randomForest(
+  x = dplyr::select(preds, -str_emmean),
+  y = preds$str_emmean,
+  mtry = 4,
+  ntree = 100,
+  importance = TRUE
+)
+
+# returning variable imporantance (most important -> least)
+varImp_entireScale <- varImp(rf_all_mod) %>%
+  as.data.frame() %>% 
+  tibble::rownames_to_column(var = "Variable") %>% 
+  arrange(desc(Overall))# overall is average importance across all trees 
+
+# plot 
+varImpPlot(rf_all_mod, type=2, main="Variable Importance: All Temporal Scales")
+# plot showing %IncMSE & IncNodePurity
+varImpPlot(rf_all_mod , sort = TRUE , n.var=10 , main = "Variable Importance: All Temporal Scales" )
+
+# similarities with monthly and temporal 
+# 2/8 srad_mean_April, 6/10 tamp_mean_September, 7/2 tamp_mean_July, 8/6 tmin_mean_September, 
+# negative variable importance means that variable does not have a role in the prediction (not important)
+# srad_mean_May, region
+```
+
+
+# using vip() from parsnip package 
+```{r}
+# random forest 
+set.seed(123)
+rf_parsnip <- rand_forest(mode = "regression",  mtry = 90, trees = 35)
+```
+
+## monthly (the better model)
+```{r}
+# with year just to see how much impact year has on varImp
+set.seed(123)
+rf_monthly_fit <- rf_parsnip %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = dplyr::select(months, -str_emmean),
+    y = months$str_emmean # resuse months 
+  )
+
+vip_monthly_withYear <- vip(rf_monthly_fit) %>%
+  .$data %>%
+  arrange(desc(Importance))
+
+# remove year 
+set.seed(123)
+rf_monthly_fit_noyear <- rf_parsnip %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = dplyr::select(months_noyear, -str_emmean), # reuse months_noyear
+    y = months$str_emmean 
+  )
+
+vip_monthly <- vip(rf_monthly_fit_noyear) %>%
+  .$data %>%
+  arrange(desc(Importance))
+
+```
+
+# entire temporal scale 
+```{r}
+set.seed(123)
+rf_entirescale_fit <-  rf_parsnip %>%
+  set_engine("randomForest") %>%
+  fit_xy(
+    x = dplyr::select(preds, -str_emmean),
+    y = preds$str_emmean
+  )
+
+vip_entireScale <- vip(rf_entirescale_fit) %>%
+    .$data %>%
+    arrange(desc(Importance))
+
+# only similar varImp was dayl_mean_September for both varImp() monthly/entirescale 
+```
+
+# comparing common variables # check ggplots and summaries
+# varImp_entireScale and varImp_monthly 
+```{r}
+# find common weather variables between varImp_all and varImp_noyear 
+varImp_common <- varImp_entireScale$Variable[1:10] %>%
+  intersect(varImp_monthly$Variable[1:10])
+
+varImp_data <- train_data %>% # check this part? 
+  select(all_of(varImp_common), str_emmean)
+
+ggplot(varImp_data, aes(x = tmin_mean_September, y = str_emmean)) +
+  geom_point() +
+  labs(x = "tmin_mean_September", y = "str_emmean") +
+  ggtitle("Relationship between tmin_mean_September and Target Variable")
+
+model <- lm(str_emmean ~ ., data = varImp_data)
+summary(model)
+```
+
+
+# vip_entireScale and vip_monthly
+```{r}
+vip_common <- vip_monthly$Variable[1:10] %>%
+  intersect(vip_entireScale$Variable[1:10])
+
+vip_data <- train_data %>%
+  select(all_of(vip_common), str_emmean)
+
+ggplot(vip_data, aes(x = tamp_mean_July, y = str_emmean)) +
+  geom_point() +
+  labs(x = "tamp_mean_July", y = "str_emmean") +
+  ggtitle("Relationship between tamp_mean_July and Target Variable")
+
+```
+
+# vip and varImp
+```{r}
+overall_common <- vip_common %>%
+                  intersect(varImp_common)
+
+# the two weather variables that are both in vip and varimp are tamp_mean_July, tamp_mean_September -> might indicate tamp is the variable with the strongest influence on str_emmean 
+```
+
+
+# monthly and yearly
+```{r}
+monthly_common <- vip_monthly$Variable[1:10] %>%
+                  intersect(varImp_monthly$Variable[1:10])
+
+entireScale_common <- vip_entireScale$Variable[1:10] %>%
+                  intersect(varImp_entireScale$Variable[1:10])                  
+```
