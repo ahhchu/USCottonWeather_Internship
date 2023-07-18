@@ -364,7 +364,7 @@ slope_monthly  # 0.9390052
 # tuning hyper params using grid search 
 # fix keeps outputting invalid or not great results
 ```{r grid search} # youtube video 
-grid_train <- train_data %>%
+grid_train <- train_data # %>%
   select(-loc) # too many diff categorical values 
 
 rf_learner <- makeLearner("classif.randomForest", predict.type = "prob")

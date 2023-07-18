@@ -15,7 +15,7 @@ library(caret)
 
 # loading data 
 ```{r}
-tester <- read.csv("../data/daymet/finalWeatherandRegions.csv")
+tester <- read.csv("data/daymet/finalWeatherandRegions.csv")
 ```
 
 # wrangling data
