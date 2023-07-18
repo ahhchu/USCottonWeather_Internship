@@ -1,0 +1,76 @@
+# setup 
+```{r}
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(sf)
+library(stringr)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(USAboundaries)
+library(USAboundariesData)
+```
+
+# load data 
+```{r}
+coords <- read_excel("data/Cotton heatress Longitde and Latitude.xlsx")
+```
+
+
+# Wrangling ########################################
+
+```{r}
+coords_w <- coords %>%
+  clean_names() %>%
+  # Select target columns  
+  dplyr::select(year, reg_code, loc, loccode, varcode, latitude, longitude) %>%
+  filter(loc != "Palmer, AZ") %>%
+  filter(loc != "?") %>%
+  mutate(latitude = gsub("° N", "", as.character(latitude)),
+         longitude = gsub("° W", "", as.character(longitude))) %>%
+#         loc = gsub("AZ", "AK", as.character(loc))) %>%
+  mutate(latitude = as.numeric(latitude),
+         longitude = as.numeric(longitude))
+
+## View entire decimal value  ########
+options(digits =6)
+print(as.data.frame(coords_w[30:45, ]))
+
+## Transform into geospatial object #################
+# remove NA and * -1 
+test <- coords_w %>%
+  drop_na(latitude, longitude) %>%
+  mutate(longitude = longitude *-1)
+
+# EDA ###############
+# Will check data with tabular summaries and graphs. - `summary()` - `ggplot()`
+## Plotting on state boundaries graph ###########
+states_contemporary <- us_states() %>%
+    filter(!state_abbr %in% c("AK", "HI"))
+
+location_counts <- test %>%
+  group_by(loc, latitude, longitude) %>%
+  summarize(count = n())
+
+coord_plot <- ggplot() +
+    geom_sf(data = states_contemporary, fill = NA) +
+    geom_point(data = location_counts, aes(x = longitude, y = latitude, color = count), size = 3) +
+    scale_color_gradient(low = "lightgreen", high = "darkblue") +
+    xlim(-130, -60) + 
+    labs(title = "Site Locations") + 
+    theme(plot.title = element_text(size = 20, hjust = 0.5))
+
+
+coord_plot
+
+```
+
+
+# Export to file #################
+# use ggsave() (svg, png, pdf)
+```{r}
+ggsave(path = "figs", "poster_coords_plot.png", plot=coord_plot) 
+```
+
+
