@@ -14,7 +14,7 @@ library(USAboundariesData)
 
 # load data 
 ```{r}
-coords <- read_excel("data/Cotton heatress Longitde and Latitude.xlsx")
+coords <- read_excel("../data/Cotton heatress Longitde and Latitude.xlsx")
 ```
 
 
@@ -69,7 +69,7 @@ coord_plot
 
 # find highest blues
 ```{r}
-blues <- read.csv("data/daymet/field_blues_str.csv")
+blues <- read.csv("../data/daymet/field_blues_str.csv")
 
 max_values <- blues %>%
   filter(str_emmean == max(str_emmean)) %>%
@@ -87,23 +87,40 @@ min_values <- blues %>%
 # edit map 
 ```{r}
 coord_plot <- ggplot() +
-  geom_sf(data = states_contemporary, fill = NA, color = "black")+
-  geom_point(data = location_counts, aes(x = longitude, y = latitude, color = count), size = 3) +
-  geom_point(data = max_values, aes(x = lon, y = lat), color = "red", shape = 8, size = 10, alpha = 2) +
-  geom_point(data = min_values, aes(x = lon, y = lat), color = "blue", shape = 8, size = 10, alpha =  2) +
-  scale_color_gradient(low = "lightgreen", high = "darkblue") +
+  geom_sf(data = states_contemporary, fill = "gray80", color = "black")+
+      geom_point(data = max_values, aes(x = lon, y = lat), fill = "red", shape = 21, size = 10, alpha = .5) +
+  geom_point(data = min_values, aes(x = lon, y = lat), fill = "blue", shape = 21, size = 10, alpha =  .5) +
+  geom_point(data = location_counts, 
+             aes(x = longitude, y = latitude, 
+                 fill = count), shape=21, color = "black",
+             size = 3) +
+  #geom_point(data = max_values, aes(x = lon, y = lat), color = "red", shape = 8, size = 10, alpha = 2) +
+  #geom_point(data = min_values, aes(x = lon, y = lat), color = "blue", shape = 8, size = 10, alpha =  2) +
+  #scale_fill_viridis_b()+
+  scale_fill_gradient(low = "lightgreen", 
+                      high = "darkblue") +
   xlim(-123, -68) + 
-  labs(title = "USA Site Locations") + 
-  theme(plot.title = element_text(size = 45, hjust = 0.5),
-        axis.title = element_text(size = 35),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 20),
-        legend.title = element_text(size = 20),
-        legend.position = c(0.95, 0.4),
+  labs(title = "Cotton Site Locations") + 
+      ggthemes::theme_map()+
+  theme(plot.title = element_text(size = 35, hjust = 0.5),
+        #axis.title = element_text(size = 35),
+        #axis.text = element_text(size = 30),
+        legend.direction = "horizontal",
+        legend.text = element_text(size = 16),
+        legend.title = element_text(size = 18),
+        #legend.position = c(0.95, 0.4),
+        legend.key.width = unit(2, 'cm'),
+        legend.position = c(.9, 0.05),
         legend.justification = c(1, 1))
 
 
 coord_plot
 
-ggsave("figs/updatedMap.png", plot = coord_plot) #, width = 8, height = 6, dpi = 300)
+ggsave("../figs/updatedMap.png", 
+       plot = coord_plot,
+       bg = "white",
+       width = 6,
+       height = 5) #, width = 8, height = 6, dpi = 300)
 ```
+
+# Daily 
