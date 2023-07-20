@@ -14,7 +14,7 @@ library(emmeans)
 
 
 ```{r field}
-field <- read_excel("../output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
+field <- read_excel("output/cleaned/cleanedBoth/combined_Coordinates_Quality.xlsx")
 
 field %>%
   summary

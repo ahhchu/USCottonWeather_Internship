@@ -22,7 +22,7 @@ tester <- read.csv("../data/daymet/finalWeatherandRegions.csv")
 ```{r}
 field_data <- tester %>%
   mutate_if(is.character, as.factor) %>%
-  dplyr::select(-irrigation, -year, -loc) %>% # remove year 
+  dplyr::select(-irrigation, -loc) %>% # remove year 
   drop_na()
 
 ```
@@ -57,17 +57,6 @@ rf_all_fit <-  rf_mod %>%
     y = preds$str_emmean
   )
 
-var_importance_plot <- vip(rf_all_fit)
-
-var_importance_data <- var_importance_plot$data
-
-# Sort the variable importance values in descending order
-var_importance_data <- var_importance_data[order(-var_importance_data$Importance), ]
-
-# Print the variable importance dataframe
-print(var_importance_data)
-
-
 # r^2 
 train_predictions <- train_data %>%
   predict(rf_all_fit, .) %>%
@@ -100,12 +89,24 @@ plot_data %>%
   dplyr::select(year, region, state, str_emmean, .pred)
 
 # plot for actual VS predicted valuesp (point=test_data)
- plot_data %>%
+ save <- plot_data %>%
   ggplot(aes(x = str_emmean, y = .pred)) +
   geom_point(aes(color = year)) + # changed from color = year 
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
-  ggtitle("Actual vs. Predicted Values")
+  ggtitle("All Temporal: Actual vs. Predicted") + 
+  theme(plot.title = element_text(size = 35, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 22),
+        legend.key.size = unit(1.2, "cm"),
+        legend.title = element_text(size = 28),
+        legend.position = c(0.95, 0.35),         
+        legend.justification = c(1, 1))       
+
+save
+
+ggsave(path = "figs", "poster_actualVSpredicted.png", plot=save, width=8.5, height=12, units = "in") 
 
 # R^2 / RMSE
 set.seed(123)
@@ -265,6 +266,7 @@ train_predictions_bi <- train_data %>%
   mutate(residuals = actual - .) 
 
 R2(train_predictions_bi$.pred, train_data$str_emmean)
+
 RMSE(train_predictions_bi$.pred, train_data$str_emmean)
 ```
 
@@ -343,13 +345,22 @@ plot_data_monthly %>%
   geom_hline(yintercept=c(-2,0,2), color="red")
 
 # plot for actual VS predicted values (point=test_data)
-plot_data_monthly  %>%
+save_monthly <- plot_data_monthly  %>%
   ggplot(aes(x = str_emmean, y=.pred)) +
   geom_point(aes(color=year)) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
-  ggtitle("Monthly: Actual vs. Predicted Values")
+  ggtitle("Monthly: Actual vs. Predicted") + 
+  theme(plot.title = element_text(size = 35, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 22),
+        legend.key.size = unit(1.2, "cm"),
+        legend.title = element_text(size = 28),
+        legend.position = c(0.95, 0.35),         
+        legend.justification = c(1, 1))       
 
+ggsave(path = "figs", "monthly_poster_actualVSpredicted.png", plot=save_monthly, width=8.5, height=12, units = "in") 
 
 R2(predicted_values_monthly, test_data$str_emmean)
 RMSE(predicted_values_monthly$.pred, test_data$str_emmean)
@@ -365,7 +376,7 @@ slope_monthly  # 0.9390052
 # fix keeps outputting invalid or not great results
 ```{r grid search} 
 # youtube video 
-grid_train <- train_data %>%
+grid_train <- train_data # %>%
   select(-loc) # too many diff categorical values 
 
 rf_learner <- makeLearner("classif.randomForest", predict.type = "prob")

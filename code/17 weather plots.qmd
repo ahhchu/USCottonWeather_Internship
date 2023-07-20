@@ -1,0 +1,214 @@
+# setup 
+```{r}
+library(dplyr)
+library(tidyverse)
+library(patchwork)
+```
+
+```{r}
+tester <- read.csv("data/daymet/unnestedWeatherData.csv")
+```
+
+# secondary
+#tamp / gdd 
+```{r}
+tester$tamp.deg.c. <- tester$tmax..deg.c. - tester$tmin..deg.c.
+
+#tmax
+tb <- 15.6
+tester$gdd_tmax <- ifelse(tester$tmax..deg.c. < 37.7 & tester$tmax..deg.c. > tb, tester$tmax..deg.c.,
+                        ifelse(tester$tmax..deg.c. >= 37.7, 37.7,
+                               ifelse(tester$tmax..deg.c. <= tb, tb, NA)))
+
+#tmin
+tester$gdd_tmin <- ifelse(tester$tmin..deg.c. < 37.7 & tester$tmin..deg.c. > tb, tester$tmin..deg.c.,
+                        ifelse(tester$tmin..deg.c. >= 37.7, 37.7,
+                               ifelse(tester$tmin..deg.c. <= tb, tb, NA)))
+
+# tmax+tmin/2 - tb
+tester$gdd <- (tester$gdd_tmax + tester$gdd_tmin) / 2 - tb
+```
+
+# plot
+```{r}
+weather_1980 <- subset(tester, year == 1980)
+
+
+tmax_density_1980 <- ggplot(weather_1980, aes(x = tmax..deg.c.)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "Tmax in 1980", x = "tmax..deg.c.", y = "Density") + 
+  theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+
+# Create a density plot for tmin in 1980
+tmin_density_1980 <- ggplot(weather_1980, aes(x = tmin..deg.c.)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "Tmin in 1980", x = "tmin..deg.c", y = "Density") + 
+    theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+combined_1980 <- tmax_density_1980 + tmin_density_1980 + plot_layout(ncol = 2, heights = c(1, 2))
+
+ggsave("figs/primary_1980.png", plot = combined_1980) # width = 8, height = 6, dpi = 300)
+
+weather_2020 <- subset(tester, year == 2020)
+
+tmax_density_2020 <- ggplot(weather_2020, aes(x = tmax..deg.c.)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "Tmax in 2020", x = "tmax..deg.c.", y = "Density") + 
+  theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+tmin_density_2020 <- ggplot(weather_2020, aes(x = tmin..deg.c.)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "Tmin in 2020", x = "tmin..deg.c", y = "Density") + 
+    theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+combined_2020 <- tmax_density_2020 + tmin_density_2020 + plot_layout(ncol = 2, heights = c(1,2))
+
+
+ggsave("figs/primary_2020.png", plot = combined_2020) # , width = 8, height = 6, dpi = 300)
+```
+
+```{r}
+tamp_density_1980 <- ggplot(weather_1980, aes(x = tamp.deg.c.)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "Tamp in 1980", x = "tamp.deg.c.", y = "Density") + 
+  theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+gdd_density_1980 <- ggplot(weather_1980, aes(x = gdd)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "GDD in 1980", x = "gdd", y = "Density") + 
+    theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+secondary_combined_1980 <- tamp_density_1980 + gdd_density_1980 + plot_layout(ncol = 2, heights = c(1,2))
+
+ggsave("figs/secondary_1980.png", plot = secondary_combined_1980) # width = 8, height = 6, dpi = 300)
+
+# 2020 
+
+tamp_density_2020 <- ggplot(weather_2020, aes(x = tamp.deg.c.)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "Tamp in 2020", x = "tamp.deg.c.", y = "Density") + 
+  theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+gdd_density_2020 <- ggplot(weather_2020, aes(x = gdd)) +
+  geom_density(fill = "#90b881", alpha = 0.5) +
+  labs(title = "GDD in 2020", x = "gdd", y = "Density") + 
+    theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30))
+
+secondary_combined_2020 <- tamp_density_2020 + gdd_density_2020 + plot_layout(ncol = 2, heights = c(1,2))
+
+ggsave("figs/secondary_2020.png", plot = secondary_combined_2020) #width = 8, height = 6, dpi = 300)
+```
+
+# blues 
+```{r}
+blues <- read.csv("data/daymet/field_blues_str.csv")
+
+max_values <- blues %>%
+  filter(str_emmean == max(str_emmean)) %>%
+  select(year, loc, str_emmean) %>%
+  distinct()
+
+min_values <- blues %>%
+  filter(str_emmean == min(str_emmean)) %>%
+  select(year, loc, str_emmean) %>%
+  distinct()
+
+```
+
+# summarized
+```{r}
+summarized <- read.csv("data/daymet/finalWeatherandRegions.csv") 
+
+growingseason <- summarized %>%
+  dplyr::select(tamp_mean_growingseason, str_emmean, loc, year)
+
+# plot 
+max_locations <- summarized %>% # red star on map 
+  filter(loc %in% max_values$loc)
+
+min_locations <- summarized %>% # blue star on map
+  filter(loc %in% min_values$loc)
+
+density_plot <- ggplot() +
+  geom_density(data = max_locations, aes(x = tamp_mean_growingseason, fill = "Max"), alpha = 0.5) +
+  geom_density(data = min_locations, aes(x = tamp_mean_growingseason, fill = "Min"), alpha = 0.5) +
+  scale_fill_manual(values = c("red", "blue"),
+                    labels = c("Max", "Min"),
+                    name = "str_emmean") +
+  labs(title = "Tamp Plot - Growing Season", x = "Temperature Amplitude", y = "Density") +
+  theme(plot.title = element_text(size = 40, hjust = 0.5),
+        axis.title = element_text(size = 30),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 30),
+        legend.title = element_text(size = 30),
+        legend.position = c(0.8, 0.8),         
+        legend.justification = c(1, 1),
+        plot.background = element_rect(fill = "white", color = "black"),
+        plot.margin = margin(4, 2, 4, 3, "cm"))        
+
+density_plot
+
+ggsave("figs/summarized_growingseason.png", plot = density_plot) # width = 8, height = 6, dpi = 300)
+
+# work on later ## 
+quadra_months <- summarized %>%
+  dplyr::select(c(tamp_mean_April_May_June_July,tamp_mean_August_September_October_November), str_emmean, loc, year)
+
+quadra_plot <- ggplot() +
+  geom_density(data = max_locations, aes(x = quadra_months, fill = "Max"), alpha = 0.5) +
+  geom_density(data = min_locations, aes(x = quadra_months, fill = "Min"), alpha = 0.5) +
+  scale_fill_manual(values = c("red", "blue"),
+                    labels = c("Max", "Min"),
+                    name = "str_emmean") +
+  labs(title = "Density Plot - Quadra Months", x = "Quadra Months", y = "Density") +
+  theme(plot.title = element_text(size = 20, hjust = 0.5),
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        legend.position = c(0.8, 0.8),
+        legend.justification = c(1, 1))
+
+
+
+
+bimonths <- summarized %>%
+  dplyr::select(c(tamp_mean_April_May, tamp_mean_October_November), str_emmean, loc, year)
+
+months <- summarized %>%
+  dplyr::select(c(tamp_mean_April,tamp_mean_November,tamp_mean_May, tamp_mean_July, tamp_mean_August, tamp_mean_September, tamp_mean_June), str_emmean, loc, year)
+
+```
