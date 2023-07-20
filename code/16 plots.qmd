@@ -47,7 +47,7 @@ test <- coords_w %>%
 # Will check data with tabular summaries and graphs. - `summary()` - `ggplot()`
 ## Plotting on state boundaries graph ###########
 states_contemporary <- us_states() %>%
-    filter(!state_abbr %in% c("AK", "HI"))
+    filter(!state_abbr %in% c("AK", "HI", "PR"))
 
 location_counts <- test %>%
   group_by(loc, latitude, longitude) %>%
@@ -67,10 +67,43 @@ coord_plot
 ```
 
 
-# Export to file #################
-# use ggsave() (svg, png, pdf)
+# find highest blues
 ```{r}
-ggsave(path = "figs", "poster_coords_plot.png", plot=coord_plot) 
+blues <- read.csv("data/daymet/field_blues_str.csv")
+
+max_values <- blues %>%
+  filter(str_emmean == max(str_emmean)) %>%
+  select(year, loc, lat, lon, str_emmean) %>%
+  mutate(lon = lon *-1) %>%
+  distinct()
+
+min_values <- blues %>%
+  filter(str_emmean == min(str_emmean)) %>%
+  select(year, loc, lat, lon, str_emmean) %>%
+  mutate(lon = lon *-1) %>%
+  distinct()
 ```
 
+# edit map 
+```{r}
+coord_plot <- ggplot() +
+  geom_sf(data = states_contemporary, fill = NA, color = "black")+
+  geom_point(data = location_counts, aes(x = longitude, y = latitude, color = count), size = 3) +
+  geom_point(data = max_values, aes(x = lon, y = lat), color = "red", shape = 8, size = 10, alpha = 2) +
+  geom_point(data = min_values, aes(x = lon, y = lat), color = "blue", shape = 8, size = 10, alpha =  2) +
+  scale_color_gradient(low = "lightgreen", high = "darkblue") +
+  xlim(-123, -68) + 
+  labs(title = "USA Site Locations") + 
+  theme(plot.title = element_text(size = 45, hjust = 0.5),
+        axis.title = element_text(size = 35),
+        axis.text = element_text(size = 30),
+        legend.text = element_text(size = 20),
+        legend.title = element_text(size = 20),
+        legend.position = c(0.95, 0.4),
+        legend.justification = c(1, 1))
 
+
+coord_plot
+
+ggsave("figs/updatedMap.png", plot = coord_plot) #, width = 8, height = 6, dpi = 300)
+```
