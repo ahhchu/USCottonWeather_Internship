@@ -18,8 +18,9 @@ library(caret)
 tester <- read.csv("../data/daymet/finalWeatherandRegions.csv")
 ```
 
+
 # wrangling data
- ```{r}
+```{r}
  field_data <- tester %>%
   mutate_if(is.character, as.factor) %>%
   dplyr::select(-irrigation) %>%
@@ -91,12 +92,12 @@ varImp_monthly <- varImp(rf_noyear) %>%
   tibble::rownames_to_column(var = "Variable") %>% 
   arrange(desc(Overall)) 
 
- ```
+```
 
 
 
 ## AFTER REMOVING YEAR: ALL TEMPORAL SCALES
-```{r}
+```{r }
 set.seed(123)
 rf_all_mod <- randomForest(
   x = dplyr::select(preds, -str_emmean),
