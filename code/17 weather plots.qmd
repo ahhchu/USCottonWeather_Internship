@@ -6,7 +6,7 @@ library(patchwork)
 ```
 
 ```{r}
-tester <- read.csv("../data/daymet/unnestedWeatherData.csv")
+tester <- read.csv("data/daymet/unnestedWeatherData.csv")
 ```
 
 # secondary
@@ -33,103 +33,87 @@ tester$gdd <- (tester$gdd_tmax + tester$gdd_tmin) / 2 - tb
 ```{r}
 weather_1980 <- subset(tester, year == 1980)
 
-
-tmax_density_1980 <- ggplot(weather_1980, aes(x = tmax..deg.c.)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "Tmax in 1980", x = "tmax..deg.c.", y = "Density") + 
-  theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
-
-
-# Create a density plot for tmin in 1980
-tmin_density_1980 <- ggplot(weather_1980, aes(x = tmin..deg.c.)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "Tmin in 1980", x = "tmin..deg.c", y = "Density") + 
-    theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
-
-combined_1980 <- tmax_density_1980 + tmin_density_1980 + plot_layout(ncol = 2, heights = c(1, 2))
-
-ggsave("figs/primary_1980.png", plot = combined_1980) # width = 8, height = 6, dpi = 300)
-
 weather_2020 <- subset(tester, year == 2020)
 
-tmax_density_2020 <- ggplot(weather_2020, aes(x = tmax..deg.c.)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "Tmax in 2020", x = "tmax..deg.c.", y = "Density") + 
-  theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
+combined_data <- bind_rows(
+  weather_1980 %>% mutate(Year = "1980"),
+  weather_2020 %>% mutate(Year = "2020")
+)
 
-tmin_density_2020 <- ggplot(weather_2020, aes(x = tmin..deg.c.)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "Tmin in 2020", x = "tmin..deg.c", y = "Density") + 
-    theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
+# Create a new ggplot using the combined data
+tmax_combined_plot <- ggplot(combined_data, aes(x = tmax..deg.c., fill = Year)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("#008000", "#FFA500")) + 
+  labs(title = "Tmax in 1980 and 2020", x = "tmax..deg.c.") + 
+   ylab(NULL) + 
+  theme(
+    plot.title = element_text(size = 35, hjust = 0.5),
+     legend.position = "none",
+    axis.title = element_text(size = 30),
+    axis.text = element_text(size = 30),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank() 
+  )
 
-combined_2020 <- tmax_density_2020 + tmin_density_2020 + plot_layout(ncol = 2, heights = c(1,2))
+ tmin_combined_plot <- ggplot(combined_data, aes(x = tmin..deg.c., fill = Year)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("#008000", "#FFA500")) + 
+ labs(title = "Tmin in 1980 and 2020") +
+  ylab(NULL) + 
+  theme(
+    plot.title = element_text(size = 35, hjust = 0.5),
+    axis.title = element_text(size = 30),
+    axis.text = element_text(size = 30),
+    legend.text = element_text(size = 30),
+    legend.title = element_text(size = 30),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank() 
+  )
 
 
-ggsave("figs/primary_2020.png", plot = combined_2020) # , width = 8, height = 6, dpi = 300)
+primary_combined <- tmax_combined_plot + tmin_combined_plot + plot_layout(ncol = 2)
+
+
+ggsave("figs/tmax_tmin.png", plot = primary_combined, height =7, width = 14)
 ```
 
 ```{r}
-tamp_density_1980 <- ggplot(weather_1980, aes(x = tamp.deg.c.)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "Tamp in 1980", x = "tamp.deg.c.", y = "Density") + 
-  theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
 
-gdd_density_1980 <- ggplot(weather_1980, aes(x = gdd)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "GDD in 1980", x = "gdd", y = "Density") + 
-    theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
+tamp_combined_plot <- ggplot(combined_data, aes(x = tamp.deg.c., fill = Year)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("#008000", "#FFA500")) + 
+  labs(title = "Tamp in 1980 and 2020", x = "tamp.deg.c.") + 
+  ylab(NULL) + 
+  theme(
+    plot.title = element_text(size = 35, hjust = 0.5),
+      legend.position = "none",
+    axis.title = element_text(size = 30),
+    axis.text = element_text(size = 30),
+    legend.text = element_text(size = 30),
+    legend.title = element_text(size = 30),
+     axis.text.y = element_blank(),
+    axis.ticks.y = element_blank() 
+  )
+gdd_combined_plot <- ggplot(combined_data, aes(x = gdd, fill = Year)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("#008000", "#FFA500")) + 
+  labs(title = "GDD in 1980 and 2020", x = "gdd") + 
+  ylab(NULL) + 
+  theme(
+    plot.title = element_text(size = 35, hjust = 0.5),
+    axis.title = element_text(size = 30),
+    axis.text = element_text(size = 30),
+    legend.text = element_text(size = 30),
+    legend.title = element_text(size = 30),
+     axis.text.y = element_blank(),
+    axis.ticks.y = element_blank() 
+  )
 
-secondary_combined_1980 <- tamp_density_1980 + gdd_density_1980 + plot_layout(ncol = 2, heights = c(1,2))
+secondary_combined <- tamp_combined_plot + gdd_combined_plot + plot_layout(ncol = 2)
 
-ggsave("figs/secondary_1980.png", plot = secondary_combined_1980) # width = 8, height = 6, dpi = 300)
 
-# 2020 
+ggsave("figs/tamp_gdd.png", plot = secondary_combined, height =7, width = 14)
 
-tamp_density_2020 <- ggplot(weather_2020, aes(x = tamp.deg.c.)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "Tamp in 2020", x = "tamp.deg.c.", y = "Density") + 
-  theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
-
-gdd_density_2020 <- ggplot(weather_2020, aes(x = gdd)) +
-  geom_density(fill = "#90b881", alpha = 0.5) +
-  labs(title = "GDD in 2020", x = "gdd", y = "Density") + 
-    theme(plot.title = element_text(size = 40, hjust = 0.5),
-        axis.title = element_text(size = 30),
-        axis.text = element_text(size = 30),
-        legend.text = element_text(size = 30),
-        legend.title = element_text(size = 30))
-
-secondary_combined_2020 <- tamp_density_2020 + gdd_density_2020 + plot_layout(ncol = 2, heights = c(1,2))
-
-ggsave("figs/secondary_2020.png", plot = secondary_combined_2020) #width = 8, height = 6, dpi = 300)
 ```
 
 # blues 

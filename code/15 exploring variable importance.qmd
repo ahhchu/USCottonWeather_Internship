@@ -11,6 +11,9 @@ library(vip)
 library(ggplot2)
 #library(varImp)
 library(caret)
+library(tibble)
+library(randomForestExplainer)
+
 ```
 
 # loading data 
@@ -42,13 +45,13 @@ test_data  <- testing(data_split)
 # required for both vip() and varImp()
 ```{r}
 months <- train_data %>%
-  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region, year)
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, region, year)
 
 months_noyear <- train_data %>%
-  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, state, region)
+  dplyr::select(c(srad_mean_April:prcp_sum_November), str_emmean, region)
 
 preds <- train_data %>%
-  dplyr::select(-loc, -year)
+  dplyr::select(-loc, -year, -state)
 ```
 
 # USING varImp() 
@@ -92,6 +95,41 @@ varImp_monthly <- varImp(rf_noyear) %>%
   tibble::rownames_to_column(var = "Variable") %>% 
   arrange(desc(Overall)) 
 
+
+# Create the variable importance plot
+monthlyvarImp <- varImpPlot(rf_noyear, type = 2, sort = TRUE, n.var = 3, main = "Variable Importance: Monthly")
+
+monthly <- as.data.frame(monthlyvarImp)
+
+#monthly$variable <- rownames(monthly)
+
+
+top3_variables <- monthly %>%
+  arrange(desc(IncNodePurity)) %>%
+  top_n(3)
+
+top3_variables$variable <- rownames(top3_variables)
+
+save_plot <- ggplot(top3_variables, aes(x = reorder(variable, IncNodePurity), y = IncNodePurity)) +
+  geom_col(fill = "dodgerblue", width = 0.2, position = position_dodge(width = 0.9)) +
+  labs(title = "Variable Importance: Monthly (Top 3)",
+       x = "Variable Name",
+       y = "IncNodePurity") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 65, hjust = 0.5),   
+        axis.text = element_text(size = 32),                   
+        axis.title = element_text(size = 34), 
+        plot.background = element_rect(fill = "white"),
+         panel.grid.major = element_line(color = "gray", linetype = "dashed"),
+        panel.grid.minor = element_line(color = "gray", linetype = "dotted"),
+        panel.grid.major.x = element_blank(),  
+        axis.line = element_line(color = "black", size = 1))
+
+
+save_plot
+
+# Save the plot as a PNG image file
+ggsave("figs/monthlyvarImp.png", plot = save_plot, width = 17, height = 11, dpi = 300)
 ```
 
 
@@ -116,8 +154,33 @@ varImp_entireScale <- varImp(rf_all_mod) %>%
 # plot 
 varImpPlot(rf_all_mod, type=2, main="Variable Importance: All Temporal Scales")
 # plot showing %IncMSE & IncNodePurity
-varImpPlot(rf_all_mod , sort = TRUE , n.var=10 , main = "Variable Importance: All Temporal Scales" )
+entirescale<-varImpPlot(rf_all_mod , type= 2,sort = TRUE , n.var=3 , main = "Variable Importance: All Temporal Scales" )
 
+entire <- as.data.frame(entirescale)
+
+entire_variables <- entire %>%
+  arrange(desc(IncNodePurity)) %>%
+  top_n(3)
+
+entire_variables$variable <- rownames(entire_variables)
+
+entire_plot <- ggplot(entire_variables, aes(x = reorder(variable, IncNodePurity), y = IncNodePurity)) +
+  geom_col(fill = "dodgerblue", width = 0.2, position = position_dodge(width = 0.9)) +
+  labs(title = "Variable Importance: Entire Scale (Top 3)",
+       x = "Variable Name",
+       y = "IncNodePurity") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 65, hjust = 0.5),   
+        axis.text = element_text(size = 30),                   
+        axis.title = element_text(size = 34),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_line(color = "gray", linetype = "dashed"),
+        panel.grid.minor = element_line(color = "gray", linetype = "dotted"),
+        panel.grid.major.x = element_blank(),  
+        axis.line = element_line(color = "black", size = 1))
+
+
+ggsave("figs/entirevarImp.png", plot = entire_plot, width = 19, height = 13, dpi = 300)
 # similarities with monthly and temporal 
 # 2/8 srad_mean_April, 6/10 tamp_mean_September, 7/2 tamp_mean_July, 8/6 tmin_mean_September, 
 # negative variable importance means that variable does not have a role in the prediction (not important)

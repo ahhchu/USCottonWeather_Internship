@@ -15,7 +15,7 @@ library(parsnip)
 
 # loading data
 ```{r}
-tester <- read.csv("../data/daymet/finalWeatherandRegions.csv") 
+tester <- read.csv("data/daymet/finalWeatherandRegions.csv") 
 ```
 
 # wrangling data
@@ -94,19 +94,19 @@ plot_data %>%
   geom_point(aes(color = year)) + # changed from color = year 
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Actual", y = "Predicted") +
-  ggtitle("All Temporal: Actual vs. Predicted") + 
+  ggtitle("Entire Scale: Actual vs. Predicted") + 
   theme(plot.title = element_text(size = 35, hjust = 0.5),
         axis.title = element_text(size = 30),
         axis.text = element_text(size = 30),
         legend.text = element_text(size = 22),
-        legend.key.size = unit(1.2, "cm"),
+        legend.key.size = unit(0.6, "cm"),
         legend.title = element_text(size = 28),
         legend.position = c(0.95, 0.35),         
         legend.justification = c(1, 1))       
 
 save
 
-ggsave(path = "figs", "poster_actualVSpredicted.png", plot=save, width=8.5, height=12, units = "in") 
+ggsave(path = "figs", "poster_actualVSpredicted.png", plot=save, width=8.5, height=9, units = "in") 
 
 # R^2 / RMSE
 set.seed(123)
@@ -355,12 +355,12 @@ save_monthly <- plot_data_monthly  %>%
         axis.title = element_text(size = 30),
         axis.text = element_text(size = 30),
         legend.text = element_text(size = 22),
-        legend.key.size = unit(1.2, "cm"),
+        legend.key.size = unit(0.6, "cm"),
         legend.title = element_text(size = 28),
         legend.position = c(0.95, 0.35),         
         legend.justification = c(1, 1))       
 
-ggsave(path = "figs", "monthly_poster_actualVSpredicted.png", plot=save_monthly, width=8.5, height=12, units = "in") 
+ggsave(path = "figs", "monthly_poster_actualVSpredicted.png", plot=save_monthly, width=8.5, height=9, units = "in") 
 
 R2(predicted_values_monthly, test_data$str_emmean)
 RMSE(predicted_values_monthly$.pred, test_data$str_emmean)
